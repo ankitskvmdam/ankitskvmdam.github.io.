@@ -10,7 +10,7 @@
     "hugoBuild": "cd ankdev && hugo",
     "dev": "concurrently --prefix '{time}-{pid}' 'npm run watch' 'npm run hugoServer' --kill-others --kill-others-on-fail",
     "build": "npm run webpackBuild && npm run hugoBuild",
-    "depoly": "npm run build && gh-pages -d public"
+    "deploy": "gh-pages -d ./ankdev/public"
   },
   "repository": {
     "type": "git",
