@@ -9,6 +9,8 @@
         font-weight: 700;
         font-size: 50px;
         text-transform: uppercase;
+        position: relative;
+        display: inline-block;
     }
 
     .heading::after{
@@ -18,7 +20,7 @@
         height: 10px;
         background: #ed3833;
         bottom: 26px;
-        margin-left: 6px; 
+        right: -15px
     }
 }
 
@@ -86,7 +88,6 @@
             width: 8px;
             height: 8px;
             bottom: 16px;
-            margin-left: 4px;
         }
     }
 
@@ -129,7 +130,8 @@
             line-height: 0.8
         }
         .heading::after{
-            bottom: 4px;
+            bottom: 3px;
+            left: 104px;
         }
     }
 
