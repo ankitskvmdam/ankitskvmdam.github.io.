@@ -1,0 +1,16 @@
+$themes: (
+    light:(
+        backgroundColor: #fff,
+        color: #171717,
+        welcome-msg-color: #282828,
+        subheading-color: #aaa,
+        link-color: #006ac1,
+    ),
+    dark:(
+        backgroundColor: #000,
+        color: #f7f7f7,
+        welcome-msg-color: #4c4c4c,
+        subheading-color: #999,
+        link-color: #007bff,
+    )
+)

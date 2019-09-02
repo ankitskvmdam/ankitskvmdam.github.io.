@@ -7,9 +7,10 @@
     <link rel="stylesheet" type="text/css" href='/{{ (index .Site.Data.manifest "website.css") }}'>
 </head>
 <body>
-
-    {{ block "main" . }}
-    {{ end }}
+    <div class="body-container">
+        {{ block "main" . }}
+        {{ end }}
+    </div>
     <script src='/{{ (index .Site.Data.manifest "website.js" ) }}'></script>
 </body>
 </html>

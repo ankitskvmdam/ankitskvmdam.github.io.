@@ -1,3 +1,6 @@
-body{
-    background: red;
-}
+@import "./mixin.scss";
+@import "./theme-var.scss";
+@import "./fonts.scss";
+@import "./variable.scss";
+@import "./base.scss";
+@import "./landing-page.scss";

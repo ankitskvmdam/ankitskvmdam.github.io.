@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+body{
+    height: 100%;
+    font-family: $font-family;
+}
+
+.body-container{
+    @include themify($themes){
+        background: themed('backgroundColor');
+        color: themed('color')
+    }
+    width: 100%;
+    min-height: 100vh;
+}
