@@ -2,4 +2,11 @@
 **/.DS_Store
 
 # Dist
-**/dist/*
+**/dist
+
+# output
+**/public
+**/static
+
+# npm_modules
+**/node_modules
