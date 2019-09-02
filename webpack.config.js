@@ -5,7 +5,7 @@ const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsWebpack = require('optimize-css-assets-webpack-plugin')
-
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const config = {
     entry: {
@@ -90,7 +90,7 @@ const config = {
             filename:"[name][hash].css",
             chunkFilename:"[name][id][hash].css"
         }),
-
+        new CleanWebpackPlugin(["./ankdev/static", "./ankdev/public"], {}),
         new ManifestPlugin({
             fileName: "../data/manifest.json",
         }),

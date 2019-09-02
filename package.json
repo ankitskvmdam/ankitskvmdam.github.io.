@@ -10,12 +10,9 @@
     "hugoBuild": "cd ankdev && hugo",
     "dev": "concurrently --prefix '{time}-{pid}' 'npm run watch' 'npm run hugoServer' --kill-others --kill-others-on-fail",
     "build": "npm run webpackBuild && npm run hugoBuild",
-    "deploy": "gh-pages -d ./ankdev/public"
+    "deploy": "npm run build && gh-pages -d ./ankdev/public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ankitskvmdam/ankitskvmdam.github.io..git"
-  },
+  
   "author": "Ankit Kumar",
   "license": "ISC",
   "bugs": {
