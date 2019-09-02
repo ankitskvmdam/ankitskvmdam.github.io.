@@ -102,7 +102,7 @@ const config = {
             {
                 from: "./CNAME",
                 to: "./"
-            }
+            },
             {
                 from: "./README.md",
                 to: "./"
