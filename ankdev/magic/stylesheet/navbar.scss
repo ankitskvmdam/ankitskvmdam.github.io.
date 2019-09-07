@@ -1,0 +1,24 @@
+.navbar-c{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include themify($themes){
+        background: themed(navbarBackgroundColor);
+    }
+    z-index: 1000;
+}
+
+.navbar{
+    padding: 10px 20px;
+    
+}
+.logo-c{
+    .logo{
+        @include themify($themes){
+            fill: themed(logoColor);
+            height: 40px;
+            width: auto;
+        }
+    }
+}

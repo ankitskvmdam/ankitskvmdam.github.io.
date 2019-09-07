@@ -16,10 +16,11 @@ body{
 }
 
 .body-container{
+    width: 100%;
     @include themify($themes){
         background: themed('backgroundColor');
         color: themed('color')
     }
-    width: 100%;
     min-height: 100vh;
+    padding-top: 70px;
 }

@@ -8,8 +8,11 @@
 </head>
 <body>
     <div class="body-container">
+        {{ partial "navbar.html" . }}
+
         {{ block "main" . }}
         {{ end }}
+        
     </div>
     <script src='/{{ (index .Site.Data.manifest "website.js" ) }}'></script>
 </body>
