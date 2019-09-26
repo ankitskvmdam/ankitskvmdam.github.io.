@@ -1,20 +1,24 @@
 $themes: (
     light:(
         logoColor: #171717,
-        navbarBackgroundColor: rgba(255,255,255, 0.9),
+        navbarBackgroundColor: #eee,
+        navbarRightBorderColor: #ccc,
         backgroundColor: #fff,
         color: #171717,
         welcome-msg-color: #999999,
         subheading-color: #aaa,
         link-color: #006ac1,
+        strokeColor: #222,
     ),
     dark:(
         logoColor: #f7f7f7, 
-        navbarBackgroundColor: rgba(0, 0, 0, 0.9),
+        navbarBackgroundColor: #111,
+        navbarRightBorderColor: #333,
         backgroundColor: #000,
         color: #f7f7f7,
         welcome-msg-color: #4c4c4c,
         subheading-color: #999,
         link-color: #007bff,
+        strokeColor: #ddd,
     )
 )

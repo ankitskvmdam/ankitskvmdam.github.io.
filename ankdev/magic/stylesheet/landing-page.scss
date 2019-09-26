@@ -13,14 +13,17 @@
         display: inline-block;
     }
 
-    .heading::after{
+    .dot{
+        display: inline-block;
+    }
+
+    .dot::after{
         content: '';
-        position: absolute;
+        margin-left: 5px;
         width: 10px;
         height: 10px;
         background: #ed3833;
-        bottom: 26px;
-        right: -15px
+        display: inline-block;
     }
 }
 
@@ -63,14 +66,25 @@
 
 .toggle-theme{
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 0;
+    right: 0;
     padding: 0 10px;
     span{
         cursor: pointer;
     }
     .active{
         color: #ed3833;
+    }
+}
+
+.hello-box-container{
+    position: absolute;
+    bottom: 70px;
+    right: -223px;
+    font-size: 250px;
+    transform: rotate(-90deg);
+    @include themify($themes){
+        color: themed(welcome-msg-color);
     }
 }
 
@@ -84,10 +98,9 @@
             font-size: 30px;
         }
 
-        .heading::after{
+        .dot::after{
             width: 8px;
             height: 8px;
-            bottom: 16px;
         }
     }
 
@@ -128,10 +141,6 @@
     .heading-container{
         .heading{
             line-height: 0.8
-        }
-        .heading::after{
-            bottom: 3px;
-            left: 104px;
         }
     }
 
