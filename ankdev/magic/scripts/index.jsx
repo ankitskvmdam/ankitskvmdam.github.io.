@@ -1,4 +1,5 @@
 import "../stylesheet/main.scss"
+import handleScreen from "./handleScreen"
 
 const light = document.getElementById("light")
 const dark = document.getElementById("dark")
@@ -25,6 +26,7 @@ function init(){
 
     light.addEventListener('click', changeTheme)
     dark.addEventListener('click', changeTheme)
+    handleScreen()
 }
 
 init()

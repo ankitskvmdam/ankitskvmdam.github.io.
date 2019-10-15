@@ -90,7 +90,7 @@ const config = {
             filename:"[name][hash].css",
             chunkFilename:"[name][id][hash].css"
         }),
-        new CleanWebpackPlugin(["./ankdev/static", "./ankdev/public"], {}),
+        // new CleanWebpackPlugin(["./ankdev/static", "./ankdev/public"], {}),
         new ManifestPlugin({
             fileName: "../data/manifest.json",
         }),
