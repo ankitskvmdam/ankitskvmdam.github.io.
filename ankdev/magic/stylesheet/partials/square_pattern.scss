@@ -7,10 +7,3 @@
         stroke: themed(strokeColor);
     }
 }
-
-.line_pattern{
-    position: absolute;
-    @include themify($themes){
-        stroke: themed(strokeColor);
-    }
-}
