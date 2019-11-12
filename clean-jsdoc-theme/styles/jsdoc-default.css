@@ -164,10 +164,6 @@ section header{
   padding-top: 20px;
 }
 
-article{
-  overflow: auto;
-}
-
 section h2{
   position: relative;
   z-index: 10;
@@ -253,6 +249,47 @@ nav > h2 > a > .text::after{
   background: #1089ff;
   bottom: -5px;
   z-index: -1;
+}
+
+nav .search-box{
+  padding: 0 10px 20px 10px;
+  position: relative;
+}
+
+nav .search-box input{
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: 'body';
+  width: 100%;
+}
+
+.search-box .search-item-container{
+  position: absolute;
+  width: 230px;
+  top: 35px;
+  background: #fff;
+  border-radius: 4px; 
+}
+
+.search-item-ul{
+  max-height: 150px;
+  overflow: auto
+}
+
+.search-item-ul li{
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+
+.search-item-ul li:hover{
+  background: #f7f7f7;
+  border-radius: 4px;
+}
+.search-item-ul a:hover{
+  text-decoration: none;
+  color: #007bff;
 }
 
 nav > h2 {
@@ -402,6 +439,7 @@ h4.name::before{
 .details ul li{
   display: inline-block;
   margin-right: 10px;
+  word-break: break-all;
 }
 
 .details pre.prettyprint {
