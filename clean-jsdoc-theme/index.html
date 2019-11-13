@@ -17,6 +17,8 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
     
+    
+    
 </head>
 <body>
 
@@ -28,7 +30,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html"><div class="text">clean-jsdoc-theme</div></a></h2><div class="search-box"><input type="text" placeholder="Search..." id="search-box" /><div class="search-item-container" id="search-item-container"><ul class="search-item-ul" id="search-item-ul"></ul></div></div><h3>Classes</h3><ul><li><a href="Alive.html">Alive</a><ul class='methods'><li data-type='method'><a href="Alive.html#survive">survive</a></li></ul></li><li><a href="Apple.html">Apple</a><ul class='methods'><li data-type='method'><a href="Apple.html#survive">survive</a></li></ul></li><li><a href="Energy.html">Energy</a></li><li><a href="Environment.html">Environment</a><ul class='methods'><li data-type='method'><a href="Environment.html#start">start</a></li></ul></li><li><a href="Tree.html">Tree</a><ul class='methods'><li data-type='method'><a href="Tree.html#crop">crop</a></li><li data-type='method'><a href="Tree.html#survive">survive</a></li></ul></li></ul><h3>Events</h3><ul><li><a href="Apple.html#event:beEaten">beEaten</a></li><li><a href="Environment.html#event:beforeDestroy">beforeDestroy</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html"><div class="text">clean-jsdoc-theme</div></a></h2><div class="search-box"><input type="text" placeholder="Search..." id="search-box" /><div class="search-item-container" id="search-item-container"><ul class="search-item-ul" id="search-item-ul"></ul></div></div><div class="sidebar-list-div"><h3>Classes</h3><ul><li><a href="Alive.html">Alive</a><ul class='methods'><li data-type='method'><a href="Alive.html#survive">survive</a></li></ul></li><li><a href="Apple.html">Apple</a><ul class='methods'><li data-type='method'><a href="Apple.html#survive">survive</a></li></ul></li><li><a href="Energy.html">Energy</a></li><li><a href="Environment.html">Environment</a><ul class='methods'><li data-type='method'><a href="Environment.html#start">start</a></li></ul></li><li><a href="Tree.html">Tree</a><ul class='methods'><li data-type='method'><a href="Tree.html#crop">crop</a></li><li data-type='method'><a href="Tree.html#survive">survive</a></li></ul></li></ul><h3>Events</h3><ul><li><a href="Apple.html#event:beEaten">beEaten</a></li><li><a href="Environment.html#event:beforeDestroy">beforeDestroy</a></li></ul><h3><a href="global.html">Global</a></h3></div>
 </nav>
 
 <div id="main">
@@ -54,10 +56,9 @@
     <section class="readme">
         <article><h1>clean-jsdoc-theme</h1>
 <p>A clean, responsive template / theme for JSDoc 3. This is created for those who love design. <br><br>
-You can also search in your documenation. This theme / template includes search. It uses fuse.js for search.<br/><br/>
+You can also search in your documenation. This theme / template includes search. It uses fuse.js for search.<br/><br>
 Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://github.com/ankitskvmdam/clean-jsdoc-theme</a>
-<br>
-
+</p>
 <h2>Install</h2>
 <blockquote>
 <p>Note you must have <code>npm</code> installed on your machine.</p>
@@ -111,20 +112,32 @@ Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://gith
   &quot;theme_opts&quot;:{
     &quot;title&quot;: &quot;Ankdev&quot;, 
     /* 
-      Instead of only string you can pass html element like &lt;img src=&quot;src to your img relative to the output path&quot; class=&quot;my-custom-class&quot;/>
-      Path must be relative to the output path of the generated file or you can use the absolute path.
-      Note: If you use html the default overwrite. Also for custom class you have to create a class using create_style. This is shown below.
+      Instead of only string you can pass html element like 
+      &lt;img src=&quot;src to your img relative to the output path&quot; class=&quot;my-custom-class&quot;/>
+      Path must be relative to the output file (relative to generated html files.) you 
+      can use the absolute path.
+      Note: If you use html the default overwrite. Also for custom class you have to create 
+      a class using create_style.This is shown below.
     */
 
-   &quot;filter&quot;: false, /*  The default value is true. This will turn the color of image white. If you did not want any
-     filter set it to false.
+   &quot;filter&quot;: false, /*  The default value is true. This will turn the color of image white. 
+      If you did not want any
+      filter set it to false.
    */
   
-  /*
-    You can create custom style which will overwrite the exisiting class property.
-  */ 
+  
+  // You can create custom style which will overwrite the exisiting class property.
   &quot;create_style&quot;: &quot;nav{background: yellow}&quot; +     // This will change the background color of sidebar.
                   &quot;.my-custom-class{ filter: brightness(10) grayscale(100%)}&quot;, // This will apply filter to my-custom-class
+  
+  //You can add path of your style file. Note it must be relative to your output file. (relative to generated html files.)
+  &quot;add_style_path&quot;: [&quot;../custom.css&quot;] // Pass array or path
+
+  // You can add custom script to html
+  &quot;add_scripts&quot;: &quot;function foo(){console.log('foo')}&quot;,
+
+  // You can add path of your script file. Note it must be relative to your output file. (relative to generated html files.)
+  &quot;add_script_path&quot;: [&quot;../custom.js&quot;] // Pass array or path
   
   &quot;footer&quot;: &quot;This is footer&quot;,   // Here again you can pass html element 
   }
@@ -133,12 +146,11 @@ Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://gith
 <p>If this documentation is not enough feel free to create an issue.</p>
 <h2>Developing</h2>
 <pre class="prettyprint source lang-bash"><code>git clone https://github.com/ankitskvmdam/clean-jsdoc-theme.git
-cd clean-jsdoc-theme.git
+cd clean-jsdoc-theme
 npm install
 npm run test
 </code></pre>
-<p><code>npm run test</code> will generate files in output folder.<br>
-You can change the code and then run <code>npm run test</code> to see the output.</p>
+<p><code>npm run test</code> will generate files in output folder.</p>
 <h2>Contact</h2>
 <p>Mail me at: hello@ankdev.me <br><br>
 If you find any bug or need any feature in the future build feel free to open an issue at github: https://github.com/ankitskvmdam/clean-jsdoc-theme/issues</p>
@@ -165,5 +177,8 @@ If you find any bug or need any feature in the future build feel free to open an
 var list = [{"title":"Alive","link":"<a href=\"Alive.html\">Alive</a>"},{"title":"Alive#survive","link":"<a href=\"Alive.html#survive\">Alive &rtrif; survive</a>"},{"title":"Apple","link":"<a href=\"Apple.html\">Apple</a>"},{"title":"Apple#survive","link":"<a href=\"Apple.html#survive\">Apple &rtrif; survive</a>"},{"title":"Energy","link":"<a href=\"Energy.html\">Energy</a>"},{"title":"Environment","link":"<a href=\"Environment.html\">Environment</a>"},{"title":"Environment#start","link":"<a href=\"Environment.html#start\">Environment &rtrif; start</a>"},{"title":"Tree","link":"<a href=\"Tree.html\">Tree</a>"},{"title":"Tree#crop","link":"<a href=\"Tree.html#crop\">Tree &rtrif; crop</a>"},{"title":"Tree#survive","link":"<a href=\"Tree.html#survive\">Tree &rtrif; survive</a>"},{"title":"beEaten","link":"<a href=\"Apple.html#event:beEaten\">beEaten</a>"},{"title":"beforeDestroy","link":"<a href=\"Environment.html#event:beforeDestroy\">beforeDestroy</a>"}];
 setupSearch(list)
 </script>
+
+ 
+
 </body>
 </html>

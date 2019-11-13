@@ -181,6 +181,16 @@ section h2::after{
   background: #eee;
 }
 
+::selection{
+  background: #ffce76;
+  color: #1d1919;
+}
+
+::-moz-selection{
+  background: #ffce76;
+  color: #1d1919;
+}
+
 section ul {
   padding-left: 10px;
   list-style: none;
@@ -246,7 +256,7 @@ nav > h2 > a > .text::after{
   display: block;
   width: 100%;
   height: 20px;
-  background: #1089ff;
+  /* background: #1089ff; */
   bottom: -5px;
   z-index: -1;
 }
@@ -254,6 +264,7 @@ nav > h2 > a > .text::after{
 nav .search-box{
   padding: 0 10px 20px 10px;
   position: relative;
+  z-index: 10;
 }
 
 nav .search-box input{
@@ -308,7 +319,16 @@ nav h3 {
   padding: 10px 10px 6px 10px;
 }
 
-nav ul {
+.sidebar-list-div{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 200px;
+  overflow: auto;
+}
+
+.sidebar-list-div ul, nav ul {
   font-family: 'body';
   list-style-type: none;
   padding: 0;
@@ -324,16 +344,16 @@ nav ul a {
   transition: padding 0.2s, color 0.2s, font-weight 0.2s;
 }
 
-nav ul a:hover {
-  color: #00909e;
+nav a:hover {
+  color: #1089ff;
   text-decoration: underline;
 }
 
-nav > ul {
+.sidebar-list-div > ul {
   padding-left: 10px;
 }
 
-nav > ul > li > a {
+.sidebar-list-div > ul > li > a {
   margin: 0;
   color: #c9d1d3;
   padding: 4px 10px 4px 10px;
@@ -341,16 +361,16 @@ nav > ul > li > a {
   word-break: break-all;
 }
 
-nav ul ul {
+.sidebar-list-div ul ul {
   margin-bottom: 10px
 }
 
-nav ul ul a {
+.sidebar-list-div ul ul a {
   color: #c9d1d3;
 }
 
-nav ul ul a,
-nav ul ul a:active {
+.sidebar-list-div ul ul a,
+.sidebar-list-div ul ul a:active {
   padding-left: 20px
 }
 
@@ -526,7 +546,7 @@ h4.name::before{
 }
 
 .prettyprint.linenums li.selected, .prettyprint.linenums li.selected * {
-   background-color: #222831
+   background-color: #404040
 }
 
 .prettyprint.linenums li * {
