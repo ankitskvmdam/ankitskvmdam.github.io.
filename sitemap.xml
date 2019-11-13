@@ -13,5 +13,95 @@
   <url>
     <loc>https://ankdev.me/tags/</loc>
   </url>
-  
+  <url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/index.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Alive.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Apple.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Energy.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Environment.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Tree.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/global.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Alive.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Apple.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Energy.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Environment.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Tree.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+<url>
+<loc>Tree.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/global.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Alive.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Apple.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Energy.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankdev.me/clean-jsdoc-theme/Environment.js.html</loc>
+  <lastmod>2019-11-13T14:21:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
 </urlset>
