@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
+  <loc>http://ankdev.me</loc>
+  <changefreq>monthly</changefreq>
+  <lastmod>2019-11-14</lastmod>
+</url>
+<url>
   <loc>http://ankdev.me/index.html</loc>
   <changefreq>monthly</changefreq>
   <lastmod>2019-11-14</lastmod>
