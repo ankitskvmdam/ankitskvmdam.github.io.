@@ -1,83 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc>http://ankdev.me</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/index.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Alive.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Alive.html#survive</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Apple.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Apple.html#survive</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Energy.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Environment.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Environment.html#start</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Tree.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Tree.html#crop</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Tree.html#survive</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Apple.html#event:beEaten</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/Environment.html#event:beforeDestroy</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/global.html</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
-<url>
-  <loc>http://ankdev.me/</loc>
-  <changefreq>monthly</changefreq>
-  <lastmod>2019-11-14</lastmod>
-</url>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ankdev.me/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ankdev.me/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ankdev.me/tags/</loc>
+  </url>
+  
 </urlset>

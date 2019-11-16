@@ -3,6 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      
+        <meta name="author" content="Ankit Kumar">
+      
+        <meta name="description" content="Best Clean and minimal JSDoc 3 Template / Theme">
+      
+    
     <title>Home</title>
 
     <script src="scripts/prettify/prettify.js"></script>
@@ -17,6 +24,10 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
     
+    
+      
+        <script src="https://buttons.github.io/buttons.js"></script>
+      
     
     
 </head>
@@ -55,10 +66,12 @@
 
     <section class="readme">
         <article><h1>clean-jsdoc-theme</h1>
+<p><a href="https://travis-ci.org/ankitskvmdam/clean-jsdoc-theme.svg?branch=production"><img src="https://travis-ci.org/ankitskvmdam/clean-jsdoc-theme.svg?branch=production" alt="Build Status"></a><br>
+<a class="github-button" href="https://github.com/ankitskvmdam/clean-jsdoc-theme" data-icon="octicon-star" aria-label="Star ankitskvmdam/clean-jsdoc-theme on GitHub">Star</a> <a class="github-button" href="https://github.com/ankitskvmdam/clean-jsdoc-theme/fork" data-icon="octicon-repo-forked" aria-label="Fork ankitskvmdam/clean-jsdoc-theme on GitHub">Fork</a> <a class="github-button" href="https://github.com/ankitskvmdam" aria-label="Follow @ankitskvmdam on GitHub">Follow @ankitskvmdam</a> <a class="github-button" href="https://github.com/sponsors/ankitskvmdam" data-icon="octicon-heart" aria-label="Sponsor @ankitskvmdam on GitHub">Sponsor</a> <a class="github-button" href="https://github.com/ankitskvmdam/clean-jsdoc-theme/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download ankitskvmdam/clean-jsdoc-theme on GitHub">Download</a><br>
+<br></p>
 <p>A clean, responsive template / theme for JSDoc 3. This is created for those who love design. <br><br>
 You can also search in your documenation. This theme / template includes search. It uses fuse.js for search.<br/><br>
-Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://github.com/ankitskvmdam/clean-jsdoc-theme</a>
-</p>
+Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://github.com/ankitskvmdam/clean-jsdoc-theme</a></p>
 <h2>Install</h2>
 <blockquote>
 <p>Note you must have <code>npm</code> installed on your machine.</p>
@@ -104,13 +117,15 @@ Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://gith
 }
 </code></pre>
 <h2>Features</h2>
-<p>You can pass an object called <code>theme_opts</code> under <code>opts</code> for more options like:</p>
+<p>We believe in giving freedom to the developer, that's why we have given many option to<br>
+the developer to customize this time according to there needs.<br>
+You can pass an object called <code>theme_opts</code> under <code>opts</code> for more options like:</p>
 <pre class="prettyprint source lang-javascript"><code>&quot;opts&quot;:{
   /*
     Default options
   */
   &quot;theme_opts&quot;:{
-    &quot;title&quot;: &quot;Ankdev&quot;, 
+    &quot;title&quot;: &quot;clean-jsdoc-theme&quot;, 
     /* 
       Instead of only string you can pass html element like 
       &lt;img src=&quot;src to your img relative to the output path&quot; class=&quot;my-custom-class&quot;/>
@@ -125,19 +140,23 @@ Github: <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme">https://gith
       filter set it to false.
    */
   
-  
+  // You can pass meta options also
+  &quot;meta&quot;: [
+      &quot;&lt;meta name=\&quot;author\&quot; content=\&quot;Ankit Kumar\&quot;>&quot;, 
+      &quot;&lt;meta name=\&quot;description\&quot; content=\&quot;Best Clean and minimal JSDoc 3 Template / Theme\&quot;>&quot;
+    ],
   // You can create custom style which will overwrite the exisiting class property.
   &quot;create_style&quot;: &quot;nav{background: yellow}&quot; +     // This will change the background color of sidebar.
                   &quot;.my-custom-class{ filter: brightness(10) grayscale(100%)}&quot;, // This will apply filter to my-custom-class
   
   //You can add path of your style file. Note it must be relative to your output file. (relative to generated html files.)
-  &quot;add_style_path&quot;: [&quot;../custom.css&quot;] // Pass array or path
+  &quot;add_style_path&quot;: [&quot;../custom.css&quot;] // Pass array of path or url
 
   // You can add custom script to html
   &quot;add_scripts&quot;: &quot;function foo(){console.log('foo')}&quot;,
 
   // You can add path of your script file. Note it must be relative to your output file. (relative to generated html files.)
-  &quot;add_script_path&quot;: [&quot;../custom.js&quot;] // Pass array or path
+  &quot;add_script_path&quot;: [&quot;../custom.js&quot;] // Pass array of path or url
   
   &quot;footer&quot;: &quot;This is footer&quot;,   // Here again you can pass html element 
   }
@@ -152,7 +171,8 @@ npm run test
 </code></pre>
 <p><code>npm run test</code> will generate files in output folder.</p>
 <h2>Contact</h2>
-<p>Mail me at: hello@ankdev.me <br><br>
+<p>If you like my work, then give me a <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme" data-icon="octicon-star" aria-label="Star ankitskvmdam/clean-jsdoc-theme on GitHub">star</a>. This will act as a driving force to add new feature more frequently.<br>
+Mail me at: hello@ankdev.me <br><br>
 If you find any bug or need any feature in the future build feel free to open an issue at github: https://github.com/ankitskvmdam/clean-jsdoc-theme/issues</p>
 <h2>License</h2>
 <p>Licensed under the MIT license.</p></article>

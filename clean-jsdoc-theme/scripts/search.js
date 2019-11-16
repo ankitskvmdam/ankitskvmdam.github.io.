@@ -1,12 +1,11 @@
 
 
 function checkClick(e){
-  console.log('runnint')
   if( e.target.id != "search-box"){
     this.setTimeout(function(){
       search("", [""], "");
     }, 60);
-
+    
     window.removeEventListener('click', checkClick)
   }
 }
