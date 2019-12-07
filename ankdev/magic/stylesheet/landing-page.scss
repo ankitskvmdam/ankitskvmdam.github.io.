@@ -124,6 +124,20 @@
             width: 0.5rem;
             height: 0.5rem;
         }
+
+    }
+    
+    .landing-page-social-container{
+        .msg{
+            .msg-title{
+                font-size: 4rem;
+                top: -0.2rem;
+            }
+
+            .msg-p{
+                font-size: 1.5rem;
+            }
+        }
     }
 
     .subheading-container{
@@ -143,6 +157,21 @@
     .landing-page-social-container{
         padding: 1.875rem 1.25rem;
         width: 100%;
+    }
+
+    .landing-page-social-container{
+        max-height: 6.375rem;
+        .msg{
+            .msg-title{
+                font-size: 3rem;
+                top: -1.8rem;
+            }
+        }
+
+        .icons{
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -170,9 +199,5 @@
         margin-top: -0.625rem;
         justify-content: flex-start;
         padding-left: 1.25rem;
-    }
-
-    .landing-page-social-container{
-        
     }
 }

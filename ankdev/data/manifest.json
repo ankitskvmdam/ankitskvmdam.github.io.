@@ -1,14 +1,4 @@
 {
-  "website.css": "websitea08ea46b9b26205133ae.css",
-  "website.js": "websitea08ea46b9b26205133ae.js",
-  "CNAME": "CNAME",
-  "README.md": "README.md",
-  "ankdev/static/_gen/.DS_Store": "ankdev/static/_gen/.DS_Store",
-  "ankdev/static/_gen/assets/line.svg": "ankdev/static/_gen/assets/line.svg",
-  "ankdev/static/_gen/assets/square rotate.svg": "ankdev/static/_gen/assets/square rotate.svg",
-  "ankdev/static/_gen/images/.DS_Store": "ankdev/static/_gen/images/.DS_Store",
-  "ankdev/static/_gen/images/email.svg": "ankdev/static/_gen/images/email.svg",
-  "ankdev/static/_gen/images/email_light.svg": "ankdev/static/_gen/images/email_light.svg",
-  "ankdev/static/_gen/images/github.svg": "ankdev/static/_gen/images/github.svg",
-  "ankdev/static/_gen/images/gitlab.svg": "ankdev/static/_gen/images/gitlab.svg"
+  "website.css": "website43574d685d80d66bac35.css",
+  "website.js": "website43574d685d80d66bac35.js"
 }
