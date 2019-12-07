@@ -12,6 +12,7 @@ git clone --depth 1 --single-branch -b production https://github.com/ankitskvmda
 echo Removing unnecessary files...
 cd ./ankdev/public/clean-jsdoc-theme && git filter-branch --subdirectory-filter demo/output
 
-echo Removing git files of clean-jsdoc-theme
+echo Removing git files of clean-jsdoc-theme...
 rm -rf ./ankdev/public/clean-jsdoc-theme/.git
+echo Removed.
 #---------END--------
