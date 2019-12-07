@@ -40,17 +40,63 @@
     }
 }
 
-.welcome-msg-container{
+.landing-page-social-container{
+    position: absolute;
     display: flex;
-    margin-top: 1.875rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    max-height: 9.375rem;
     padding: 3.125rem;
+    padding-bottom: 1rem;
     width: 34.375rem;
     text-align: justify;
     .msg{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: flex-end;
         @include themify($themes){
             color: themed(welcome-msg-color);
         }
         font-size: 1.125rem;
+        z-index: 1;
+
+        .msg-title{
+            font-size: 5rem;
+            font-weight: bolder;
+            position: absolute;
+            top: -1.2rem;
+            z-index: -1;
+            @include themify($themes){
+                color: themed(welcome-msg-title-color)
+            }
+        }
+
+        .msg-p{
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bolder;
+            bottom: 0rem;
+            border-bottom: 0.3rem dashed;
+            line-height: 2.2rem;
+
+            &:hover{
+                color: #007bff;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .icons{
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        margin-right: 1rem;
+        @include themify($themes){
+            fill: themed(icon-color);
+        }
     }
 }
 
@@ -62,16 +108,6 @@
         color: themed(welcome-msg-color);
     }
     padding: 0 0.625rem;
-}
-
-.hello-box-container{
-    position: absolute;
-    bottom: -8.375rem;
-    right: 0rem;
-    font-size: 15.625rem;
-    @include themify($themes){
-        color: themed(welcome-msg-color);
-    }
 }
 
 
@@ -104,7 +140,7 @@
         padding-left: 9.375rem
     }
 
-    .welcome-msg-container{
+    .landing-page-social-container{
         padding: 1.875rem 1.25rem;
         width: 100%;
     }
@@ -117,7 +153,7 @@
         justify-content: center;
     }
 
-    .welcome-msg-container{
+    .landing-page-social-container{
         padding: 1.875rem 1.25rem;
         width: 100%;
     }
@@ -136,7 +172,7 @@
         padding-left: 1.25rem;
     }
 
-    .welcome-msg-container{
-        margin: 0;
+    .landing-page-social-container{
+        
     }
 }

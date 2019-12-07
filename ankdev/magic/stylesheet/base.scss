@@ -16,7 +16,14 @@ body{
     font-family: $font-family;
 }
 
+a{
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
+
 .body-container{
+    position: relative;
     width: 100%;
     @include themify($themes){
         background: themed('backgroundColor');
@@ -27,6 +34,11 @@ body{
 }
 
 .section-container{
+    position: relative;
     width: 100%;
     min-height: 100vh;
+}
+
+.icons{
+    overflow: hidden;
 }

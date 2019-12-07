@@ -1,0 +1,22 @@
+
+<div class="landing-page-social-container">
+    <div class="msg">
+        <div class="msg-title">
+            Get In Touch
+        </div>
+
+        <div class="msg-icon-container">
+            {{ range (index .Site.Data.social_link "social") }}
+                <a href="{{.link}}">
+                    <svg class="icons">
+                        <use xlink:href="{{.xlink}}"></use>
+                    </svg>
+                </a>
+            {{ end }}
+        </div>
+
+        <div class="msg-p">
+            <a href="mailto:hello@ankdev.me">hello@ankdev.me</a>
+        </div>
+    </div>
+</div>
