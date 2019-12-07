@@ -1,5 +1,7 @@
 .topbar-container{
     height: 4.375rem;
     width: 100%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 }
