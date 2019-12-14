@@ -1,5 +1,6 @@
 import "../stylesheet/main.scss"
 import handleScreen from "./handleScreen"
+import createTimeline from "./timeline"
 
 const light = document.getElementById("light")
 const dark = document.getElementById("dark")
@@ -27,6 +28,7 @@ function init(){
     light.addEventListener('click', changeTheme)
     dark.addEventListener('click', changeTheme)
     handleScreen()
+    createTimeline()
 }
 
 init()
