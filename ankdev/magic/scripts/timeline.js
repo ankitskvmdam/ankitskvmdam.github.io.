@@ -4,6 +4,10 @@ const end = new Date().getFullYear();
 let target_div;
 let window_width;
 let current_scroll;
+let dragged_element;
+let dragged_start;
+let dragged_end;
+let drag_active = false;
 
 let events = [
     {
@@ -79,21 +83,26 @@ function setTimeLineHeight(){
     target_div.style.height = (window.innerHeight/24) + 'rem'
 }
 
+function setTimeLineWidth(){
+    target_div.style.width = target_div.scrollWidth/16 + 'rem' 
+}
+
 function onWindowResize(){
     setWindowWidth();
     setTimeLineHeight();
+    setTimeLineWidth();
 }
 
-function scrollLeft(){
-    let scroll_amount = current_scroll - window_width/1.2;
+function scrollLeft(amount){
+    let scroll_amount = current_scroll - ((amount != undefined && !isNaN(amount)) ? amount : window_width/1.2);
     scroll_amount = (scroll_amount > 0) ? scroll_amount : 0;
     target_div.style.transform = `translateX(-${scroll_amount}px)`
     current_scroll = scroll_amount;
 }
 
-function scrollRight(){
+function scrollRight(amount){
     let max_scroll = target_div.scrollWidth;
-    let scroll_amount = current_scroll + window_width/1.2;
+    let scroll_amount = current_scroll + ((amount !=undefined && !isNaN(amount)) ? amount: window_width/1.2);
     scroll_amount = (scroll_amount < max_scroll - window_width) ? scroll_amount : max_scroll-window_width;
     target_div.style.transform = `translateX(-${scroll_amount}px)`
     current_scroll = scroll_amount;
@@ -135,13 +144,49 @@ function setTimeLine(){
     target_div.innerHTML += output
 }
 
-function onDrag(){
-    console.log('Dragging')
+
+function onDragStart(event){
+
+    dragged_element = event.target;
+    dragged_start = event.clientX || event.touches[0].clientX;
+    dragged_element.style.transition = '0s';
+    
+    if(target_div == event.target) drag_active = true
+
+    return false;
+}
+
+function onDrag(event){
+    event.preventDefault()
+    if(drag_active == true){
+        dragged_end = event.clientX || event.touches[0].clientX;
+        const scroll_amount = dragged_start - dragged_end;
+        dragged_start = dragged_end;
+    
+        if(scroll_amount < 0) scrollLeft(Math.abs(scroll_amount))
+        else scrollRight(Math.abs(scroll_amount))
+    }
+
+    return false;
+}
+
+function onDragEnd(event){
+    dragged_element.style.transition = null;
+    drag_active = false;
+    return false;
 }
 
 function addDragEvent(){
-    target_div.addEventListener('dragstart',onDrag)
+    target_div.addEventListener('mousedown',onDragStart, false);
+    target_div.addEventListener('mousemove', onDrag, false);
+    target_div.addEventListener('mouseup', onDragEnd, false);
+    target_div.addEventListener('mouseout', onDragEnd, false);
+
+    target_div.addEventListener('touchstart',onDragStart, false);
+    target_div.addEventListener('touchmove', onDrag, false);
+    target_div.addEventListener('touchend', onDragEnd, false);
 }
+
 
 function init(){
     target_div = document.getElementById('timeline');
@@ -158,6 +203,7 @@ function createTimeline(){
         createYears();
         setTimeLine();
         addDragEvent();
+        setTimeLineWidth();
     }
 }
 

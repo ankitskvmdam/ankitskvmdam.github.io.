@@ -1,0 +1,21 @@
+.section{
+    .heading-container{
+        margin-top: 6.25rem;
+        flex-direction: column;
+        h1{
+            font-size: 3rem;
+            line-height: 0;
+        }
+
+        p{
+            padding: 0.75rem 0.5rem;
+            @include themify($themes){
+                color: themed('text-shade-color')
+            }
+        }
+    }
+}
+
+.ml-5{
+    margin-left: 5rem
+}

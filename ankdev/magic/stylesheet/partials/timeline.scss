@@ -5,26 +5,22 @@
     position: relative;
 
     #timeline{
-        transition: 0.5s;
+        transition: 0.8s;
+        transition-timing-function: cubic-bezier(.55,.09,.68,.53);
         display: flex;
         align-items: flex-end;
         padding: 0 2rem;
-
-    }
-
-    .heading-container{
-        margin-top: 6.25rem;
-        flex-direction: column;
-        h1{
-            font-size: 3rem;
-            line-height: 0;
-        }
-
-        p{
-            padding: 0.75rem 0.5rem;
-            @include themify($themes){
-                color: themed('text-shade-color')
-            }
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: transparent;
+            z-index: 100;
+            cursor: move;
         }
     }
 
@@ -156,7 +152,8 @@
 
     @media screen and (max-width: 35em){
         #timeline{
-            transition: 0.3s;
+            transition: 0.5s;
+
         }
     }
 
