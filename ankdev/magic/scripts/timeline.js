@@ -9,6 +9,11 @@ let dragged_start;
 let dragged_end;
 let drag_active = false;
 
+// for touch event
+let scroll_start;
+let scroll_end;
+let scroll_active = false;
+
 let events = [
     {
         year: 1997,
@@ -146,9 +151,9 @@ function setTimeLine(){
 
 
 function onDragStart(event){
-
     dragged_element = event.target;
     dragged_start = event.clientX || event.touches[0].clientX;
+    scroll_start = event.touches[0].clientY || 0;
     dragged_element.style.transition = '0s';
     
     if(target_div == event.target) drag_active = true
@@ -167,12 +172,23 @@ function onDrag(event){
         else scrollRight(Math.abs(scroll_amount))
     }
 
+    scroll_end = event.touches[0].clientY || 0;
+    const scroll_amount = scroll_end - scroll_start;
+    console.log(scroll_amount)
+
+    if(Math.abs(scroll_amount) > 20 || scroll_active){
+        scroll_active = true;
+        scroll_start = scroll_end;
+        window.scrollBy(0, -scroll_amount);
+    }
+
     return false;
 }
 
-function onDragEnd(event){
+function onDragEnd(){
     dragged_element.style.transition = null;
     drag_active = false;
+    scroll_active = false;
     return false;
 }
 
