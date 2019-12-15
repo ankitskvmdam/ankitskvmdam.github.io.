@@ -40,4 +40,17 @@ a{
 
 .icons{
     overflow: hidden;
+    @include themify($themes){
+        fill: themed(icon-color);
+    }
+}
+
+.fc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pointer{
+    cursor: pointer
 }

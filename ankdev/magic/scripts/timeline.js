@@ -2,6 +2,7 @@ const start = 1994;
 const end = new Date().getFullYear();
 
 let target_div;
+let previous_height = 0;
 let window_width;
 let current_scroll;
 let dragged_element;
@@ -86,7 +87,10 @@ function setWindowWidth(){
 }
 
 function setTimeLineHeight(){
-    target_div.style.height = (window.innerHeight/24) + 'rem'
+    if(previous_height == 0 || Math.abs(previous_height - window.innerHeight) > 150){
+        previous_height = window.innerHeight;
+        target_div.style.height = (previous_height/24) + 'rem'
+    }
 }
 
 function setTimeLineWidth(){

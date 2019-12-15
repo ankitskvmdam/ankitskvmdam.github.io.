@@ -9,6 +9,7 @@
             display: flex;
             flex-direction: column;
             order: 1;
+            width: 20rem;
 
             .project-title-container{
                 flex: 1;
@@ -16,9 +17,7 @@
                 align-items: center;
 
                 h2{
-                    font-size: 4rem;
-                    position: absolute;
-                    margin-left: 5rem;
+                    font-size: 3rem;
                     line-height: 1;
                     padding: 1rem;
                     @include themify($themes){
@@ -44,10 +43,16 @@
     .bottom{
         display: flex;
 
+        .icons{
+            display: inline-block;
+            width: 2.5rem;
+            height: 2.5rem;
+
+        }
         .controller{
             order: 1;
+            width: 20rem;
         }
-
         .read-more{
             order: 2;
             flex: 1;
@@ -55,9 +60,15 @@
 
         .desc{
             order: 3;
-            width: 10rem;
-            background: #fff;
+            width: 20rem;
+            background: #fe6225;
+            padding: 2rem;
+            margin-top: -4rem;
+            color: #fff;
         }
     }
 
+    .project-link{
+        color: #007bff;
+    }
 }
