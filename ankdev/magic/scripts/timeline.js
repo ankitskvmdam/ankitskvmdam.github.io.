@@ -153,7 +153,7 @@ function setTimeLine(){
 function onDragStart(event){
     dragged_element = event.target;
     dragged_start = event.clientX || event.touches[0].clientX;
-    scroll_start = event.touches[0].clientY || 0;
+    scroll_start = event.touches && event.touches[0].clientY || 0;
     dragged_element.style.transition = '0s';
     
     if(target_div == event.target) drag_active = true
@@ -172,7 +172,7 @@ function onDrag(event){
         else scrollRight(Math.abs(scroll_amount))
     }
 
-    scroll_end = event.touches[0].clientY || 0;
+    scroll_end = event.touches && event.touches[0].clientY || 0;
     const scroll_amount = scroll_end - scroll_start;
     console.log(scroll_amount)
 
