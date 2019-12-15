@@ -12,6 +12,7 @@ let drag_active = false;
 // for touch event
 let scroll_start;
 let scroll_end;
+let scroll_amount = 0;
 let scroll_active = false;
 
 let events = [
@@ -173,8 +174,7 @@ function onDrag(event){
     }
 
     scroll_end = event.touches && event.touches[0].clientY || 0;
-    const scroll_amount = scroll_end - scroll_start;
-    console.log(scroll_amount)
+    scroll_amount = scroll_end - scroll_start;
 
     if(Math.abs(scroll_amount) > 20 || scroll_active){
         scroll_active = true;
@@ -188,7 +188,10 @@ function onDrag(event){
 function onDragEnd(){
     dragged_element.style.transition = null;
     drag_active = false;
-    scroll_active = false;
+
+    if(scroll_active){
+        scroll_active = false;
+    }
     return false;
 }
 
@@ -198,9 +201,9 @@ function addDragEvent(){
     target_div.addEventListener('mouseup', onDragEnd, false);
     target_div.addEventListener('mouseout', onDragEnd, false);
 
-    target_div.addEventListener('touchstart',onDragStart, false);
-    target_div.addEventListener('touchmove', onDrag, false);
-    target_div.addEventListener('touchend', onDragEnd, false);
+    // target_div.addEventListener('touchstart',onDragStart, false);
+    // target_div.addEventListener('touchmove', onDrag, false);
+    // target_div.addEventListener('touchend', onDragEnd, false);
 }
 
 
