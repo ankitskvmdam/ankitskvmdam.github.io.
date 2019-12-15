@@ -1,0 +1,63 @@
+.project-container{
+    display: flex;
+    flex-direction: column;
+
+    .top{
+        display: flex;
+        flex: 1;
+        .section-1{
+            display: flex;
+            flex-direction: column;
+            order: 1;
+
+            .project-title-container{
+                flex: 1;
+                display: flex;
+                align-items: center;
+
+                h2{
+                    font-size: 4rem;
+                    position: absolute;
+                    margin-left: 5rem;
+                    line-height: 1;
+                    padding: 1rem;
+                    @include themify($themes){
+                        background: themed(backgroundColor);
+                        color: themed(color);
+                    }
+                }
+            }
+        }
+
+        .section-2{
+            display: flex;
+            order: 2;
+            flex: 1;
+            padding: 2rem;
+            overflow: hidden;
+            img{
+                object-fit: cover;
+            }
+        }
+    }
+
+    .bottom{
+        display: flex;
+
+        .controller{
+            order: 1;
+        }
+
+        .read-more{
+            order: 2;
+            flex: 1;
+        }
+
+        .desc{
+            order: 3;
+            width: 10rem;
+            background: #fff;
+        }
+    }
+
+}
