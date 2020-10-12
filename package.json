@@ -38,7 +38,7 @@
     "gh-pages": "^2.1.1",
     "js-yaml": "^3.13.1",
     "lost": "^8.2.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
