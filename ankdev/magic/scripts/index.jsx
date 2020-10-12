@@ -44,7 +44,7 @@ function changeTheme(event){
 }
 
 function init(){
-    body.classList.add("theme-dark");
+    body.classList.add("theme-light");
     addEventListerForHeightChange();
     light.addEventListener('click', changeTheme);
     dark.addEventListener('click', changeTheme);

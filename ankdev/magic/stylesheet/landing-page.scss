@@ -1,203 +1,230 @@
-.heading-container{
-    width: 100%;
-    padding: 1.875rem;
-    display: flex;
+.heading-container {
+  width: 100%;
+  padding: 1.875rem;
+  display: flex;
+  position: relative;
+  padding-bottom: 0;
+
+  .heading {
+    font-weight: 700;
+    font-size: 3.125rem;
+    text-transform: uppercase;
     position: relative;
+    display: inline-block;
+  }
+
+  .dot {
+    display: inline-block;
+  }
+
+  .dot::after {
+    content: "";
+    margin-left: 0.3125rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    background: #ed3833;
+    display: inline-block;
+  }
+}
+
+.subheading-container {
+  display: flex;
+  padding-left: 21.875rem;
+  margin-top: -2.25rem;
+  .heading {
+    font-weight: 25rem;
+    font-size: 2.5rem;
+    @include themify($themes) {
+      color: themed(subheading-color);
+    }
+  }
+}
+
+.landing-page-social-container {
+  position: absolute;
+  display: flex;
+  bottom: 4rem;
+  right: 0;
+  margin: auto;
+  min-height: 9.375rem;
+  padding: 3.125rem;
+  padding-bottom: 1rem;
+  width: 34.375rem;
+  text-align: justify;
+
+  .msg {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    @include themify($themes) {
+      color: themed(welcome-msg-color);
+    }
+    font-size: 1.125rem;
+    z-index: 1;
+
+    // .msg-title {
+    //   font-size: 5rem;
+    //   font-weight: bolder;
+    //   position: absolute;
+    //   top: -1.2rem;
+    //   z-index: -1;
+    //   @include themify($themes) {
+    //     color: themed(welcome-msg-title-color);
+    //   }
+    // }
+
+    .msg-p {
+      position: absolute;
+      font-size: 2rem;
+      font-weight: bolder;
+      bottom: 0rem;
+      border-bottom: 0.3rem dashed;
+      line-height: 2.2rem;
+
+      &:hover {
+        color: #007bff;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .icons {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    margin-right: 2rem;
+    @include themify($themes) {
+      fill: themed(icon-color);
+    }
+  }
+}
+
+.contruction-msg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @include themify($themes) {
+    color: themed(welcome-msg-color);
+  }
+  padding: 0 0.625rem;
+}
+
+@media screen and (max-width: 50em) {
+  .heading-container {
+    padding: 1.25rem;
     padding-bottom: 0;
 
-    .heading{
-        font-weight: 700;
-        font-size: 3.125rem;
-        text-transform: uppercase;
-        position: relative;
-        display: inline-block;
+    .heading {
+      font-size: 1.875rem;
     }
 
-    .dot{
-        display: inline-block;
+    .dot::after {
+      width: 0.5rem;
+      height: 0.5rem;
     }
+  }
 
-    .dot::after{
-        content: '';
-        margin-left: 0.3125rem;
-        width: 0.625rem;
-        height: 0.625rem;
-        background: #ed3833;
-        display: inline-block;
+  .landing-page-social-container {
+    .msg {
+      .msg-title {
+        font-size: 4rem;
+        top: -0.2rem;
+      }
+
+      .msg-p {
+        font-size: 1.5rem;
+      }
     }
+  }
+
+  .subheading-container {
+    margin-top: -1.4375rem;
+    padding-left: 15.625rem;
+    .heading {
+      font-size: 1.5625rem;
+    }
+  }
 }
 
-.subheading-container{
+.landing-intro {
+  padding: 2rem 3rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-70%);
+  width: 100%;
+  max-width: 40rem;
+
+  .landing-intro-heading {
+    font-size: 4rem;
+  }
+
+  .landing-intro-para {
+    @include themify($themes) {
+      color: themed(subheading-color);
+    }
+  }
+}
+
+@media screen and (max-width: 35rem) {
+  .subheading-container {
+    padding-left: 9.375rem;
+  }
+
+  .landing-page-social-container {
+    padding: 1.875rem 1.25rem;
+    width: 100%;
+  }
+
+  .landing-page-social-container {
+    max-height: 6.375rem;
+    .msg {
+      .msg-title {
+        font-size: 3rem;
+        top: -1.8rem;
+      }
+    }
+
+    .icons {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 37.25rem) {
+  .subheading-container {
+    padding-left: 0;
     display: flex;
-    padding-left: 21.875rem;
-    margin-top: -2.25rem;
-    .heading{
-        font-weight: 25rem;
-        font-size: 2.5rem;
-        @include themify($themes){
-            color: themed(subheading-color);
-        }
+    justify-content: center;
+  }
+
+  .landing-page-social-container {
+    padding: 1.875rem 1.25rem;
+    width: 100%;
+  }
+
+  .landing-intro {
+    padding: 2rem 1rem;
+
+    .landing-intro-heading {
+      font-size: 2rem;
     }
+  }
 }
 
-.landing-page-social-container{
-    position: absolute;
-    display: flex;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    max-height: 9.375rem;
-    padding: 3.125rem;
-    padding-bottom: 1rem;
-    width: 34.375rem;
-    text-align: justify;
-    .msg{
-        display: flex;
-        flex: 1;
-        align-items: center;
-        justify-content: flex-end;
-        @include themify($themes){
-            color: themed(welcome-msg-color);
-        }
-        font-size: 1.125rem;
-        z-index: 1;
-
-        .msg-title{
-            font-size: 5rem;
-            font-weight: bolder;
-            position: absolute;
-            top: -1.2rem;
-            z-index: -1;
-            @include themify($themes){
-                color: themed(welcome-msg-title-color)
-            }
-        }
-
-        .msg-p{
-            position: absolute;
-            font-size: 2rem;
-            font-weight: bolder;
-            bottom: 0rem;
-            border-bottom: 0.3rem dashed;
-            line-height: 2.2rem;
-
-            &:hover{
-                color: #007bff;
-                cursor: pointer;
-            }
-        }
+@media screen and (max-width: 25rem) {
+  .heading-container {
+    .heading {
+      line-height: 0.8;
     }
+  }
 
-    .icons{
-        width: 2rem;
-        height: 2rem;
-        display: inline-block;
-        margin-right: 1rem;
-        @include themify($themes){
-            fill: themed(icon-color);
-        }
-    }
-}
-
-.contruction-msg{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    @include themify($themes){
-        color: themed(welcome-msg-color);
-    }
-    padding: 0 0.625rem;
-}
-
-
-@media screen and (max-width: 50em){
-    .heading-container{
-        padding: 1.25rem;
-        padding-bottom: 0;
-
-        .heading{
-            font-size: 1.875rem;
-        }
-
-        .dot::after{
-            width: 0.5rem;
-            height: 0.5rem;
-        }
-
-    }
-    
-    .landing-page-social-container{
-        .msg{
-            .msg-title{
-                font-size: 4rem;
-                top: -0.2rem;
-            }
-
-            .msg-p{
-                font-size: 1.5rem;
-            }
-        }
-    }
-
-    .subheading-container{
-        margin-top: -1.4375rem;
-        padding-left: 15.625rem;
-        .heading{
-            font-size: 1.5625rem;
-        }
-    }
-}
-
-@media screen and (max-width: 35rem){
-    .subheading-container{
-        padding-left: 9.375rem
-    }
-
-    .landing-page-social-container{
-        padding: 1.875rem 1.25rem;
-        width: 100%;
-    }
-
-    .landing-page-social-container{
-        max-height: 6.375rem;
-        .msg{
-            .msg-title{
-                font-size: 3rem;
-                top: -1.8rem;
-            }
-        }
-
-        .icons{
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-    }
-}
-
-@media screen and (max-width: 27.25rem){
-    .subheading-container{
-        padding-left: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .landing-page-social-container{
-        padding: 1.875rem 1.25rem;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 25rem){
-    .heading-container{
-        .heading{
-            line-height: 0.8
-        }
-    }
-
-    .subheading-container{
-        margin-top: -0.625rem;
-        justify-content: flex-start;
-        padding-left: 1.25rem;
-    }
+  .subheading-container {
+    margin-top: -0.625rem;
+    justify-content: flex-start;
+    padding-left: 1.25rem;
+  }
 }
