@@ -111,6 +111,20 @@
   padding: 0 0.625rem;
 }
 
+.project-list-container {
+  padding: 3rem;
+}
+
+.project-ul {
+  list-style-type: none;
+  margin-left: 10rem;
+  max-width: 40rem;
+
+  .project-li {
+    margin-bottom: 4rem;
+  }
+}
+
 @media screen and (max-width: 50em) {
   .heading-container {
     padding: 1.25rem;
@@ -213,6 +227,14 @@
       font-size: 2rem;
     }
   }
+
+  .project-list-container {
+    padding: 2rem 1rem;
+  }
+
+  .project-ul {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 25rem) {
@@ -226,5 +248,15 @@
     margin-top: -0.625rem;
     justify-content: flex-start;
     padding-left: 1.25rem;
+  }
+
+  .landing-intro {
+    position: relative;
+    top: 0;
+    transform: none;
+  }
+
+  .landing-page-social-container {
+    position: relative;
   }
 }

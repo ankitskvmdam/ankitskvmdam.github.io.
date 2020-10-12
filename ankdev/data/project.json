@@ -1,0 +1,21 @@
+{
+  "projects": [
+    {
+      "title": "Predicting proteins interaction [Anu]",
+      "description": "Anu is a framework to test and benchmark ML models for predicting protein-protein interactions. It automates data retrieval, feature engineering and model evaluation process.",
+      "github": "https://github.com/ankitskvmdam/anu"
+    },
+    {
+      "title": "Theme for JSDoc [clean-jsdoc-theme]",
+      "description": "Design and developed mobile responsive and customizable theme for JSDoc. Implement Web Content Accessibility Guidelines (WCAG) 2.1.",
+      "github": "https://github.com/ankitskvmdam/clean-jsdoc-theme",
+      "npm": "https://www.npmjs.com/package/clean-jsdoc-theme",
+      "demo": "https://ankdev.me/clean-jsdoc-theme/index.html"
+    },
+    {
+      "title": "Spreadsheet [Leopard]",
+      "description": "Terminal based spreadsheet written in C++. This project gave me an idea of how GUI were developed.",
+      "gitlab": "https://gitlab.com/ankits.kvmdam/leopard"
+    }
+  ]
+}

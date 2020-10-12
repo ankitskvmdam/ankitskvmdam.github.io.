@@ -7,19 +7,22 @@ const light = document.getElementById("light");
 const dark = document.getElementById("dark");
 const body = document.getElementsByTagName("BODY")[0];
 
-let previous_height = 0;
+// let previous_height = 0;
 function setSectionHeight(){
 
-    if(previous_height == 0 || Math.abs( previous_height - window.innerHeight ) > 100){
-        previous_height = window.innerHeight;
-        const ele = document.getElementsByClassName('section-container');
-        const nav = document.getElementById('navbar');
+    // if(previous_height == 0 || Math.abs( previous_height - window.innerHeight ) > 100){
+        const { innerHeight } = window;
+        const ele = document.querySelectorAll('.section-container');
+        const nav = document.querySelector('#navbar');
         const nav_height = nav.getBoundingClientRect().height;
+        const minHeight = (window.innerWidth > 400) 
+            ? innerHeight - nav_height - 20: 0
         for(let i = 0; i < ele.length; i++){
-            ele[i].style.minHeight = previous_height - nav_height;
+            ele[i].style.minHeight = minHeight
         }
 
-    }
+    // }
+        
 }
 
 function addEventListerForHeightChange(){
@@ -50,7 +53,7 @@ function init(){
     dark.addEventListener('click', changeTheme);
     handleScreen();
     createTimeline();
-    scrollEvent()
+    // scrollEvent()
 }
 
 init()

@@ -34,7 +34,7 @@ let events = [
     {
         year: 2004,
         title: 'Computers, 2004',
-        desc: 'First introduce with computers',
+        desc: 'First introduction with computers',
         height: "low",
         align: "right"
     },
@@ -56,14 +56,21 @@ let events = [
         year: 2015,
         title: 'Softwares, 2015',
         desc: 'Make a banking software using c++.',
-        height: "high",
+        height: "medium",
         align: "left"
+    },
+    {
+        year: 2016,
+        title: 'Leopard',
+        desc: 'Terminal based spreadsheet',
+        height: "medium",
+        align: "right"
     },
     {
         year: 2017,
         title: '1st August, 2017',
         desc: 'Got admission in National Institute of Technology, Durgapur',
-        height: "low",
+        height: "high",
         align: "left"
     },
     {
@@ -71,13 +78,20 @@ let events = [
         title: 'Instruo, 2018',
         desc: 'Build website for Technical fest.',
         height: "low",
-        align: "right"
+        align: "left"
     },
     {
         year: 2019,
         title: 'clean-jsdoc-theme, 2019',
         desc: 'Publish first npm package',
         height: "high",
+        align: "right"
+    },
+    {
+        year: 2020,
+        title: 'Anu',
+        desc: 'ML models for predicting protein-protein interactions.',
+        height: "low",
         align: "right"
     },
 ]
@@ -189,12 +203,15 @@ function onDrag(event){
     return false;
 }
 
-function onDragEnd(){
-    dragged_element.style.transition = null;
-    drag_active = false;
-
-    if(scroll_active){
-        scroll_active = false;
+function onDragEnd() {
+    if (dragged_element) {
+        
+        dragged_element.style.transition = null;
+        drag_active = false;
+    
+        if(scroll_active){
+            scroll_active = false;
+        }
     }
     return false;
 }

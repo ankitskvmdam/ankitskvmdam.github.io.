@@ -5,10 +5,22 @@
 @import "./base.scss";
 @import "./landing-page.scss";
 @import "./navbar.scss";
-@import "./partials/line.scss";
-@import "./partials/square_pattern.scss";
-@import "./partials/topbar.scss";
+@import "./footer.scss";
+// @import "./partials/line.scss";
+// @import "./partials/square_pattern.scss";
+// @import "./partials/topbar.scss";
 @import "./partials/timeline.scss";
-@import "./partials/scroll.sass";
+// @import "./partials/scroll.sass";
 @import "./partials/section-container.scss";
 @import "./partials/project.scss";
+
+.link {
+  color: #530fff;
+  text-decoration: underline;
+}
+
+.theme-dark {
+  .link {
+    color: #008bff;
+  }
+}

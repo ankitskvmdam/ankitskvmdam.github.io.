@@ -14,6 +14,7 @@
         {{ block "main" . }}
         {{ end }}
         
+        {{ partial "footer.html" . }}
     </div>
     <script src='/{{ (index .Site.Data.manifest "website.js" ) }}'></script>
 </body>

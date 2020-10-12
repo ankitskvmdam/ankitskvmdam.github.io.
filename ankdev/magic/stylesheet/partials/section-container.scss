@@ -1,28 +1,27 @@
-.section{
-    .heading-container{
-        flex-direction: column;
-        h1{
-            font-size: 3rem;
-            line-height: 0;
-        }
-
-        p{
-            padding: 0.75rem 0.5rem;
-            @include themify($themes){
-                color: themed('text-shade-color')
-            }
-        }
+.section {
+  .heading-container {
+    flex-direction: column;
+    h1 {
+      font-size: 3rem;
+      line-height: 0;
     }
+
+    p {
+      padding: 0.75rem 0.5rem;
+      @include themify($themes) {
+        color: themed("text-shade-color");
+      }
+    }
+  }
 }
 
-.ml-5{
-    margin-left: 5rem
+.mt-6 {
+  margin-top: 2rem;
+}
+.ml-5 {
+  margin-left: 5rem;
 }
 
-.mt-6{
-    margin-top: 6.25rem
-}
-
-.mrl-2{
-    margin: 0 2rem;
+.mrl-2 {
+  margin: 0 2rem;
 }

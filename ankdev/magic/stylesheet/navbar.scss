@@ -1,41 +1,42 @@
-.navbar-c{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    @include themify($themes){
-        background: themed(navbarBackgroundColor);
-        border-right-color: themed(navbarRightBorderColor);
-    }
-    z-index: 1000;
-    padding-bottom: 0.2rem;
-    overflow: hidden;
+.navbar-c {
+  box-shadow: 0 0 0.0625rem #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include themify($themes) {
+    background: themed(navbarBackgroundColor);
+    border-right-color: themed(navbarRightBorderColor);
+  }
+  z-index: 1000;
+  padding-bottom: 0.2rem;
+  overflow: hidden;
 }
 
-.navbar{
-    padding: 0.625rem 1.25rem;
-    z-index: 10;
+.navbar {
+  padding: 0.625rem 1.25rem;
+  z-index: 10;
 }
-.logo-c{
-    .logo{
-        @include themify($themes){
-            fill: themed(logoColor);
-            height: 2.5rem;
-            width: auto;
-        }
+.logo-c {
+  .logo {
+    @include themify($themes) {
+      fill: themed(logoColor);
+      height: 2.5rem;
+      width: auto;
     }
+  }
 }
 
-.toggle-theme{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 0.625rem;
-    span{
-        cursor: pointer;
-        font-size: 1rem;
-    }
-    .active{
-        color: #ed3833;
-    }
+.toggle-theme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 0.625rem;
+  span {
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .active {
+    color: #ed3833;
+  }
 }
