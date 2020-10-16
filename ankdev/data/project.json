@@ -10,7 +10,7 @@
       "description": "Design and developed mobile responsive and customizable theme for JSDoc. Implement Web Content Accessibility Guidelines (WCAG) 2.1.",
       "github": "https://github.com/ankitskvmdam/clean-jsdoc-theme",
       "npm": "https://www.npmjs.com/package/clean-jsdoc-theme",
-      "demo": "https://ankdev.me/clean-jsdoc-theme/index.html"
+      "demo": "https://ankdev.me/clean-jsdoc-theme/dark/index.html"
     },
     {
       "title": "Spreadsheet [Leopard]",

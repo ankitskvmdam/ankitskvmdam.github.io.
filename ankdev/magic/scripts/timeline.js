@@ -19,14 +19,14 @@ let scroll_active = false;
 let events = [
     {
         year: 1997,
-        title: '10th June, 1997',
-        desc: 'The day I was born :)',
+        title: 'Born, 1997',
+        desc: 'The Year I was born :)',
         height: "medium",
         align: "left"
     },
     {
         year: 2003,
-        title: 'April, 2003',
+        title: 'School, 2003',
         desc: 'First day at school.',
         height: "high",
         align: "left"
@@ -54,21 +54,21 @@ let events = [
     },
     {
         year: 2015,
-        title: 'Softwares, 2015',
-        desc: 'Make a banking software using c++.',
+        title: 'Software, 2015',
+        desc: 'Made a banking software using c++.',
         height: "medium",
         align: "left"
     },
     {
         year: 2016,
-        title: 'Leopard',
+        title: 'Leopard, 2016',
         desc: 'Terminal based spreadsheet',
         height: "medium",
         align: "right"
     },
     {
         year: 2017,
-        title: '1st August, 2017',
+        title: 'August, 2017',
         desc: 'Got admission in National Institute of Technology, Durgapur',
         height: "high",
         align: "left"
@@ -89,7 +89,7 @@ let events = [
     },
     {
         year: 2020,
-        title: 'Anu',
+        title: 'Anu, 2020',
         desc: 'ML models for predicting protein-protein interactions.',
         height: "low",
         align: "right"
