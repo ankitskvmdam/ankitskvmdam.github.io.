@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 
 const root = path.join(__dirname, '..')
-const dataDir = path.join(root, 'src', 'data')
+const dataDir = path.join(root, 'data')
 const fileName = path.join(dataDir, 'url.json')
 
 export default (js, css) => {

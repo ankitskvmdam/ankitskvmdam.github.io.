@@ -1,0 +1,19 @@
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ankit Kumar</title>
+        <link rel="stylesheet" type="text/css" href='/{{ (index .Site.Data.url "style.css") }}'>
+    </head>
+
+    <body>
+
+        {{ block "main" . }}
+        {{ end }}
+
+        <script src='/{{ (index .Site.Data.url "main.js" ) }}'></script>
+    </body>
+
+</html>

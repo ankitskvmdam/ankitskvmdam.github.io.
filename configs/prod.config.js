@@ -1,27 +1,36 @@
-import path from 'path'
+import path from 'path';
+import fs from 'fs';
 import scss from 'rollup-plugin-scss';
 import { uglify } from "rollup-plugin-uglify";
-import { randomUUID, createHash } from 'crypto'
 
-import defaultConfig, { OPTIONS, FILE_NAME, staticDir } from "./default.config";
+import { OPTIONS, FILE_NAME, staticDir, assets } from "./constants";
 import writeUrl from '../utils/write-url';
+import getFileNames from '../utils/get-file-names'
+import clean from '../utils/clean'
+import copy from '../utils/copy'
 
-const hash = createHash('md5').update(randomUUID()).digest('hex').substring(0, 10)
+if (fs.existsSync(staticDir)) {
+    clean([staticDir])
+}
 
-const jsFile = FILE_NAME.js('', hash)
-const cssFile = FILE_NAME.css('', hash)
+fs.mkdirSync(staticDir)
 
-writeUrl(jsFile, cssFile)
+copy([{ src: assets, dest: staticDir }])
+
+
+const { js, css } = getFileNames(FILE_NAME)
+writeUrl(js, css)
+
 
 export default {
-    ...defaultConfig,
+    input: OPTIONS.input,
     output: {
-        ...defaultConfig.output,
-        file: path.join(staticDir, jsFile)
+        format: OPTIONS.outputFormat,
+        file: path.join(staticDir, js)
     },
     plugins: [uglify(), scss({
         ...OPTIONS.SCSS,
         outputStyle: 'compressed',
-        output: path.join(staticDir, cssFile)
+        output: path.join(staticDir, css)
     })],
 };

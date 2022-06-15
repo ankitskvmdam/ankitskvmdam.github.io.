@@ -4,9 +4,10 @@
   "description": "This is my personal website",
   "main": "index.js",
   "scripts": {
-    "rollup": "rollup -c configs/default.config.js",
-    "rollup:watch": "rollup -c configs/dev.config.js --watch",
-    "rollup:build": "rollup -c configs/prod.config.js"
+    "rollup:dev": "rollup -c configs/dev.config.js --watch",
+    "rollup:build": "rollup -c configs/prod.config.js",
+    "hugo": "hugo server --noHTTPCache --ignoreCache",
+    "dev": "node watch-dev.js"
   },
   "author": "Ankit Kumar <hello@ankdev.me>",
   "license": "MIT",
