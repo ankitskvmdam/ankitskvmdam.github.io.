@@ -1,12 +1,1 @@
-# File system
-**/.DS_Store
-
-# Dist
-**/dist
-
-# output
-**/public
-**/static
-
-# npm_modules
-**/node_modules
+node_modules
