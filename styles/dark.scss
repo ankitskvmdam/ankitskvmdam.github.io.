@@ -6,3 +6,16 @@
 .dark .view-wrapper {
     background: #222;
 }
+
+.dark .icon-button {
+    fill: #aaa;
+
+    &:hover {
+        background: #292929;
+    }
+
+    &:active {
+        background: #333;
+    }
+}
+

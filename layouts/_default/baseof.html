@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" class="dark">
 
     <head>
         <meta charset="UTF-8">
@@ -6,9 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Ankit Kumar</title>
         <link rel="stylesheet" type="text/css" href='/{{ (index .Site.Data.url "style.css") }}'>
+
+        {{ partial "icons.html" . }}
     </head>
 
-    <body>
+    <body class="body">
 
         {{ block "main" . }}
         {{ end }}
