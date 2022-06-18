@@ -1,9 +1,13 @@
+@import './navbar.scss';
+
 .body {
-    padding: 2rem 3rem;
+    padding: 1rem;
     display: flex;
+    justify-content: center;
 }
 
 .view-wrapper {
     flex: 1;
+    max-width: 120rem;
     border-radius: 1rem;
 }
