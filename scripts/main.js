@@ -3,54 +3,16 @@ import './third-party/tippy-bundle.umd.min.js'
 
 import "../styles/style.scss"
 
+import {setupPage, addListenerToNavigationButtons, addWheelListenerOnPage} from './handle-pages.js'
+import { addTooltip } from './tooltip.js'
 
-import throttle from './throttle'
-
-function wheelFunction(event) {
-    console.log('Event', event)
-}
-
-
-function initTooltip() {
-    tippy('.theme-toggle', {
-        content: 'Change theme',
-    })
-
-    tippy('#github', {
-        content: 'GitHub'
-    })
-
-    tippy('#gitlab', {
-        content: 'GitLab'
-    })
-
-    tippy('#linkedin', {
-        content: 'Linkedin'
-    })
-
-    tippy('#email', {
-        content: 'Email'
-    })
-
-    tippy('#prev-page', {
-        content: 'Previous Page'
-    })
-    tippy('#next-page', {
-        content: 'Next Page'
-    })
-
-}
 
 
 function init() {
-
-    initTooltip()
-
-    var viewWrapper = document.querySelector('#view-wrapper')
-
-    var throttledWheen = throttle(wheelFunction, 3000)
-
-    viewWrapper.addEventListener('wheel', throttledWheen)
+    addTooltip()
+    setupPage()
+    addListenerToNavigationButtons()
+    addWheelListenerOnPage()
 }
 
 window.addEventListener('DOMContentLoaded', init)
