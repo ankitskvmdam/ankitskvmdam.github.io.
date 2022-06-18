@@ -9,12 +9,8 @@ import getFileNames from '../utils/get-file-names'
 import clean from '../utils/clean'
 import copy from '../utils/copy'
 
-if (fs.existsSync(staticDir)) {
-    clean([staticDir])
-}
-
+clean([staticDir])
 fs.mkdirSync(staticDir)
-
 copy([{ src: assets, dest: staticDir }])
 
 
