@@ -15,10 +15,6 @@ function initTooltip() {
     tippy('.theme-toggle', {
         content: 'Change theme',
     })
-    
-    tippy('.font-size', {
-        content: 'Change font size',
-    })
 }
 
 
