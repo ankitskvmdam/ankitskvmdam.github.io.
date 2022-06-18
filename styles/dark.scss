@@ -3,6 +3,16 @@
     color: #aaa;
 }
 
+
+.dark .tippy-box {
+    background: #555;
+    color: #eee;
+}
+
+.dark .tippy-arrow {
+    color: #555
+}
+
 .dark .view-wrapper {
     background: #222;
 }
@@ -11,11 +21,22 @@
     fill: #aaa;
 
     &:hover {
-        background: #292929;
+        background: rgba(255, 255, 255, 0.05)
     }
 
     &:active {
-        background: #333;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    &.disabled {
+        background: rgba(255, 255, 255, 0.3)
     }
 }
 
+.dark .bottom-bar {
+    background: #2F2F2F;
+}
+
+.dark .bottom-bar-right-container {
+    background: #292929;
+}
