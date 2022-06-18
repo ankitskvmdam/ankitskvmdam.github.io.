@@ -1,0 +1,38 @@
+.bottom-bar {
+    display: flex;
+    border-radius: 1rem;
+    justify-content: space-between;
+
+    .page-title {
+        font-weight: 700;
+    }
+
+}
+
+.bottom-bar-right-container,
+.bottom-bar-icons-container {
+    flex: 1;
+    padding: 1rem 2rem;
+
+}
+
+.bottom-bar .icon-button {
+    margin-right: 0.5rem;
+}
+
+.bottom-bar-right-container {
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navigation {
+        .left {
+            transform: rotate(90deg);
+        }
+
+        .right {
+            transform: rotate(270deg);
+        }
+    }
+}

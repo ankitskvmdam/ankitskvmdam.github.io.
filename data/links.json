@@ -1,0 +1,24 @@
+{
+    "bottomBar": [
+        {
+            "id": "github",
+            "iconId": "#github-icon",
+            "link": "https://github.com/ankitskvmdam"
+        },
+        {
+            "id": "gitlab",
+            "iconId": "#gitlab-icon",
+            "link": "https://gitlab.com/ankits.kvmdam"
+        },
+        {
+            "id": "linkedin",
+            "iconId": "#linkedin-icon",
+            "link": "https://www.linkedin.com/in/ankdev/"
+        },
+        {
+            "id": "email",
+            "iconId": "#email-icon",
+            "link": "mailto:hello@ankdev.me"
+        }
+    ]
+}

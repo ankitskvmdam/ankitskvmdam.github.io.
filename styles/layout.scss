@@ -1,4 +1,5 @@
 @import './navbar.scss';
+@import './bottom-bar.scss';
 
 .body {
     padding: 1rem;
@@ -7,7 +8,13 @@
 }
 
 .view-wrapper {
+    display: flex;
     flex: 1;
+    flex-direction: column;
     max-width: 120rem;
     border-radius: 1rem;
+}
+
+.page-view-wrapper {
+    flex: 1
 }
