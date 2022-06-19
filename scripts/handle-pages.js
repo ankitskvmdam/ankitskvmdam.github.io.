@@ -136,4 +136,19 @@ function setupPage() {
     pages[0].style.display = "block"
 }
 
-export { setupPage, addListenerToNavigationButtons, addWheelListenerOnPage }
+function setupIgnoreWheel() {
+    var leftSide = document.querySelectorAll(".page-left")
+
+    leftSide.forEach(function (page) {
+        page.addEventListener("wheel", function (event) {
+            event.stopPropagation()
+        })
+    })
+}
+
+export {
+    setupPage,
+    addListenerToNavigationButtons,
+    addWheelListenerOnPage,
+    setupIgnoreWheel,
+}
