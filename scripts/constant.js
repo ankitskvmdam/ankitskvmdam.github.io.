@@ -1,1 +1,1 @@
-export var PAGE_THROTTLE_TIME = 3000
+export var PAGE_THROTTLE_TIME = 1000
