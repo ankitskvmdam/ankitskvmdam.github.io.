@@ -1,8 +1,17 @@
+/* scroll bar */
+.dark ::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #555;
+    outline: 0.06125rem solid #555;
+}
+
 .dark body {
     background: #1a1a1a;
     color: #aaa;
 }
-
 
 .dark .tippy-box {
     background: #555;
@@ -10,7 +19,7 @@
 }
 
 .dark .tippy-arrow {
-    color: #555
+    color: #555;
 }
 
 .dark .view-wrapper {
@@ -21,7 +30,7 @@
     fill: #aaa;
 
     &:hover {
-        background: rgba(255, 255, 255, 0.05)
+        background: rgba(255, 255, 255, 0.05);
     }
 
     &:active {
@@ -29,12 +38,12 @@
     }
 
     &.disabled {
-        background: rgba(255, 255, 255, 0.3)
+        background: rgba(255, 255, 255, 0.3);
     }
 }
 
 .dark .bottom-bar {
-    background: #2F2F2F;
+    background: #2f2f2f;
 }
 
 .dark .bottom-bar-right-container {
@@ -46,9 +55,22 @@
 }
 
 .dark .page-1-intro-p {
-    color: #ccc
+    color: #ccc;
 }
 
-.dark .page-1-img-c {
-    fill: rgba(255, 255, 255, 0.02)
+.dark .fill-svg {
+    fill: #262626;
+    stroke: #262626;
+}
+
+.dark .my-project-h {
+    color: #666;
+}
+
+.dark .project-link {
+    color: #c3b;
+
+    &:hover {
+        color: #f4c;
+    }
 }

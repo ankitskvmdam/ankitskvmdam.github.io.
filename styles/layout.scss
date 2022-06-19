@@ -1,5 +1,5 @@
-@import './navbar.scss';
-@import './bottom-bar.scss';
+@import "./navbar.scss";
+@import "./bottom-bar.scss";
 
 .body {
     padding: 1rem;
@@ -39,7 +39,7 @@
     padding: 1rem 2rem;
 }
 
-.page-left, 
+.page-left,
 .page-right {
     flex: 1;
     position: relative;
@@ -69,4 +69,50 @@
     svg {
         height: 100%;
     }
+}
+
+.page-2-img-c {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        height: 80%;
+        width: auto;
+    }
+}
+
+.my-projects-c {
+    height: 100%;
+    overflow: auto;
+    margin-top: 2rem;
+}
+
+.my-project-h {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.my-project-desc {
+    margin-bottom: 2rem;
+    h4 {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    p {
+        margin: 0.5rem 0;
+        line-height: 1.75;
+        max-width: 40rem;
+    }
+}
+
+.project-link {
+    display: flex;
+    max-width: 40rem;
+    justify-content: flex-end;
 }
