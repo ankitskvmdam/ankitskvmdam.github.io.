@@ -28,5 +28,45 @@
     left: 0;
     right: 0;
     overflow: auto;
+}
+
+.page-sections {
+    display: flex;
+    height: 100%;
+}
+
+.page-padding {
     padding: 1rem 2rem;
+}
+
+.page-left, 
+.page-right {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    flex-basis: 50%;
+}
+
+.page-1-intro-c {
+    margin-top: 4rem;
+}
+
+.page-1-intro-h {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.page-1-intro-p {
+    line-height: 1.75;
+}
+
+.page-1-img-c {
+    position: absolute;
+    overflow: hidden;
+    padding-left: 50%;
+
+    svg {
+        height: 100%;
+    }
 }
