@@ -141,7 +141,9 @@ function setupIgnoreWheel() {
 
     leftSide.forEach(function (page) {
         page.addEventListener("wheel", function (event) {
-            event.stopPropagation()
+            if (page.scrollHeight !== page.getBoundingClientRect().height) {
+                event.stopPropagation()
+            }
         })
     })
 }
