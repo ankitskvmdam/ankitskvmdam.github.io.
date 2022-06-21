@@ -88,6 +88,7 @@
     height: 100%;
     overflow: auto;
     margin-top: 2rem;
+    position: relative;
 }
 
 .my-project-h {
@@ -109,10 +110,4 @@
         line-height: 1.75;
         max-width: 40rem;
     }
-}
-
-.project-link {
-    display: flex;
-    max-width: 40rem;
-    justify-content: flex-end;
 }
