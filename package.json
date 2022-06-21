@@ -8,13 +8,15 @@
         "rollup:build": "rollup -c configs/prod.config.js",
         "hugo": "hugo server --noHTTPCache --ignoreCache",
         "dev": "node watch-dev.js",
-        "build": "node build.js"
+        "build": "node build.js",
+        "deploy": "node build.js && gh-pages -d ./public"
     },
     "author": "Ankit Kumar <hello@ankdev.me>",
     "license": "MIT",
     "dependencies": {
         "autoprefixer": "^10.4.7",
         "fs-extra": "^10.1.0",
+        "gh-pages": "^4.0.0",
         "node-sass": "^7.0.1",
         "node-watch": "^0.7.3",
         "postcss": "^8.4.14",
