@@ -11,15 +11,18 @@
 
     .page-title-wrapper {
         transition: 0.3s;
+        div {
+            height: 22px;
+            display: flex;
+            align-items: center;
+        }
     }
-
 }
 
 .bottom-bar-right-container,
 .bottom-bar-icons-container {
     flex: 1;
     padding: 1rem 2rem;
-
 }
 
 .bottom-bar .icon-button {

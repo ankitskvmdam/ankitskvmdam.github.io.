@@ -113,6 +113,18 @@
 }
 
 @media screen and (max-width: 60em) {
+    .body {
+        font-size: 0.875rem;
+    }
+
+    .page-1-intro-c {
+        margin-top: 0;
+    }
+
+    .page-1-intro-h {
+        font-size: 2rem;
+    }
+
     .page-right {
         display: none;
     }
