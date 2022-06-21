@@ -147,7 +147,7 @@ function propagateEventIfWeCan(event) {
         isLastTimeSet = true
     }
 
-    if (now - lastTimeWheeled < 3000) {
+    if (now - lastTimeWheeled < 2500) {
         event.stopPropagation()
     } else {
         isLastTimeSet = false
@@ -162,17 +162,17 @@ function setupIgnoreWheel() {
             var rect = myProjects.getBoundingClientRect()
 
             /**
-             * Here 4 means user has to scroll with some pressure.
+             * Here 15 means user has to scroll with some pressure.
              */
             if (
-                event.deltaY > 4 &&
+                event.deltaY > 15 &&
                 myProjects.scrollTop + rect.height === myProjects.scrollHeight
             ) {
                 propagateEventIfWeCan(event)
                 return
             }
 
-            if (event.deltaY < -4 && myProjects.scrollTop === 0) {
+            if (event.deltaY < -15 && myProjects.scrollTop === 0) {
                 propagateEventIfWeCan(event)
                 return
             }
