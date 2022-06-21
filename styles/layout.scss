@@ -111,3 +111,13 @@
         max-width: 40rem;
     }
 }
+
+@media screen and (max-width: 60em) {
+    .page-right {
+        display: none;
+    }
+
+    .bottom-bar {
+        flex-direction: column-reverse;
+    }
+}
