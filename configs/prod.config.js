@@ -3,13 +3,13 @@ import fs from "fs"
 import scss from "rollup-plugin-scss"
 import { uglify } from "rollup-plugin-uglify"
 
-import { OPTIONS, FILE_NAME, staticDir, assets } from "./constants"
+import { OPTIONS, FILE_NAME, staticDir, assets, publicDir } from "./constants"
 import writeUrl from "../utils/write-url"
 import getFileNames from "../utils/get-file-names"
 import clean from "../utils/clean"
 import copy from "../utils/copy"
 
-clean([staticDir])
+clean([staticDir, publicDir])
 fs.mkdirSync(staticDir)
 copy([{ src: assets, dest: staticDir }])
 
