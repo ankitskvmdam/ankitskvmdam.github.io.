@@ -1,12 +1,5 @@
-# File system
-**/.DS_Store
+node_modules
+.hugo_build.lock
 
-# Dist
-**/dist
-
-# output
-**/public
-**/static
-
-# npm_modules
-**/node_modules
+static
+public

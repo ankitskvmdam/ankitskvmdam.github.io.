@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<div class="view-wrapper" id="view-wrapper">
+
+    {{ partial "navbar.html" . }}
+
+    <div class="page-view-wrapper">
+        {{ partial "page-1.html" . }}
+        {{ partial "page-2.html" . }}
+    </div>
+
+    {{ partial "bottom-bar.html" . }}
+
+</div>
+
+{{ end }}
