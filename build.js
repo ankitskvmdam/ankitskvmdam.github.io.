@@ -4,7 +4,7 @@ const { execSync } = require("child_process")
 
 // clone and process clean-jsdoc=theme
 function cloneAndProcessCleanJSDocTheme() {
-    const cleanJSDocPath = path.join("public", "clean-jsdoc-theme")
+    const cleanJSDocPath = path.join(__dirname, "public", "clean-jsdoc-theme")
 
     const cloneCommand = [
         "git",
@@ -40,5 +40,15 @@ execSync("npm run rollup:build")
 
 // Build site
 execSync("hugo")
+
+// Copy necessary files
+fs.copyFileSync(
+    path.join(__dirname, "CNAME"),
+    path.join(__dirname, "public", "CNAME")
+)
+fs.copyFileSync(
+    path.join(__dirname, "LICENSE"),
+    path.join(__dirname, "public", "LICENSE")
+)
 
 cloneAndProcessCleanJSDocTheme()
