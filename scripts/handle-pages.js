@@ -136,16 +136,50 @@ function setupPage() {
     pages[0].style.display = "block"
 }
 
-function setupIgnoreWheel() {
-    var leftSide = document.querySelectorAll(".page-left")
+var lastTimeWheeled = 0
+var isLastTimeSet = false
 
-    leftSide.forEach(function (page) {
-        page.addEventListener("wheel", function (event) {
-            if (page.scrollHeight !== page.getBoundingClientRect().height) {
-                event.stopPropagation()
+function propagateEventIfWeCan(event) {
+    var now = Date.now()
+
+    if (isLastTimeSet) {
+        lastTimeWheeled = Date.now()
+        isLastTimeSet = true
+    }
+
+    if (now - lastTimeWheeled < 3000) {
+        event.stopPropagation()
+    } else {
+        isLastTimeSet = false
+    }
+}
+
+function setupIgnoreWheel() {
+    var myProjects = document.querySelector(".my-projects-c")
+
+    if (myProjects) {
+        myProjects.addEventListener("wheel", function (event) {
+            var rect = myProjects.getBoundingClientRect()
+
+            /**
+             * Here 4 means user has to scroll with some pressure.
+             */
+            if (
+                event.deltaY > 4 &&
+                myProjects.scrollTop + rect.height === myProjects.scrollHeight
+            ) {
+                propagateEventIfWeCan(event)
+                return
             }
+
+            if (event.deltaY < -4 && myProjects.scrollTop === 0) {
+                propagateEventIfWeCan(event)
+                return
+            }
+
+            event.stopPropagation()
         })
-    })
+    }
 }
 
 export {
