@@ -1,7 +1,13 @@
 <div class="bottom-bar">
     <div class="bottom-bar-icons-container">
         {{ range .Site.Data.links.bottomBar }}
-        <a target="_blank" href="{{ .link }}" class="icon-button" id="{{ .id }}">
+        <a
+            target="_blank"
+            href="{{ .link }}"
+            class="icon-button"
+            id="{{ .id }}"
+            aria-label="{{ .title }}"
+        >
             <svg>
                 <use xlink:href="{{ .iconId }}"></use>
             </svg>
@@ -19,17 +25,24 @@
         </div>
 
         <div class="navigation">
-            <button class="icon-button left disabled" id="prev-page">
+            <button
+                class="icon-button left disabled"
+                id="prev-page"
+                aria-label="Go to next page"
+            >
                 <svg>
                     <use xlink:href="#down-icon"></use>
                 </svg>
             </button>
-            <button class="icon-button right" id="next-page">
+            <button
+                class="icon-button right"
+                id="next-page"
+                aria-label="Go to previous page"
+            >
                 <svg>
                     <use xlink:href="#down-icon"></use>
                 </svg>
             </button>
-
         </div>
     </div>
 </div>

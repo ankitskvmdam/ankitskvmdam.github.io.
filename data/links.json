@@ -3,22 +3,26 @@
         {
             "id": "github",
             "iconId": "#github-icon",
-            "link": "https://github.com/ankitskvmdam"
+            "link": "https://github.com/ankitskvmdam",
+            "title": "Github"
         },
         {
             "id": "gitlab",
             "iconId": "#gitlab-icon",
-            "link": "https://gitlab.com/ankits.kvmdam"
+            "link": "https://gitlab.com/ankits.kvmdam",
+            "title": "Gitlab"
         },
         {
             "id": "linkedin",
             "iconId": "#linkedin-icon",
-            "link": "https://www.linkedin.com/in/ankdev/"
+            "link": "https://www.linkedin.com/in/ankdev/",
+            "title": "Linkedin"
         },
         {
             "id": "email",
             "iconId": "#email-icon",
-            "link": "mailto:hello@ankdev.me"
+            "link": "mailto:hello@ankdev.me",
+            "title": "Email"
         }
     ]
 }
