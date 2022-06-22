@@ -74,3 +74,14 @@ body.dark {
         color: #ff7f7c;
     }
 }
+
+@media screen and (max-width: 50em) {
+    .dark ::-webkit-scrollbar-track {
+        background: unset;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+        background: unset;
+        outline: unset;
+    }
+}

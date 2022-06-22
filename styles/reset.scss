@@ -26,3 +26,15 @@ a:hover {
 ::-webkit-scrollbar-track {
     border-radius: 1rem;
 }
+
+@media screen and (max-width: 50em) {
+    ::-webkit-scrollbar {
+        width: unset;
+        height: unset;
+    }
+
+    ::-webkit-scrollbar-thumb,
+    ::-webkit-scrollbar-track {
+        border-radius: unset;
+    }
+}
