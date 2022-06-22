@@ -48,6 +48,10 @@
     flex-basis: 50%;
 }
 
+.page-left {
+    overflow: auto;
+}
+
 .page-1-intro-c {
     margin-top: 4rem;
 }
@@ -86,7 +90,6 @@
 
 .my-projects-c {
     height: 100%;
-    overflow: auto;
     margin-top: 2rem;
     position: relative;
 }
@@ -123,6 +126,10 @@
 
     .page-1-intro-h {
         font-size: 2rem;
+    }
+
+    .my-projects-c {
+        margin-top: 0;
     }
 
     .page-right {

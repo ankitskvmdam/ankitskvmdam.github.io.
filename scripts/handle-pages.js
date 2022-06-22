@@ -155,31 +155,31 @@ function propagateEventIfWeCan(event) {
 }
 
 function setupIgnoreWheel() {
-    var myProjects = document.querySelector(".my-projects-c")
+    var containers = document.querySelectorAll(".check-wheel")
 
-    if (myProjects) {
-        myProjects.addEventListener("wheel", function (event) {
-            var rect = myProjects.getBoundingClientRect()
+    containers.forEach(function (container) {
+        container.addEventListener("wheel", function (event) {
+            var rect = container.getBoundingClientRect()
 
             /**
              * Here 15 means user has to scroll with some pressure.
              */
             if (
                 event.deltaY > 15 &&
-                myProjects.scrollTop + rect.height === myProjects.scrollHeight
+                container.scrollTop + rect.height === container.scrollHeight
             ) {
                 propagateEventIfWeCan(event)
                 return
             }
 
-            if (event.deltaY < -15 && myProjects.scrollTop === 0) {
+            if (event.deltaY < -15 && container.scrollTop === 0) {
                 propagateEventIfWeCan(event)
                 return
             }
 
             event.stopPropagation()
         })
-    }
+    })
 }
 
 export {
