@@ -1,5 +1,10 @@
 import React from "react"
+import Canvas from "../../canvas"
 
 export default function Landing() {
-    return <div>Back to square 1</div>
+    return (
+        <div>
+            <Canvas />
+        </div>
+    )
 }
