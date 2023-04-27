@@ -27,9 +27,15 @@
         "vite-plugin-svgr": "^2.4.0"
     },
     "dependencies": {
+        "@react-three/drei": "^9.66.1",
+        "@react-three/fiber": "^8.13.0",
+        "framer-motion": "^10.12.4",
+        "maath": "^0.5.3",
         "react": "^18.2.0",
+        "react-color": "^2.19.3",
         "react-dom": "^18.2.0",
         "styled-components": "^5.3.10",
-        "three": "^0.151.3"
+        "three": "^0.151.3",
+        "valtio": "^1.10.4"
     }
 }

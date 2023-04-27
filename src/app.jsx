@@ -1,5 +1,13 @@
-import { ReactComponent as Logo } from "./assets/logo.svg"
+import React from "react"
+
+import GlobalStyles from "./styles/global"
+import Landing from "./pages/landing"
 
 export default function App() {
-    return <div>We did it!</div>
+    return (
+        <div>
+            <GlobalStyles />
+            <Landing />
+        </div>
+    )
 }
