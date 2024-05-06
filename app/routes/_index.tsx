@@ -14,7 +14,6 @@ export default function Index() {
   return (
     <div>
       <Landing />
-      <Section>Test</Section>
     </div>
   );
 }
