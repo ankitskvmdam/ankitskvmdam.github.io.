@@ -1,0 +1,13 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  padding: 1rem 2rem;
+}

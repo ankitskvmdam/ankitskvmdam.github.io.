@@ -1,0 +1,28 @@
+.welcome-container {
+  top: 200px;
+  position: absolute;
+  line-height: 1.75;
+  padding-right: 2rem;
+}
+
+.welcome-title {
+  font-size: 72px;
+  font-weight: 700;
+}
+
+.welcome-description {
+  max-width: 600px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+@media screen and (max-width: 45em) {
+  .welcome-title {
+    font-size: 32px;
+  }
+
+  .welcome-description {
+    font-size: 14px;
+  }
+}
