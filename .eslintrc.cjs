@@ -34,6 +34,7 @@ module.exports = {
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        "plugin:@react-three/recommended",
       ],
       settings: {
         react: {
@@ -47,6 +48,9 @@ module.exports = {
         "import/resolver": {
           typescript: {},
         },
+      },
+      overrides: {
+        "react/no-unknown-property": "off",
       },
     },
 

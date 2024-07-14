@@ -1,7 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Landing } from "~/components/landing";
 import "../global.scss";
-import { Section } from "~/components/section";
 
 export const meta: MetaFunction = () => {
   return [
