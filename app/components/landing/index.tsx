@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Section, SectionWrapper } from "../section";
 import styles from "./style.module.scss";
-import { LandingAirplaneScene } from "./scene";
 
 export function Landing() {
   const { t } = useTranslation();
@@ -15,7 +14,6 @@ export function Landing() {
               {t("welcomeDescription")}
             </p>
           </div>
-          <LandingAirplaneScene />
         </SectionWrapper>
       </Section>
     </>

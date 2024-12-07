@@ -20,6 +20,7 @@
     "@theatre/r3f": "0.5",
     "@theatre/studio": "0.5",
     "@types/three": "^0.166.0",
+    "clsx": "^2.1.1",
     "i18next": "^23.11.3",
     "i18next-browser-languagedetector": "^7.2.1",
     "isbot": "^4.1.0",

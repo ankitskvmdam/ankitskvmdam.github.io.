@@ -1,0 +1,53 @@
+.logo {
+  height: 32px;
+  width: 32px;
+  fill: #7B42F4;
+  
+  path {
+    transition: transform 0.3s;
+    transform-origin: 23% 91%;
+  }
+
+}
+
+.logo-loading {
+  animation: loading-logo 1s ease-in-out infinite forwards alternate-reverse;
+
+  #big {
+    animation: loading-big 1s cubic-bezier(.86,0,.07,1) infinite forwards alternate-reverse;
+  }
+
+  #medium {
+    animation: loading-medium 1s cubic-bezier(.86,0,.07,1) 0.06s infinite forwards alternate-reverse;
+  }
+}
+
+@keyframes loading-logo {
+  from {
+    transform: translate(0, 0)
+  }
+
+  to {
+    transform: translate(-10px, 10px)
+  }
+}
+
+@keyframes loading-big {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.47)
+  }
+}
+
+@keyframes loading-medium {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.66)
+  }
+}
