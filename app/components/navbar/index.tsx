@@ -1,10 +1,11 @@
 import { Logo } from "../logo";
-import "./style.scss";
 
 export function Navbar() {
   return (
-    <nav className="navbar">
-      <Logo />
+    <nav className="section">
+      <div className="section-wrapper section-padding">
+        <Logo />
+      </div>
     </nav>
   );
 }

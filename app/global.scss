@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inconsolata:wght@200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 * {
   margin: 0;
@@ -6,11 +6,81 @@
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  // background-color: #7B42F4;
-  background-color: #121212;
-  color: #ffeeff;
-  font-family: "Open Sans", Arial, sans-serif;
+:root {
+  // Color
+  --background: #fff;
+  --html-background: #eee;
+  --logo-fill: #555;
+  --text-color: #333;
+  --line-color: #fff;
+  --line-color-secondary: #eee;
+
+  // Fonts
+  --body-font: "Open Sans", system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --heading-font: "Inconsolata", 'Courier New', Courier, monospace;
+
+  // Width
+  --section-max-width: 1600px;
 }
 
+.dark {
+  --background: #222;
+  --html-background: #111;
+  --logo-fill: #7B42F4;
+  --text-color: #aaa;
+  --line-color: #222;
+  --line-color-secondary: #111;
+}
+
+
+html {
+  background: var(--html-background);
+  padding: 0.5rem; 
+}
+
+body {
+  background: var(--background);
+  border-radius: 0.5rem;
+  line-height: 1.75;
+  color: var(--text-color);
+}
+
+p {
+  font-family: var(--body-font);
+}
+
+
+.section {
+  display: flex;
+  justify-content: center;
+}
+
+.section-wrapper {
+  flex: 1;
+  max-width: var(--section-max-width);
+}
+
+.section-padding {
+  padding: 1rem 2rem;
+}
+
+.slash {
+  font-family: var(--heading-font); 
+  font-weight: 400;
+}
+
+.slash-heading {
+  font-size: 4rem;
+}
+
+.slash-subheading {
+  font-size: 2rem;
+}
+
+.slash-small {
+  font-size: 0.75rem;
+}
+
+.rel {
+  position: relative;
+}

@@ -1,21 +1,26 @@
-import { useTranslation } from "react-i18next";
-import { Section, SectionWrapper } from "../section";
-import styles from "./style.module.scss";
+import { Trans, useTranslation } from "react-i18next";
+import "./styles.scss";
 
 export function Landing() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("home");
   return (
-    <>
-      <Section>
-        <SectionWrapper>
-          <div className={styles["welcome-container"]}>
-            <h1 className={styles["welcome-title"]}>{t("welcomeTitle")}</h1>
-            <p className={styles["welcome-description"]}>
-              {t("welcomeDescription")}
+    <div className="section rel">
+      <div className="section-wrapper section-padding">
+        <h1 className="slash slash-heading">/home</h1>
+        <div className="landing-intro">
+          <div className="name-wrapper">
+            <span className="slash slash-small">/home/name</span>
+            <span className="name">{t("ankit_kumar")}</span>
+          </div>
+
+          <div className="intro-wrapper">
+            <span className="slash slash-small">/home/intro</span>
+            <p>
+              <Trans t={t} i18nKey="intro" components={[<i key="italic" />]} />
             </p>
           </div>
-        </SectionWrapper>
-      </Section>
-    </>
+        </div>
+      </div>
+    </div>
   );
 }

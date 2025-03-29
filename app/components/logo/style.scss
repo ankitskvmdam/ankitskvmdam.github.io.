@@ -1,7 +1,7 @@
 .logo {
   height: 32px;
   width: 32px;
-  fill: #7B42F4;
+  fill: var(--logo-fill);
   
   path {
     transition: transform 0.3s;

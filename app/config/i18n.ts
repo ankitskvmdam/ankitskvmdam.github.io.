@@ -10,9 +10,9 @@ export const fallbackLng = "en";
 
 // The default namespace of i18next is "translation", but you can customize it
 // here
-export const defaultNS = "translation";
+export const defaultNS = "home";
 
 export const resources = {
-  en: { translation: en },
-  hi: { translation: hi },
+  en: { home: en },
+  hi: { home: hi },
 };
