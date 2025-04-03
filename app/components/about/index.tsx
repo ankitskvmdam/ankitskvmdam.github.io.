@@ -4,7 +4,7 @@ import "./styles.scss";
 export function About() {
   const { t } = useTranslation("home");
   return (
-    <div className="section rel about">
+    <div className="section rel about section-border">
       <div className="section-wrapper section-padding">
         <h1 className="slash slash-heading">/about</h1>
         <p className="about-me">

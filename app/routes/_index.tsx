@@ -4,6 +4,7 @@ import "../global.scss";
 import { Logo } from "~/components/logo";
 import { Navbar } from "~/components/navbar";
 import { About } from "~/components/about";
+import { Project } from "~/components/project";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,6 +22,7 @@ export default function Index() {
       <main>
         <Landing />
         <About />
+        <Project />
       </main>
     </>
   );
