@@ -22,7 +22,7 @@ export function Experience() {
 
               <div className="projects">
                 {exp.notableProjects.map((project) => (
-                  <div className="project">
+                  <div className="project" key={project.id}>
                     <span className="slash slash-small">{project.slash}</span>
                     <span className="title">{project.title}</span>
                     <p className="section-p">{project.content}</p>

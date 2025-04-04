@@ -23,15 +23,6 @@ dependencies:
   '@remix-run/serve':
     specifier: ^2.9.1
     version: 2.9.1(typescript@5.1.6)
-  '@theatre/core':
-    specifier: '0.5'
-    version: 0.5.1
-  '@theatre/r3f':
-    specifier: '0.5'
-    version: 0.5.1(@react-three/fiber@8.16.8)(@theatre/core@0.5.1)(@theatre/studio@0.5.1)(react-dom@18.2.0)(react@18.2.0)(three@0.166.1)
-  '@theatre/studio':
-    specifier: '0.5'
-    version: 0.5.1(@theatre/core@0.5.1)
   '@types/three':
     specifier: ^0.166.0
     version: 0.166.0
@@ -50,6 +41,9 @@ dependencies:
   lucide-react:
     specifier: ^0.487.0
     version: 0.487.0(react@18.2.0)
+  meshline:
+    specifier: ^3.3.1
+    version: 3.3.1(three@0.166.1)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1626,45 +1620,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@theatre/core@0.5.1:
-    resolution: {integrity: sha512-LV3LwHPWVm62bR6DUQ55t4kCaI1KGrz+rPLoA6pMJ57x+6vBpoSCI0b11gJPdA1mCXebcNWN+U5M3PP6jJaSSg==}
-    dependencies:
-      '@theatre/dataverse': 0.5.1
-    dev: false
-
-  /@theatre/dataverse@0.5.1:
-    resolution: {integrity: sha512-oTjR8fNDbY11GSp7kw8quuOE9IC/5qzTe++OjFgn5enHKcFSaSPAZ8SIyOs+Im9bYgjcJFg/AYgU3Xi/MENgwQ==}
-    dependencies:
-      lodash-es: 4.17.21
-    dev: false
-
-  /@theatre/r3f@0.5.1(@react-three/fiber@8.16.8)(@theatre/core@0.5.1)(@theatre/studio@0.5.1)(react-dom@18.2.0)(react@18.2.0)(three@0.166.1):
-    resolution: {integrity: sha512-y42yxafM2kjk1iQImZPp7+qe21OviZhSY9h1Lh07YZWWSeMRoK1rASqtY+DQvawh8IqOT4ySBUX/zMBPoaRvPQ==}
-    peerDependencies:
-      '@react-three/fiber': '>=7.0.6'
-      '@theatre/core': '*'
-      '@theatre/studio': '*'
-      react: '>=17.0.2'
-      react-dom: '>=17.0.2'
-      three: '>=0.131.3'
-    dependencies:
-      '@react-three/fiber': 8.16.8(react-dom@18.2.0)(react@18.2.0)(three@0.166.1)
-      '@theatre/core': 0.5.1
-      '@theatre/studio': 0.5.1(@theatre/core@0.5.1)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      three: 0.166.1
-    dev: false
-
-  /@theatre/studio@0.5.1(@theatre/core@0.5.1):
-    resolution: {integrity: sha512-6r8JjSdUhL8JXMLlnhOLLFc/Br5Ddcq4EQmwUSCEBbFuJZcyb++GxV23p5W7a0DiB7NgtKdORj77n5NBt0WEpA==}
-    peerDependencies:
-      '@theatre/core': '*'
-    dependencies:
-      '@theatre/core': 0.5.1
-      '@theatre/dataverse': 0.5.1
-    dev: false
 
   /@tweenjs/tween.js@23.1.2:
     resolution: {integrity: sha512-kMCNaZCJugWI86xiEHaY338CU5JpD0B97p1j1IKNn/Zto8PgACjQx0UxbHjmOcLl/dDOBnItwD07KmCs75pxtQ==}
@@ -4350,10 +4305,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
-
-  /lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
 
   /lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}

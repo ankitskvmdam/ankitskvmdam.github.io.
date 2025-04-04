@@ -1,10 +1,11 @@
 import { Trans, useTranslation } from "react-i18next";
 import "./styles.scss";
+import { Background } from "./background";
 
 export function Landing() {
   const { t } = useTranslation("home");
   return (
-    <div className="section rel section-bottom-br section-primary-bg">
+    <div className="section rel section-bottom-br section-primary-bg landing">
       <div className="section-wrapper section-padding">
         <h1 className="slash slash-heading">/home</h1>
         <div className="landing-intro">
@@ -20,6 +21,9 @@ export function Landing() {
             </p>
           </div>
         </div>
+      </div>
+      <div className="background-container">
+        <Background />
       </div>
     </div>
   );

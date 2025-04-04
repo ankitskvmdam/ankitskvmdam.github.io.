@@ -2,6 +2,8 @@
   height: 32px;
   width: 32px;
   fill: var(--logo-fill);
+  z-index: 100;
+  position: relative;
   
   path {
     transition: transform 0.3s;

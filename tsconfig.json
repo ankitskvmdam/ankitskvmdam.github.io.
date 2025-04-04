@@ -23,6 +23,6 @@
     "noEmit": true,
 
     // Custom Types
-    "typeRoots": ["./translation.d.ts"]
+    "typeRoots": ["./translation.d.ts", "./meshline-extend.d.ts"]
   }
 }
