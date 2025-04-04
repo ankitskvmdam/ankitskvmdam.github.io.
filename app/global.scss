@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inconsolata:wght@200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 * {
   margin: 0;
@@ -12,8 +11,8 @@
   --html-background: #eee;
   --logo-fill: #555;
   --text-color: #333;
-  --line-color: #fff;
-  --line-color-secondary: #eee;
+  --line-color: #dfdfdf;
+  --line-color-secondary: #f1f1f1;
   --selection-color: #111;
   --selection-background: #E6E6FA;
 
@@ -31,7 +30,7 @@
   --logo-fill: #7B42F4;
   --text-color: #aaa;
   --line-color: #222;
-  --line-color-secondary: #333;
+  --line-color-secondary: #292929;
   --selection-color: #fff;
   --selection-background: #5454ac;
 }
@@ -48,8 +47,6 @@ html {
 }
 
 body {
-  background: var(--background);
-  border-radius: 0.5rem;
   line-height: 1.75;
   color: var(--text-color);
 }
@@ -62,6 +59,16 @@ p {
 .section {
   display: flex;
   justify-content: center;
+}
+
+.section-top-br {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.section-bottom-br {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;  
 }
 
 .section-wrapper {
@@ -96,4 +103,22 @@ p {
 
 .rel {
   position: relative;
+}
+
+header {
+  background: var(--background);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.section-primary-bg {
+  background: var(--background);
+}
+
+.section-secondary-bg {
+  background: var(--html-background);
+}
+
+.section-p {
+  max-width: 55rem;
+  font-family: var(--body-font);
 }

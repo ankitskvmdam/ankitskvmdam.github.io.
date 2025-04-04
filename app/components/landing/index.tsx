@@ -4,7 +4,7 @@ import "./styles.scss";
 export function Landing() {
   const { t } = useTranslation("home");
   return (
-    <div className="section rel">
+    <div className="section rel section-bottom-br section-primary-bg">
       <div className="section-wrapper section-padding">
         <h1 className="slash slash-heading">/home</h1>
         <div className="landing-intro">

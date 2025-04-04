@@ -4,10 +4,10 @@ import "./styles.scss";
 export function About() {
   const { t } = useTranslation("home");
   return (
-    <div className="section rel about section-border">
+    <div className="section rel about">
       <div className="section-wrapper section-padding">
         <h1 className="slash slash-heading">/about</h1>
-        <p className="about-me">
+        <p className="section-p about-me">
           <Trans t={t} i18nKey="about_me" components={[<br key="break" />]} />
         </p>
 

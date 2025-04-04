@@ -1,10 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Landing } from "~/components/landing";
 import "../global.scss";
-import { Logo } from "~/components/logo";
 import { Navbar } from "~/components/navbar";
 import { About } from "~/components/about";
 import { Project } from "~/components/project";
+import { Footer } from "~/components/footer";
+import { Experience } from "~/components/experience";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,8 +23,12 @@ export default function Index() {
       <main>
         <Landing />
         <About />
+        <Experience />
         <Project />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

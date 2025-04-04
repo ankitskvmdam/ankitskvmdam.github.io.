@@ -7,7 +7,7 @@ export function Project() {
   const { t } = useTranslation("home");
 
   return (
-    <div className="section rel project section-border">
+    <div className="section rel project section-top-br section-primary-bg">
       <div className="section-wrapper">
         <table className="project-table">
           <thead>
