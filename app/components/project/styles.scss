@@ -1,4 +1,4 @@
- 
+@import "../../variables";
 
 .project-table {
   border-collapse: collapse;
@@ -12,16 +12,35 @@
   tr th {
     border-bottom: 1px solid var(--neutral-0);
     text-align: left;
+    padding-top: 2rem;
+
+    @media screen and (min-width: $md-bp) {
+      padding-top: 4rem;
+    }
 
     h1 {
       line-height: 1.5;
     }
 
     &.first-col {
-      padding-top: 4rem;
       border-right: 1px solid var(--neutral-0);
       width: 40%;
       padding-left: 2rem;
+      display: none;  
+    }
+
+    &.second-col {
+      padding-left: 1rem;
+    }
+
+    @media screen and (min-width: $md-bp) {
+      &.first-col {
+        display: table-cell;
+      }
+
+      &.second-col h1 {
+        visibility: hidden;
+      }
     }
   }
 
@@ -29,6 +48,11 @@
   tbody td.first-col {
     border-right: 1px solid var(--neutral-0);
     padding-left: 2rem;
+    display: none;
+
+    @media screen and (min-width: $md-bp) {
+      display: table-cell;
+    }
   }
 
   tbody td {
@@ -39,18 +63,29 @@
 
   .data {
     .title {
-      padding: 0.5rem 2rem 0.5rem 1rem;
+      padding: 0.5rem 1rem 0.5rem 1rem;
       font-family: var(--heading-font);
       font-weight: bold;
-      font-size: 1.5rem;
-      text-align: right;
+      font-size: 1rem;
       border-bottom: 1px solid var(--neutral-0);
+      
+      @media screen and (min-width: $md-bp) {
+        font-size: 1.5rem;
+        padding: 0.5rem 2rem 0.5rem 1rem;
+        text-align: right;
+      }
     }
 
     .content {
-      padding: 2rem;
+      padding: 1rem;
       font-family: var(--body-font);
       line-height: 1.75;
+      font-size: 0.875rem;
+
+      @media screen and (min-width: $md-bp) {
+        padding: 2rem;
+        font-size: 1rem;
+      }
     }
   }
 

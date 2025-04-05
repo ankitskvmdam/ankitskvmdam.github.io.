@@ -1,42 +1,66 @@
-.experience {
+@import "../../variables";
 
+.experience {
   padding-bottom: 4rem;
 
   .experiences {
     display: flex;
     flex-direction: column;
-    gap: 32px 0;
+    gap: 2rem 0;
   }
 
   .exp-wrapper {
     display: flex;
     flex-direction: column;
-    margin: 3rem 0;
+    margin: 1rem 0;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--neutral-1);
     position: relative;
 
+    @media screen and (min-width: $sm-bp) {
+      margin: 3rem 0;
+    }
+
+
     .logo-container {
       position: absolute;
-      top: -6rem;
+      top: -8rem;
       right: 0;
       z-index: -1;
 
       svg {
-        height: 6rem;
+        height: 3rem;
         fill: var(--neutral-1);
       }
 
       &.bodygram svg {
-        height: 9rem;
+        height: 4rem;
+      }
+
+      @media screen and (min-width: $sm-bp) {
+        top: -6rem;
+        svg {
+          height: 6rem;
+        }
+
+        &.bodygram svg {
+          height: 9rem;
+        }
       }
 
     }
 
     .title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-family: var(--heading-font);
       font-weight: bold;
+      line-height: 1.25;
+      margin: 1rem 0;
+
+      @media screen and (min-width: $sm-bp) {
+        font-size: 1.5rem;
+        line-height: 1.75;
+      }
     }
 
     &:last-of-type {
@@ -53,7 +77,11 @@
     padding: 1rem 0;
 
     .title {
-      font-size: 1.25rem;
+      font-size: 1rem;
+
+      @media screen and (min-width: $sm-bp) {
+        font-size: 1.25rem;
+      }
     }
     .project {
       display: flex;

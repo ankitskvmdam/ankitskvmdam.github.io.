@@ -16,7 +16,7 @@ export function Project() {
                 <h1 className="slash slash-heading">/project</h1>
               </th>
               <th className="second-col">
-                <div />
+                <h1 className="slash slash-heading">/project</h1>
               </th>
             </tr>
           </thead>

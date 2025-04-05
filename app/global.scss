@@ -1,3 +1,4 @@
+@import "./variables";
 
 * {
   margin: 0;
@@ -54,6 +55,11 @@ html {
 body {
   line-height: 1.75;
   color: var(--foreground);
+  font-size: 0.875rem;
+
+  @media screen and (min-width: $sm-bp) {
+    font-size: 1rem;
+  }
 }
 
 p {
@@ -82,7 +88,11 @@ p {
 }
 
 .section-padding {
-  padding: 1rem 2rem;
+  padding: 1rem;
+    
+  @media screen and (min-width: $md-bp) {
+    padding: 1rem 2rem;
+  }
 }
 
 .slash {
@@ -91,8 +101,17 @@ p {
 }
 
 .slash-heading {
-  font-size: 4rem;
+  font-size: 2.5rem;
+
+  @media screen and (min-width: $sm-bp){
+    font-size: 3rem;    
+  }
+
+  @media screen and (min-width: $md-bp){
+    font-size: 4rem;    
+  }
 }
+
 
 .slash-subheading {
   font-size: 2rem;

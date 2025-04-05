@@ -1,7 +1,17 @@
 @use 'sass:math';
 
+@import "../../variables";
+
+.about {
+  padding-top: 4rem;
+}
+
 .about-me {
-  padding-bottom: 5rem;
+  margin: 1rem 0;
+
+  @media screen and (min-width: $sm-bp) {
+    margin: 2rem 0;
+  }
 }
 
 

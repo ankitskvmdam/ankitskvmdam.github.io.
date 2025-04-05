@@ -1,15 +1,24 @@
+@import "../../variables";
+
 .footer {
 
   .section-wrapper {
     padding-top: 10rem;
     display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+
+    @media screen and (min-width: $sm-bp) {
+      gap: 0;
+      flex-direction: row;      
+    }
   }
 
   .icons {
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 0 8px ;
+    gap: 0 0.5rem;
 
 
     a {
@@ -52,7 +61,10 @@
   .signature {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    
+    @media screen and (min-width: $sm-bp) {
+        justify-content: flex-end;
+    }
 
     svg {
       height: 48px;
