@@ -1,5 +1,6 @@
 import { Trans, useTranslation } from "react-i18next";
 import "./styles.scss";
+import { AboutUsTimeline } from "./timeline";
 
 export function About() {
   const { t } = useTranslation("home");
@@ -13,6 +14,8 @@ export function About() {
 
         <div>
           <h2 className="slash slash-subheading">/about/timeline</h2>
+
+          <AboutUsTimeline />
         </div>
       </div>
     </div>

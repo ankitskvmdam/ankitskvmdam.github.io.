@@ -1,3 +1,77 @@
+@use 'sass:math';
+
 .about-me {
   padding-bottom: 5rem;
+}
+
+
+.about {
+  .timeline-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: grab;
+
+    &.dragging {
+      cursor: grabbing;
+    }
+
+    .timeline-wrapper {
+      height: 300px;
+    }
+    
+    $line-height: 6.25;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4rem;
+      z-index: 10;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, var(--background-1) 0%, transparent 100%);
+    }
+
+    &.left-shadow::before {
+      background: linear-gradient(to right, var(--neutral-1) 0%, transparent 100%);      
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, var(--background-1) 0%, transparent 100%);
+    }
+
+    &.right-shadow::after {
+      background: linear-gradient(to left, var(--neutral-1) 0%, transparent 100%);      
+    }
+
+    .x-axis-line {
+      border-top: 0.25rem solid var(--background-0);
+      position: absolute;
+      top: #{math.div($line-height, 2)}rem;
+      width: 100%;
+    }
+
+    .line {
+      border-left: 1px solid var(--background-0);
+      height: #{$line-height}rem;
+      position: absolute;
+      top: 0;
+    }
+
+    .anchor-line {
+      position: absolute;
+      top: 0;
+      height: #{$line-height * 3}rem;
+      border: 0.125rem solid var(--background-0);
+      left: 2rem;
+      border-radius: 1rem;
+    }
+
+  }
+
 }
