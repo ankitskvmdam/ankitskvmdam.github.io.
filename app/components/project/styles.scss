@@ -10,7 +10,7 @@
   }
 
   tr th {
-    border-bottom: 1px solid var(--line-color-secondary);
+    border-bottom: 1px solid var(--neutral-0);
     text-align: left;
 
     h1 {
@@ -19,7 +19,7 @@
 
     &.first-col {
       padding-top: 4rem;
-      border-right: 1px solid var(--line-color-secondary);
+      border-right: 1px solid var(--neutral-0);
       width: 40%;
       padding-left: 2rem;
     }
@@ -27,12 +27,12 @@
 
 
   tbody td.first-col {
-    border-right: 1px solid var(--line-color-secondary);
+    border-right: 1px solid var(--neutral-0);
     padding-left: 2rem;
   }
 
   tbody td {
-    border-bottom: 1px solid var(--line-color-secondary);
+    border-bottom: 1px solid var(--neutral-0);
     padding-bottom: 4rem;
   }
 
@@ -44,7 +44,7 @@
       font-weight: bold;
       font-size: 1.5rem;
       text-align: right;
-      border-bottom: 1px solid var(--line-color-secondary);
+      border-bottom: 1px solid var(--neutral-0);
     }
 
     .content {

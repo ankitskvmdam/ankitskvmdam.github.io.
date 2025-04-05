@@ -13,7 +13,7 @@
     flex-direction: column;
     margin: 3rem 0;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--line-color);
+    border-bottom: 1px solid var(--neutral-1);
     position: relative;
 
     .logo-container {
@@ -24,7 +24,7 @@
 
       svg {
         height: 6rem;
-        fill: var(--line-color);
+        fill: var(--neutral-1);
       }
 
       &.bodygram svg {
