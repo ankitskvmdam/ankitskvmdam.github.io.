@@ -24,7 +24,7 @@
 
     .logo-container {
       position: absolute;
-      top: -8rem;
+      top: -5rem;
       right: 0;
       z-index: -1;
 
@@ -38,6 +38,8 @@
       }
 
       @media screen and (min-width: $sm-bp) {
+        top: -8rem;
+        
         svg {
           height: 6rem;
         }

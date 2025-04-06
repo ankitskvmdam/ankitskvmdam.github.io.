@@ -7,13 +7,22 @@ export function About() {
   return (
     <div className="section rel about">
       <div className="section-wrapper section-padding">
+        <div className="about-bg" />
         <h1 className="slash slash-heading">/about</h1>
 
-        <p className="section-p about-me">
-          <Trans t={t} i18nKey="about_me" components={[<br key="break" />]} />
-        </p>
+        <div className="about-me rel">
+          <p>
+            <Trans
+              t={t}
+              i18nKey="about_me"
+              components={[<strong key="strong" />, <br key="break" />]}
+            />
+          </p>
 
-        <Signature />
+          <div className="signature">
+            <Signature />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import "./styles.scss";
 export function Footer() {
   return (
     <div className="footer section rel section-padding section-bottom-br section-primary-bg">
-      <div className="efooter-bg" />
+      <div className="footer-bg" />
       <div className="section-wrapper">
         <div className="icons">
           {socialLinks.map((item) => (
