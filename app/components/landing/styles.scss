@@ -6,6 +6,11 @@
   flex-direction: column;
   gap: 1rem;
 
+  p strong {
+    font-weight: bold;
+    font-family: var(--heading-font);
+  }
+
   @media screen  and (min-width: $sm-bp) {
     margin-top: 5rem;
     gap: 3rem;      

@@ -17,7 +17,11 @@ export function Landing() {
           <div className="intro-wrapper">
             <span className="slash slash-small">/home/intro</span>
             <p>
-              <Trans t={t} i18nKey="intro" components={[<i key="italic" />]} />
+              <Trans
+                t={t}
+                i18nKey="intro"
+                components={[<strong key="strong" />, <br key="break" />]}
+              />
             </p>
           </div>
         </div>

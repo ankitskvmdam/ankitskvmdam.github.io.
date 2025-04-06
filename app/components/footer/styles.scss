@@ -1,24 +1,44 @@
 @import "../../variables";
 
 .footer {
+  padding-top: 4rem;
+  height: 24rem;
+
+  .footer-bg {
+    background: url("/assets/footer-bg.png") no-repeat 35% top;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 20rem;
+    background-size: cover;
+    opacity: 0.08;
+
+    @media screen and (min-width: $md-bp) {
+      background-position: center top;
+    }
+  }
 
   .section-wrapper {
-    padding-top: 10rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem 0;
-
-    @media screen and (min-width: $sm-bp) {
-      gap: 0;
-      flex-direction: row;      
+    justify-content: flex-end;
+    gap: 0.5rem 0;  
+    
+    @media screen and (min-width: $md-bp) {
+      flex-direction: row;
+      align-items: flex-end;
     }
   }
 
   .icons {
-    flex: 1;
     display: flex;
     align-items: center;
     gap: 0 0.5rem;
+
+    @media screen and (min-width: $md-bp) {
+      flex: 1;
+    }
 
 
     a {
@@ -56,25 +76,5 @@
         z-index: 2;
       }
     }
-  }
-
-  .signature {
-    flex: 1;
-    display: flex;
-    
-    @media screen and (min-width: $sm-bp) {
-        justify-content: flex-end;
-    }
-
-    svg {
-      height: 48px;
-
-      path {
-        fill: var(--foreground);
-        stroke: var(--foreground);
-        stroke-width: 20px;
-      }
-    }
-
   }
 }
