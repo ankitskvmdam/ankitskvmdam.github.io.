@@ -1,8 +1,11 @@
 @import "../../variables";
 
 .footer {
-  padding-top: 4rem;
-  height: 24rem;
+  height: 18rem;
+
+  @media screen and (min-width: $md-bp) {
+    height: 20rem;
+  }
 
   .footer-bg {
     background: url("/assets/footer-bg.png") no-repeat 35% top;
@@ -10,14 +13,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 20rem;
+    height: 14rem;
     background-size: cover;
     opacity: 0.08;
 
     @media screen and (min-width: $md-bp) {
       background-position: center top;
+      height: 16rem;
     }
   }
+
 
   .section-wrapper {
     display: flex;

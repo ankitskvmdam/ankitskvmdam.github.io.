@@ -2,8 +2,10 @@
 
 .experience {
   padding-bottom: 4rem;
-  padding-top: 8rem;
-
+  
+  @media screen and (min-width: $md-bp) {
+    padding-top: 8rem;
+  }
   .experiences {
     display: flex;
     flex-direction: column;
