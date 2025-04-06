@@ -16,6 +16,7 @@
   --neutral-1: #e9e9e9;
   --neutral-3: #aaa;
   --logo-fill: #572eb1;
+  --anchor-border-color: #572eb1;
   
 
   --selection-color: #111;
@@ -38,6 +39,7 @@
   --neutral-1: #191919;
   --neutral-3: #333;
   --logo-fill: #7B42F4;
+  --anchor-border-color: #7b42f4;
   
   --selection-color: #fff;
   --selection-background: #5454ac;
@@ -62,6 +64,13 @@ body {
   @media screen and (min-width: $sm-bp) {
     font-size: 1rem;
   }
+}
+
+
+a {
+  border-bottom: 1px dashed var(--anchor-border-color);
+  text-decoration: none;
+  color: var(--foreground);
 }
 
 p {

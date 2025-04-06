@@ -21,6 +21,7 @@ different rhythm compared to a startup—slower in some ways, more deliberate in
 academic environments function, and the unique challenges they bring. <1 /><1 />
 
 From there, I moved to Japan, where I joined <0>Startbahn</0>, a startup focused on building blockchain infrastructure for the creative industries.
+It opened the door for me into the world of blockchain—and showed me just how broadly it can be applied.
 It was a short but eye-opening experience. I rewrote their component library, led a major refactor of their legacy core platform,
 and helped create internal coding guidelines and best practices. One thing that stood out: the discipline. Even in a small team,
 documentation was taken seriously, and the feedback I received on my guidelines helped me become a better communicator and a more
@@ -35,9 +36,41 @@ viewers. <1 /><1 />
 Outside of work, I enjoy contributing to open source projects—it's my way of giving back, learning, and staying connected with
 the wider dev community. <1 /><1 />
 
-And that’s my professional journey—so far. It's just the beginning, and I'm sure I'll have even better stories to share
+And that's my professional journey—so far. It's just the beginning, and I'm sure I'll have even better stories to share
 when we meet in person. Thanks for reading.
   `,
+
+  experience: {
+    bodygram: {
+      title: "Software Engineer, Bodygram Inc., 2023-Present",
+      slash: "/experience/bodygram",
+      intro:
+        "Bodygram challenged me to level up—especially in handling cameras within browsers, using MediaPipe to validate poses, and building web apps that seamlessly integrate into other web apps, as well as native iOS and Android apps.\n\nThe toughest (and most exciting) part? Learning Three.js from scratch—rendering avatars, drawing measurement rings around them, morphing avatars from their current body to a projected future body, and, most importantly, building a fully-fledged SDK that anyone could use to embed Bodygram's 3D avatars into their own applications.",
+      notable_projects_1_slash:
+        "/experience/bodygram/projects/sdk-to-integrate-3d-avatar-view",
+      notable_projects_1_title: "SDK to integrate 3D avatar view",
+      notable_projects_1_intro:
+        "The project was to create a framework agnostic SDK that is easier to integrate into a webapp or native app easily. The answer was to learn web-components. I created a bunch of components, with good flexibility that anyone the can use to render 3D avatar, show  or hide rings, styled it according to their app theme etc., I solved many technical challenges like, how to manage state between parent and slotted children and parent and non-slotted children, sync threejs meshes lifecycle with web components lifecycle, and realised there is not much resources available if you are doing web thing that is not react derivative.",
+    },
+
+    startbahn: {
+      title: "Frontend Engineer, Startbahn Inc., 2022-2023",
+      slash: "/experience/startbahn",
+      intro:
+        "At Startbahn I worked on migrating legacy web app that managed NFTs.  To support the team's workflow, I simplified the frontend deployment pipelines and took the initiative to document and refine our coding guidelines—making development smoother and more consistent across the board.",
+    },
+    uoc: {
+      title: "Research Software Engineer, University of Cambridge, 2021-2022",
+      slash: "/experience/uoc",
+      intro:
+        "At the University of Cambridge, I learned just how massive biological data can be. My main task was to build a dashboard that allowed researchers to spin up instances of <1>[InterMine](https://github.com/intermine/intermine_cloud)</1>, a cloud-based omics data warehouse and analysis platform. One key challenge was enabling users to upload huge biological data files without crashing their browser. Loading these files all at once would consume too much memory—especially on machines with limited RAM. To solve this, I implemented chunked uploads, splitting files into manageable parts and uploading them incrementally, ensuring stability and performance.\n\nBeyond that, I also contributed to a component library for internal tools and served as a teaching assistant for <1>[Bioinformatics for SARS Genomic Surveillance](https://cambiotraining.github.io/sars-cov-2-genomics/)</1>.",
+    },
+    asaan: {
+      title: "Co-Founder/Frontend Lead, Asaan Contracts Pvt. Ltd., 2017-2021",
+      slash: "/experience/asaan",
+      intro: "",
+    },
+  },
 };
 
 export default home;

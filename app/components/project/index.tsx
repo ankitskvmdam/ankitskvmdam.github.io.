@@ -13,10 +13,10 @@ export function Project() {
           <thead>
             <tr>
               <th className="first-col">
-                <h1 className="slash slash-heading">/project</h1>
+                <h1 className="slash slash-heading">/projects</h1>
               </th>
               <th className="second-col">
-                <h1 className="slash slash-heading">/project</h1>
+                <h1 className="slash slash-heading">/projects</h1>
               </th>
             </tr>
           </thead>

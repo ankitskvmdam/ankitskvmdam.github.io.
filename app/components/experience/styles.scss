@@ -2,6 +2,7 @@
 
 .experience {
   padding-bottom: 4rem;
+  padding-top: 8rem;
 
   .experiences {
     display: flex;
@@ -16,29 +17,51 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--neutral-1);
     position: relative;
+    white-space: pre-line;
 
     @media screen and (min-width: $sm-bp) {
       margin: 3rem 0;
     }
 
 
+    .skills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+
+      span {
+        font-family: var(--heading-font);
+        font-size: 0.725rem;
+        font-weight: bold;
+        padding: 0.125rem 0.3125rem;
+        border-radius: 0.25rem;
+        background: var(--neutral-1);
+        border: 1px solid var(--neutral-3);
+      }
+    }
+
     .logo-container {
       position: absolute;
-      top: -5rem;
       right: 0;
       z-index: -1;
+      display: none; // Remove if we want to support showing logo on smaller device. 
 
       svg {
         height: 3rem;
         fill: var(--neutral-1);
       }
 
-      &.bodygram svg {
-        height: 4rem;
+      &.bodygram {
+        svg {
+          height: 4rem;
+        }
       }
 
-      @media screen and (min-width: $sm-bp) {
-        top: -8rem;
+
+      @media screen and (min-width: $md-bp) {
+        top: -10rem;
+        display: block;
         
         svg {
           height: 6rem;
@@ -56,7 +79,7 @@
       font-family: var(--heading-font);
       font-weight: bold;
       line-height: 1.25;
-      margin: 1rem 0;
+      margin: 0.25rem 0;
 
       @media screen and (min-width: $sm-bp) {
         font-size: 1.5rem;
