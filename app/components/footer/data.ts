@@ -1,24 +1,26 @@
-import { Github, Linkedin, Mail, LucideIcon } from "lucide-react";
+import React from "react";
+import { GithubIcon, LinkedinIcon, MailIcon, TIconProps } from "../icons";
+
 export type TSocialLink = {
   id: string;
-  icon: LucideIcon;
+  icon: (props: TIconProps) => JSX.Element;
   href: string;
 };
 
 export const socialLinks: TSocialLink[] = [
   {
     id: "github",
-    icon: Github,
+    icon: GithubIcon,
     href: "https://github.com/ankitskvmdam",
   },
   {
     id: "linkedin",
-    icon: Linkedin,
+    icon: LinkedinIcon,
     href: "https://linkedin.com/in/ankdev",
   },
   {
     id: "mail",
-    icon: Mail,
+    icon: MailIcon,
     href: "mailto:ankits.kvmdam@gmail.com",
   },
 ];

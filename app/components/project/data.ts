@@ -1,69 +1,65 @@
+export type TProjectLink = {
+  id: string;
+  type: "github" | "npm" | "website";
+  href: string;
+};
+
 export type TProjectData = {
   id: string;
+  slash: string;
   title: string;
-  content: string;
+  translationKey: "cleanJSDocTheme" | "outspeedJS";
   number: string;
+  links: TProjectLink[];
 };
 
 export const data: TProjectData[] = [
   {
     id: "1",
-    title: "/projects/at-bodygram/web-components",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
+    slash: "/projects/personal/clean-jsdoc-theme",
+    title: "clean-jsdoc-theme",
+    translationKey: "cleanJSDocTheme",
     number: "01.",
+    links: [
+      {
+        id: "npm",
+        type: "npm",
+        href: "https://www.npmjs.com/package/clean-jsdoc-theme",
+      },
+      {
+        id: "github",
+        type: "github",
+        href: "https://github.com/ankitskvmdam/clean-jsdoc-theme/tree/master",
+      },
+      {
+        id: "web",
+        type: "website",
+        href: "https://ankdev.me/clean-jsdoc-theme/v4/",
+      },
+    ],
   },
   {
     id: "2",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
     number: "02.",
-  },
-  {
-    id: "3",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "03.",
-  },
-  {
-    id: "4",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "04.",
-  },
-  {
-    id: "5",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "05.",
-  },
-  {
-    id: "6",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "06.",
-  },
-  {
-    id: "7",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "07.",
-  },
-  {
-    id: "8",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "08.",
-  },
-  {
-    id: "9",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "09.",
-  },
-  {
-    id: "10",
-    title: "/projects/at-adaptai/realtime",
-    content: `One of Bodygram's core products is the Bodygram Scanner Platform, which allows clients to obtain precise body measurement data that they can integrate into their applications in any form. Many customers wanted to leverage this data to display realistic avatars, which presented an exciting challenge—building a platform-agnostic SDK. I worked on developing reusable web components that seamlessly render avatars across web apps, iOS, and Android applications. From conceptualization to execution, I built this solution from scratch, making it highly accessible and adaptable. This innovation significantly enhanced the user experience and broadened the platform’s usability.`,
-    number: "10.",
+    slash: "/projects/outspeed/outspeed-js",
+    title: "Outspeed JS",
+    translationKey: "outspeedJS",
+    links: [
+      {
+        id: "npm",
+        href: "https://www.npmjs.com/package/@outspeed/core",
+        type: "npm",
+      },
+      {
+        id: "github",
+        href: "https://github.com/outspeed-ai/outspeed-js",
+        type: "github",
+      },
+      {
+        id: "website",
+        href: "https://outspeed.com/",
+        type: "website",
+      },
+    ],
   },
 ];

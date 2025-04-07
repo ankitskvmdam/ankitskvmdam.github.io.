@@ -15,7 +15,7 @@
     bottom: 0;
     height: 14rem;
     background-size: cover;
-    opacity: 0.08;
+    opacity: 0.05;
 
     @media screen and (min-width: $md-bp) {
       background-position: center top;
@@ -79,6 +79,7 @@
         height: 24px;
         width: 24px;
         z-index: 2;
+        fill: var(--foreground)
       }
     }
   }

@@ -37,13 +37,11 @@ Outside of work, I enjoy contributing to open source projects—it's my way of g
 the wider dev community. <1 /><1 />
 
 And that's my professional journey—so far. It's just the beginning, and I'm sure I'll have even better stories to share
-when we meet in person. Thanks for reading.
+when we meet in person.
   `,
 
   experience: {
     bodygram: {
-      title: "Software Engineer, Bodygram Inc., 2023-Present",
-      slash: "/experience/bodygram",
       intro:
         "Bodygram challenged me to level up—especially in handling cameras within browsers, using MediaPipe to validate poses, and building web apps that seamlessly integrate into other web apps, as well as native iOS and Android apps.\n\nThe toughest (and most exciting) part? Learning Three.js from scratch—rendering avatars, drawing measurement rings around them, morphing avatars from their current body to a projected future body, and, most importantly, building a fully-fledged SDK that anyone could use to embed Bodygram's 3D avatars into their own applications.",
       notable_projects_1_slash:
@@ -54,21 +52,36 @@ when we meet in person. Thanks for reading.
     },
 
     startbahn: {
-      title: "Frontend Engineer, Startbahn Inc., 2022-2023",
-      slash: "/experience/startbahn",
       intro:
         "At Startbahn I worked on migrating legacy web app that managed NFTs.  To support the team's workflow, I simplified the frontend deployment pipelines and took the initiative to document and refine our coding guidelines—making development smoother and more consistent across the board.",
     },
     uoc: {
-      title: "Research Software Engineer, University of Cambridge, 2021-2022",
-      slash: "/experience/uoc",
       intro:
         "At the University of Cambridge, I learned just how massive biological data can be. My main task was to build a dashboard that allowed researchers to spin up instances of <1>[InterMine](https://github.com/intermine/intermine_cloud)</1>, a cloud-based omics data warehouse and analysis platform. One key challenge was enabling users to upload huge biological data files without crashing their browser. Loading these files all at once would consume too much memory—especially on machines with limited RAM. To solve this, I implemented chunked uploads, splitting files into manageable parts and uploading them incrementally, ensuring stability and performance.\n\nBeyond that, I also contributed to a component library for internal tools and served as a teaching assistant for <1>[Bioinformatics for SARS Genomic Surveillance](https://cambiotraining.github.io/sars-cov-2-genomics/)</1>.",
     },
     asaan: {
-      title: "Co-Founder/Frontend Lead, Asaan Contracts Pvt. Ltd., 2017-2021",
-      slash: "/experience/asaan",
-      intro: "",
+      intro:
+        "Asaan was where I truly learned <0>how to learn</0>. I spent countless hours experimenting with frontend frameworks and libraries—React, Vue, SolidJS, Next.js, JQuery—chasing the right fit for our evolving needs.\n\nOne of my most rewarding challenges was building a flexible (yet slightly rigid) component library tailored to our product demands.As we developed dashboards for various clients, I began noticing patterns—recurring flows, common UI steps, shared logic. I took that as a cue to componentize the repeated parts, turning them into reusable building blocks. That's where I discovered the real power of reusable components—not just for cleaner code, but for dramatically accelerating development across the board.",
+    },
+  },
+
+  projects: {
+    cleanJSDocTheme: {
+      description: `
+        Back in college, while building my startup, I became deeply invested in documenting my code—not just for myself, but for anyone who might work with it. That's when I discovered JSDoc. It did the job, but its default theme left a lot to be desired. I believed documentation should be inviting—something you'd actually want to read. I searched for a theme that felt premium, offered good searchability, dark mode, font controls, and was mobile-friendly. Nothing quite fit.
+        <1></1><1></1>
+        So, I built <3>clean-jsdoc-theme</3>—a minimalist, responsive, and highly customizable theme for JSDoc. What started as a personal need became my first open source project on npm, and it's now helping developers deliver beautiful documentation with ease.
+      `,
+    },
+    outspeedJS: {
+      description: `
+      In the summer of 2024, I finally carved out time to explore something I'd always been curious about—<4>WebRTC</4>. That led me to <4>Outspeed</4>, <2>formerly Adapt AI</2>,
+      where I joined as a consultant to help shape their core library, <3>@outspeed/core</3>. Written in vanilla JavaScript, the library provides the foundational building
+      blocks—classes and methods—to establish and manage WebRTC connections from the ground up.
+      <1></1><1></1>
+      Beyond the core, I also contributed to <3>@outspeed/react</3> and <3>@outspeed/react-native</3>, which are built on top of the core library to support seamless integration
+      across platforms. It was one of those rare projects that felt both technically challenging and deeply rewarding. I gained a strong understanding of the intricacies of
+      WebRTC—its quirks, limitations, and the raw power it offers when used well.`,
     },
   },
 };

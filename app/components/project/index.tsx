@@ -1,7 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { data } from "./data";
 
 import "./styles.scss";
+import { ToLink } from "../to-link";
+import { GithubIcon, NPMIcon, WebsiteIcon } from "../icons";
 
 export function Project() {
   const { t } = useTranslation("home");
@@ -14,6 +16,10 @@ export function Project() {
             <tr>
               <th className="first-col">
                 <h1 className="slash slash-heading">/projects</h1>
+                {/* <div style="">
+                  My open source projects that I worked out of curiosity of
+                  because I love to code.
+                </div> */}
               </th>
               <th className="second-col">
                 <h1 className="slash slash-heading">/projects</h1>
@@ -28,8 +34,37 @@ export function Project() {
                 </td>
                 <td>
                   <div className="data">
-                    <div className="title">{d.title}</div>
-                    <div className="content">{d.content}</div>
+                    <div className="title">
+                      <div className="slash slash-small">{d.slash}</div>
+                      {d.title}
+                    </div>
+                    <div className="content">
+                      <Trans
+                        t={t}
+                        i18nKey={`projects.${d.translationKey}.description`}
+                        components={[
+                          <ToLink key="link" />,
+                          <br key="break" />,
+                          <i key="italic" />,
+                          <code key="code" />,
+                          <strong key="strong" />,
+                        ]}
+                      />
+                    </div>
+
+                    <div className="links-container">
+                      {d.links.map(({ href, type, id }) => (
+                        <a href={href} key={id} target="_blank">
+                          {type === "npm" && <NPMIcon className="npm" />}
+                          {type === "github" && (
+                            <GithubIcon className="github" />
+                          )}
+                          {type === "website" && (
+                            <WebsiteIcon className="website" />
+                          )}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </td>
               </tr>

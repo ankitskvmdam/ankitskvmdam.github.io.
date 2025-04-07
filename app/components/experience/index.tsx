@@ -17,15 +17,13 @@ export function Experience() {
               id,
               logo: Logo,
               notableProjects,
+              slash,
+              title,
               skills,
             }) => (
               <div key={id} className="exp-wrapper">
-                <span className="slash slash-small">
-                  {t(`experience.${translationBaseKey}.slash`)}
-                </span>
-                <span className="title">
-                  {t(`experience.${translationBaseKey}.title`)}
-                </span>
+                <span className="slash slash-small">{slash}</span>
+                <span className="title">{title}</span>
                 <div className="skills">
                   {skills.map((skill) => (
                     <span key={skill}>{skill}</span>
@@ -41,8 +39,8 @@ export function Experience() {
                   </p>
                   <div className={`logo-container ${id}`}>{<Logo />}</div>
                 </div>
-
-                <div className="projects">
+                {/* TODO: Uncomment once we have projects for all experience. */}
+                {/* <div className="projects">
                   {notableProjects.map((_, project_idx) => (
                     <div className="project" key={project_idx}>
                       <span className="slash slash-small">
@@ -68,7 +66,7 @@ export function Experience() {
                       </p>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
             )
           )}

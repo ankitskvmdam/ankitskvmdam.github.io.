@@ -6,7 +6,7 @@
   width: 100%;
 
   td {
-    vertical-align: top;  
+    vertical-align: top;
   }
 
   tr th {
@@ -26,7 +26,7 @@
       border-right: 1px solid var(--neutral-0);
       width: 40%;
       padding-left: 2rem;
-      display: none;  
+      display: none;
     }
 
     &.second-col {
@@ -68,7 +68,7 @@
       font-weight: bold;
       font-size: 1rem;
       border-bottom: 1px solid var(--neutral-0);
-      
+
       @media screen and (min-width: $md-bp) {
         font-size: 1.5rem;
         padding: 0.5rem 2rem 0.5rem 1rem;
@@ -94,4 +94,38 @@
     font-size: 3rem;
   }
 
+
+  .links-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 0 2rem;
+
+    a {
+      padding: 0.25rem;
+      border: none;
+
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+        fill: var(--neutral-3);
+        transition: 0.3s;
+      }
+
+      &:hover {
+        svg.npm {
+          fill: var(--npm);
+        }
+
+        svg.github {
+          fill: var(--github);
+        }
+
+        svg.website {
+          fill: var(--website)
+        }
+
+      }
+    }
+  }
 }

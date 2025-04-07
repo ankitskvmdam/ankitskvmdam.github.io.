@@ -17,6 +17,9 @@
   --neutral-3: #aaa;
   --logo-fill: #572eb1;
   --anchor-border-color: #572eb1;
+  --npm: #cd0000;
+  --github: #232323;
+  --website: #007bff;
   
 
   --selection-color: #111;
@@ -37,9 +40,12 @@
 
   --neutral-0: #292929;
   --neutral-1: #191919;
-  --neutral-3: #333;
+  ---neutral-4: #777;
   --logo-fill: #7B42F4;
   --anchor-border-color: #7b42f4;
+  --npm: #d80c0c;
+  --github: #f0f6fc;
+  --website: #7b42f4;
   
   --selection-color: #fff;
   --selection-background: #5454ac;
@@ -152,4 +158,10 @@ header {
 .section-p {
   max-width: 55rem;
   font-family: var(--body-font);
+}
+
+code {
+  background: var(--neutral-1);
+  border-radius: 0.25rem;
+  padding: 0 0.25rem;
 }
