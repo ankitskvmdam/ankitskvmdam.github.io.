@@ -43,9 +43,14 @@
     .signature {
       position: absolute;
       bottom: 0rem;
-      left: 0;
+      right: 0;
       width: 12rem;
       fill: var(--neutral-3);
+
+      @media screen and (min-width: $md-bp) {
+        right: auto;
+        left: 0;
+      }
     }
 
     @media screen and (min-width: $sm-bp) {
