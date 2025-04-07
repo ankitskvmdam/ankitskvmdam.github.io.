@@ -1,5 +1,13 @@
 @import "../../variables";
 
+
+.dark {
+  
+  .footer .footer-bg {
+    opacity: 0.2;
+  }
+}
+
 .footer {
   height: 18rem;
 
@@ -15,7 +23,7 @@
     bottom: 0;
     height: 14rem;
     background-size: cover;
-    opacity: 0.05;
+    opacity: 0.08;
 
     @media screen and (min-width: $md-bp) {
       background-position: center top;
