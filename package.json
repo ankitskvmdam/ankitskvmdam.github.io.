@@ -31,6 +31,7 @@
     "three": "^0.166.1"
   },
   "devDependencies": {
+    "@netlify/remix-adapter": "^2.6.1",
     "@react-three/eslint-plugin": "^0.1.1",
     "@remix-run/dev": "^2.9.1",
     "@types/react": "^18.2.20",
