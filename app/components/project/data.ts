@@ -34,7 +34,7 @@ export const data: TProjectData[] = [
       {
         id: "web",
         type: "website",
-        href: "https://ankdev.me/clean-jsdoc-theme/v4/",
+        href: "http://localhost:5173/clean-jsdoc-theme/v4/",
       },
     ],
   },

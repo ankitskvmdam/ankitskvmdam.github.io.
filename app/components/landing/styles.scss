@@ -19,7 +19,11 @@
 
 .landing {
   position: relative;
-  min-height: calc(100svh - 90px);
+  min-height: calc(85svh - 90px);
+
+  @media screen and (min-width: $sm-bp) {
+    min-height: calc(100svh - 90px);
+  }
 
   .background-container {
     position: absolute;
