@@ -1,6 +1,6 @@
 export type TProjectLink = {
   id: string;
-  type: "github" | "npm" | "website";
+  type: "github" | "npm" | "website" | "notebook";
   href: string;
 };
 
@@ -8,7 +8,7 @@ export type TProjectData = {
   id: string;
   slash: string;
   title: string;
-  translationKey: "cleanJSDocTheme" | "outspeedJS";
+  translationKey: "cleanJSDocTheme" | "outspeedJS" | "ersilia" | "ersiliaTrain";
   number: string;
   links: TProjectLink[];
 };
@@ -59,6 +59,50 @@ export const data: TProjectData[] = [
         id: "website",
         href: "https://outspeed.com/",
         type: "website",
+      },
+    ],
+  },
+  {
+    id: "3",
+    number: "03.",
+    slash: "/projects/ersilia/integrate-reinvent4",
+    title: "Integrate REINVENT4 in the Ersilia Hub",
+    translationKey: "ersilia",
+    links: [
+      {
+        id: "github",
+        href: "https://github.com/ersilia-os/ersilia/issues/942",
+        type: "github",
+      },
+      {
+        id: "notebook",
+        href: "https://github.com/ankitskvmdam/REINVENT4_NOTEBOOK/tree/master/notebooks",
+        type: "notebook",
+      },
+      {
+        id: "website",
+        type: "website",
+        href: "https://www.ersilia.io/",
+      },
+    ],
+  },
+  {
+    id: "4",
+    number: "04.",
+    slash: "/projects/ersilia/train-reinvent4",
+    title:
+      "Train REINVENT's Mol2MolSimilarity model to generate molecules similar in 3d shape.",
+    translationKey: "ersiliaTrain",
+    links: [
+      {
+        id: "github",
+        href: "https://github.com/ersilia-os/ersilia/issues/1128",
+        type: "github",
+      },
+      {
+        id: "notebook",
+        type: "notebook",
+        href: "https://github.com/ankitskvmdam/reinvent-transfer-learning/blob/master/notebooks/TransferLearning.ipynb",
       },
     ],
   },

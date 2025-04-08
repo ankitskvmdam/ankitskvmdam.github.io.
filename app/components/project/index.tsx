@@ -3,7 +3,7 @@ import { data } from "./data";
 
 import "./styles.scss";
 import { ToLink } from "../to-link";
-import { GithubIcon, NPMIcon, WebsiteIcon } from "../icons";
+import { GithubIcon, NotebookIcon, NPMIcon, WebsiteIcon } from "../icons";
 
 export function Project() {
   const { t } = useTranslation("home");
@@ -48,6 +48,7 @@ export function Project() {
                           <i key="italic" />,
                           <code key="code" />,
                           <strong key="strong" />,
+                          <div key="div" />,
                         ]}
                       />
                     </div>
@@ -61,6 +62,9 @@ export function Project() {
                           )}
                           {type === "website" && (
                             <WebsiteIcon className="website" />
+                          )}
+                          {type === "notebook" && (
+                            <NotebookIcon className="notebook" />
                           )}
                         </a>
                       ))}

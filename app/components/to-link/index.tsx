@@ -1,9 +1,10 @@
 export type TToLinkProps = {
   children?: string[];
+  className?: string;
 };
 
 export function ToLink(props: TToLinkProps) {
-  const { children = [] } = props;
+  const { children = [], className } = props;
 
   // We care about the zeroth index.
   // In translation file, for link we are following this structure
@@ -17,7 +18,7 @@ export function ToLink(props: TToLinkProps) {
   if (typeof text !== "string" || typeof link !== "string") return "";
 
   return (
-    <a href={link} target="_blank">
+    <a className={className} href={link} target="_blank">
       {text}
     </a>
   );

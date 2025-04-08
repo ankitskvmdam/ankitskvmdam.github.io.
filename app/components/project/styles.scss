@@ -24,7 +24,8 @@
 
     &.first-col {
       border-right: 1px solid var(--neutral-0);
-      width: 40%;
+      width: 33%;
+      min-width: 25rem;
       padding-left: 2rem;
       display: none;
     }
@@ -122,9 +123,12 @@
         }
 
         svg.website {
-          fill: var(--website)
+          fill: var(--website);
         }
 
+        svg.notebook {
+          fill: var(--notebook)
+        }
       }
     }
   }

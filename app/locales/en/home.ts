@@ -83,6 +83,35 @@ when we meet in person.
       across platforms. It was one of those rare projects that felt both technically challenging and deeply rewarding. I gained a strong understanding of the intricacies of
       WebRTC—its quirks, limitations, and the raw power it offers when used well.`,
     },
+    ersilia: {
+      description: `
+      At the start of 2024, I had the opportunity to contribute to <4>Ersilia</4>, a non-profit organization building open-source AI tools to accelerate drug discovery.
+I worked on packaging three models by <0 className="bold">[REINVENT 4](https://github.com/MolecularAI/REINVENT4)</0> for Ersilia Hub.
+      <5 className="space-2"/>
+      <4 className="tabbed">1.</4> <0 className="code">[eos694w](https://github.com/ersilia-os/eos694w)</0>, Mol2Mol similarity model package to generate 1,000 molecules similar to the input molecule. <0 className="slash slash-small">[View notebook](https://github.com/ankitskvmdam/REINVENT4_NOTEBOOK/blob/master/notebooks/RunREINVENT4InSamplingMode.ipynb)</0>.
+      <5 className="space-2"/>
+      <4 className="tabbed">2.</4> <0 className="code">[eos6ost](https://github.com/ersilia-os/eos6ost)</0>, LibInvent model package to generate new molecules by attaching R-groups to the scaffold. <0 className="slash slash-small">[View notebook](https://github.com/ankitskvmdam/REINVENT4_NOTEBOOK/blob/master/notebooks/LibInvent.ipynb)</0>.
+      <5 className="space-2"/>
+      <4 className="tabbed">3.</4> <0 className="code">[eos57bx](https://github.com/ersilia-os/eos57bx)</0>,  Mol2Mol scaffold model package to generate 1,000 molecules with scaffolds similar to the input molecule. <0 className="slash slash-small">[View notebook](https://github.com/ankitskvmdam/REINVENT4_NOTEBOOK/blob/master/notebooks/ScaffoldExtraction.ipynb)</0>.
+      <1></1><1></1>
+      One of the biggest challenges was managing REINVENT's massive dependency footprint. The base environment was bloated—over 10 GB—with many unused components (for our use case). To streamline it, I forked the
+      <0>[REINVENT (slim-reinvent4)](https://github.com/ankitskvmdam/slim-reinvent4)</0> model, pruned unnecessary packages, and optimized the environment, significantly reducing its size without losing
+      essential functionality.
+      `,
+    },
+    ersiliaTrain: {
+      description: `
+      After completing the packaging—I continued working with <4>Ersilia</4> on an exciting new direction: generating molecules based on 3D shape similarity.
+      While <0 className="bold">[REINVENT 4](https://github.com/MolecularAI/REINVENT4)</0>'s Mol2MolSimilarity model focuses on 2D structural similarity,
+      we aimed to push it further by creating a model capable of generating molecules that resembled the input in three-dimensional conformation.
+      <1></1><1></1>
+
+      Coming from a web and systems background, this was an entirely new world for me. I spent a significant amount of time exploring available tools in the
+      cheminformatics and molecular modeling space, diving deep into documentation and learning how 3D similarity is defined, measured, and modeled. After
+      multiple iterations and experiments, I eventually developed a working <0>[notebook](https://github.com/ankitskvmdam/reinvent-transfer-learning/blob/master/notebooks/TransferLearning.ipynb)</0>
+      that could generate a solid batch of 3D-similar molecules—something I felt incredibly proud of.
+      `,
+    },
   },
 };
 

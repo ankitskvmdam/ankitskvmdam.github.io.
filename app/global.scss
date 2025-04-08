@@ -20,6 +20,7 @@
   --npm: #cd0000;
   --github: #232323;
   --website: #007bff;
+  --notebook: #f37726;
   
 
   --selection-color: #111;
@@ -46,6 +47,7 @@
   --npm: #d80c0c;
   --github: #f0f6fc;
   --website: #7b42f4;
+  --notebook: #ffa727;
   
   --selection-color: #fff;
   --selection-background: #5454ac;
@@ -160,8 +162,20 @@ header {
   font-family: var(--body-font);
 }
 
-code {
+code, .code {
   background: var(--neutral-1);
   border-radius: 0.25rem;
   padding: 0 0.25rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.tabbed {
+  padding-left: 1rem;
+}
+
+.space-2 {
+  height: 0.5rem;
 }
