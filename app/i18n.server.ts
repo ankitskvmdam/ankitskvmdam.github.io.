@@ -1,7 +1,7 @@
-import { createCookie } from "@remix-run/node";
+import { createCookie } from "@remix-run/cloudflare";
 import { RemixI18Next } from "remix-i18next/server";
 
-import * as i18n from "~/config/i18n";
+import * as i18n from "./config/i18n";
 
 export const localeCookie = createCookie("lng", {
   path: "/",

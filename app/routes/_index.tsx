@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/cloudflare";
 import { Landing } from "~/components/landing";
 import "../global.scss";
 import { Navbar } from "~/components/navbar";

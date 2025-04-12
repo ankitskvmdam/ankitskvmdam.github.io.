@@ -28,7 +28,7 @@ documentation was taken seriously, and the feedback I received on my guidelines 
 thoughtful developer. <1 /><1 />
 
 Then came summer 2023—and a new chapter with <0>Bodygram</0>, where I joined as a Software Engineer. Bodygram is on a mission to help businesses
-tap into the power of body measurement data. It's something we all have, but most of us don't realize how valuable it can be—from fashion
+tap into the power of body measurement data. Body measurement data is everywhere, yet we often overlook its potential—from fashion
 and fitness to healthcare and even choosing the perfect mattress. At Bodygram, I worked on enhancing the core scanning logic, building
 dashboards to manage scan results, developing SDKs to help clients integrate scan widgets, and creating components for embedding 3D avatar
 viewers. <1 /><1 />
