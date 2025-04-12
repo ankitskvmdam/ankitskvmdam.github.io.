@@ -47,20 +47,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ankdev.netlify.app/" />
+        <meta property="og:url" content="https://ankdev.me/" />
         <meta property="og:title" content="Ankit Kumar (अंकित कुमार)" />
         <meta
           property="og:description"
           content="A little about me, I'm a Co-Founder, Software Engineer, UI/UX Designer, and Mentor—crafting tools people enjoy, writing thoughtful, maintainable code, and helping others grow with me."
         />
-        <meta
-          property="og:image"
-          content="https://ankdev.netlify.app/assets/logo.png"
-        />
+        <meta property="og:image" content="https://ankdev.me/assets/logo.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="My personal website" />
-        <meta name="twitter:url" content="https://ankdev.netlify.app/" />
+        <meta name="twitter:url" content="https://ankdev.me/" />
         <meta name="twitter:title" content="Ankit Kumar (अंकित कुमार)" />
         <meta
           name="twitter:description"
@@ -68,7 +65,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         <meta
           name="twitter:image"
-          content="https://yourwebsite.com/images/og-image.jpg"
+          content="https://ankdev.me/assets/logo.png"
         />
         <Meta />
         <Links />
