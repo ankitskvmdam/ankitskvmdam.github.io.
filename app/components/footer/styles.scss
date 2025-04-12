@@ -1,0 +1,94 @@
+@use "../../variables.scss" as *;
+
+
+.dark {
+  
+  .footer .footer-bg {
+    opacity: 0.2;
+  }
+}
+
+.footer {
+  height: 18rem;
+
+  @media screen and (min-width: $md-bp) {
+    height: 20rem;
+  }
+
+  .footer-bg {
+    background: url("/assets/footer-bg.png") no-repeat 35% top;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 14rem;
+    background-size: cover;
+    opacity: 0.08;
+
+    @media screen and (min-width: $md-bp) {
+      background-position: center top;
+      height: 16rem;
+    }
+  }
+
+
+  .section-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.5rem 0;  
+    
+    @media screen and (min-width: $md-bp) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+
+    @media screen and (min-width: $md-bp) {
+      flex: 1;
+    }
+
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--foreground);
+      border-radius: 0.25rem;
+      border: 1px solid var(--neutral-1);
+      padding: 0.5rem;
+      position: relative;
+      overflow: hidden;        
+
+      &::before {
+        content: "";
+        background: var(--neutral-1);
+        position: absolute;
+        border-radius: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform: scale(0);
+        z-index: 1;
+        transition: 0.5s ease-in-out;
+      }
+
+      &:hover::before {
+        transform: scale(2);
+      }
+
+      svg {
+        height: 24px;
+        width: 24px;
+        z-index: 2;
+        fill: var(--foreground)
+      }
+    }
+  }
+}

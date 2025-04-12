@@ -1,0 +1,135 @@
+@use "../../variables.scss" as *;
+
+.project-table {
+  border-collapse: collapse;
+
+  width: 100%;
+
+  td {
+    vertical-align: top;
+  }
+
+  tr th {
+    border-bottom: 1px solid var(--neutral-0);
+    text-align: left;
+    padding-top: 2rem;
+
+    @media screen and (min-width: $md-bp) {
+      padding-top: 4rem;
+    }
+
+    h1 {
+      line-height: 1.5;
+    }
+
+    &.first-col {
+      border-right: 1px solid var(--neutral-0);
+      width: 33%;
+      min-width: 25rem;
+      padding-left: 2rem;
+      display: none;
+    }
+
+    &.second-col {
+      padding-left: 1rem;
+    }
+
+    @media screen and (min-width: $md-bp) {
+      &.first-col {
+        display: table-cell;
+      }
+
+      &.second-col h1 {
+        visibility: hidden;
+      }
+    }
+  }
+
+
+  tbody td.first-col {
+    border-right: 1px solid var(--neutral-0);
+    padding-left: 2rem;
+    display: none;
+
+    @media screen and (min-width: $md-bp) {
+      display: table-cell;
+    }
+  }
+
+  tbody td {
+    border-bottom: 1px solid var(--neutral-0);
+    padding-bottom: 4rem;
+  }
+
+
+  .data {
+    .title {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      font-family: var(--heading-font);
+      font-weight: bold;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--neutral-0);
+
+      @media screen and (min-width: $md-bp) {
+        font-size: 1.5rem;
+        padding: 0.5rem 2rem 0.5rem 1rem;
+        text-align: right;
+      }
+    }
+
+    .content {
+      padding: 1rem;
+      font-family: var(--body-font);
+      line-height: 1.75;
+      font-size: 0.875rem;
+
+      @media screen and (min-width: $md-bp) {
+        padding: 2rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  td .number {
+    font-family: var(--heading-font);
+    font-size: 3rem;
+  }
+
+
+  .links-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 0 2rem;
+
+    a {
+      padding: 0.25rem;
+      border: none;
+
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+        fill: var(--neutral-3);
+        transition: 0.3s;
+      }
+
+      &:hover {
+        svg.npm {
+          fill: var(--npm);
+        }
+
+        svg.github {
+          fill: var(--github);
+        }
+
+        svg.website {
+          fill: var(--website);
+        }
+
+        svg.notebook {
+          fill: var(--notebook)
+        }
+      }
+    }
+  }
+}

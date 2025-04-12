@@ -1,27 +1,57 @@
 {
-    "name": "ankitskvmdam.github.io.",
-    "version": "2.0.0",
-    "description": "This is my personal website",
-    "main": "index.js",
-    "scripts": {
-        "rollup:dev": "rollup -c configs/dev.config.js --watch",
-        "rollup:build": "rollup -c configs/prod.config.js",
-        "hugo": "hugo server --noHTTPCache --ignoreCache",
-        "dev": "node watch-dev.js",
-        "build": "node build.js",
-        "deploy": "node build.js && gh-pages -d ./public"
-    },
-    "author": "Ankit Kumar <hello@ankdev.me>",
-    "license": "MIT",
-    "dependencies": {
-        "autoprefixer": "^10.4.7",
-        "fs-extra": "^10.1.0",
-        "gh-pages": "^4.0.0",
-        "node-sass": "^7.0.1",
-        "node-watch": "^0.7.3",
-        "postcss": "^8.4.14",
-        "rollup": "^2.75.6",
-        "rollup-plugin-scss": "^3.0.0",
-        "rollup-plugin-uglify": "^6.0.4"
-    }
+  "name": "ankdev",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "remix vite:build",
+    "dev": "remix vite:dev --host",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "remix-serve ./build/server/index.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@react-spring/web": "^9.7.5",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@remix-run/cloudflare": "^2.16.5",
+    "@remix-run/cloudflare-pages": "^2.16.5",
+    "@remix-run/react": "^2.16.5",
+    "@remix-run/serve": "^2.16.5",
+    "@types/three": "^0.166.0",
+    "clsx": "^2.1.1",
+    "i18next": "^23.16.8",
+    "i18next-browser-languagedetector": "^7.2.2",
+    "isbot": "^4.4.0",
+    "meshline": "^3.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^14.1.3",
+    "remix-i18next": "^6.4.1",
+    "sass": "^1.86.3",
+    "three": "^0.166.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250412.0",
+    "@react-three/eslint-plugin": "^0.1.2",
+    "@remix-run/dev": "^2.16.5",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.6",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.1",
+    "eslint-import-resolver-typescript": "^3.10.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.6",
+    "vite-tsconfig-paths": "^4.3.2",
+    "wrangler": "^3.114.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "postcss": {}
 }

@@ -1,0 +1,129 @@
+@use 'sass:math';
+
+@use "../../variables.scss" as *;
+
+
+
+.dark .about .about-bg {
+  filter: invert(30%);
+}
+
+.about {
+  padding-top: 4rem;
+  position: relative;
+  
+
+  .about-bg {
+    background: url("/assets/about-bg.png") no-repeat 35% top;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 22rem;
+    background-size: contain;
+    opacity: 0;
+    
+
+    @media screen and (min-width: $md-bp) {
+      background-position: center top;
+      opacity: 0.4;
+    }
+  }
+
+  
+  .about-me {
+    margin: 1rem 0;
+    max-width: 55rem;
+    padding-bottom: 8rem;
+
+    p {
+      font-family: var(--heading-font);
+    }
+
+    .signature {
+      position: absolute;
+      bottom: 0rem;
+      right: 0;
+      width: 12rem;
+      fill: var(--neutral-3);
+
+      @media screen and (min-width: $md-bp) {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    @media screen and (min-width: $sm-bp) {
+      margin: 2rem 0;
+    }
+
+    .timeline-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      cursor: grab;
+
+      &.dragging {
+        cursor: grabbing;
+      }
+
+      .timeline-wrapper {
+        height: 300px;
+      }
+
+      $line-height: 6.25;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4rem;
+        z-index: 10;
+      }
+
+      &::before {
+        left: 0;
+        background: linear-gradient(to right, var(--background-1) 0%, transparent 100%);
+      }
+
+      &.left-shadow::before {
+        background: linear-gradient(to right, var(--neutral-1) 0%, transparent 100%);
+      }
+
+      &::after {
+        right: 0;
+        background: linear-gradient(to left, var(--background-1) 0%, transparent 100%);
+      }
+
+      &.right-shadow::after {
+        background: linear-gradient(to left, var(--neutral-1) 0%, transparent 100%);
+      }
+
+      .x-axis-line {
+        border-top: 0.25rem solid var(--background-0);
+        position: absolute;
+        top: #{math.div($line-height, 2)}rem;
+        width: 100%;
+      }
+
+      .line {
+        border-left: 1px solid var(--background-0);
+        height: #{$line-height}rem;
+        position: absolute;
+        top: 0;
+      }
+
+      .anchor-line {
+        position: absolute;
+        top: 0;
+        height: #{$line-height * 3}rem;
+        border: 0.125rem solid var(--background-0);
+        left: 2rem;
+        border-radius: 1rem;
+      }
+
+    }
+  }
+}
