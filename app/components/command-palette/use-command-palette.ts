@@ -18,6 +18,10 @@ export function useCommandPalette() {
     setIsCommandPaletteOpen(false);
   }, []);
 
+  const requestOpenCommandPalette = React.useCallback(() => {
+    setIsCommandPaletteOpen(true);
+  }, []);
+
   React.useEffect(() => {
     window.addEventListener("keydown", handleKBDownEventListner);
 
@@ -29,5 +33,6 @@ export function useCommandPalette() {
   return {
     isCommandPaletteOpen,
     requestCloseCommandPalette,
+    requestOpenCommandPalette,
   };
 }
