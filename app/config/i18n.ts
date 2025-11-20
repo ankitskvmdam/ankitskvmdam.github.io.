@@ -1,4 +1,5 @@
-import en from "~/locales/en/home";
+import en_home from "~/locales/en/home";
+import en_common from "~/locales/en/common";
 // import hi from "~/locales/hi/home";
 
 // This is the list of languages your application supports
@@ -11,9 +12,9 @@ export const fallbackLng = "en";
 
 // The default namespace of i18next is "translation", but you can customize it
 // here
-export const defaultNS = "home";
+export const defaultNS = "common";
 
 export const resources = {
-  en: { home: en },
+  en: { home: en_home, common: en_common },
   // hi: { home: hi }, // Add hindi once we have the translation ready.
 };

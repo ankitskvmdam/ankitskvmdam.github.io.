@@ -10,11 +10,15 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const handle = {
+  i18n: ["home", "common"],
+};
+
 export default function IndexRoute() {
-  const { t } = useTranslation("home");
+  const { t } = useTranslation(["home", "common"]);
 
   return (
-    <div className="section relative min-h-[calc(100svh-80px)]">
+    <div className="section relative min-h-[calc(100svh-80px)] flex-col">
       <div className="section-wrapper section-padding relative z-10">
         <Slash component="heading">/home</Slash>
         <div className="mt-12 gap-12 flex flex-col">
@@ -23,7 +27,7 @@ export default function IndexRoute() {
               /home/name
             </Slash>
             <span className="font-heading font-bold leading-none text-5xl md:text-7xl">
-              {t("ankit_kumar")}
+              {t("common:ankit_kumar")}
             </span>
           </div>
 

@@ -48,6 +48,8 @@
     sans-serif;
   --font-heading: "Inconsolata", "Courier New", Courier, monospace;
   --font-monospace: "Inconsolata", "Courier New", Courier, monospace;
+  --color-bg-1: var(--html);
+  --color-bg-2: var(--body);
 }
 
 :root {
