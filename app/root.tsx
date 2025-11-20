@@ -71,7 +71,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="font-sans text-green-900">
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />

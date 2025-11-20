@@ -1,0 +1,49 @@
+import { MetaFunction } from "@remix-run/react";
+import { Trans, useTranslation } from "react-i18next";
+import { Background } from "./background";
+import { Slash } from "~/components/section/slash";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Ankit Kumar (अंकित कुमार)" },
+    { name: "description", content: "Hi! I am Ankit" },
+  ];
+};
+
+export default function IndexRoute() {
+  const { t } = useTranslation("home");
+
+  return (
+    <div className="section relative min-h-[calc(100svh-80px)]">
+      <div className="section-wrapper section-padding relative z-10">
+        <Slash component="heading">/home</Slash>
+        <div className="mt-12 gap-12 flex flex-col">
+          <div className="flex flex-col gap-4">
+            <Slash component="inline" className="text-xs">
+              /home/name
+            </Slash>
+            <span className="font-heading font-bold leading-none text-5xl md:text-7xl">
+              {t("ankit_kumar")}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1 max-w-xl">
+            <Slash component="inline" className="text-sm">
+              /home/intro
+            </Slash>
+            <p>
+              <Trans
+                t={t}
+                i18nKey="intro"
+                components={[<strong key="strong" />, <br key="break" />]}
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="absolute -top-16 left-0 right-0 bottom-0">
+        <Background />
+      </div>
+    </div>
+  );
+}

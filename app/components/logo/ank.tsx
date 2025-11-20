@@ -1,17 +1,17 @@
 import React from "react";
-import "./style.scss";
-import clsx from "clsx";
+import "./style.css";
+import { cn } from "~/lib/utils";
 
-export type TLogoProps = React.HTMLProps<SVGSVGElement> & {
+export type TAnkLogoProps = React.HTMLProps<SVGSVGElement> & {
   showLoadingAnimation?: boolean;
 };
 
-export function Logo(props: TLogoProps) {
+export function AnkLogo(props: TAnkLogoProps) {
   const { className, showLoadingAnimation, ...rest } = props;
 
   return (
     <svg
-      className={clsx("logo", showLoadingAnimation && "logo-loading")}
+      className={cn("size-8 fill-logo")}
       viewBox="0 0 71.192383 72.131905"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
