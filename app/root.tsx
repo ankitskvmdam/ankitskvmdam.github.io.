@@ -9,6 +9,7 @@ import {
 } from "@remix-run/react";
 import i18nServer, { localeCookie } from "./i18n.server";
 import { getThemeUsingURLSearch } from "./utils/theme";
+import "./styles.css";
 
 export const handle = { i18n: ["translation"] };
 
@@ -19,7 +20,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   return json(
     { locale, theme },
-    { headers: { "Set-Cookie": await localeCookie.serialize(locale) } }
+    { headers: { "Set-Cookie": await localeCookie.serialize(locale) } },
   );
 }
 
@@ -70,7 +71,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="font-sans text-green-900">
         {children}
         <ScrollRestoration />
         <Scripts />

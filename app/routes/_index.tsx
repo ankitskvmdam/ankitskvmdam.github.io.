@@ -6,6 +6,7 @@ import { About } from "~/components/about";
 import { Project } from "~/components/project";
 import { Footer } from "~/components/footer";
 import { Experience } from "~/components/experience";
+import { Button } from "~/components/ui/button";
 
 export const meta: MetaFunction = () => {
   return [
@@ -24,6 +25,7 @@ export default function Index() {
         <Landing />
         <About />
         <Experience />
+        <Button>Click me</Button>
         <Project />
       </main>
       <footer>

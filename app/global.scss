@@ -1,11 +1,5 @@
 @use "./variables.scss" as *;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
   // Color
   --background-0: #fff;
@@ -21,14 +15,15 @@
   --github: #232323;
   --website: #007bff;
   --notebook: #f37726;
-  
 
   --selection-color: #111;
-  --selection-background: #E6E6FA;
+  --selection-background: #e6e6fa;
 
   // Fonts
-  --body-font: "Open Sans", system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  --heading-font: "Inconsolata", 'Courier New', Courier, monospace;
+  --body-font:
+    "Open Sans", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
+    sans-serif;
+  --heading-font: "Inconsolata", "Courier New", Courier, monospace;
 
   // Width
   --section-max-width: 1600px;
@@ -42,13 +37,13 @@
   --neutral-0: #292929;
   --neutral-1: #191919;
   ---neutral-4: #777;
-  --logo-fill: #7B42F4;
+  --logo-fill: #7b42f4;
   --anchor-border-color: #7b42f4;
   --npm: #d80c0c;
   --github: #f0f6fc;
   --website: #7b42f4;
   --notebook: #ffa727;
-  
+
   --selection-color: #fff;
   --selection-background: #5454ac;
 }
@@ -58,10 +53,9 @@
   background: var(--selection-background);
 }
 
-
 html {
   background: var(--background-1);
-  padding: 0.5rem; 
+  padding: 0.5rem;
 }
 
 body {
@@ -74,7 +68,6 @@ body {
   }
 }
 
-
 a {
   border-bottom: 1px dashed var(--anchor-border-color);
   text-decoration: none;
@@ -84,7 +77,6 @@ a {
 p {
   font-family: var(--body-font);
 }
-
 
 .section {
   display: flex;
@@ -98,7 +90,7 @@ p {
 
 .section-bottom-br {
   border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;  
+  border-bottom-right-radius: 0.5rem;
 }
 
 .section-wrapper {
@@ -108,29 +100,28 @@ p {
 
 .section-padding {
   padding: 1rem;
-    
+
   @media screen and (min-width: $md-bp) {
     padding: 1rem 2rem;
   }
 }
 
 .slash {
-  font-family: var(--heading-font); 
+  font-family: var(--heading-font);
   font-weight: 400;
 }
 
 .slash-heading {
   font-size: 2.5rem;
 
-  @media screen and (min-width: $sm-bp){
-    font-size: 3rem;    
+  @media screen and (min-width: $sm-bp) {
+    font-size: 3rem;
   }
 
-  @media screen and (min-width: $md-bp){
-    font-size: 4rem;    
+  @media screen and (min-width: $md-bp) {
+    font-size: 4rem;
   }
 }
-
 
 .slash-subheading {
   font-size: 2rem;
@@ -162,7 +153,8 @@ header {
   font-family: var(--body-font);
 }
 
-code, .code {
+code,
+.code {
   background: var(--neutral-1);
   border-radius: 0.25rem;
   padding: 0 0.25rem;
