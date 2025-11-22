@@ -23,7 +23,7 @@ export default function IndexRoute() {
   const { t } = useTranslation(["home", "common"]);
 
   return (
-    <div className="section relative min-h-[calc(100svh-120px)]">
+    <div className="section relative section-min-h">
       <div className="section-wrapper section-padding relative z-10">
         <Slash component="heading" className="mt-6 md:mt-12 lg:mt-24">
           /home
@@ -33,7 +33,7 @@ export default function IndexRoute() {
             <Slash component="inline" className="text-xs">
               /home/name
             </Slash>
-            <span className="font-heading font-bold leading-none text-5xl md:text-7xl">
+            <span className="font-monospace font-bold leading-none text-5xl md:text-7xl">
               {t("common:ankit_kumar")}
             </span>
           </div>

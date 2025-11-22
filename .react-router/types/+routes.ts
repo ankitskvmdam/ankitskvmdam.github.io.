@@ -28,14 +28,14 @@ type RouteFiles = {
   };
   "routes/_web/route.tsx": {
     id: "routes/_web";
-    page: "/";
+    page: "/" | "/*";
   };
   "routes/_web._index/route.tsx": {
     id: "routes/_web._index";
     page: "/";
   };
-  "routes/$.tsx": {
-    id: "routes/$";
+  "routes/_web.$.tsx": {
+    id: "routes/_web.$";
     page: "/*";
   };
 };
@@ -44,5 +44,5 @@ type RouteModules = {
   "root": typeof import("./app/root.tsx");
   "routes/_web": typeof import("./app/routes/_web/route.tsx");
   "routes/_web._index": typeof import("./app/routes/_web._index/route.tsx");
-  "routes/$": typeof import("./app/routes/$.tsx");
+  "routes/_web.$": typeof import("./app/routes/_web.$.tsx");
 };

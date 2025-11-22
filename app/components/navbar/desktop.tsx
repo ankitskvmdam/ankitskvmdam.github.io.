@@ -7,7 +7,7 @@ export function DesktopMenu() {
     <div className="hidden font-monospace md:block">
       <ul className="flex gap-2">
         {menuItems.map((item) => (
-          <li>
+          <li key={item.label}>
             <Link to={item.href}>
               <Button
                 variant="ghost"

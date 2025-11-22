@@ -181,3 +181,7 @@
 .section-padding {
   padding: 1rem;
 }
+
+.section-min-h {
+  min-height: calc(100svh - 120px);
+}

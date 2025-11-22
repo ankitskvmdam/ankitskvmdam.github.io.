@@ -21,6 +21,9 @@ const common = {
     theme: "Toggle Theme",
     font_size: "Change Font Size",
   },
+  page_not_found: "Page Not Found",
+  page_not_found_description:
+    "We are sorry, but the page you are looking for does not exist.",
 };
 
 export default common;
