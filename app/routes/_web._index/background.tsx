@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Lines } from "./lines";
 import React, { useMemo } from "react";
-import { useSearchParams } from "@remix-run/react";
+import { useSearchParams } from "react-router";
 import { THEME_SEARCH_PARAM } from "~/constants/searchparams";
 
 export function Background() {
@@ -20,7 +20,7 @@ export function Background() {
 
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-      <Lines dash={0.4} count={10} radius={radius.current} colors={colors} />
+      <Lines dash={0.4} count={20} radius={radius.current} colors={colors} />
     </Canvas>
   );
 }

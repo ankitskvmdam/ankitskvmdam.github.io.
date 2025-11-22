@@ -1,11 +1,10 @@
-import { json, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { Link, useLoaderData } from "@remix-run/react";
+import { data, LoaderFunctionArgs, Link, useLoaderData } from "react-router";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const splat = params["*"];
   const parts = splat ? splat.split("/") : [];
 
-  return json({ parts });
+  return data({ parts });
 }
 
 export default function CatchAll() {

@@ -5,7 +5,7 @@ import { Kbd } from "../ui/kbd";
 export function CommandPaletteShortcutMessage() {
   const { t } = useTranslation("common");
   return (
-    <div className="flex-1 justify-center items-end py-3 hidden sm:flex">
+    <div className="flex-1 justify-center items-end py-3 hidden sm:flex relative z-10">
       <div className="flex items-center gap-0.5 text-muted-foreground">
         <Trans
           t={t}

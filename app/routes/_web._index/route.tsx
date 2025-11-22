@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/react";
+import { MetaFunction } from "react-router";
 import { Trans, useTranslation } from "react-i18next";
 import { Background } from "./background";
 import { Slash } from "~/components/section/slash";
@@ -18,7 +18,7 @@ export default function IndexRoute() {
   const { t } = useTranslation(["home", "common"]);
 
   return (
-    <div className="section relative min-h-[calc(100svh-80px)]">
+    <div className="section relative min-h-[calc(100svh-120px)]">
       <div className="section-wrapper section-padding relative z-10">
         <Slash component="heading">/home</Slash>
         <div className="mt-12 gap-12 flex flex-col">
@@ -45,7 +45,7 @@ export default function IndexRoute() {
           </div>
         </div>
       </div>
-      <div className="absolute -top-16 left-0 right-0 bottom-0">
+      <div className="absolute -top-16 left-0 right-0 -bottom-12 z-0">
         <Background />
       </div>
     </div>
