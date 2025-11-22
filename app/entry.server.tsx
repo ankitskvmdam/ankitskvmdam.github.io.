@@ -1,5 +1,4 @@
-import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
-import { RemixServer } from "@remix-run/react";
+import { ServerRouter, EntryContext } from "react-router";
 import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
 import { createInstance } from "i18next";
@@ -14,10 +13,6 @@ export default async function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-  // This is ignored so we can keep it in the template for visibility.  Feel
-  // free to delete this parameter in your app if you're not using it!
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  loadContext: AppLoadContext
 ) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), ABORT_DELAY);
@@ -34,11 +29,7 @@ export default async function handleRequest(
 
   const body = await renderToReadableStream(
     <I18nextProvider i18n={instance}>
-      <RemixServer
-        context={remixContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />
+      <ServerRouter context={remixContext} url={request.url} />
     </I18nextProvider>,
     {
       signal: controller.signal,
@@ -49,7 +40,7 @@ export default async function handleRequest(
         }
         responseStatusCode = 500;
       },
-    }
+    },
   );
 
   body.allReady.then(() => clearTimeout(timeoutId));

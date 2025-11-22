@@ -1,24 +1,23 @@
-import { LoaderFunctionArgs, json } from "@remix-run/cloudflare";
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  LoaderFunctionArgs,
   useRouteLoaderData,
-} from "@remix-run/react";
+  data,
+} from "react-router";
 import i18nServer, { localeCookie } from "./i18n.server";
 import { getThemeUsingURLSearch } from "./utils/theme";
 import "./styles.css";
-
-export const handle = { i18n: ["translation"] };
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const locale = await i18nServer.getLocale(request);
   const theme = getThemeUsingURLSearch(url.searchParams);
 
-  return json(
+  return data(
     { locale, theme },
     { headers: { "Set-Cookie": await localeCookie.serialize(locale) } },
   );
