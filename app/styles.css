@@ -152,6 +152,7 @@
   body {
     @apply text-foreground font-sans leading-relaxed text-base rounded-sm;
     background: var(--body);
+    font-family: var(--font-body);
   }
 
   ::selection {
