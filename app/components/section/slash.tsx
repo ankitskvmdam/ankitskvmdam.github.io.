@@ -25,7 +25,7 @@ export function Slash(props: TSlashProps) {
   return (
     <RenderedComponent
       className={cn(
-        "font-heading font-normal ",
+        "font-monospace font-normal ",
         component === "heading" &&
           "text-4xl leading-relaxed md:text-5xl lg:text-6xl",
         className,

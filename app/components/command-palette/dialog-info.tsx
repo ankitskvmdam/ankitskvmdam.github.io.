@@ -20,10 +20,10 @@ export function CommandPaletteDialogInfo() {
   }, [t]);
 
   return (
-    <div className="border-t  pt-2 flex gap-2 flex-col justify-between sm:flex-row">
+    <div className="text-muted-foreground absolute inset-x-0 bottom-0 z-20 flex h-10 items-center justify-between gap-2 rounded-b-xl px-4 text-xs font-medium bg-layer-0">
       {items.map((item) => (
         <div className="flex items-center" key={item.msg}>
-          <Kbd className="mr-1 mt-1">{item.icon}</Kbd>
+          <Kbd className="mr-1">{item.icon}</Kbd>
           <span>{item.msg}</span>
         </div>
       ))}

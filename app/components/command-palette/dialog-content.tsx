@@ -26,21 +26,21 @@ export function CommandPaletteDialogContent(
   const commandGroups = useCommandItems({ requestCloseCommandPalette });
 
   return (
-    <div className="bg-bg-2 p-4 rounded-xl">
+    <div className="bg-layer-1 p-4 rounded-xl">
       <DialogTitle className="hidden">{t("command.title")}</DialogTitle>
       <DialogDescription className="hidden">
         {t("command.description")}
       </DialogDescription>
 
-      <Command className="h-[350px]">
-        <div className="relative" data-slot="command-input-wrapper">
-          <Kbd className="bg-background border absolute left-2 top-2">/</Kbd>
+      <Command className="bg-layer-1">
+        <div className="relative p-2" data-slot="command-input-wrapper">
+          <Kbd className="bg-background border absolute left-4 top-4">/</Kbd>
           <CommandInput
             className="bg-muted pl-9"
             placeholder={t("command.placeholder")}
           />
         </div>
-        <CommandList>
+        <CommandList className="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
           <CommandEmpty>{t("command.no_command")}</CommandEmpty>
           {commandGroups.map(({ items, heading }) => (
             <CommandGroup heading={heading} key={heading}>

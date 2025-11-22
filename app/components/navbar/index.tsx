@@ -1,11 +1,19 @@
+import { Link } from "react-router";
 import { AnkLogo } from "../logo/ank";
+import { ActionMenu } from "./action-menu";
+import { Menu } from "./menu";
 
 export function Navbar() {
   return (
-    <header className="h-16 relative z-10">
-      <nav className="rounded-md z-50 section flex justify-between items-center">
-        <div className="section-wrapper section-padding">
-          <AnkLogo />
+    <header className="relative z-10">
+      <nav className="rounded-md z-50 section flex items-center">
+        <div className="section-wrapper section-padding flex item-center">
+          <Link className="flex items-center" to="/">
+            <AnkLogo className="cursor-pointer" />
+          </Link>
+
+          <Menu />
+          <ActionMenu />
         </div>
       </nav>
     </header>

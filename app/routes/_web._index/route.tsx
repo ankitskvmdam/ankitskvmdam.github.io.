@@ -25,7 +25,9 @@ export default function IndexRoute() {
   return (
     <div className="section relative min-h-[calc(100svh-120px)]">
       <div className="section-wrapper section-padding relative z-10">
-        <Slash component="heading">/home</Slash>
+        <Slash component="heading" className="mt-6 md:mt-12 lg:mt-24">
+          /home
+        </Slash>
         <div className="mt-12 gap-12 flex flex-col">
           <div className="flex flex-col gap-4">
             <Slash component="inline" className="text-xs">
@@ -52,6 +54,7 @@ export default function IndexRoute() {
       </div>
       <div className="absolute -top-16 left-0 right-0 -bottom-12 z-0">
         <Background />
+        <div className="h-px w-full bg-layer-0" />
       </div>
     </div>
   );

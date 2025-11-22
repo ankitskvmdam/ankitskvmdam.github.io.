@@ -11,12 +11,15 @@ const common = {
     no_command: "No command found",
     action_heading: "Action",
     toggle_theme: "Toggle theme",
-    open_menu: "Open Menu",
     change_font_size: "Change font size",
     pages_heading: "Pages",
     goto_about: "Go to about page",
     goto_projects: "Go to projects page",
     goto_blog: "Go to blog page",
+  },
+  action_menu: {
+    theme: "Toggle Theme",
+    font_size: "Change Font Size",
   },
 };
 

@@ -24,14 +24,6 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
         icon: SwatchBook,
       },
       {
-        title: t("command.open_menu"),
-        action: async () => {
-          requestCloseCommandPalette();
-          console.log("Opening menu");
-        },
-        icon: Menu,
-      },
-      {
         title: t("command.change_font_size"),
         action: async () => {
           requestCloseCommandPalette();
