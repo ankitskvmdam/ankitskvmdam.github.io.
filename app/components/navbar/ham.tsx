@@ -1,3 +1,3 @@
 export function HamMenu() {
-  return <div className="md:hidden">HAM MENU</div>;
+  return <div className="md:hidden"></div>;
 }
