@@ -20,7 +20,7 @@ export function Background() {
 
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-      <Lines dash={0.4} count={10} radius={radius.current} colors={colors} />
+      <Lines dash={0.4} count={2} radius={radius.current} colors={colors} />
     </Canvas>
   );
 }

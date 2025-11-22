@@ -25,21 +25,21 @@ export type TLinesProps = {
   rand?: typeof MathUtils.randFloatSpread;
 };
 
+function random(radius: number) {
+  // Screen range is -300 to 300
+  return Math.min(Math.max(MathUtils.randFloatSpread(radius), -300), 300);
+}
+
 export function Lines(props: TLinesProps) {
-  const {
-    dash,
-    count,
-    colors,
-    radius = 50,
-    rand = MathUtils.randFloatSpread,
-  } = props;
+  const { dash, count, colors, radius = 50, rand = random } = props;
 
   const lines = React.useMemo(() => {
     return Array.from({ length: count }, () => {
-      const pos = new Vector3(rand(radius), rand(radius), rand(radius));
-      const points = Array.from({ length: 10 }, () =>
-        pos.add(new Vector3(rand(radius), rand(radius), rand(radius))).clone(),
+      const points = Array.from(
+        { length: 10 },
+        () => new Vector3(rand(radius), rand(radius), rand(radius)),
       );
+
       const curve = new CatmullRomCurve3(points).getPoints(300);
 
       return {
