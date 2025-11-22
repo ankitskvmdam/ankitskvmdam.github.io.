@@ -16,5 +16,5 @@ export const defaultNS = "common";
 
 export const resources = {
   en: { home: en_home, common: en_common },
-  // hi: { home: hi }, // Add hindi once we have the translation ready.
+  hi: { home: en_home, common: en_common }, // Add hindi once we have the translation ready.
 };

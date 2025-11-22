@@ -14,6 +14,9 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/api/update-app-state": {
+    params: {};
+  };
   "/projects": {
     params: {};
   };
@@ -33,7 +36,11 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/projects" | "/about" | "/blogs" | "/*";
+    page: "/" | "/api/update-app-state" | "/projects" | "/about" | "/blogs" | "/*";
+  };
+  "routes/api.update-app-state.ts": {
+    id: "routes/api.update-app-state";
+    page: "/api/update-app-state";
   };
   "routes/_web/route.tsx": {
     id: "routes/_web";
@@ -63,6 +70,7 @@ type RouteFiles = {
 
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
+  "routes/api.update-app-state": typeof import("./app/routes/api.update-app-state.ts");
   "routes/_web": typeof import("./app/routes/_web/route.tsx");
   "routes/_web.projects": typeof import("./app/routes/_web.projects/route.tsx");
   "routes/_web._index": typeof import("./app/routes/_web._index/route.tsx");

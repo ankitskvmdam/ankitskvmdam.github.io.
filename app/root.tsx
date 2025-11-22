@@ -7,19 +7,39 @@ import {
   LoaderFunctionArgs,
   useRouteLoaderData,
   data,
+  useLoaderData,
 } from "react-router";
-import i18nServer, { localeCookie } from "./i18n.server";
-import { getThemeUsingURLSearch } from "./utils/theme";
+import i18nServer from "./i18n.server";
 import "./styles.css";
+import { localeCookie, appStateCookie } from "./cookie";
+import { AppStoreProvider, TAppStoreProviderProps } from "./app-store-provider";
+import React from "react";
+import { TAppState } from "./types/app";
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  const url = new URL(request.url);
-  const locale = await i18nServer.getLocale(request);
-  const theme = getThemeUsingURLSearch(url.searchParams);
+  let [locale, appState] = await Promise.all([
+    i18nServer.getLocale(request),
+    appStateCookie.parse(
+      request.headers.get("Cookie"),
+    ) as Promise<TAppState | null>,
+  ]);
+
+  if (typeof appState !== "object" || !appState) {
+    appState = {
+      theme: "light",
+      fontSize: 16,
+      locale,
+    };
+  }
 
   return data(
-    { locale, theme },
-    { headers: { "Set-Cookie": await localeCookie.serialize(locale) } },
+    { appState, locale },
+    {
+      headers: [
+        ["Set-Cookie", await appStateCookie.serialize(appState)],
+        ["Set-Cookie", await localeCookie.serialize(locale)],
+      ],
+    },
   );
 }
 
@@ -29,7 +49,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang={loaderData?.locale ?? "en"}
-      className={loaderData?.theme || "light"}
+      className={loaderData?.appState?.theme || "light"}
     >
       <head>
         <meta charSet="utf-8" />
@@ -80,5 +100,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const { appState, locale } = useLoaderData<typeof loader>();
+
+  const config = React.useMemo(
+    (): TAppStoreProviderProps["config"] => ({
+      fontSize: appState.fontSize,
+      theme: appState.theme,
+      locale: locale,
+    }),
+    [appState, locale],
+  );
+  return (
+    <AppStoreProvider config={config}>
+      <Outlet />
+    </AppStoreProvider>
+  );
 }

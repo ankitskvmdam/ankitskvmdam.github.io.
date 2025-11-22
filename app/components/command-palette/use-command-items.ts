@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router";
 import { ALargeSmall, ArrowRight, Menu, SwatchBook } from "lucide-react";
-import React from "react";
+import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ABOUT_ROUTE, BLOG_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
+import { useThemeAction } from "~/actions/use-theme-action";
 
 export type TCommandPaletteDialogContentProps = {
   requestCloseCommandPalette: () => void;
@@ -13,13 +14,15 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
   const { requestCloseCommandPalette } = props;
   const navigate = useNavigate();
 
+  const { toggleTheme } = useThemeAction();
+
   const actionItems = React.useMemo(() => {
     return [
       {
         title: t("command.toggle_theme"),
         action: async () => {
           requestCloseCommandPalette();
-          console.log("Toggle theme");
+          toggleTheme();
         },
         icon: SwatchBook,
       },

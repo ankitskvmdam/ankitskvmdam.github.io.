@@ -1,22 +1,19 @@
 import { Canvas } from "@react-three/fiber";
 import { Lines } from "./lines";
 import React, { useMemo } from "react";
-import { useSearchParams } from "react-router";
-import { THEME_SEARCH_PARAM } from "~/constants/searchparams";
+import { useAppStore } from "~/app-store";
 
 export function Background() {
   const radius = React.useRef(globalThis.innerWidth);
-  const [searchParams] = useSearchParams();
+  const theme = useAppStore((state) => state.theme);
 
   const colors = useMemo(() => {
-    const isLightTheme = searchParams.get(THEME_SEARCH_PARAM) !== "dark";
-
-    if (isLightTheme) {
+    if (theme === "light") {
       return ["#f5f5f5", "#eee"];
     }
 
     return ["#252525", "#282828"];
-  }, [searchParams]);
+  }, [theme]);
 
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
