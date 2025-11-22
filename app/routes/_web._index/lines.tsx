@@ -38,7 +38,7 @@ export function Lines(props: TLinesProps) {
     return Array.from({ length: count }, () => {
       const pos = new Vector3(rand(radius), rand(radius), rand(radius));
       const points = Array.from({ length: 10 }, () =>
-        pos.add(new Vector3(rand(radius), rand(radius), rand(radius))).clone()
+        pos.add(new Vector3(rand(radius), rand(radius), rand(radius))).clone(),
       );
       const curve = new CatmullRomCurve3(points).getPoints(300);
 

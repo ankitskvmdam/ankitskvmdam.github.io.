@@ -1,7 +1,12 @@
 import { MetaFunction } from "react-router";
 import { Trans, useTranslation } from "react-i18next";
-import { Background } from "./background";
+
 import { Slash } from "~/components/section/slash";
+import { lazy } from "react";
+
+const Background = lazy(() =>
+  import("./background").then(({ Background }) => ({ default: Background })),
+);
 
 export const meta: MetaFunction = () => {
   return [

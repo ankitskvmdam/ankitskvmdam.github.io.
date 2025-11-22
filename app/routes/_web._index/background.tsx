@@ -12,7 +12,7 @@ export function Background() {
     const isLightTheme = searchParams.get(THEME_SEARCH_PARAM) !== "dark";
 
     if (isLightTheme) {
-      return ["#f5f5f5", "#f9f9f9", "#fafafa"];
+      return ["#f5f5f5", "#eee"];
     }
 
     return ["#252525", "#282828"];
@@ -20,7 +20,7 @@ export function Background() {
 
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-      <Lines dash={0.4} count={20} radius={radius.current} colors={colors} />
+      <Lines dash={0.4} count={10} radius={radius.current} colors={colors} />
     </Canvas>
   );
 }
