@@ -19,7 +19,12 @@ const common = {
   },
   action_menu: {
     theme: "Toggle Theme",
-    font_size: "Change Font Size",
+    font_settings: "Font Settings",
+  },
+  font_settings_dialog: {
+    title: "Font Settings",
+    description: "Adjust the font size.",
+    font_size: "Font Size",
   },
   page_not_found: "Page Not Found",
   page_not_found_description:

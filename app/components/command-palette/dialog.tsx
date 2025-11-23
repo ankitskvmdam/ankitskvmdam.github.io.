@@ -12,10 +12,7 @@ export function CommandPaletteDialog(props: TCommandPaletteDialogProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onChangeOpenState}>
-      <DialogContent
-        showCloseButton={false}
-        className="outline-0 bg-layer-0 border-0 p-1 rounded-xl"
-      >
+      <DialogContent className="dialog-content">
         <CommandPaletteDialogContent
           requestCloseCommandPalette={requestCloseCommandPalette}
         />

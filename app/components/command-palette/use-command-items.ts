@@ -4,6 +4,7 @@ import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ABOUT_ROUTE, BLOG_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
 import { useThemeAction } from "~/actions/use-theme-action";
+import { useAppStore } from "~/app-store";
 
 export type TCommandPaletteDialogContentProps = {
   requestCloseCommandPalette: () => void;
@@ -15,6 +16,9 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
   const navigate = useNavigate();
 
   const { toggleTheme } = useThemeAction();
+  const { setFontSettingsDialogOpen } = useAppStore((state) => ({
+    setFontSettingsDialogOpen: state.setFontSettingsDialogOpen,
+  }));
 
   const actionItems = React.useMemo(() => {
     return [
@@ -30,12 +34,14 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
         title: t("command.change_font_size"),
         action: async () => {
           requestCloseCommandPalette();
-          console.log("Changing font size");
+          setTimeout(() => {
+            setFontSettingsDialogOpen(true);
+          }, 300);
         },
         icon: ALargeSmall,
       },
     ];
-  }, [t, requestCloseCommandPalette]);
+  }, [t, toggleTheme, requestCloseCommandPalette, setFontSettingsDialogOpen]);
 
   const pages = React.useMemo(() => {
     return [

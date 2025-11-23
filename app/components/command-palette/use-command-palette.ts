@@ -4,7 +4,7 @@ export function useCommandPalette() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = React.useState(false);
 
   const handleKBDownEventListner = React.useCallback((event: KeyboardEvent) => {
-    if (event.target !== document.body) {
+    if (event.target instanceof HTMLInputElement) {
       return;
     }
 

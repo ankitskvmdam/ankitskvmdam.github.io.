@@ -50,6 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html
       lang={loaderData?.locale ?? "en"}
       className={loaderData?.appState?.theme || "light"}
+      style={{ fontSize: loaderData?.appState?.fontSize || 16 }}
     >
       <head>
         <meta charSet="utf-8" />

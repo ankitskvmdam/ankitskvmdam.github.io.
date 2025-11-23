@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import { FontSettingsDialog } from "./font-settings";
 import { useActionMenuItems } from "./use-action-menu-items";
 
 export function ActionMenu() {
@@ -18,6 +19,7 @@ export function ActionMenu() {
           <span className="hidden lg:block">{item.label}</span>
         </Button>
       ))}
+      <FontSettingsDialog />
     </div>
   );
 }

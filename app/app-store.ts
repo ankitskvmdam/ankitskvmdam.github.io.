@@ -7,12 +7,14 @@ export type TAppStoreState = {
   theme: TTheme;
   fontSize: TFontSize;
   locale: TLocale;
+  isFontSettingsDialogOpen: boolean;
 };
 
 export type TAppStoreActions = {
   setTheme: (theme: TTheme) => void;
   setFontSize: (fontSize: TFontSize) => void;
   setLocale: (locale: string) => void;
+  setFontSettingsDialogOpen: (isOpen: boolean) => void;
 };
 
 export type TCreateAppStoreOptions = {
@@ -28,9 +30,12 @@ export function createAppStore(options: TCreateAppStoreOptions = {}) {
     theme,
     fontSize,
     locale,
+    isFontSettingsDialogOpen: false,
     setTheme: (theme) => set({ theme }),
     setFontSize: (fontSize) => set({ fontSize }),
     setLocale: (locale) => set({ locale }),
+    setFontSettingsDialogOpen: (isOpen) =>
+      set({ isFontSettingsDialogOpen: isOpen }),
   }));
 }
 

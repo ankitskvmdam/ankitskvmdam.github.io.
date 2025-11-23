@@ -26,7 +26,7 @@ export function CommandPaletteDialogContent(
   const commandGroups = useCommandItems({ requestCloseCommandPalette });
 
   return (
-    <div className="bg-layer-1 p-4 rounded-xl">
+    <div className="dialog-content-wrapper">
       <DialogTitle className="hidden">{t("command.title")}</DialogTitle>
       <DialogDescription className="hidden">
         {t("command.description")}
