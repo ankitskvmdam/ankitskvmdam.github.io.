@@ -1,6 +1,7 @@
 const common = {
   ankit_kumar: "Ankit Kumar",
-  press_slash_info: "Press <0>/</0> to open the command palette.",
+  press_slash_info:
+    "Press <0>/</0> or <0>ctrl</0> + <0>k</0> to open the command palette.",
   command: {
     title: "Command Palette",
     description:
@@ -16,6 +17,8 @@ const common = {
     goto_about: "Go to about page",
     goto_projects: "Go to projects page",
     goto_blog: "Go to blog page",
+    contact_heading: "Contact",
+    copy_contact_details: "Copy contact details",
   },
   action_menu: {
     theme: "Toggle Theme",

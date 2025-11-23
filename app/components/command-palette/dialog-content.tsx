@@ -3,15 +3,14 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem,
   CommandList,
-  CommandSeparator,
 } from "../ui/command";
 import { DialogDescription, DialogTitle } from "../ui/dialog";
 import { Kbd } from "../ui/kbd";
 import { useTranslation } from "react-i18next";
 import { CommandPaletteDialogInfo } from "./dialog-info";
 import { useCommandItems } from "./use-command-items";
+import { CommandMenuItem } from "./command-menu-item";
 
 export type TCommandPaletteDialogContentProps = {
   requestCloseCommandPalette: () => void;
@@ -32,7 +31,7 @@ export function CommandPaletteDialogContent(
         {t("command.description")}
       </DialogDescription>
 
-      <Command className="bg-layer-1">
+      <Command className="bg-layer-1 pb-5">
         <div className="relative p-2" data-slot="command-input-wrapper">
           <Kbd className="bg-background border absolute left-4 top-4">/</Kbd>
           <CommandInput
@@ -45,10 +44,11 @@ export function CommandPaletteDialogContent(
           {commandGroups.map(({ items, heading }) => (
             <CommandGroup heading={heading} key={heading}>
               {items.map((item) => (
-                <CommandItem key={item.title} onSelect={item.action}>
-                  {item.icon && <item.icon />}
-                  {item.title}
-                </CommandItem>
+                <CommandMenuItem
+                  key={item.title}
+                  onSelect={item.action}
+                  item={item}
+                />
               ))}
             </CommandGroup>
           ))}

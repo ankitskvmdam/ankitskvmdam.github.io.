@@ -1,13 +1,28 @@
 import { useNavigate } from "react-router";
-import { ALargeSmall, ArrowRight, Menu, SwatchBook } from "lucide-react";
+import {
+  ALargeSmall,
+  ArrowRight,
+  ClipboardCopy,
+  Menu,
+  SwatchBook,
+} from "lucide-react";
 import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ABOUT_ROUTE, BLOG_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
 import { useThemeAction } from "~/actions/use-theme-action";
 import { useAppStore } from "~/app-store";
+import { contactLinks } from "~/constants/contact";
+import { copyToClipboard } from "~/utils/copy";
 
 export type TCommandPaletteDialogContentProps = {
   requestCloseCommandPalette: () => void;
+};
+
+export type TCommandPalettelItem = {
+  title: string;
+  description?: string;
+  action: () => Promise<void>;
+  icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactNode;
 };
 
 export function useCommandItems(props: TCommandPaletteDialogContentProps) {
@@ -20,7 +35,7 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
     setFontSettingsDialogOpen: state.setFontSettingsDialogOpen,
   }));
 
-  const actionItems = React.useMemo(() => {
+  const actionItems = React.useMemo((): TCommandPalettelItem[] => {
     return [
       {
         title: t("command.toggle_theme"),
@@ -43,7 +58,7 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
     ];
   }, [t, toggleTheme, requestCloseCommandPalette, setFontSettingsDialogOpen]);
 
-  const pages = React.useMemo(() => {
+  const pages = React.useMemo((): TCommandPalettelItem[] => {
     return [
       {
         title: t("command.goto_projects"),
@@ -74,8 +89,38 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
     ];
   }, [t, requestCloseCommandPalette, navigate]);
 
+  const contact = React.useMemo((): TCommandPalettelItem[] => {
+    const contactArray = [["Name", "Ankit Kumar"]] as [string, string][];
+    const items = contactLinks.map((item): TCommandPalettelItem => {
+      contactArray.push([item.title, item.href.replaceAll("mailto:", "")]);
+      return {
+        title: item.title,
+        icon: item.icon,
+        description: item.href.replaceAll("mailto:", ""),
+        action: async () => {
+          requestCloseCommandPalette();
+          window.open(item.href, "_blank");
+        },
+      };
+    });
+
+    return [
+      {
+        title: t("command.copy_contact_details"),
+        action: async () => {
+          requestCloseCommandPalette();
+          copyToClipboard(
+            contactArray.map(([title, href]) => `${title}: ${href}`).join("\n"),
+          );
+        },
+        icon: ClipboardCopy,
+      },
+      ...items,
+    ];
+  }, [t, requestCloseCommandPalette]);
+
   return React.useMemo(
-    () => [
+    (): { items: TCommandPalettelItem[]; heading: string }[] => [
       {
         items: actionItems,
         heading: t("command.action_heading"),
@@ -84,7 +129,11 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
         items: pages,
         heading: t("command.pages_heading"),
       },
+      {
+        items: contact,
+        heading: t("command.contact_heading"),
+      },
     ],
-    [actionItems, pages],
+    [actionItems, pages, contact],
   );
 }
