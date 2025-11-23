@@ -14,7 +14,7 @@ export function Footer() {
                 size="icon-lg"
                 className="dark:hover:bg-foreground/10"
               >
-                {<item.icon className="fill-foreground" />}
+                {<item.icon />}
               </Button>
             </a>
           ))}

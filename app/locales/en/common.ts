@@ -4,6 +4,7 @@ const common = {
     "Press <0>/</0> or <0>ctrl</0> + <0>k</0> to open the command palette.",
   command: {
     title: "Command Palette",
+    short_name: "Command",
     description:
       "Use the command palette to quickly access commands and features.",
     placeholder: "Type your command...",
@@ -21,9 +22,11 @@ const common = {
     copy_contact_details: "Copy contact details",
   },
   action_menu: {
-    theme: "Toggle Theme",
+    theme: "Change Theme",
     font_settings: "Font Settings",
   },
+  menu: "Menu",
+  toggle_menu: "Toggle Menu",
   font_settings_dialog: {
     title: "Font Settings",
     description: "Adjust the font size.",

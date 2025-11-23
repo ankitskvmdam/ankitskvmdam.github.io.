@@ -1,11 +1,17 @@
+import { cn } from "~/lib/utils";
 import { Button } from "../ui/button";
-import { FontSettingsDialog } from "./font-settings";
 import { useActionMenuItems } from "./use-action-menu-items";
 
-export function ActionMenu() {
+export type TActionMenuProps = {
+  containerClassname?: string;
+  labelClassname?: string;
+};
+
+export function ActionMenu(props: TActionMenuProps) {
+  const { containerClassname, labelClassname } = props;
   const items = useActionMenuItems();
   return (
-    <div className="hidden bg-layer-0 rounded-full md:block">
+    <div className={cn("bg-layer-0 rounded-full", containerClassname)}>
       {items.map((item, index) => (
         <Button
           className="rounded-full"
@@ -16,10 +22,9 @@ export function ActionMenu() {
           onClick={item.onClick}
         >
           <item.icon />
-          <span className="hidden lg:block">{item.label}</span>
+          <span className={labelClassname}>{item.label}</span>
         </Button>
       ))}
-      <FontSettingsDialog />
     </div>
   );
 }

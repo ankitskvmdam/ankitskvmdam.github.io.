@@ -12,34 +12,37 @@ export function FontSettingsFontSize() {
   const { t } = useTranslation("common");
 
   return (
-    <div className="flex items-center">
-      <div className="w-32">{t("font_settings_dialog.font_size")}</div>
+    <div className="flex items-center justify-between">
+      <div>{t("font_settings_dialog.font_size")}</div>
       <ButtonGroup>
+        <ButtonGroup className={fontSize === fontRange.default ? "hidden" : ""}>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => updateFontSize(fontRange.default)}
+          >
+            <RotateCcw />
+          </Button>
+        </ButtonGroup>
         <ButtonGroup>
           <Button
             variant="outline"
+            size="sm"
             onClick={() => updateFontSize(fontSize - 1)}
             disabled={fontSize <= fontRange.min}
           >
             <Minus />
           </Button>
-          <Button variant="outline" className="hover:bg-transparent">
+          <Button size="sm" variant="outline" className="hover:bg-transparent">
             {fontSize}
           </Button>
           <Button
             variant="outline"
+            size="sm"
             onClick={() => updateFontSize(fontSize + 1)}
             disabled={fontSize >= fontRange.max}
           >
             <Plus />
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup className={fontSize === fontRange.default ? "hidden" : ""}>
-          <Button
-            variant="outline"
-            onClick={() => updateFontSize(fontRange.default)}
-          >
-            <RotateCcw />
           </Button>
         </ButtonGroup>
       </ButtonGroup>

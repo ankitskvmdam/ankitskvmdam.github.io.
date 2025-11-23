@@ -40,7 +40,7 @@ export function CommandMenuItem(props: TCommandMenuItemProps) {
       <div className="flex flex-1 justify-between">
         <span>{item.title}</span>
         {item.description && (
-          <span className="text-muted-foreground description">
+          <span className="text-muted-foreground hidden md:inline-block">
             {item.description}
           </span>
         )}

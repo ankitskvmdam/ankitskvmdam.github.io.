@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { AnkLogo } from "../logo/ank";
 import { ActionMenu } from "./action-menu";
 import { Menu } from "./menu";
+import { FontSettingsDialog } from "./font-settings";
 
 export function Navbar() {
   return (
@@ -13,7 +14,11 @@ export function Navbar() {
           </Link>
 
           <Menu />
-          <ActionMenu />
+          <ActionMenu
+            containerClassname="hidden md:block"
+            labelClassname="hidden lg:block"
+          />
+          <FontSettingsDialog />
         </div>
       </nav>
     </header>
