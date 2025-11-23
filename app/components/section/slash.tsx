@@ -28,6 +28,7 @@ export function Slash(props: TSlashProps) {
         "font-monospace font-normal ",
         component === "heading" &&
           "text-4xl leading-relaxed md:text-5xl lg:text-6xl",
+        component === "inline" && "text-xs",
         className,
       )}
       {...rest}
