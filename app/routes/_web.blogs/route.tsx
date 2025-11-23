@@ -1,6 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { MetaFunction } from "react-router";
-
-import { Slash } from "~/components/section/slash";
+import { SectionPageIntro } from "~/components/section/page-intro";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,23 +10,24 @@ export const meta: MetaFunction = () => {
 };
 
 export const handle = {
-  i18n: ["home", "common"],
+  i18n: ["blogs", "common"],
 };
 
 export default function BlogsRoute() {
+  const { t } = useTranslation("blogs");
+
   return (
-    <div className="section relative section-min-h">
+    <div className="section relative">
       <div className="section-wrapper section-padding relative z-10">
-        <Slash component="heading" className="mt-6 md:mt-12 lg:mt-24">
-          /blogs
-        </Slash>
-        <div className="mt-12 gap-12 flex flex-col">
-          <div className="flex flex-col gap-4">
-            <span className="font-monospace font-bold leading-none text-5xl md:text-7xl">
-              Page under construction.
-            </span>
-          </div>
-        </div>
+        <div className="bg-[url('/assets/typewriter.png')] bg-no-repeat bg-contain absolute w-full bg-bottom-right z-1 opacity-20 bottom-0 h-96 lg:h-[calc(100vh-200px)] lg:min-h-[300px] dark:opacity-10 " />
+        <SectionPageIntro
+          className="min-h-[calc(100vh-300px)] relative z-10"
+          pageHeading="/blogs"
+          pageTitleSlash="/blogs/author/opening-message"
+          pageTitle={t("title")}
+          pageDescriptionSlash="/blogs/author/description-about-blogs"
+          pageDescription={t("description")}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { MetaFunction } from "react-router";
-
-import { Slash } from "~/components/section/slash";
+import { SectionPageIntro } from "~/components/section/page-intro";
+import { ProjectsBackground } from "./background";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,23 +11,24 @@ export const meta: MetaFunction = () => {
 };
 
 export const handle = {
-  i18n: ["home", "common"],
+  i18n: ["projects", "common"],
 };
 
 export default function ProjectsRoute() {
+  const { t } = useTranslation("projects");
+
   return (
-    <div className="section relative section-min-h">
-      <div className="section-wrapper section-padding relative z-10">
-        <Slash component="heading" className="mt-6 md:mt-12 lg:mt-24">
-          /projects
-        </Slash>
-        <div className="mt-12 gap-12 flex flex-col">
-          <div className="flex flex-col gap-4">
-            <span className="font-monospace font-bold leading-none text-5xl md:text-7xl">
-              Page under construction.
-            </span>
-          </div>
-        </div>
+    <div className="section relative">
+      <div className="section-wrapper section-padding relative z-1">
+        <SectionPageIntro
+          className="min-h-[calc(100vh-300px)] relative z-10"
+          pageHeading="/projects"
+          pageTitleSlash="/projects/title"
+          pageTitle={t("title")}
+          pageDescriptionSlash="/projects/description"
+          pageDescription={t("description")}
+        />
+        <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 h-screen -rotate-12" />
       </div>
     </div>
   );
