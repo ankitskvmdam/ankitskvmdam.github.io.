@@ -32,7 +32,7 @@ export default function AboutRoute() {
           pageDescription={t("description")}
         />
 
-        <div className="max-w-5xl relative z-10">
+        <div className="max-w-5xl pt-12 relative z-10">
           <Slash component="inline">/about/ankit_kumar/story-or-timeline</Slash>
           <p className="pt-1">
             <Trans
