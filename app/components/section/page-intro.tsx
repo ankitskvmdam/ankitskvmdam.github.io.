@@ -50,17 +50,14 @@ export function SectionPageIntro(props: TSectionPageIntroProps) {
       <div className="mt-12 gap-12 flex flex-col">
         <div className="flex flex-col gap-4">
           {pageTitleSlash && (
-            <Slash
-              component="inline"
-              className={cn("text-xs", pageTitleSlashClassNames)}
-            >
+            <Slash component="inline" className={cn(pageTitleSlashClassNames)}>
               {pageTitleSlash}
             </Slash>
           )}
           {pageTitle && (
             <span
               className={cn(
-                "font-monospace font-bold leading-none text-5xl md:text-7xl",
+                "font-monospace font-bold leading-none max-w-5xl text-5xl md:text-7xl",
                 pageTitleClassNames,
               )}
             >
