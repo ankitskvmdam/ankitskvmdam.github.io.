@@ -1,8 +1,8 @@
 import { MetaFunction } from "react-router";
 import { Trans, useTranslation } from "react-i18next";
 
-import { Slash } from "~/components/section/slash";
 import { lazy } from "react";
+import { SectionPageIntro } from "~/components/section/page-intro";
 
 const Background = lazy(() =>
   import("./background").then(({ Background }) => ({ default: Background })),
@@ -25,32 +25,19 @@ export default function IndexRoute() {
   return (
     <div className="section relative section-min-h">
       <div className="section-wrapper section-padding relative z-10">
-        <Slash component="heading" className="mt-6 md:mt-12 lg:mt-24">
-          /home
-        </Slash>
-        <div className="mt-12 gap-12 flex flex-col">
-          <div className="flex flex-col gap-4">
-            <Slash component="inline" className="text-xs">
-              /home/name
-            </Slash>
-            <span className="font-monospace font-bold leading-none text-5xl md:text-7xl">
-              {t("common:ankit_kumar")}
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-1 max-w-xl">
-            <Slash component="inline" className="text-sm">
-              /home/intro
-            </Slash>
-            <p>
-              <Trans
-                t={t}
-                i18nKey="intro"
-                components={[<strong key="strong" />, <br key="break" />]}
-              />
-            </p>
-          </div>
-        </div>
+        <SectionPageIntro
+          pageHeading="/home"
+          pageTitleSlash="/home/name"
+          pageTitle={t("common:ankit_kumar")}
+          pageDescriptionSlash={"/home/ankit_kumar/intro"}
+          pageDescription={
+            <Trans
+              t={t}
+              i18nKey="intro"
+              components={[<strong key="strong" />, <br key="break" />]}
+            />
+          }
+        />
       </div>
       <div className="absolute -top-16 left-0 right-0 -bottom-12 z-0">
         <Background />

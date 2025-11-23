@@ -26,7 +26,7 @@ const common = {
     description: "Adjust the font size.",
     font_size: "Font Size",
   },
-  page_not_found: "Page Not Found",
+  page_not_found_title: "Oops! Something’s Missing",
   page_not_found_description:
     "We are sorry, but the page you are looking for does not exist.",
 };
