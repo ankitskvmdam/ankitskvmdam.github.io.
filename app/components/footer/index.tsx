@@ -1,5 +1,5 @@
+import { contactLinks } from "~/constants/contact";
 import { Button } from "../ui/button";
-import { socialLinks } from "./data";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
       <div className="absolute left-0 bottom-0 right-0 h-56 bg-[url(/assets/footer-bg.png)] opacity-10 bg-cover bg-center dark:opacity-20" />
       <div className="flex section-wrapper flex-col justify-end gap-y-0.5 z-10 relative">
         <div className="flex items-center gap-x-0.5">
-          {socialLinks.map((item) => (
+          {contactLinks.map((item) => (
             <a target="_blank" className="" href={item.href} key={item.id}>
               <Button
                 variant="ghost"
