@@ -2,9 +2,10 @@ export type TMDXFrontMatter = {
   title: string;
   summary: string;
   thumbnail?: string;
-  date: Date;
+  date: string;
   status: "draft" | "published";
   type: "blog" | "project";
+  displayDate: string;
 };
 
 export type TPost = TMDXFrontMatter & {
@@ -22,6 +23,9 @@ export function getAllBlogPosts(): TPost[] {
     ([path, blog]): TPost => ({
       ...blog.frontmatter,
       slug: path.replace("../mdx/", "").replace(/\.(mdx)$/, ""),
+      displayDate: new Intl.DateTimeFormat("en-GB", {
+        dateStyle: "medium",
+      }).format(new Date(blog.frontmatter.date)),
     }),
   );
 }
