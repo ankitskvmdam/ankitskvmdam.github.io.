@@ -29,7 +29,6 @@ export function useGetHighlightProjects() {
         number: "01.",
         title: t("cleanJSDocTheme.title"),
         descriptionKey: "cleanJSDocTheme.description",
-        readMore: "/clean",
         thumbnail:
           theme === "dark"
             ? "/assets/clean-jsdoc-theme-dark.png"
