@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { MetaFunction } from "react-router";
 import { SectionPageIntro } from "~/components/section/page-intro";
 import { ProjectsBackground } from "./background";
+import { ProjectsList } from "./projects";
 
 export const meta: MetaFunction = () => {
   return [
@@ -20,15 +21,18 @@ export default function ProjectsRoute() {
   return (
     <div className="section relative">
       <div className="section-wrapper section-padding relative z-1">
-        <SectionPageIntro
-          className="min-h-[calc(100vh-300px)] relative z-10"
-          pageHeading="/projects"
-          pageTitleSlash="/projects/title"
-          pageTitle={t("title")}
-          pageDescriptionSlash="/projects/description"
-          pageDescription={t("description")}
-        />
-        <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 h-screen -rotate-12" />
+        <div className="relative">
+          <SectionPageIntro
+            className="min-h-[calc(100vh-400px)] relative z-10 lg:min-h-[calc(100vh-500px)]"
+            pageHeading="/projects"
+            pageTitleSlash="/projects/title"
+            pageTitle={t("title")}
+            pageDescriptionSlash="/projects/description"
+            pageDescription={t("description")}
+          />
+          <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 h-screen -rotate-12" />
+        </div>
+        <ProjectsList />
       </div>
     </div>
   );
