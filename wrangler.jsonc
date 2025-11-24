@@ -9,7 +9,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "pages_build_output_dir": "./build/client",
   "observability": {
-    "enabled": true,
+    "enabled": true
   }
   /**
    * Smart Placement
