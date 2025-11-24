@@ -11,7 +11,11 @@ const Background = lazy(() =>
 export const meta: MetaFunction = () => {
   return [
     { title: "Ankit Kumar (अंकित कुमार)" },
-    { name: "description", content: "Hi! I am Ankit" },
+    {
+      name: "description",
+      content:
+        "Hey 👋, so glad you're here.A little about me, I'm a Co-Founder, Software Engineer, UI/UX Designer, and Mentor—crafting  tools people enjoy, writing thoughtful, maintainable code, and helping others grow with me.And most importantly, I'm rooted in Nalanda, Bihar (India).",
+    },
   ];
 };
 

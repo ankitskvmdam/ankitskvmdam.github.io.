@@ -7,7 +7,11 @@ import { ProjectsList } from "./projects";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ankit Kumar (अंकित कुमार)" },
-    { name: "description", content: "Hi! I am Ankit" },
+    {
+      name: "description",
+      content:
+        "My creation in code. Projects and experiments that reflects my journey as a software engineer.",
+    },
   ];
 };
 

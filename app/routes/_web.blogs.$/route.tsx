@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { MetaFunction, useLoaderData } from "react-router";
 import { SectionPageIntro } from "~/components/section/page-intro";
 import { getAllBlogPosts } from "~/utils/mdx.server";
-import { BlogsList } from "./blogs-list";
+// import { BlogsList } from "./blogs-list";
 
 export function loader() {
   try {
@@ -49,7 +49,7 @@ export default function BlogsRoute() {
         </div>
       </div>
 
-      <BlogsList blogs={blogs} />
+      {/*<BlogsList blogs={blogs} />*/}
     </div>
   );
 }

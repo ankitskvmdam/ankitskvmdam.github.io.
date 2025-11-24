@@ -21,7 +21,10 @@ export function loader() {
 export const meta: MetaFunction = () => {
   return [
     { title: "Ankit Kumar (अंकित कुमार)" },
-    { name: "description", content: "Hi! I am Ankit" },
+    {
+      name: "description",
+      content: "My blogs share the lessons I’ve learned from my experiences.",
+    },
   ];
 };
 

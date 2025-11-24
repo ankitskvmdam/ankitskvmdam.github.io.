@@ -8,7 +8,11 @@ import { Signature } from "./signature";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ankit Kumar (अंकित कुमार)" },
-    { name: "description", content: "Hi! I am Ankit" },
+    {
+      name: "description",
+      content:
+        "A curious engineer who loves to build, and sometimes break,things!",
+    },
   ];
 };
 
