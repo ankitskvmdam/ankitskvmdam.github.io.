@@ -1,6 +1,12 @@
-import { LoaderFunctionArgs, MetaFunction, redirect } from "react-router";
+import {
+  LoaderFunctionArgs,
+  MetaFunction,
+  redirect,
+  useLoaderData,
+} from "react-router";
 import { BLOGS_ROUTE } from "~/constants/routes";
-import { getBlogPostBySlug } from "~/mdx/server";
+import { getBlogPostBySlug, TPostData } from "~/mdx/server";
+import { Article } from "./article";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params["slug"];
@@ -8,16 +14,22 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return redirect(BLOGS_ROUTE);
   }
 
-  const rawFileContent = await getBlogPostBySlug(slug);
-  console.log("Rawfile", rawFileContent);
-  return {
-    slug,
-  };
+  let mdx: TPostData | null = null;
+
+  try {
+    mdx = await getBlogPostBySlug(slug);
+  } catch (error) {
+    console.error("Error fetching blog post:", error);
+    redirect("/blog-not-found");
+  }
+
+  return mdx;
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const { title } = data?.data || {};
   return [
-    { title: `Ankit Kumar (अंकित कुमार)` },
+    { title: `${title} Ankit Kumar (अंकित कुमार)` },
     { name: "description", content: "Hi! I am Ankit" },
   ];
 };
@@ -27,9 +39,17 @@ export const handle = {
 };
 
 export default function BlogsRoute() {
+  const mdx = useLoaderData<typeof loader>();
+
+  if (!mdx) {
+    return null;
+  }
+
   return (
     <div className="section relative">
-      <div className="section-wrapper section-padding">Hello world!</div>
+      <div className="section-wrapper section-padding">
+        <Article frontmatter={mdx.data} content={mdx.content} />
+      </div>
     </div>
   );
 }

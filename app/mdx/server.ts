@@ -38,8 +38,11 @@ export function getAllBlogPosts(): TPost[] {
   }
 }
 
-export async function getBlogPostBySlug(slug: string) {
-  const rawFileContent = (await import(`./posts/${slug}.mdx?raw`)).default;
+export type TPostData = ReturnType<typeof matter> & {
+  data: TFrontmatter;
+};
 
-  console.log(rawFileContent);
+export async function getBlogPostBySlug(slug: string): Promise<TPostData> {
+  const rawFileContent = (await import(`./posts/${slug}.mdx?raw`)).default;
+  return matter(rawFileContent) as TPostData;
 }
