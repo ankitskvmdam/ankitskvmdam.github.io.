@@ -1,0 +1,90 @@
+---
+title: "How to run @mediapipe/task-vision in a Web Worker"
+summary: "Running MediaPipe's Pose Landmarker (or other models/tasks by MediaPipe) directly on the main thread can make your web app slow. In this article, we'll learn how to offload MediaPipe models/tasks to a Web Worker, keeping the UI smooth and responsive."
+date: "2025-11-24"
+type: "blog"
+status: "draft"
+thumbnail: "/assets/blog/mediapipe-webworker.jpg"
+---
+
+>You can apply the same pattern to other MediaPipe models/tasks, including Object Detection, Interactive Segmentation etc.
+
+
+![Mediapipe + Web Workers. Image created by the Ankit Kumar. Mediapipe logo © Google.](/assets/blog/mediapipe-webworker.jpg)
+
+## Setting up development environment
+
+For the sake of simplicity, we'll set up our environment using Vite and plain JavaScript. You can find all the source code in my GitHub repository, which also includes examples of how to integrate Mediapipe's Pose Landmarker with Web Workers in different frameworks.
+
+Create a new Vite project:
+
+```bash
+npm create vite@latest
+```
+
+Then follow the prompts to setup the project.
+
+## Running MediaPipe in the main thread
+
+Before introducing Web Workers, we'll first run Mediapipe directly on the main thread to confirm that everything is set up correctly and working as expected.
+
+Start by removing the boilerplate files and the following import from main.js:
+
+```js
+import * as $mediapipe from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/+esm";
+```
+
+This import statement loads all exports from @mediapipe/tasks-vision and places them under the $mediapipe namespace.
+
+Next, we'll initialize MediaPipe's PoseLandmarker:
+
+```js
+let poseLandmarker = null;
+/**
+ * This function does the following:
+ * 1. Create MediaPipe PoseLandmarker detector using model path and assign it global poseLandmarker.
+ * 2. Set running mode to VIDEO.
+ */
+async function initializeMediapipePoseLandmarker() {
+  const vision = await $mediapipe.FilesetResolver.forVisionTasks(
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm",
+  );
+
+  poseLandmarker = await $mediapipe.PoseLandmarker.createFromModelPath(
+    vision,
+    "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+  );
+
+  await poseLandmarker.setOptions({
+    runningMode: "VIDEO",
+  });
+}
+```
+
+Once initialized, we need a function to run pose detection:
+
+```js
+/**
+ * Detecting the pose.
+ */
+async function detectPose(imageOrVideoElement) {
+  if (!poseLandmarker) {
+    throw new Error("PoseLandmarker is not initialized");
+  }
+
+  const timestamp = performance.now();
+  return new Promise((resolve) => {
+    poseLandmarker.detectForVideo(imageOrVideoElement, timestamp, (result) => {
+      resolve(result);
+    });
+  });
+}
+```
+
+Finally, you'll need some additional code to request camera access and continuously run pose detection. You can find the complete example here.
+
+This section helps you set up the MediaPipe PoseLandmarker on the main thread. Now, let's move on to the next part, where we'll learn how to configure and run it inside a Web Worker.
+
+## Running MediaPipe inside Web Worker
+
+TODO.
