@@ -17,7 +17,7 @@ export function HighlightProject(props: THightlightProjectProps) {
   const { t } = useTranslation("projects");
 
   return (
-    <div className="flex relative z-10">
+    <div className="flex relative z-10 flex-col lg:flex-row">
       <div className="p-4 md:max-w-lg relative flex-1 flex flex-col">
         <div className="font-extrabold font-monospace text-9xl text-layer-0 absolute z-1 top-0">
           {item.number}
@@ -27,7 +27,7 @@ export function HighlightProject(props: THightlightProjectProps) {
           <div className="font-monospace font-bold text-2xl md:text-4xl">
             {item.title}
           </div>
-          <div className="text-muted-foreground mt-4 border-t-2 border-muted pt-8">
+          <div className="text-muted-foreground mt-4 lg:border-t-2 lg:border-muted lg:pt-8">
             <Trans
               t={t}
               i18nKey={item.descriptionKey}
