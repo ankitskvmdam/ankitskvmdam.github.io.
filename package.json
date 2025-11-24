@@ -33,6 +33,7 @@
     "i18next-browser-languagedetector": "^8.2.0",
     "isbot": "^5.1.32",
     "lucide-react": "^0.554.0",
+    "mdx-bundler": "^10.1.1",
     "meshline": "^3.3.1",
     "next-themes": "^0.4.6",
     "react": "^19.2.0",

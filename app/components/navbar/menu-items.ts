@@ -1,4 +1,4 @@
-import { ABOUT_ROUTE, BLOG_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
+import { ABOUT_ROUTE, BLOGS_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
 
 export type TMenuItem = {
   label: string;
@@ -16,7 +16,7 @@ export const menuItems: TMenuItem[] = [
   },
   {
     label: "/blogs",
-    href: BLOG_ROUTE,
+    href: BLOGS_ROUTE,
   },
   {
     label: "/projects",

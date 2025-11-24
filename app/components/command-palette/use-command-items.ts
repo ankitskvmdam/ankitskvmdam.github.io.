@@ -6,9 +6,9 @@ import {
   Menu,
   SwatchBook,
 } from "lucide-react";
-import React, { useCallback } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { ABOUT_ROUTE, BLOG_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
+import { ABOUT_ROUTE, BLOGS_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
 import { useThemeAction } from "~/actions/use-theme-action";
 import { useAppStore } from "~/app-store";
 import { contactLinks } from "~/constants/contact";
@@ -73,7 +73,7 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
         title: t("command.goto_blog"),
         action: async () => {
           requestCloseCommandPalette();
-          navigate(BLOG_ROUTE);
+          navigate(BLOGS_ROUTE);
           console.log("Opening blog page");
         },
         icon: ArrowRight,

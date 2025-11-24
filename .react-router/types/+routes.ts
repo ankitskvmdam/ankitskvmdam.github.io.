@@ -17,19 +17,24 @@ type Pages = {
   "/api/update-app-state": {
     params: {};
   };
+  "/blog/:slug": {
+    params: {
+      "slug": string;
+    };
+  };
   "/projects": {
     params: {};
+  };
+  "/blog/*": {
+    params: {
+      "*": string;
+    };
   };
   "/about": {
     params: {};
   };
   "/blogs": {
     params: {};
-  };
-  "/blogs/*": {
-    params: {
-      "*": string;
-    };
   };
   "/*": {
     params: {
@@ -41,7 +46,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/api/update-app-state" | "/projects" | "/about" | "/blogs" | "/blogs/*" | "/*";
+    page: "/" | "/api/update-app-state" | "/blog/:slug" | "/projects" | "/blog/*" | "/about" | "/blogs" | "/*";
   };
   "routes/api.update-app-state.ts": {
     id: "routes/api.update-app-state";
@@ -49,11 +54,19 @@ type RouteFiles = {
   };
   "routes/_web/route.tsx": {
     id: "routes/_web";
-    page: "/projects" | "/" | "/about" | "/blogs" | "/blogs/*" | "/*";
+    page: "/blog/:slug" | "/projects" | "/blog/*" | "/" | "/about" | "/blogs" | "/*";
+  };
+  "routes/_web.blog.$slug/route.tsx": {
+    id: "routes/_web.blog.$slug";
+    page: "/blog/:slug";
   };
   "routes/_web.projects/route.tsx": {
     id: "routes/_web.projects";
     page: "/projects";
+  };
+  "routes/_web.blog.$/route.tsx": {
+    id: "routes/_web.blog.$";
+    page: "/blog/*";
   };
   "routes/_web._index/route.tsx": {
     id: "routes/_web._index";
@@ -65,11 +78,7 @@ type RouteFiles = {
   };
   "routes/_web.blogs/route.tsx": {
     id: "routes/_web.blogs";
-    page: "/blogs" | "/blogs/*";
-  };
-  "routes/_web.blogs.$/route.tsx": {
-    id: "routes/_web.blogs.$";
-    page: "/blogs/*";
+    page: "/blogs";
   };
   "routes/_web.$.tsx": {
     id: "routes/_web.$";
@@ -81,10 +90,11 @@ type RouteModules = {
   "root": typeof import("./app/root.tsx");
   "routes/api.update-app-state": typeof import("./app/routes/api.update-app-state.ts");
   "routes/_web": typeof import("./app/routes/_web/route.tsx");
+  "routes/_web.blog.$slug": typeof import("./app/routes/_web.blog.$slug/route.tsx");
   "routes/_web.projects": typeof import("./app/routes/_web.projects/route.tsx");
+  "routes/_web.blog.$": typeof import("./app/routes/_web.blog.$/route.tsx");
   "routes/_web._index": typeof import("./app/routes/_web._index/route.tsx");
   "routes/_web.about": typeof import("./app/routes/_web.about/route.tsx");
   "routes/_web.blogs": typeof import("./app/routes/_web.blogs/route.tsx");
-  "routes/_web.blogs.$": typeof import("./app/routes/_web.blogs.$/route.tsx");
   "routes/_web.$": typeof import("./app/routes/_web.$.tsx");
 };
