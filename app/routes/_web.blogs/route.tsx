@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { MetaFunction, useLoaderData } from "react-router";
 import { SectionPageIntro } from "~/components/section/page-intro";
-import { getAllBlogPosts } from "~/utils/mdx.server";
 import { BlogsList } from "./blogs-list";
+import { getAllBlogPosts } from "~/mdx/server";
 
 export function loader() {
   try {

@@ -25,11 +25,6 @@ type Pages = {
   "/projects": {
     params: {};
   };
-  "/blog/*": {
-    params: {
-      "*": string;
-    };
-  };
   "/about": {
     params: {};
   };
@@ -46,7 +41,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/api/update-app-state" | "/blog/:slug" | "/projects" | "/blog/*" | "/about" | "/blogs" | "/*";
+    page: "/" | "/api/update-app-state" | "/blog/:slug" | "/projects" | "/about" | "/blogs" | "/*";
   };
   "routes/api.update-app-state.ts": {
     id: "routes/api.update-app-state";
@@ -54,7 +49,7 @@ type RouteFiles = {
   };
   "routes/_web/route.tsx": {
     id: "routes/_web";
-    page: "/blog/:slug" | "/projects" | "/blog/*" | "/" | "/about" | "/blogs" | "/*";
+    page: "/blog/:slug" | "/projects" | "/" | "/about" | "/blogs" | "/*";
   };
   "routes/_web.blog.$slug/route.tsx": {
     id: "routes/_web.blog.$slug";
@@ -63,10 +58,6 @@ type RouteFiles = {
   "routes/_web.projects/route.tsx": {
     id: "routes/_web.projects";
     page: "/projects";
-  };
-  "routes/_web.blog.$/route.tsx": {
-    id: "routes/_web.blog.$";
-    page: "/blog/*";
   };
   "routes/_web._index/route.tsx": {
     id: "routes/_web._index";
@@ -92,7 +83,6 @@ type RouteModules = {
   "routes/_web": typeof import("./app/routes/_web/route.tsx");
   "routes/_web.blog.$slug": typeof import("./app/routes/_web.blog.$slug/route.tsx");
   "routes/_web.projects": typeof import("./app/routes/_web.projects/route.tsx");
-  "routes/_web.blog.$": typeof import("./app/routes/_web.blog.$/route.tsx");
   "routes/_web._index": typeof import("./app/routes/_web._index/route.tsx");
   "routes/_web.about": typeof import("./app/routes/_web.about/route.tsx");
   "routes/_web.blogs": typeof import("./app/routes/_web.blogs/route.tsx");
