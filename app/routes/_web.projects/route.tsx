@@ -33,6 +33,7 @@ export default function ProjectsRoute() {
           <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 h-screen -rotate-12" />
         </div>
         <ProjectsList />
+        <div className="h-10 w-10" />
       </div>
     </div>
   );

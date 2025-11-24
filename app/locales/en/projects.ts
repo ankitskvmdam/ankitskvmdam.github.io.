@@ -19,6 +19,10 @@ const projects = {
     enabling streaming of local audio, video, and screen content. <1>outspeed-js</1> is a monorepo containing all packages
     related to web and JavaScript.`,
   },
+  ersilia: {
+    title: "Train and Package REINVENT 4 for Ersilia Hub",
+    description: `Packaged and optimized REINVENT models for Ersilia, and explored 3D molecular generation to support next-generation drug discovery tools.`,
+  },
 };
 
 export default projects;

@@ -11,9 +11,9 @@ export function HighlightProject(props: THighlightProjectProps) {
   const { item } = props;
 
   return (
-    <div className="flex relative z-10 flex-col lg:flex-row">
+    <div className="flex relative z-10 flex-col lg:flex-row" id={item.id}>
       <div className="md:max-w-lg relative flex-1 flex flex-col pt-4 lg:p-4">
-        <div className="font-extrabold font-monospace text-layer-0 absolute z-1 top-0 text-9xl">
+        <div className="font-extrabold font-monospace text-layer-0 absolute z-1 top-0 text-7xl lg:text-9xl">
           {item.number}
         </div>
         <div className="relative flex flex-1 flex-col z-10 pl-10 lg:pl-20">

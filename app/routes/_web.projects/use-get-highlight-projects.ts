@@ -7,7 +7,10 @@ export type THighlightProject = {
   thumbnail: string;
   number: string;
   title: string;
-  descriptionKey: "outspeed.description" | "cleanJSDocTheme.description";
+  descriptionKey:
+    | "outspeed.description"
+    | "cleanJSDocTheme.description"
+    | "ersilia.description";
   links: {
     id: string;
     type: "npm" | "github" | "website" | "notebook";
@@ -74,6 +77,30 @@ export function useGetHighlightProjects() {
           },
         ],
         thumbnail: "/assets/outspeed-playground.png",
+      },
+      {
+        id: "ersilia",
+        number: "03.",
+        title: t("ersilia.title"),
+        descriptionKey: "ersilia.description",
+        links: [
+          {
+            id: "github",
+            href: "https://github.com/ersilia-os/ersilia/issues/942",
+            type: "github",
+          },
+          {
+            id: "website",
+            type: "website",
+            href: "https://www.ersilia.io/",
+          },
+          {
+            id: "notebook",
+            type: "notebook",
+            href: "https://github.com/ankitskvmdam/reinvent-transfer-learning/blob/master/notebooks/TransferLearning.ipynb",
+          },
+        ],
+        thumbnail: "/assets/ersilia-website.png",
       },
     ];
   }, [theme, t]);

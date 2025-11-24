@@ -33,7 +33,7 @@ export function HighlightProjectLinks(props: THightlightProjectLinksProps) {
                 <WebsiteIcon className="hover:fill-website" />
               )}
               {type === "notebook" && (
-                <NotebookIcon className="hover:fill-notebook" />
+                <NotebookIcon className="fill-transparent! stroke-current hover:stroke-notebook" />
               )}
             </a>
           ))}
