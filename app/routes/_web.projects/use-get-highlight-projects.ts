@@ -54,10 +54,26 @@ export function useGetHighlightProjects() {
       },
       {
         id: "outspeed",
+        number: "02.",
         title: t("outspeed.title"),
         descriptionKey: "outspeed.description",
-        links: [],
-        number: "02.",
+        links: [
+          {
+            id: "npm",
+            href: "https://www.npmjs.com/package/@outspeed/core",
+            type: "npm",
+          },
+          {
+            id: "github",
+            href: "https://github.com/outspeed-ai/outspeed-js",
+            type: "github",
+          },
+          {
+            id: "website",
+            href: "https://outspeed.com/",
+            type: "website",
+          },
+        ],
         thumbnail: "/assets/outspeed-playground.png",
       },
     ];
