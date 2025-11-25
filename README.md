@@ -1,36 +1,72 @@
-# Welcome to Remix + Vite!
+# ankdev.me
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
+`ankdev.me` is built using Remix and React Router, and is deployed on Cloudflare Pages.
+
+## Features
+
+- Deployed on Cloudflare Pages
+- Blog system powered by MDX
+- Modern Remix-based architecture
+- Fast, lightweight, and optimized for the edge
+
+## Prerequisites
+
+Before you can run the project locally, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- [npm (or yarn)](https://www.npmjs.com/get-npm) or [yarn](https://classic.yarnpkg.com/en/docs/install/)
+
+## Installation
+
+1. Clone this repository:
+    ```sh
+    git clone https://github.com/ankitskvmdam/ankitskvmdam.github.io./
+    ```
+
+2. Navigate to the project directory:
+    ```sh
+    cd ankitskvmdam.github.io
+    ```
+
+3. Install dependencies:
+    ```sh
+    npm install
+    ```
+    or
+    ```sh
+    yarn install
+    ```
 
 ## Development
 
-Run the Vite dev server:
+To start a development server, run:
 
-```shellscript
-npm run dev
+```sh
+npm run dev 
+```
+or
+```sh
+yarn dev
 ```
 
-## Deployment
+This will start a local server, and you can view the site at `http://localhost:5173`.
 
-First, build your app for production:
+## Build
+
+To build the project for production, run:
 
 ```sh
 npm run build
 ```
-
-Then run the app in production mode:
+or
 
 ```sh
-npm start
+yarn build
 ```
 
-Now you'll need to pick a host to deploy it to.
+The built files will be located in the build directory.
 
-### DIY
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+## License
 
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
+This project is licensed under the MIT License.
