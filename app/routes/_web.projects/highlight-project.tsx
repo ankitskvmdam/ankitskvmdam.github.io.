@@ -32,7 +32,7 @@ export function HighlightProject(props: THighlightProjectProps) {
           />
         </div>
       </div>
-      <div className="flex-1 w-full relative z-10 pt-4 lg:min-h-96">
+      <div className="flex-1 w-full relative z-10 pt-4 lg:pl-20 lg:min-h-96">
         <div className="flex h-full justify-end">
           <img
             src={item.thumbnail}
