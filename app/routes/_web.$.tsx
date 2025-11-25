@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => {
 export default function CatchAll() {
   const { t } = useTranslation();
   return (
-    <div className="section section-min-h">
+    <div className="section section-min-h-available-screen">
       <div className="section-wrapper section-padding">
         <div className="z-1 absolute left-0 h-[400px] w-full bg-[linear-gradient(to_right,var(--background-layer-0)_1px,transparent_1px),linear-gradient(to_bottom,var(--background-layer-0)_1px,transparent_1px)] bg-[size:18px_18px] top-28 md:top-48"></div>
         <SectionPageIntro

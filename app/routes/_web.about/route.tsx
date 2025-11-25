@@ -26,9 +26,9 @@ export default function AboutRoute() {
   return (
     <div className="section relative">
       <div className="section-wrapper section-padding relative z-10">
-        <div className="bg-[url('/assets/about-bg.png')] bg-no-repeat h-[calc(100vh-200px)] min-h-[300px] bg-contain absolute right-0 bg-top-left z-1 left-0 top-16 dark:invert-100 dark:hue-rotate-180 md:top-0 md:left-52 lg:left-96" />
+        <div className="bg-[url('/assets/about-bg.png')] bg-no-repeat h-[calc(100vh-12.5rem)] min-h-74 bg-contain absolute right-0 bg-top-left z-1 left-0 top-16 dark:invert-100 dark:hue-rotate-180 md:top-0 md:left-52 lg:left-96" />
         <SectionPageIntro
-          className="min-h-[calc(100vh-300px)] relative z-10"
+          className="section-intro-with-min-h"
           pageHeading="/about"
           pageTitleSlash="/about/ankit_kumar"
           pageTitle={t("title")}

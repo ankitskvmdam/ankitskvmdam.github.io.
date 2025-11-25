@@ -27,7 +27,7 @@ export default function ProjectsRoute() {
       <div className="section-wrapper section-padding relative z-1">
         <div className="relative">
           <SectionPageIntro
-            className="min-h-[calc(100vh-400px)] relative z-10 lg:min-h-[calc(100vh-500px)]"
+            className="section-intro-with-min-h"
             pageHeading="/projects"
             pageTitleSlash="/projects/title"
             pageTitle={t("title")}

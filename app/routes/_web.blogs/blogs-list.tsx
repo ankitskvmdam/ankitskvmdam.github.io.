@@ -4,7 +4,7 @@ import { DirectoryArrowLine } from "~/components/icons";
 import { Slash } from "~/components/section/slash";
 import { Button } from "~/components/ui/button";
 import { BLOG_ROUTE } from "~/constants/routes";
-import type { TPost } from "~/utils/mdx.server";
+import { TPost } from "~/mdx/server";
 
 export type TBlogsList = {
   blogs: TPost[];
@@ -14,9 +14,9 @@ export function BlogsList(props: TBlogsList) {
   const { blogs } = props;
   const { t } = useTranslation("blogs");
   return (
-    <div className="section w-full mt-10 border-t border-t-muted">
+    <div className="section w-full pt-5">
       <div className="section-wrapper section-padding">
-        <div className="py-20 grid grid-cols-1 gap-x-5 gap-y-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+        <div className="grid grid-cols-1 gap-x-5 gap-y-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {blogs.map((blog) => (
             <Link
               to={`${BLOG_ROUTE}/${blog.slug}`}

@@ -40,9 +40,9 @@ export default function BlogsRoute() {
     <div className="section relative">
       <div className="section-wrapper section-padding">
         <div className="relative z-10">
-          <div className="bg-[url('/assets/typewriter.png')] bg-no-repeat bg-contain absolute w-full bg-top-right z-1 opacity-20 h-96 top-0 md:top-auto md:bottom-0 md:bg-bottom-right lg:h-[calc(100vh-400px)] lg:min-h-[300px] dark:opacity-10 " />
+          <div className="bg-[url('/assets/typewriter.png')] bg-no-repeat bg-contain absolute w-full bg-top-right z-1 opacity-20 h-96 top-0 md:top-auto md:bottom-0 md:bg-bottom-right lg:h-[calc(100vh-12.5rem)] lg:min-h-76 dark:opacity-10 " />
           <SectionPageIntro
-            className="min-h-[calc(100vh-400px)] relative z-10"
+            className="section-intro-with-min-h"
             pageHeading="/blogs"
             pageTitleSlash="/blogs/author/opening-message"
             pageTitle={t("title")}

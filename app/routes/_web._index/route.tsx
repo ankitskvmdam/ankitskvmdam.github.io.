@@ -27,7 +27,7 @@ export default function IndexRoute() {
   const { t } = useTranslation(["home", "common"]);
 
   return (
-    <div className="section relative section-min-h">
+    <div className="section relative section-min-h-available-screen">
       <div className="section-wrapper section-padding relative z-10">
         <SectionPageIntro
           pageHeading="/home"

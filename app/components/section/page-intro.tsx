@@ -37,17 +37,17 @@ export function SectionPageIntro(props: TSectionPageIntroProps) {
     ...rest
   } = props;
   return (
-    <div className={cn(className)} {...rest}>
+    <div className={cn("pb-12", className)} {...rest}>
       {pageHeading && (
         <Slash
           component="heading"
-          className={cn("mt-6 md:mt-12 lg:mt-24", pageHeadingClassNames)}
+          className={cn("mt-2 md:mt-6 lg:mt-12", pageHeadingClassNames)}
         >
           {pageHeading}
         </Slash>
       )}
 
-      <div className="mt-12 gap-12 flex flex-col">
+      <div className="mt-6 gap-12 flex flex-col md:mt-12">
         <div className="flex flex-col gap-4">
           {pageTitleSlash && (
             <Slash component="inline" className={cn(pageTitleSlashClassNames)}>

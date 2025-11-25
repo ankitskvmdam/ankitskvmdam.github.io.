@@ -204,8 +204,12 @@
   padding: 1rem;
 }
 
-.section-min-h {
-  min-height: calc(100svh - 120px);
+.section-min-h-available-screen {
+  min-height: calc(100svh - 7.5rem);
+}
+
+.section-intro-with-min-h {
+  @apply min-h-[calc(100vh-25rem)] lg:min-h-[calc(100vh-32rem)] relative z-10;
 }
 
 svg {

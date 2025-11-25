@@ -6,7 +6,7 @@ import { FontSettingsDialog } from "./font-settings";
 
 export function Navbar() {
   return (
-    <header className="relative z-10">
+    <header className="relative z-50">
       <nav className="rounded-md z-50 section flex items-center">
         <div className="section-wrapper section-padding flex item-center">
           <Link className="flex items-center" to="/">
