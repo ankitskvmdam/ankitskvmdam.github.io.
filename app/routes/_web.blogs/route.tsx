@@ -47,7 +47,7 @@ export default function BlogsRoute() {
             pageHeading={BLOGS_ROUTE}
             pageTitleSlash={`${BLOGS_ROUTE}/ankit-kumar/opening-message`}
             pageTitle={t("title")}
-            pageDescriptionSlash={`/${BLOGS_ROUTE}/ankit-kumar/description-about-blogs`}
+            pageDescriptionSlash={`${BLOGS_ROUTE}/ankit-kumar/description-about-blogs`}
             pageDescription={t("description")}
           />
         </div>

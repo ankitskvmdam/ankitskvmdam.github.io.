@@ -39,7 +39,7 @@ export default function AboutRoute() {
 
         <div className="max-w-5xl pt-12 relative z-10">
           <Slash component="inline">
-            ${ABOUT_ROUTE}/ankit-kumar/story-or-timeline
+            {ABOUT_ROUTE}/ankit-kumar/story-or-timeline
           </Slash>
           <p className="pt-1">
             <Trans
