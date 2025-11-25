@@ -1,6 +1,7 @@
 "use client";
 import { CodeBlock } from "react-code-block";
 import { cn } from "~/lib/utils";
+import { CodeCopyButton } from "./code-copy-button";
 
 export type TCodeRendererProps = {
   children: string;
@@ -74,6 +75,7 @@ export function CodeRenderer(props: TCodeRendererProps) {
           )}
         </CodeBlock.Code>
       </CodeBlock>
+      <CodeCopyButton content={children} />
     </div>
   );
 }
