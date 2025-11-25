@@ -3,6 +3,7 @@ import { MetaFunction, useLoaderData } from "react-router";
 import { SectionPageIntro } from "~/components/section/page-intro";
 import { BlogsList } from "./blogs-list";
 import { getAllBlogPosts } from "~/mdx/server";
+import { BLOGS_ROUTE } from "~/constants/routes";
 
 export function loader() {
   try {
@@ -43,10 +44,10 @@ export default function BlogsRoute() {
           <div className="bg-[url('/assets/typewriter.png')] bg-no-repeat bg-contain absolute w-full bg-top-right z-1 opacity-20 h-96 top-0 md:top-auto md:bottom-0 md:bg-bottom-right lg:h-[calc(100vh-12.5rem)] lg:min-h-76 dark:opacity-10 " />
           <SectionPageIntro
             className="section-intro-with-min-h"
-            pageHeading="/blogs"
-            pageTitleSlash="/blogs/author/opening-message"
+            pageHeading={BLOGS_ROUTE}
+            pageTitleSlash={`${BLOGS_ROUTE}/ankit-kumar/opening-message`}
             pageTitle={t("title")}
-            pageDescriptionSlash="/blogs/author/description-about-blogs"
+            pageDescriptionSlash={`/${BLOGS_ROUTE}/ankit-kumar/description-about-blogs`}
             pageDescription={t("description")}
           />
         </div>

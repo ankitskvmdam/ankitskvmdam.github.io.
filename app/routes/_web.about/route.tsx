@@ -4,6 +4,7 @@ import { SectionPageIntro } from "~/components/section/page-intro";
 
 import { Slash } from "~/components/section/slash";
 import { Signature } from "./signature";
+import { ABOUT_ROUTE } from "~/constants/routes";
 
 export const meta: MetaFunction = () => {
   return [
@@ -29,15 +30,17 @@ export default function AboutRoute() {
         <div className="bg-[url('/assets/about-bg.png')] bg-no-repeat h-[calc(100vh-12.5rem)] min-h-74 bg-contain absolute right-0 bg-top-left z-1 left-0 top-16 dark:invert-100 dark:hue-rotate-180 md:top-0 md:left-52 lg:left-96" />
         <SectionPageIntro
           className="section-intro-with-min-h"
-          pageHeading="/about"
-          pageTitleSlash="/about/ankit_kumar"
+          pageHeading={ABOUT_ROUTE}
+          pageTitleSlash={`${ABOUT_ROUTE}/ankit-kumar`}
           pageTitle={t("title")}
-          pageDescriptionSlash="/about/ankit_kumar/intro"
+          pageDescriptionSlash={`${ABOUT_ROUTE}/ankit-kumar/intro`}
           pageDescription={t("description")}
         />
 
         <div className="max-w-5xl pt-12 relative z-10">
-          <Slash component="inline">/about/ankit_kumar/story-or-timeline</Slash>
+          <Slash component="inline">
+            ${ABOUT_ROUTE}/ankit-kumar/story-or-timeline
+          </Slash>
           <p className="pt-1">
             <Trans
               t={t}

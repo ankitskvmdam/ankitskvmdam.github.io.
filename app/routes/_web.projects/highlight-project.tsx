@@ -2,6 +2,7 @@ import { Slash } from "~/components/section/slash";
 import { THighlightProject } from "./use-get-highlight-projects";
 import { HighlightProjectLinks } from "./highlight-project-links";
 import { HighlightProjectDescription } from "./highlight-project-description";
+import { PROJECTS_ROUTE } from "~/constants/routes";
 
 export type THighlightProjectProps = {
   item: THighlightProject;
@@ -17,7 +18,9 @@ export function HighlightProject(props: THighlightProjectProps) {
           {item.number}
         </div>
         <div className="relative flex flex-1 flex-col z-10 pl-10 lg:pl-20">
-          <Slash component="inline">/projects/highlight/{item.id}</Slash>
+          <Slash component="inline">
+            {PROJECTS_ROUTE}/{item.id}
+          </Slash>
           <div className="font-monospace font-bold text-2xl md:text-4xl">
             {item.title}
           </div>

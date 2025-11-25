@@ -3,6 +3,7 @@ import { MetaFunction } from "react-router";
 import { SectionPageIntro } from "~/components/section/page-intro";
 import { ProjectsBackground } from "./background";
 import { ProjectsList } from "./projects";
+import { PROJECTS_ROUTE } from "~/constants/routes";
 
 export const meta: MetaFunction = () => {
   return [
@@ -28,10 +29,10 @@ export default function ProjectsRoute() {
         <div className="relative">
           <SectionPageIntro
             className="section-intro-with-min-h"
-            pageHeading="/projects"
-            pageTitleSlash="/projects/title"
+            pageHeading={PROJECTS_ROUTE}
+            pageTitleSlash={`${PROJECTS_ROUTE}/title`}
             pageTitle={t("title")}
-            pageDescriptionSlash="/projects/description"
+            pageDescriptionSlash={`${PROJECTS_ROUTE}/description`}
             pageDescription={t("description")}
           />
           <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 h-screen -rotate-12" />

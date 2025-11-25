@@ -41,7 +41,9 @@ export function BlogsList(props: TBlogsList) {
                 <p className="text-sm text-muted-foreground">{blog.summary}</p>
               </div>
               <div className="mt-auto h-30 border-b-2 border-b-muted flex flex-col justify-end items-end">
-                <Slash component="inline">/blogs/{blog.slug}</Slash>
+                <Slash component="inline">
+                  /${BLOG_ROUTE}/{blog.slug}
+                </Slash>
                 <Button
                   variant="ghost"
                   size="sm"
