@@ -4,6 +4,7 @@ const blogs = {
     "My blogs are tutorials or reflections on the challenges I’ve faced while working on projects. Many of my posts share insights, tips, and thoughts around building better frontend.",
 
   read: "Read",
+  minRead: "{{minRead}} min read",
 };
 
 export default blogs;

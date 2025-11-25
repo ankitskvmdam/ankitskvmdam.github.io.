@@ -47,7 +47,7 @@ export default function BlogsRoute() {
 
   return (
     <div className="section relative">
-      <div className="section-wrapper section-padding">
+      <div className="section-wrapper section-padding flex justify-center items-center">
         <Article frontmatter={mdx.data} content={mdx.content} />
       </div>
     </div>
