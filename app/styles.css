@@ -41,8 +41,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /*Custom*/
-  --color-logo: var(--logo);
-  --color-anchor: var(--anchor);
+  --color-logo: var(--accent-2);
+  --color-anchor: var(--accent-2);
   --font-sans:
     "Open Sans", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
     sans-serif;
