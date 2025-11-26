@@ -82,7 +82,7 @@ export function CodeRenderer(props: TCodeRendererProps) {
                     <span
                       className={cn(
                         isTokenHighlighted &&
-                          "bg-code-highlight text-code-highlight-foreground rounded-md px-1 py-0.5",
+                          "bg-selection text-selection-foreground rounded-md px-1 py-0.5",
                       )}
                     >
                       {children}
