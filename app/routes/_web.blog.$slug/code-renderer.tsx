@@ -62,7 +62,6 @@ export function CodeRenderer(props: TCodeRendererProps) {
         <CodeBlock.Code className={cn(
           "bg-layer-1 font-monospace rounded-md py-2 px-8 overflow-x-auto overflow-y-hidden whitespace-pre relative", 
           showLineNumbers && "text-foreground px-0",
-          // "[&_.token.plain]:text-blue-500",
           )}>
           {({ isLineHighlighted }) => (
             <div
