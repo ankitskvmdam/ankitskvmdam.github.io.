@@ -35,7 +35,7 @@ export default function ProjectsRoute() {
             pageDescriptionSlash={`${PROJECTS_ROUTE}/description`}
             pageDescription={t("description")}
           />
-          <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 h-screen -rotate-12" />
+          <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 -rotate-12 h-140 md:h-200" />
         </div>
         <ProjectsList />
         <div className="h-10 w-10" />

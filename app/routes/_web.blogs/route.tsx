@@ -4,6 +4,7 @@ import { SectionPageIntro } from "~/components/section/page-intro";
 import { BlogsList } from "./blogs-list";
 import { getAllBlogPosts } from "~/mdx/server";
 import { BLOGS_ROUTE } from "~/constants/routes";
+import { TypeWriterIllustration } from "~/components/icons/typewriter";
 
 export function loader() {
   try {
@@ -41,7 +42,8 @@ export default function BlogsRoute() {
     <div className="section relative">
       <div className="section-wrapper section-padding">
         <div className="relative z-10">
-          <div className="bg-[url('/assets/typewriter.png')] bg-no-repeat bg-contain absolute w-full bg-top-right z-1 opacity-20 h-96 top-0 md:top-auto md:bottom-0 md:bg-bottom-right lg:h-[calc(100vh-12.5rem)] lg:min-h-76 dark:opacity-10 " />
+          <div className="bg-[url('/assets/typewriter.png')] absolute opacity-20 dark:opacity-10 bg-cover bottom-0 right-0 size-52 translate-y-5 md:size-100 lg:size-140 lg:-translate-x-1/2" />
+          <div className="dot-bg h-[calc(100%+10rem)] absolute -top-30"></div>
           <SectionPageIntro
             className="section-intro-with-min-h"
             pageHeading={BLOGS_ROUTE}

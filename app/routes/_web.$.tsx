@@ -29,7 +29,7 @@ export default function CatchAll() {
           pageDescription={t("common:page_not_found_description")}
         />
 
-        <div className="absolute p-4 right-0 w-full max-w-xs bottom-5 md:max-w-md lg:max-w-2xl">
+        <div className="absolute z-1 p-4 right-0 w-full max-w-xs bottom-5 md:max-w-md lg:max-w-2xl">
           <PageNotFoundIllustration />
         </div>
       </div>

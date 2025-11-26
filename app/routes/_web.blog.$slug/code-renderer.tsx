@@ -37,18 +37,16 @@ function parseMeta(meta?: string | null) {
 export function CodeRenderer(props: TCodeRendererProps) {
   const { children, language, meta } = props;
   const { lines = [], words = [], showLineNumbers = false } = parseMeta(meta);
-  const appTheme = useAppStore((state) => state.theme)
+  const appTheme = useAppStore((state) => state.theme);
 
   const codeblockTheme = React.useMemo(() => {
-    return appTheme === 'light' ? lightTheme : darkTheme
-  }, [appTheme])
+    return appTheme === "light" ? lightTheme : darkTheme;
+  }, [appTheme]);
 
   return (
     <div className="bg-layer-0 rounded-md p-1 relative">
       <div className="flex items-center justify-between pb-1">
-        <div className="ml-4 text-xs font-monospace">
-          {language}
-        </div>
+        <div className="ml-4 text-xs font-monospace">{language}</div>
         <CodeCopyButton content={children} />
       </div>
       <CodeBlock
@@ -59,14 +57,14 @@ export function CodeRenderer(props: TCodeRendererProps) {
         words={words}
         theme={codeblockTheme}
       >
-        <CodeBlock.Code className={cn(
-          "bg-layer-1 font-monospace rounded-md py-2 px-8 overflow-x-auto overflow-y-hidden whitespace-pre relative", 
-          showLineNumbers && "text-foreground px-0",
-          )}>
+        <CodeBlock.Code
+          className={cn(
+            "bg-layer-1 font-monospace rounded-md pt-2 pb-4 px-4 overflow-x-auto overflow-y-hidden whitespace-pre relative",
+            showLineNumbers && "text-foreground px-0",
+          )}
+        >
           {({ isLineHighlighted }) => (
-            <div
-              className={cn("table-row", isLineHighlighted && "bg-muted")}
-            >
+            <div className={cn("table-row", isLineHighlighted && "bg-muted")}>
               {showLineNumbers && (
                 <CodeBlock.LineNumber
                   className={

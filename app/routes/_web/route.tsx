@@ -7,7 +7,7 @@ export default function WebRouteLayout() {
   return (
     <div className="overflow-x-hidden">
       <Navbar />
-      <main>
+      <main className="min-h-[calc(100vh-23.5rem)]">
         <Outlet />
         <CommandPalette />
       </main>

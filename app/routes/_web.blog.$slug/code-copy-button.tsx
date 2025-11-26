@@ -2,7 +2,11 @@ import { Check, Clipboard } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "~/components/ui/button";
-import { Tooltip, TooltipTrigger, TooltipContent } from "~/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "~/components/ui/tooltip";
 import { copyToClipboard } from "~/utils/copy";
 
 export type TCodeCopyButtonProps = {
@@ -13,7 +17,7 @@ export function CodeCopyButton(props: TCodeCopyButtonProps) {
   const { content } = props;
   const [showCheck, setShowCheck] = React.useState(false);
   const timeout = React.useRef<ReturnType<typeof setTimeout>>(null);
-  const { t } = useTranslation("common")
+  const { t } = useTranslation("common");
 
   const handleClick = React.useCallback(() => {
     copyToClipboard(content);
@@ -28,12 +32,8 @@ export function CodeCopyButton(props: TCodeCopyButtonProps) {
 
   return (
     <Tooltip>
-      <TooltipTrigger>
-        <Button
-          size="icon"
-          variant="ghost"
-          onClick={handleClick}
-        >
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="ghost" onClick={handleClick}>
           {showCheck ? <Check /> : <Clipboard />}
         </Button>
       </TooltipTrigger>
