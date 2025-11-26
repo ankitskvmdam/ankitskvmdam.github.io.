@@ -5,11 +5,6 @@ const blogs = {
 
   read: "Read",
   minRead: "{{minRead}} min read",
-  share: "Share",
-  copy_link: "Copy link",
-  share_on_x: "Share on X",
-  share_on_facebook: "Share on Facebook",
-  share_on_linkedin: "Share on LinkedIn",
 };
 
 export default blogs;

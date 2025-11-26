@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import {
   ALargeSmall,
+  ArrowLeft,
   ArrowRight,
   ClipboardCopy,
   Menu,
@@ -8,15 +9,23 @@ import {
 } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ABOUT_ROUTE, BLOGS_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
+import {
+  ABOUT_ROUTE,
+  BLOG_ROUTE,
+  BLOGS_ROUTE,
+  PROJECTS_ROUTE,
+} from "~/constants/routes";
 import { useThemeAction } from "~/actions/use-theme-action";
 import { useAppStore } from "~/app-store";
 import { contactLinks } from "~/constants/contact";
 import { copyToClipboard } from "~/utils/copy";
+import { UseShareCurrentURLItems } from "~/hooks/use-share-current-url";
 
 export type TCommandPaletteDialogContentProps = {
   requestCloseCommandPalette: () => void;
 };
+
+export type TCommandGroup = { items: TCommandPalettelItem[]; heading: string };
 
 export type TCommandPalettelItem = {
   title: string;
@@ -34,6 +43,12 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
   const { setFontSettingsDialogOpen } = useAppStore((state) => ({
     setFontSettingsDialogOpen: state.setFontSettingsDialogOpen,
   }));
+
+  const { pathname } = useLocation();
+
+  const shareItems = UseShareCurrentURLItems({
+    cb: requestCloseCommandPalette,
+  });
 
   const actionItems = React.useMemo((): TCommandPalettelItem[] => {
     return [
@@ -65,7 +80,6 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
         action: async () => {
           navigate(PROJECTS_ROUTE);
           requestCloseCommandPalette();
-          console.log("Opening project page");
         },
         icon: ArrowRight,
       },
@@ -74,7 +88,6 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
         action: async () => {
           requestCloseCommandPalette();
           navigate(BLOGS_ROUTE);
-          console.log("Opening blog page");
         },
         icon: ArrowRight,
       },
@@ -85,6 +98,14 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
           requestCloseCommandPalette();
         },
         icon: ArrowRight,
+      },
+      {
+        title: t("command.go_back"),
+        action: async () => {
+          requestCloseCommandPalette();
+          navigate(-1);
+        },
+        icon: ArrowLeft,
       },
     ];
   }, [t, requestCloseCommandPalette, navigate]);
@@ -119,21 +140,37 @@ export function useCommandItems(props: TCommandPaletteDialogContentProps) {
     ];
   }, [t, requestCloseCommandPalette]);
 
-  return React.useMemo(
-    (): { items: TCommandPalettelItem[]; heading: string }[] => [
-      {
+  return React.useMemo((): TCommandGroup[] => {
+    const commands = [] as TCommandGroup[];
+
+    if (shareItems.length > 0 && pathname.startsWith(`${BLOG_ROUTE}/`)) {
+      commands.push({
+        items: shareItems,
+        heading: t("share"),
+      });
+    }
+
+    if (actionItems.length > 0) {
+      commands.push({
         items: actionItems,
         heading: t("command.action_heading"),
-      },
-      {
+      });
+    }
+
+    if (pages.length > 0) {
+      commands.push({
         items: pages,
         heading: t("command.pages_heading"),
-      },
-      {
+      });
+    }
+
+    if (contact.length > 0) {
+      commands.push({
         items: contact,
         heading: t("command.contact_heading"),
-      },
-    ],
-    [actionItems, pages, contact],
-  );
+      });
+    }
+
+    return commands;
+  }, [actionItems, pages, contact]);
 }
