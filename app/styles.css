@@ -54,6 +54,8 @@
   --color-github: var(--github);
   --color-notebook: var(--notebook);
   --color-website: var(--website);
+  --color-selection: var(--selection-bg);
+  --color-selection-foreground: var(--selection-foreground);
 }
 
 :root {
