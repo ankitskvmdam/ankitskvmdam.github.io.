@@ -36,7 +36,13 @@ export function CodeRenderer(props: TCodeRendererProps) {
   const { lines = [], words = [], showLineNumbers = false } = parseMeta(meta);
 
   return (
-    <div className="relative">
+    <div className="bg-layer-0 rounded-md p-1 relative">
+      <div className="flex items-center justify-between pb-1">
+        <div className="ml-4 text-xs font-monospace">
+          {language}
+        </div>
+        <CodeCopyButton content={children} />
+      </div>
       <CodeBlock
         data-has-linenumber
         code={children}
@@ -44,10 +50,12 @@ export function CodeRenderer(props: TCodeRendererProps) {
         lines={lines}
         words={words}
       >
-        <CodeBlock.Code className={cn(showLineNumbers && "has-linenumber")}>
+        <CodeBlock.Code className={cn(
+          "bg-layer-1 rounded-md py-2 px-8 overflow-x-auto overflow-y-hidden whitespace-pre relative", 
+          showLineNumbers && "text-foreground px-0")}>
           {({ isLineHighlighted }) => (
             <div
-              className={cn("table-row", isLineHighlighted && "highlighted")}
+              className={cn("table-row", isLineHighlighted && "bg-muted")}
             >
               {showLineNumbers && (
                 <CodeBlock.LineNumber
@@ -75,7 +83,6 @@ export function CodeRenderer(props: TCodeRendererProps) {
           )}
         </CodeBlock.Code>
       </CodeBlock>
-      <CodeCopyButton content={children} />
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import { RenderNode, SafeMdxRenderer } from "safe-mdx";
 import { mdxParse } from "safe-mdx/parse";
-import "./style.css";
+// import "./style.css";
 import { TFrontmatter } from "~/mdx/types";
 import { MDXContextProvider } from "~/mdx/provider";
 import { MDXComponents } from "~/mdx/_components/mdx-components";
 import { CodeRenderer } from "./code-renderer";
 import { ArticleInfo } from "./article-info";
 import { ArticleFrontmatter } from "./article-frontmatter";
+import { ArticleRoot } from "./article-root"
 
 export type TArticleProps = {
   frontmatter: TFrontmatter;
@@ -29,7 +30,7 @@ export function Article(props: TArticleProps) {
 
   return (
     <MDXContextProvider frontmatter={frontmatter}>
-      <article className="blog-article pt-10 w-full max-w-3xl leading-normal md:pt-20 lg:text-xl">
+      <ArticleRoot>
         <ArticleInfo frontmatter={frontmatter} content={content} />
         <ArticleFrontmatter frontmatter={frontmatter} />
         <div className="space-y-5 md:space-y-10">
@@ -40,7 +41,7 @@ export function Article(props: TArticleProps) {
             renderNode={codeRenderer}
           />
         </div>
-      </article>
+      </ArticleRoot>
     </MDXContextProvider>
   );
 }

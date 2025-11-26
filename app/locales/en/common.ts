@@ -35,6 +35,8 @@ const common = {
   page_not_found_title: "Oops! Something’s Missing",
   page_not_found_description:
     "We are sorry, but the page you are looking for does not exist.",
+  copy_code: "Copy code",
+  copied: "Copied!",
 };
 
 export default common;

@@ -54,10 +54,6 @@
   --color-github: var(--github);
   --color-notebook: var(--notebook);
   --color-website: var(--website);
-
-  /*These are used in code, current code only supports dark theme*/
-  --color-code-highlight: oklch(0.4156 0.051 186.67);
-  --color-code-highlight-foreground: oklch(1 0 279);
 }
 
 :root {
