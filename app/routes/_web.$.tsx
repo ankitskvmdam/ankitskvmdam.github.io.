@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { MetaFunction } from "react-router";
+import { PageNotFoundIllustration } from "~/components/icons/page-not-found";
 import { SectionPageIntro } from "~/components/section/page-intro";
 import { Slash } from "~/components/section/slash";
 
@@ -17,8 +18,8 @@ export default function CatchAll() {
   const { t } = useTranslation();
   return (
     <div className="section section-min-h-available-screen">
-      <div className="section-wrapper section-padding">
-        <div className="z-1 absolute left-0 h-[400px] w-full bg-[linear-gradient(to_right,var(--background-layer-0)_1px,transparent_1px),linear-gradient(to_bottom,var(--background-layer-0)_1px,transparent_1px)] bg-[size:18px_18px] top-28 md:top-48"></div>
+      <div className="section-wrapper flex-1 section-padding relative min-h-128">
+        <div className="dot-bg"></div>
         <SectionPageIntro
           className="z-10 relative"
           pageHeading="/page-not-found"
@@ -27,6 +28,10 @@ export default function CatchAll() {
           pageDescriptionSlash="/404/reason"
           pageDescription={t("common:page_not_found_description")}
         />
+
+        <div className="absolute p-4 right-0 w-full max-w-xs bottom-5 md:max-w-md lg:max-w-2xl">
+          <PageNotFoundIllustration />
+        </div>
       </div>
     </div>
   );

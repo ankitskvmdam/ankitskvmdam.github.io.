@@ -100,6 +100,7 @@
   --github: oklch(0.2562 0 0);
   --website: oklch(0.6048 0.216559 257.2136);
   --notebook: oklch(0.7029 0.175 48.44);
+  --blog-dot-color: #cbd5e1;
 
   --selection-bg: oklch(0.9309 0.0269 285.86);
   --selection-foreground: var(--foreground);
@@ -149,6 +150,7 @@
   --website: oklch(0.5551 0.2462 290.71);
   --notebook: oklch(0.7972 0.1635 69.52);
   --selection-foreground: oklch(1 0 0);
+  --blog-dot-color: #343233;
 }
 
 @layer base {
@@ -189,6 +191,13 @@
   .dialog-content-wrapper {
     @apply bg-layer-1 p-4 rounded-xl;
   }
+
+  .dot-bg {
+    @apply absolute -top-30 inset-0 pointer-events-none z-[1];
+    background: radial-gradient(circle, var(--blog-dot-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
 }
 
 .section {

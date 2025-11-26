@@ -20,7 +20,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     mdx = await getBlogPostBySlug(slug);
   } catch (error) {
     console.error("Error fetching blog post:", error);
-    redirect("/blog-not-found");
+    return redirect("/blog-not-found");
   }
 
   return mdx;
@@ -48,6 +48,7 @@ export default function BlogsRoute() {
   return (
     <div className="section relative">
       <div className="section-wrapper section-padding flex justify-center items-center">
+        <div className="dot-bg h-54 md:h-96"></div>
         <Article frontmatter={mdx.data} content={mdx.content} />
       </div>
     </div>

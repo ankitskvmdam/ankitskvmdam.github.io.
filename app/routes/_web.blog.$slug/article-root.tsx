@@ -7,7 +7,7 @@ export function ArticleRoot(props: React.PropsWithChildren) {
   return (
     <article
       className={cn(
-        "blog-article pt-10 w-full max-w-3xl leading-normal md:pt-20 lg:text-xl",
+        "blog-article relative z-10 pt-10 w-full max-w-3xl leading-normal md:pt-20 lg:text-xl",
         "[&_h2]:leading-normal [&_h2]:font-bold [&_h2]:text-2xl",
         "[&_h3]:leading-normal [&_h3]:font-bold [&_h3]:text-xl",
         "[&_ol]:list-decimal [&_ol]:pl-8 md:[&_ol]:pl-10",
