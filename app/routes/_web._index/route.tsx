@@ -3,6 +3,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 import { lazy } from "react";
 import { SectionPageIntro } from "~/components/section/page-intro";
+import { getMeta } from "~/utils/meta";
 
 const Background = lazy(() =>
   import("./background").then(({ Background }) => ({ default: Background })),
@@ -16,6 +17,7 @@ export const meta: MetaFunction = () => {
       content:
         "Hey 👋, so glad you're here.A little about me, I'm a Co-Founder, Software Engineer, UI/UX Designer, and Mentor—crafting  tools people enjoy, writing thoughtful, maintainable code, and helping others grow with me.And most importantly, I'm rooted in Nalanda, Bihar (India).",
     },
+    ...getMeta()!,
   ];
 };
 

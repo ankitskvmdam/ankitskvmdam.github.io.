@@ -3,6 +3,7 @@ import { MetaFunction } from "react-router";
 import { PageNotFoundIllustration } from "~/components/icons/page-not-found";
 import { SectionPageIntro } from "~/components/section/page-intro";
 import { Slash } from "~/components/section/slash";
+import { getMeta } from "~/utils/meta";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,6 +12,7 @@ export const meta: MetaFunction = () => {
       name: "description",
       content: "We are sorry, but the page you are looking for does not exist.",
     },
+    ...getMeta()!,
   ];
 };
 

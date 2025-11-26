@@ -10,15 +10,19 @@ import { AsaanLogo } from "~/components/logo/asaan";
 import { UniversityOfCambridgeLogo } from "~/components/logo/university-of-cambridge";
 import { StartbahnLogo } from "~/components/logo/startbahn";
 import { BodygramLogo } from "~/components/logo/bodygram";
+import { getMeta } from "~/utils/meta";
 
 export const meta: MetaFunction = () => {
+  const description =
+    "A curious engineer who loves to build, and sometimes break,things!";
+  const title = "About | Ankit Kumar (अंकित कुमार)";
   return [
-    { title: "Ankit Kumar (अंकित कुमार)" },
+    { title: title },
     {
       name: "description",
-      content:
-        "A curious engineer who loves to build, and sometimes break,things!",
+      content: description,
     },
+    ...getMeta({ url: ABOUT_ROUTE, description, title })!,
   ];
 };
 

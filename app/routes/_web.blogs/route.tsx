@@ -4,7 +4,7 @@ import { SectionPageIntro } from "~/components/section/page-intro";
 import { BlogsList } from "./blogs-list";
 import { getAllBlogPosts } from "~/mdx/server";
 import { BLOGS_ROUTE } from "~/constants/routes";
-import { TypeWriterIllustration } from "~/components/icons/typewriter";
+import { getMeta } from "~/utils/meta";
 
 export function loader() {
   try {
@@ -21,12 +21,16 @@ export function loader() {
 }
 
 export const meta: MetaFunction = () => {
+  const title = "Blogs | Ankit Kumar (अंकित कुमार)";
+  const description =
+    "My blogs are tutorials or reflections on the challenges I’ve faced while working on projects. Many of my posts share insights, tips, and thoughts around building better frontend.";
   return [
-    { title: "Ankit Kumar (अंकित कुमार)" },
+    { title },
     {
       name: "description",
-      content: "My blogs share the lessons I’ve learned from my experiences.",
+      content: description,
     },
+    ...getMeta({ title, description, url: BLOGS_ROUTE })!,
   ];
 };
 

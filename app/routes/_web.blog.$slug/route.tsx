@@ -4,9 +4,10 @@ import {
   redirect,
   useLoaderData,
 } from "react-router";
-import { BLOGS_ROUTE } from "~/constants/routes";
+import { BLOG_ROUTE, BLOGS_ROUTE } from "~/constants/routes";
 import { getBlogPostBySlug, TPostData } from "~/mdx/server";
 import { Article } from "./article";
+import { getMeta } from "~/utils/meta";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params["slug"];
@@ -23,14 +24,23 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return redirect("/blog-not-found");
   }
 
-  return mdx;
+  return { ...mdx, slug };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  const { title } = data?.data || {};
+  const { title, summary = "", thumbnail } = data?.data || {};
+
+  const _title = `${title} | ankdev.me`;
+
   return [
-    { title: `${title} Ankit Kumar (अंकित कुमार)` },
-    { name: "description", content: "Hi! I am Ankit" },
+    { title: _title },
+    { name: "description", content: summary },
+    ...getMeta({
+      title: _title,
+      description: summary,
+      image: thumbnail,
+      url: `${BLOG_ROUTE}/${data?.slug}`,
+    })!,
   ];
 };
 

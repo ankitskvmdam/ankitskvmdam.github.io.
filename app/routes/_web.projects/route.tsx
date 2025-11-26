@@ -4,15 +4,19 @@ import { SectionPageIntro } from "~/components/section/page-intro";
 import { ProjectsBackground } from "./background";
 import { ProjectsList } from "./projects";
 import { PROJECTS_ROUTE } from "~/constants/routes";
+import { getMeta } from "~/utils/meta";
 
 export const meta: MetaFunction = () => {
+  const title = "Projects | Ankit Kumar (अंकित कुमार)";
+  const description =
+    "My creation in code. Projects and experiments that reflects my journey as a software engineer.";
   return [
-    { title: "Ankit Kumar (अंकित कुमार)" },
+    { title },
     {
       name: "description",
-      content:
-        "My creation in code. Projects and experiments that reflects my journey as a software engineer.",
+      content: description,
     },
+    ...getMeta({ title, description, url: PROJECTS_ROUTE })!,
   ];
 };
 
