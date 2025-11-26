@@ -37,7 +37,7 @@ export function SectionPageIntro(props: TSectionPageIntroProps) {
     ...rest
   } = props;
   return (
-    <div className={cn("pb-12", className)} {...rest}>
+    <div className={cn("pb-4 lg:pb-12", className)} {...rest}>
       {pageHeading && (
         <Slash
           component="heading"

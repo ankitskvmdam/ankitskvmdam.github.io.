@@ -213,7 +213,7 @@
 }
 
 .section-intro-with-min-h {
-  @apply min-h-[calc(100vh-25rem)] lg:min-h-[calc(100vh-32rem)] relative z-10;
+  @apply min-h-[calc(100vh-40rem)] lg:min-h-[calc(100vh-32rem)] relative z-10;
 }
 
 svg {
