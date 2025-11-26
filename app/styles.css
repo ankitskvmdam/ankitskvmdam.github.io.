@@ -194,10 +194,13 @@
 
   .dot-bg {
     @apply absolute -top-30 inset-0 pointer-events-none z-[1];
-    background: radial-gradient(circle, var(--blog-dot-color) 1px, transparent 1px);
+    background: radial-gradient(
+      circle,
+      var(--blog-dot-color) 1px,
+      transparent 1px
+    );
     background-size: 20px 20px;
   }
-
 }
 
 .section {
@@ -220,7 +223,7 @@
 }
 
 .section-intro-with-min-h {
-  @apply min-h-[calc(100vh-40rem)] lg:min-h-[calc(100vh-32rem)] relative z-10;
+  @apply min-h-40 md:min-h-100 relative z-10;
 }
 
 svg {

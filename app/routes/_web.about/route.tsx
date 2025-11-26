@@ -32,17 +32,15 @@ export default function AboutRoute() {
   return (
     <div className="section relative lg:-mb-20">
       <div className="section-wrapper section-padding relative z-10">
-        <div className="bg-[url('/assets/about-bg.png')] bg-no-repeat h-[calc(100vh-12.5rem)] min-h-74 bg-contain absolute right-0 bg-top-left z-1 left-0 top-16 dark:invert-100 dark:hue-rotate-180 md:top-0 md:left-52 lg:left-96" />
+        <div className="bg-[url('/assets/about-bg.png')] bg-no-repeat h-[calc(100vh-12.5rem)] min-h-74 bg-contain absolute right-0 bg-top-left z-1 left-0 -top-10 dark:invert-100 dark:hue-rotate-180 md:top-0 md:left-52 lg:left-96" />
         <SectionPageIntro
           className="section-intro-with-min-h"
           pageHeading={ABOUT_ROUTE}
           pageTitleSlash={`${ABOUT_ROUTE}/ankit-kumar`}
           pageTitle={t("title")}
-          pageDescriptionSlash={`${ABOUT_ROUTE}/ankit-kumar/intro`}
-          pageDescription={t("description")}
         />
 
-        <div className="max-w-5xl pt-12 relative z-10 space-y-5">
+        <div className="max-w-5xl relative z-10 space-y-5 md:pt-12">
           <AboutPara
             slash={`${ABOUT_ROUTE}/ankit-kumar/beginning`}
             i18nKey="beginning"
