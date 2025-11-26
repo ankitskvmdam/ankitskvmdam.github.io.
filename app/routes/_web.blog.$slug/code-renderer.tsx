@@ -60,7 +60,7 @@ export function CodeRenderer(props: TCodeRendererProps) {
         theme={codeblockTheme}
       >
         <CodeBlock.Code className={cn(
-          "bg-layer-1 text-sm rounded-md py-2 px-8 overflow-x-auto overflow-y-hidden whitespace-pre relative", 
+          "bg-layer-1 font-monospace rounded-md py-2 px-8 overflow-x-auto overflow-y-hidden whitespace-pre relative", 
           showLineNumbers && "text-foreground px-0",
           // "[&_.token.plain]:text-blue-500",
           )}>
