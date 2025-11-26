@@ -7,7 +7,8 @@ import { MDXComponents } from "~/mdx/_components/mdx-components";
 import { CodeRenderer } from "./code-renderer";
 import { ArticleInfo } from "./article-info";
 import { ArticleFrontmatter } from "./article-frontmatter";
-import { ArticleRoot } from "./article-root"
+import { ArticleRoot } from "./article-root";
+import { ArticleShare } from "./article-share";
 
 export type TArticleProps = {
   frontmatter: TFrontmatter;
@@ -40,6 +41,9 @@ export function Article(props: TArticleProps) {
             components={MDXComponents}
             renderNode={codeRenderer}
           />
+        </div>
+        <div className="flex justify-end border-t border-t-muted mt-10 pt-5">
+          <ArticleShare />
         </div>
       </ArticleRoot>
     </MDXContextProvider>

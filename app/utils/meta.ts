@@ -1,7 +1,7 @@
 import { MetaFunction } from "react-router";
 import { BASE_DEPLOYED_URL } from "~/constants/routes";
 
-function getURL(url: string) {
+export function getURL(url: string) {
   return url.startsWith("http") ? url : `${BASE_DEPLOYED_URL}${url}`;
 }
 
@@ -54,7 +54,7 @@ export function buildFacebookMeta(
 
   return [
     { property: "og:type", content: type },
-    { property: "og:url", content: getMeta },
+    { property: "og:url", content: getURL(url) },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:image", content: getURL(image) },
