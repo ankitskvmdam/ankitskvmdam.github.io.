@@ -2,6 +2,9 @@
 import { CodeBlock } from "react-code-block";
 import { cn } from "~/lib/utils";
 import { CodeCopyButton } from "./code-copy-button";
+import { lightTheme, darkTheme } from "./code-renderer-theme";
+import { useAppStore } from "~/app-store";
+import React from "react";
 
 export type TCodeRendererProps = {
   children: string;
@@ -34,6 +37,11 @@ function parseMeta(meta?: string | null) {
 export function CodeRenderer(props: TCodeRendererProps) {
   const { children, language, meta } = props;
   const { lines = [], words = [], showLineNumbers = false } = parseMeta(meta);
+  const appTheme = useAppStore((state) => state.theme)
+
+  const codeblockTheme = React.useMemo(() => {
+    return appTheme === 'light' ? lightTheme : darkTheme
+  }, [appTheme])
 
   return (
     <div className="bg-layer-0 rounded-md p-1 relative">
@@ -49,10 +57,13 @@ export function CodeRenderer(props: TCodeRendererProps) {
         language={language}
         lines={lines}
         words={words}
+        theme={codeblockTheme}
       >
         <CodeBlock.Code className={cn(
           "bg-layer-1 rounded-md py-2 px-8 overflow-x-auto overflow-y-hidden whitespace-pre relative", 
-          showLineNumbers && "text-foreground px-0")}>
+          showLineNumbers && "text-foreground px-0",
+          // "[&_.token.plain]:text-blue-500",
+          )}>
           {({ isLineHighlighted }) => (
             <div
               className={cn("table-row", isLineHighlighted && "bg-muted")}
