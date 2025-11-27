@@ -1,11 +1,12 @@
 import { isValidFrontMatter } from "./is";
 import { TFrontmatter } from "./types";
 import matter from "gray-matter";
-import { getDisplayDate } from "./utils";
+import { getDisplayDate, getMinReadTime } from "./utils";
 
 export type TPost = TFrontmatter & {
   slug: string;
   displayDate: string;
+  minRead: number;
 };
 
 export function getAllBlogPosts(): TPost[] {
@@ -20,7 +21,8 @@ export function getAllBlogPosts(): TPost[] {
 
     return blogEntries
       .map(([path, rawBlog]) => {
-        const frontMatter = matter(rawBlog).data as TFrontmatter;
+        const { data: frontMatter, content } = matter(rawBlog);
+
         try {
           isValidFrontMatter(frontMatter);
         } catch (error) {
@@ -31,6 +33,7 @@ export function getAllBlogPosts(): TPost[] {
           ...frontMatter,
           slug: path.replace("./posts/", "").replace(/\.(mdx)$/, ""),
           displayDate: getDisplayDate(frontMatter.date),
+          minRead: getMinReadTime(content),
         };
       })
       .filter(Boolean) as TPost[];

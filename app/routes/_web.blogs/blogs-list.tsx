@@ -1,3 +1,4 @@
+import { DotIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { DirectoryArrowLine } from "~/components/icons";
@@ -35,6 +36,10 @@ export function BlogsList(props: TBlogsList) {
                   <DirectoryArrowLine className="-scale-y-100 mt-1 text-muted-foreground" />
                   <span className="font-monospace text-sm uppercase">
                     {blog.displayDate}
+                  </span>
+                  <DotIcon className="stroke-muted-foreground" />
+                  <span className="text-xs">
+                    {t("minRead", { minRead: blog.minRead })}
                   </span>
                 </div>
                 <h2 className="text-2xl font-bold">{blog.title}</h2>
