@@ -16,4 +16,16 @@ export const MDXComponents: TMDXComponents = {
       <span className="text-xs">{alt}</span>
     </span>
   ),
+  h2: ({ children, ...rest }: React.HTMLProps<HTMLHeadingElement>) => (
+    <h2
+      id={
+        typeof children === "string"
+          ? children.toLowerCase().replace(/\s+/g, "-")
+          : ""
+      }
+      {...rest}
+    >
+      {children}
+    </h2>
+  ),
 };
