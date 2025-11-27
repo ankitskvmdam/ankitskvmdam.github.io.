@@ -23,7 +23,7 @@ export function UseShareCurrentURLItems(
   return React.useMemo((): TUseShareCurrentURLItem[] => {
     if (typeof window === "undefined" || !window) return [];
 
-    const currentURL = encodeURIComponent(window.location.href);
+    const currentURL = window.location.href;
 
     return [
       {
