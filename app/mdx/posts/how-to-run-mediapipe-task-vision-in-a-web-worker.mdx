@@ -1,10 +1,10 @@
 ---
 title: "How to run @mediapipe/task-vision in a web worker"
 summary: "MediaPipe's Pose Landmarker (or other models/tasks by MediaPipe) is heavy and often blocks the main thread during initialization. However, we can offload initialization and prediction to a web worker to keep the main thread unblocked and responsive."
-date: "2025-11-24"
+date: "2025-11-28"
 type: "blog"
 status: "draft"
-thumbnail: "/assets/blog/mediapipe-webworker.webp"
+thumbnail: "/assets/blog/mediapipe-webworker/mediapipe-webworker.webp"
 ---
 
 
@@ -198,4 +198,239 @@ Wonderful. Now, let's move on to the interesting part run the Pose Landmarker in
 
 ## Running MediaPipe in a web worker
 
-TODO.
+Before we start, we need to understand the following things:
+
+1. Web workers run in a different thread, hence they need to be in a separate file.
+2. Communication between workers and the main threads is done via messages. Both sides send their messages using `postMessage()` and respond to the messages via the `onmessage` event handler.
+3. You can't directly manipulate DOM from inside a worker, the `window` object is not available.
+
+This means we need to create a new file and put initialization and detection code in it. In addition, we cannot send the video element to the worker, instead we need to send a string or an object, or an [ImageBitmap](https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap).
+
+Let's start with creating a new file in the public directory called `poselandmarker.worker.js`.
+
+```js lines={[1,5,23]} showLineNumbers
+import * as $mediapipe from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/+esm";
+
+let poseLandmarker = null;
+
+async function initializeMediapipePoseLandmarker() {
+  const vision = await $mediapipe.FilesetResolver.forVisionTasks(
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm",
+  );
+
+  poseLandmarker = await $mediapipe.PoseLandmarker.createFromModelPath(
+    vision,
+    "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+  );
+
+  await poseLandmarker.setOptions({
+    runningMode: "VIDEO",
+  });
+}
+
+/**
+ * Detecting the pose.
+ */
+async function detectPose(bitmapImage) {
+  if (!poseLandmarker) {
+    throw new Error("PoseLandmarker is not initialized");
+  }
+
+  console.log("Worker data received", bitmapImage);
+
+  const timestamp = performance.now();
+  return new Promise((resolve) => {
+    poseLandmarker.detectForVideo(bitmapImage, timestamp, (result) => {
+      resolve(result);
+    });
+  });
+}
+```
+
+As we learned, web workers communicate with the main thread through messages, so we'll setup messages for handling communication.
+
+```js showLineNumbers
+self.onmessage = async (event) => {
+  const { type, payload } = event.data;
+
+  if (type === "init") {
+    await initializeMediapipePoseLandmarker();
+    self.postMessage({
+      type: "init",
+      payload: {
+        isSuccess: true,
+      },
+    });
+    return;
+  }
+
+  if (type === "detect") {
+    const result = await detectPose(payload.image);
+    self.postMessage({ type: "detect", payload: { result } });
+  }
+};
+```
+
+After this, we need to do some changes in our `loop` and `initializeVideoAndStartPoseDetection` functions. Refer to the highlighted code below.
+
+```js showLineNumbers lines={[3, 5,6,7,8,9,10,11,12,13,14,15,16,17,40,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]}
+async function loop(worker, video) {
+  try {
+    const image = await createImageBitmap(video); // creating image bitmap from video.
+    const result = await new Promise((resolve) => {
+      worker.onmessage = (event) => {
+        const { type, payload } = event.data;
+        if (type === "detect") {
+          resolve(payload.result);
+        }
+      };
+
+      worker.postMessage({
+        type: "detect",
+        payload: { image },
+      });
+    });
+    image.close();
+    drawLandmarks(result, video);
+  } catch (error) {
+    console.error("Error detecting pose:", error);
+  }
+
+  requestAnimationFrame(() => loop(worker, video));
+}
+
+
+async function initializeVideoAndStartPoseDetection() {
+  let stream;
+  let video = document.getElementById("video");
+
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+  } catch (error) {
+    console.error("Error getting camera stream:", error);
+    return;
+  }
+  
+  // Creating a web worker.
+  const worker = new Worker("/poselandmarker.worker.js");
+
+  try {
+    await new Promise((resolve, reject) => {
+      worker.onmessage = (event) => {
+        const { type, payload } = event.data;
+        if (
+          type === "init" &&
+          typeof payload === "object" &&
+          payload.isSuccess
+        ) {
+          resolve("MediaPipe initialized");
+        }
+      };
+      worker.postMessage({ type: "init" });
+    });
+  } catch (error) {
+    console.error("Error initializing mediapipe pose landmarker:", error);
+    return;
+  }
+
+  setupDrawingTools();
+
+  if (video.readyState < 2) {
+    await new Promise((resolve) => {
+      video.addEventListener("canplay", resolve);
+      setTimeout(resolve, 5_000);
+    });
+  }
+
+  loop(worker, video);
+}
+````
+
+However, when we run the code, we will see the following error.
+
+![Cannot use import statement outside a module](/assets/blog/mediapipe-webworker/error-import.jpg)
+
+Well, we know that in our `poselandmarker.worker.js` file, we have used `import` statement to import MediaPipe Task Vision module. However `import` is not allowed in *classic web worker*. 
+
+To fix this, we we can try something else, in `initializeVideoAndStartPoseDetection` at line 40, where we are creating worker we can pass a second option:
+
+```javascript
+const worker = new Worker("/poselandmarker.worker.js", { type: "module" });
+```
+
+But if we try this we will get a different error:
+
+![Failed to execute 'importScripts' on 'WorkerGlobalScope'](/assets/blog/mediapipe-webworker/importscript-error.png)
+
+This means we are using `importScripts` somewhere to import a script, however we are not using it anywhere in our worker file.
+
+But the things is, MediaPipe Task Vision uses `importScripts` to load necessary scripts when it is running in a web worker. This means we need to run the worker in the classic mode.
+
+So how do we fix the problem? Upon digging into the code of `@mediapipe/tasks-vision` we will find these lines:
+
+
+<img className="max-h-96" src="/assets/blog/mediapipe-webworker/mediapipe-export.jpg" alt="Methods exported by @mediapipe/tasks-vision" />
+
+If we remove these lines, and then use `importScripts` in `poselandmarker.worker.js`, we can fix the problem.
+
+So, we need to download the js from [`https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/+esm`](https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/+esm) and save it as `mediapipe.js` into `public` directory. Then go to the end of the file and replace the export with this:
+
+```js showLineNumbers
+const $mediapipe = {
+  DrawingUtils: Ia,
+  FaceDetector: Za,
+  FaceLandmarker: uc,
+  FaceStylizer: lc,
+  FilesetResolver: Uo,
+  GestureRecognizer: mc,
+  HandLandmarker: _c,
+  HolisticLandmarker: Ac,
+  ImageClassifier: bc,
+  ImageEmbedder: kc,
+  ImageSegmenter: Rc,
+  ImageSegmenterResult: Sc,
+  InteractiveSegmenter: Vc,
+  InteractiveSegmenterResult: Fc,
+  MPImage: Ga,
+  MPMask: Ea,
+  ObjectDetector: Xc,
+  PoseLandmarker: Kc,
+  TaskRunner: Zo,
+  VisionTaskRunner: Ja,
+};
+```
+
+For simplicity, you can copy the code from [here](https://github.com/ankitskvmdam/mediapipe-example/blob/master/poselandmarker-webworker/public/mediapipe.js).
+
+Next, we will use `importScripts` to import the `mediapipe.js` file in `poselandmarker.worker.js`, and revert the changes we made in `initializeVideoAndStartPoseDetection`.
+
+```js
+importScripts('/mediapipe.js');
+
+let poseLandmarker = null;
+
+//... rest of the code
+```
+
+```js
+const worker = new Worker("/poselandmarker.worker.js");
+
+//... rest of the code.
+```
+
+Congratulations! You have successfully implemented MediaPipe Pose Landmarker in a web worker. 
+
+
+## Conclusion
+
+This approach is a bit of a hack, but it provides a simple and effective solution for running MediaPipe Pose Landmarker in a web worker.
+
+The major advantage is that the Pose Landmarker runs entirely in a web worker, leaving the main thread free to handle the UI.
+
+## Important Links
+
+1. [Complete implementation of MediaPipe Pose Landmarker in vanilla JS](https://github.com/ankitskvmdam/mediapipe-example/tree/master/poselandmarker).
+2. [Complete implementation of MediaPipe Pose Landmarker in a web worker](https://github.com/ankitskvmdam/mediapipe-example/tree/master/poselandmarker-webworker).
+3. [All example implementation of MediaPipe Pose Landmarker](https://github.com/ankitskvmdam/mediapipe-example).
+4. [Demo](/project/mediapipe-webworker).
