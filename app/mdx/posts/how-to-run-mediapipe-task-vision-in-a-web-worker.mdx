@@ -1,20 +1,18 @@
 ---
-title: "How to run @mediapipe/task-vision in a Web Worker"
-summary: "Running MediaPipe's Pose Landmarker (or other models/tasks by MediaPipe) directly on the main thread can make your web app slow. In this article, we'll learn how to offload MediaPipe models/tasks to a Web Worker, keeping the UI smooth and responsive."
+title: "How to run @mediapipe/task-vision in a web worker"
+summary: "MediaPipe's Pose Landmarker (or other models/tasks by MediaPipe) is heavy and often blocks the main thread during initialization. However, we can offload initialization and prediction to a web worker to keep the main thread unblocked and responsive."
 date: "2025-11-24"
 type: "blog"
 status: "draft"
 thumbnail: "/assets/blog/mediapipe-webworker.webp"
 ---
 
->You can apply the same pattern to other MediaPipe models/tasks, including Object Detection, Interactive Segmentation etc.
-
 
 ![Mediapipe + Web Workers. Image created by the Ankit Kumar. Mediapipe logo © Google.](/assets/blog/mediapipe-webworker.jpg)
 
 ## Setting up development environment
 
-For the sake of simplicity, we'll set up our environment using Vite and plain JavaScript. You can find all the source code in my [GitHub repository](https://github.com/ankitskvmdam/mediapipe-example), which also includes examples of how to integrate Mediapipe's Pose Landmarker with Web Workers in different frameworks.
+First, we'll set up our environment using vite and vanilla js. You can also find all the source code in my [GitHub repository](https://github.com/ankitskvmdam/mediapipe-example), which includes examples of using MediaPipe in a web worker in different frameworks.
 
 Create a new Vite project:
 
@@ -26,15 +24,17 @@ Then follow the prompts to setup the project.
 
 ## Running MediaPipe in the main thread
 
-Before introducing Web Workers, we'll first run Mediapipe directly on the main thread to confirm that everything is set up correctly and working as expected.
+Before running MediaPipe's PoseLandmarker task in a web worker, we'll run it directly on the main thread. If you already know how to run MediaPipe on the main thread, you can skip to [Running MediaPipe in a web worker](#running-mediapipe-in-a-web-worker).
 
-Start by removing the boilerplate files and the following import from main.js:
+Remove the boilerplate code and then add following import in `main.js`:
 
 ```js
 import * as $mediapipe from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/+esm";
 ```
 
-This import statement loads all exports from `@mediapipe/tasks-vision` and places them under the `$mediapipe` namespace.
+This will load all exports from `@mediapipe/tasks-vision` and places them under the `$mediapipe` namespace. 
+
+> Note: You can use any name for the namespace, such as `vision`, `mp` anything else. I used `$mediapipe` because it looks nice ;).
 
 Next, we'll initialize MediaPipe's PoseLandmarker:
 
@@ -81,10 +81,121 @@ async function detectPose(imageOrVideoElement) {
 }
 ```
 
-Finally, you'll need some additional code to request camera access and continuously run pose detection. You can find the complete example here.
+We need additional code to setup camera, video and a button to start the pose detection.
 
-This section helps you set up the MediaPipe PoseLandmarker on the main thread. Now, let's move on to the next part, where we'll learn how to configure and run it inside a Web Worker.
+Add a video element and a button element in `index.html` as follows:
+```html showLineNumbers
+ <!-- Important: we will use `video` id to grab video element -->
+<video id="video" autoplay muted playinline height="300px" width="530px"></video>
 
-## Running MediaPipe inside Web Worker
+<!-- Important: we will use `start` id to grab the button-->
+<button id="start">Start</button>
+```
+
+Finally, we need to add four functions:
+1. `setupDrawingTools`: This will setup canvas and [DrawingUtils](https://ai.google.dev/edge/api/mediapipe/js/tasks-vision.drawingutils), a helper class to draw pose landmarker.
+2. `drawLandmarks`: To draw the landmarker.
+3. `loop`: To run pose detection in a loop.
+4. `initializeVideoAndStartPoseDetection`: To initialize the video and start pose detection.
+
+
+```js showLineNumbers
+let canvas;
+let ctx;
+let drawingUtils;
+
+function setupDrawingTools() {
+  canvas = document.createElement("canvas");
+
+  canvas.style.position = "absolute";
+  canvas.style.zIndex = 100;
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  ctx = canvas.getContext("2d");
+  document.body.appendChild(canvas);
+  drawingUtils = new $mediapipe.DrawingUtils(ctx);
+}
+
+
+function drawLandmarks(result, video) {
+  canvas.width = video.clientWidth;
+  canvas.height = video.clientHeight;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw pose landmarks.
+  for (const landmark of result.landmarks) {
+    drawingUtils.drawLandmarks(landmark, {
+      radius: (data) =>
+        $mediapipe.DrawingUtils.lerp(data.from.z, -0.15, 0.1, 5, 1),
+    });
+    drawingUtils.drawConnectors(
+      landmark,
+      $mediapipe.PoseLandmarker.POSE_CONNECTIONS,
+    );
+  }
+}
+
+async function loop(video) {
+  try {
+    const result = await detectPose(video);
+    drawLandmarks(result, video);
+  } catch (error) {
+    console.error("Error detecting pose:", error);
+  }
+
+  requestAnimationFrame(() => loop(video));
+}
+
+async function initializeVideoAndStartPoseDetection() {
+  let stream;
+  let video = document.getElementById("video");
+
+  // Requesting camera and passing stream to video element
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+  } catch (error) {
+    console.error("Error getting camera stream:", error);
+    return;
+  }
+
+  try {
+    await initializeMediapipePoseLandmarker();
+  } catch (error) {
+    console.error("Error initializing mediapipe pose landmarker:", error);
+    return;
+  }
+
+  setupDrawingTools();
+
+  if (video.readyState < 2) {
+    /**
+     * If video is not ready then wait for it to be ready.
+     */
+    await new Promise((resolve) => {
+      video.addEventListener("canplay", resolve);
+
+      // A fallback, in case we is ready but didn't fire `canplay` event
+      setTimeout(resolve, 5_000);
+    });
+  }
+
+  loop(video);
+}
+
+document
+  .getElementById("start")
+  .addEventListener("click", initializeVideoAndStartPoseDetection);
+
+````
+
+> Note: The code is only for demonstration purposes, it shouldn't be used as-is in production. 
+
+At this point, if everything is setup correctly, you'll see a button with "Start" label. Upon clicking, it will prompt for camera access, and once permission is granted, the Pose Landmarker will run.
+
+
+Wonderful. Now, let's move on to the interesting part run the Pose Landmarker in a web worker.
+
+## Running MediaPipe in a web worker
 
 TODO.
