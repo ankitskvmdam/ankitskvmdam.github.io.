@@ -36,17 +36,46 @@ function parseMeta(meta?: string | null) {
 
 export function CodeRenderer(props: TCodeRendererProps) {
   const { children, language, meta } = props;
-  const { lines = [], words = [], showLineNumbers = false } = parseMeta(meta);
+  
   const appTheme = useAppStore((state) => state.theme);
+
+  const { lines = [], words = [], showLineNumbers = false, filename } = React.useMemo(() => {
+    const options = parseMeta(meta)
+
+    const lines = options.lines?.flatMap((item: number | string) => {
+      if(typeof item === "number") {
+        return item
+      }
+
+      if(typeof item === "string") {
+        const [start, end] = item.split("-")
+        const [s, e] = [+start, +end]
+        return Array.from({ length: e - s + 1}, (_, i) => s + i)
+      }
+
+      return []
+
+    })
+
+    return {...options, lines} as {
+      words?: Array<string>,
+      lines?: Array<number>,
+      showLineNumbers?: boolean,
+      filename?: string;
+    }
+  }, [meta])
+
 
   const codeblockTheme = React.useMemo(() => {
     return appTheme === "light" ? lightTheme : darkTheme;
   }, [appTheme]);
 
   return (
-    <div className="bg-layer-0 rounded-md p-1 relative">
+    <div className="bg-layer-0 rounded-md p-1 relative font-monospace">
       <div className="flex items-center justify-between pb-1">
-        <div className="ml-4 text-xs font-monospace">{language}</div>
+        <div className="ml-4 text-xs font-monospace">
+          {filename ? <span>{filename}</span> : <span>{language}</span>}
+        </div>
         <CodeCopyButton content={children} />
       </div>
       <CodeBlock
