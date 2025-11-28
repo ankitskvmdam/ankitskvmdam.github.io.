@@ -9,7 +9,7 @@ export const MDXComponents: TMDXComponents = {
         {...rest}
         alt={alt}
         className={cn(
-          "object-contain w-full object-center max-h-[70vh] rounded-md",
+          "object-contain w-max-content object-center max-h-[70vh] rounded-md",
           className,
         )}
       />
