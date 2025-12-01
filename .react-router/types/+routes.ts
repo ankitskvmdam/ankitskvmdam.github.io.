@@ -17,6 +17,9 @@ type Pages = {
   "/api/update-app-state": {
     params: {};
   };
+  "/sitemap.xml": {
+    params: {};
+  };
   "/project/mediapipe-webworker": {
     params: {};
   };
@@ -44,11 +47,15 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/api/update-app-state" | "/project/mediapipe-webworker" | "/blog/:slug" | "/projects" | "/about" | "/blogs" | "/*";
+    page: "/" | "/api/update-app-state" | "/sitemap.xml" | "/project/mediapipe-webworker" | "/blog/:slug" | "/projects" | "/about" | "/blogs" | "/*";
   };
   "routes/api.update-app-state.ts": {
     id: "routes/api.update-app-state";
     page: "/api/update-app-state";
+  };
+  "routes/[sitemap.xml].ts": {
+    id: "routes/[sitemap.xml]";
+    page: "/sitemap.xml";
   };
   "routes/_web/route.tsx": {
     id: "routes/_web";
@@ -87,6 +94,7 @@ type RouteFiles = {
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
   "routes/api.update-app-state": typeof import("./app/routes/api.update-app-state.ts");
+  "routes/[sitemap.xml]": typeof import("./app/routes/[sitemap.xml].ts");
   "routes/_web": typeof import("./app/routes/_web/route.tsx");
   "routes/_web.project.mediapipe-webworker": typeof import("./app/routes/_web.project.mediapipe-webworker/route.tsx");
   "routes/_web.blog.$slug": typeof import("./app/routes/_web.blog.$slug/route.tsx");
