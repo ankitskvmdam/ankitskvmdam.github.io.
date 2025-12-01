@@ -14,6 +14,8 @@ export async function loader() {
     { url: ABOUT_ROUTE, priority: "0.8", changefreq: "monthly" },
     { url: BLOGS_ROUTE, priority: "0.8", changefreq: "weekly" },
     { url: PROJECTS_ROUTE, priority: "0.8", changefreq: "weekly" },
+    // Clean jsdoc theme.
+    { url: `/clean-jsdoc-theme/v4`, priority: "0.8", changefreq: "monthly" },
   ];
 
   // Generate blog post routes
