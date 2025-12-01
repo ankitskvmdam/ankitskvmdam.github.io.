@@ -6,8 +6,7 @@ import { SectionPageIntro } from "~/components/section/page-intro";
 import { getMeta } from "~/utils/meta";
 
 const Background = lazy(() =>
-  import("./background").then(({ Background }) => ({ default: Background })),
-);
+  import("./background").then(({ Background }) => ({ default: Background })));
 
 export const meta: MetaFunction = () => {
   return [

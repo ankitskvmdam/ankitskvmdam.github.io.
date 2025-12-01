@@ -100,7 +100,7 @@ export function useGetHighlightProjects() {
             href: "https://github.com/ankitskvmdam/reinvent-transfer-learning/blob/master/notebooks/TransferLearning.ipynb",
           },
         ],
-        thumbnail: "/assets/ersilia-website.png",
+        thumbnail: "/assets/ersilia-website.webp",
       },
     ];
   }, [theme, t]);
