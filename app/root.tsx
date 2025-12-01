@@ -8,9 +8,10 @@ import {
   useRouteLoaderData,
   data,
   useLoaderData,
+  LinksFunction,
 } from "react-router";
 import i18nServer from "./i18n.server";
-import "./styles.css";
+import styles from "./styles.css?url";
 import { localeCookie, appStateCookie } from "./cookie";
 import { AppStoreProvider, TAppStoreProviderProps } from "./app-store-provider";
 import React from "react";
@@ -42,6 +43,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
     },
   );
 }
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const loaderData = useRouteLoaderData<typeof loader>("root");
