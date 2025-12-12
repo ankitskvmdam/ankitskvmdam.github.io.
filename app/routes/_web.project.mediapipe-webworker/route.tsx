@@ -1,22 +1,20 @@
-import React from "react";
-import { ButtonsOneActive } from "~/components/buttons-one-active";
+import { ProjectPageContainer } from "~/layouts/containers";
+import { PreviewOrCodeButton } from "~/layouts/preview-or-code-button";
+import { ProjectBottom } from "./bottom";
+
 
 export default function MediaPipeWebworker() {
-  const [activeButtonId, setActiveButtonId] = React.useState("preview");
-
   return (
     <div className="section relative">
-      <div className="section-wrapper section-min-h-available-screen section-padding relative z-1">
-        <ButtonsOneActive
-          onClick={setActiveButtonId}
-          activeButtonId={activeButtonId}
-          buttons={[
-            { id: "preview", label: "Preview" },
-            { id: "code", label: "Code" },
-          ]}
+      <div className="section-wrapper flex section-min-h-available-screen section-padding relative z-1">
+        <ProjectPageContainer
+          top={
+            <div className="mb-4">
+              <PreviewOrCodeButton />
+            </div>
+          }
+          bottom={<ProjectBottom />}
         />
-
-        <h1 className="text-7xl font-bold">Page Under Construction!</h1>
       </div>
     </div>
   );
