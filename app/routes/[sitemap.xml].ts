@@ -1,4 +1,11 @@
-import { ABOUT_ROUTE, BASE_DEPLOYED_URL, BLOG_ROUTE, BLOGS_ROUTE, PROJECTS_ROUTE } from "~/constants/routes";
+import {
+  ABOUT_ROUTE,
+  BASE_DEPLOYED_URL,
+  BLOG_ROUTE,
+  BLOGS_ROUTE,
+  MEDIAPIPE_WEBWORKER_ROUTE,
+  PROJECTS_ROUTE,
+} from "~/constants/routes";
 import { getAllBlogPosts } from "~/mdx/server";
 
 export async function loader() {
@@ -16,18 +23,20 @@ export async function loader() {
     { url: PROJECTS_ROUTE, priority: "0.8", changefreq: "weekly" },
     // Clean jsdoc theme.
     { url: `/clean-jsdoc-theme/v4`, priority: "0.8", changefreq: "monthly" },
+
+    // Projects
+    { url: MEDIAPIPE_WEBWORKER_ROUTE, priority: "0.8", changefreq: "yearly" },
   ];
 
   // Generate blog post routes
-  const blogRoutes = blogPosts
-    .map((post) => ({
-      url: `${BLOG_ROUTE}/${post.slug}`,
-      priority: "0.7",
-      changefreq: "monthly",
-      lastmod: post.date
-        ? new Date(post.date).toISOString().split("T")[0]
-        : currentDate,
-    }));
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${BLOG_ROUTE}/${post.slug}`,
+    priority: "0.7",
+    changefreq: "monthly",
+    lastmod: post.date
+      ? new Date(post.date).toISOString().split("T")[0]
+      : currentDate,
+  }));
 
   // Combine all routes
   const allRoutes = [...staticRoutes, ...blogRoutes];
@@ -41,7 +50,7 @@ ${allRoutes
     <loc>${baseUrl}${route.url}</loc>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-  </url>`
+  </url>`,
   )
   .join("\n")}
 </urlset>`;
