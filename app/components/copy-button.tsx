@@ -9,11 +9,11 @@ import {
 } from "~/components/ui/tooltip";
 import { copyToClipboard } from "~/utils/copy";
 
-export type TCodeCopyButtonProps = {
+export type TCopyButtonProps = {
   content: string;
 };
 
-export function CodeCopyButton(props: TCodeCopyButtonProps) {
+export function CopyButton(props: TCopyButtonProps) {
   const { content } = props;
   const [showCheck, setShowCheck] = React.useState(false);
   const timeout = React.useRef<ReturnType<typeof setTimeout>>(null);
