@@ -1,3 +1,3 @@
-export function ProjectBottomCode() {
-  return <div>Under construction.</div>;
+export function ProjectBottomCode(props: React.HTMLProps<HTMLDivElement>) {
+  return <div {...props}>Under construction.</div>;
 }
