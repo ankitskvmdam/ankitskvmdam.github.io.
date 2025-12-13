@@ -17,8 +17,7 @@ const tabs = [
  * Currently project page supports two tabs:
  *  - Preview
  *  - Code
- *
- * Upon selecting a tab, it will update the URL search params.
+ *  * Upon selecting a tab, it will update the URL search params.
  */
 export function PreviewOrCodeButton() {
   const [searchParams, setSearchParams] = useSearchParams();
