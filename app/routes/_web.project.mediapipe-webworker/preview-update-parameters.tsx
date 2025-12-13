@@ -16,7 +16,7 @@ export function PreviewUpdateParamters() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" className="lg:hidden">
           <Settings /> Config
         </Button>
       </SheetTrigger>
