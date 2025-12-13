@@ -8,7 +8,7 @@ export function ProjectPageContainer(props: TProjectPageContainerProps) {
   return (
     <div className="flex-1 flex flex-col">
       {top}
-      <div className="flex-1 flex">{bottom}</div>
+      <div className="flex-1 flex [&>div]:flex-1">{bottom}</div>
     </div>
   );
 }
