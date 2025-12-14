@@ -10,7 +10,8 @@ import { cn } from "~/lib/utils";
 
 export function ProjectBottom() {
   const [searchParams] = useSearchParams();
-  const tab = searchParams.get(TAB_SEARCH_PARAM_QUERY_NAME);
+  const tab =
+    searchParams.get(TAB_SEARCH_PARAM_QUERY_NAME) || PREVIEW_TAB_SEARCH_PARAM;
 
   return (
     <>
