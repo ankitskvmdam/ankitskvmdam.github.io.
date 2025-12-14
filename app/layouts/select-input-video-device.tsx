@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "~/components/ui/button";
 import { ParameterSelect } from "~/layouts/parameter-select";
 
 export type TInputVideoDevice = {
@@ -59,6 +60,10 @@ export function SelectInputDevice(props: TSelectInputVideoDevice) {
   React.useEffect(() => {
     updateOptions();
   }, [updateOptions]);
+
+  if (options.length === 0) {
+    return <div>Please allow access to your camera.</div>;
+  }
 
   return (
     <ParameterSelect
