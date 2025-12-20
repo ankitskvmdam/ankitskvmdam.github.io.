@@ -29,8 +29,23 @@ export const FILES: TProjectCodeViewerFilePath[] = [
     viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/preview-update-parameters.tsx`,
   },
   {
+    displayURL: "/app/inputs.tsx",
+    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/inputs.tsx`,
+    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/inputs.tsx`,
+  },
+  {
+    displayURL: "/app/types.ts",
+    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/types.ts`,
+    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/types.ts`,
+  },
+  {
     displayURL: "/layouts/select-input-video-device.tsx",
     rawFileURL: `${RAW_LAYOUT}/select-input-video-device.tsx`,
     viewFileURL: `${VIEW_LAYOUT}/select-input-video-device.tsx`,
+  },
+  {
+    displayURL: "/layouts/parameter-select.tsx",
+    rawFileURL: `${RAW_LAYOUT}/parameter-select.tsx`,
+    viewFileURL: `${VIEW_LAYOUT}/parameter-select.tsx`,
   },
 ];

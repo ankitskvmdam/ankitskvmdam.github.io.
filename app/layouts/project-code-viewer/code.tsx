@@ -49,10 +49,15 @@ export function ProjectCodeViewerCode() {
 
   return (
     <CodeRendererContainer className="bg-sidebar">
-      <CodeRendererToolbar showCopyButton title={displayURL} />
+      <CodeRendererToolbar
+        showCopyButton
+        code={code[displayURL].content}
+        title={displayURL}
+      />
       <CodeRendererBody
         code={code[displayURL].content}
         language={code[displayURL].language}
+        words={[]}
         showLineNumbers
       />
     </CodeRendererContainer>

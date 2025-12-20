@@ -9,8 +9,6 @@ import {
 import { useStore } from "./store";
 import { ParameterSelect } from "~/layouts/parameter-select";
 import { Switch } from "~/components/ui/switch";
-import { Slider } from "~/components/ui/slider";
-import { Button, buttonVariants } from "~/components/ui/button";
 import { ParameterSlider } from "~/layouts/parameter-slider";
 import { ExternalLink } from "lucide-react";
 
