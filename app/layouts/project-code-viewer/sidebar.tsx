@@ -23,7 +23,7 @@ export function ProjectCodeViewerSidebar() {
         </SidebarGroupLabel>
         <SidebarGroup className="p-0">
           <SidebarGroupContent>
-            <SidebarMenu className="translate-x-0 gap-1.5">
+            <SidebarMenu className="translate-x-0 gap-1.5 truncate">
               {tree.children?.map((file, index) => (
                 <ProjectCodeViewerSidebarTree
                   key={index}

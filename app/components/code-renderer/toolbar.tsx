@@ -26,10 +26,10 @@ export function CodeRendererToolbar(props: TCodeRendererToolbar) {
         className,
       )}
     >
-      <div className="ml-4 text-sm font-monospace label-filename flex [&>svg]:size-4">
-        <span>{title}</span>
+      <div className="ml-4 text-sm font-monospace truncate label-filename">
+        <span className="truncate">{title}</span>
       </div>
-      <div>
+      <div className="shrink-0">
         {showCopyButton && <CopyButton content={code} />}
         {children}
       </div>

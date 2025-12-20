@@ -44,7 +44,7 @@ export function ProjectCodeViewerSidebarTreeItem(
           {getIconForLanguageExtension(getFileExtension(name))}
         </div>
       )}
-      {name}
+      <span className="truncate">{name}</span>
     </SidebarMenuButton>
   );
 }
