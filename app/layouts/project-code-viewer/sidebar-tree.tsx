@@ -6,6 +6,7 @@ import {
   CollapsibleTrigger,
 } from "~/components/ui/collapsible";
 import { ProjectCodeViewerSidebarTreeItem } from "./sidebar-tree-item";
+import { useProjectCodeViewer } from "./context";
 
 export type TProjectCodeViewerSidebarTreeProps = {
   item: TFileTree;
@@ -16,16 +17,17 @@ export function ProjectCodeViewerSidebarTree(
   props: TProjectCodeViewerSidebarTreeProps,
 ) {
   const { item, index } = props;
+  const { activeFile, setActiveFile } = useProjectCodeViewer();
 
-  if (!item.children || item.children.length === 0) {
+  if (item.children.length === 0) {
     return (
       <SidebarMenuItem>
         <ProjectCodeViewerSidebarTreeItem
           index={index}
           name={item.name}
           type="file"
-          // isActive={item.path === activeFile}
-          // onClick={() => item.path && setActiveFile(item.path)}
+          isActive={item.path === activeFile}
+          onClick={() => item.path && setActiveFile(item.path)}
         />
       </SidebarMenuItem>
     );

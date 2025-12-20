@@ -1,20 +1,11 @@
 import { Menu, XIcon } from "lucide-react";
-import { TFileTree } from "./utils";
 import { Button } from "~/components/ui/button";
 import React from "react";
 import { ProjectCodeViewerSidebar } from "./sidebar";
 import { cn } from "~/lib/utils";
 import { useClickOutside } from "~/hooks/use-click-outside";
 
-export type TProjectCodeViewerMobileSidebarProps = {
-  tree: TFileTree;
-};
-
-export function ProjectCodeViewerMobileSidebar(
-  props: TProjectCodeViewerMobileSidebarProps,
-) {
-  const { tree } = props;
-
+export function ProjectCodeViewerMobileSidebar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -40,7 +31,7 @@ export function ProjectCodeViewerMobileSidebar(
           "absolute top-0 bottom-0 [&_[data-slot='sidebar-group-label']]:pl-12 [&_[data-slot='sidebar-group-label']]:h-11",
         )}
       >
-        <ProjectCodeViewerSidebar tree={tree} />
+        <ProjectCodeViewerSidebar />
       </div>
     </div>
   );

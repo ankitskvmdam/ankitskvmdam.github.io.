@@ -2,6 +2,7 @@ import { SidebarMenuButton } from "~/components/ui/sidebar";
 import { ChevronRight, File, Folder } from "lucide-react";
 import { cn } from "~/lib/utils";
 import { getIconForLanguageExtension } from "~/components/icons";
+import { getFileExtension } from "./utils";
 
 export type TProjectCodeViewerSidebarTreeItemProps = {
   index: number;
@@ -39,10 +40,9 @@ export function ProjectCodeViewerSidebarTreeItem(
       {type === "folder" ? (
         <Folder className="size-4" />
       ) : (
-        <File className="size-4" />
-        // <div className="flex [&>svg]:size-4">
-        //   {getIconForLanguageExtension("ts")}
-        // </div>
+        <div className="flex [&>svg]:size-4">
+          {getIconForLanguageExtension(getFileExtension(name))}
+        </div>
       )}
       {name}
     </SidebarMenuButton>

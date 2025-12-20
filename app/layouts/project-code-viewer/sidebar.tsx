@@ -6,17 +6,11 @@ import {
   SidebarMenu,
   SidebarProvider,
 } from "~/components/ui/sidebar";
-import { TFileTree } from "./utils";
 import { ProjectCodeViewerSidebarTree } from "./sidebar-tree";
+import { useProjectCodeViewer } from "./context";
 
-export type TProjectCodeViewerSidebarProps = {
-  tree: TFileTree;
-};
-
-export function ProjectCodeViewerSidebar(
-  props: TProjectCodeViewerSidebarProps,
-) {
-  const { tree } = props;
+export function ProjectCodeViewerSidebar() {
+  const { tree } = useProjectCodeViewer();
 
   return (
     <SidebarProvider className="flex min-h-full! flex-col">

@@ -68,9 +68,8 @@ export function CodeRenderer(props: TCodeRendererProps) {
   return (
     <CodeRendererContainer>
       <CodeRendererToolbar
-        language={language}
+        title={filename || language}
         code={children}
-        filename={filename}
         showCopyButton
       />
       <CodeRendererBody
