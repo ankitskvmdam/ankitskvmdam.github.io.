@@ -3,6 +3,8 @@ import { Loader2 } from "lucide-react";
 import { CodeRendererContainer } from "~/components/code-renderer/container";
 import { CodeRendererToolbar } from "~/components/code-renderer/toolbar";
 import { CodeRendererBody } from "~/components/code-renderer/body";
+import { Button, buttonVariants } from "~/components/ui/button";
+import { GithubIcon } from "~/components/icons";
 
 export function ProjectCodeViewerCode() {
   const { activeFile, code } = useProjectCodeViewer();
@@ -53,7 +55,18 @@ export function ProjectCodeViewerCode() {
         showCopyButton
         code={code[displayURL].content}
         title={displayURL}
-      />
+      >
+        <a
+          target="_blank"
+          href={viewFileURL}
+          className={buttonVariants({
+            variant: "ghost",
+            size: "icon-sm",
+          })}
+        >
+          <GithubIcon />
+        </a>
+      </CodeRendererToolbar>
       <CodeRendererBody
         code={code[displayURL].content}
         language={code[displayURL].language}
