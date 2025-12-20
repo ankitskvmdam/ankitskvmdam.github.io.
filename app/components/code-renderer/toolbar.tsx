@@ -1,17 +1,23 @@
 "use client";
 import { cn } from "~/lib/utils";
 import { CopyButton } from "../copy-button";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-export type TCodeRendererToolbar = {
+export type TCodeRendererToolbar = PropsWithChildren<{
   title: React.ReactNode;
   className?: string;
   showCopyButton?: boolean;
   code?: string;
-};
+}>;
 
 export function CodeRendererToolbar(props: TCodeRendererToolbar) {
-  const { title, className, code = "", showCopyButton = true } = props;
+  const {
+    title,
+    className,
+    code = "",
+    showCopyButton = true,
+    children,
+  } = props;
 
   return (
     <div
@@ -23,7 +29,10 @@ export function CodeRendererToolbar(props: TCodeRendererToolbar) {
       <div className="ml-4 text-sm font-monospace label-filename flex [&>svg]:size-4">
         <span>{title}</span>
       </div>
-      {showCopyButton && <CopyButton content={code} />}
+      <div>
+        {showCopyButton && <CopyButton content={code} />}
+        {children}
+      </div>
     </div>
   );
 }
