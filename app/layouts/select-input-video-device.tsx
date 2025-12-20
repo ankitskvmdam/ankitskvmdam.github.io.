@@ -33,9 +33,13 @@ export function SelectInputDevice(props: TSelectInputVideoDevice) {
         setOptions(options);
 
         if (options.length > 0) {
+          const deviceID = stream.getTracks()[0].getSettings().deviceId;
+          const option =
+            options.find((option) => option.value === deviceID) || options[0];
+
           onValueChange({
-            id: options[0].value,
-            label: options[0].label,
+            id: option.value,
+            label: option.label,
           });
         }
 
