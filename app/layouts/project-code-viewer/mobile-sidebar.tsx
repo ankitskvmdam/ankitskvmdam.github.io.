@@ -28,7 +28,7 @@ export function ProjectCodeViewerMobileSidebar() {
       <div
         className={cn(
           isOpen ? "block" : "hidden",
-          "absolute top-0 bottom-0 [&_[data-slot='sidebar-group-label']]:pl-12 [&_[data-slot='sidebar-group-label']]:h-11",
+          "absolute w-sm top-0 bottom-0 [&_[data-slot='sidebar-group-label']]:pl-12 [&_[data-slot='sidebar-group-label']]:h-11",
         )}
       >
         <ProjectCodeViewerSidebar />

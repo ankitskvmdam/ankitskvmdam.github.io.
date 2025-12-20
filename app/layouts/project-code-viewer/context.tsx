@@ -3,7 +3,10 @@ import {
   createFileTreeFromFilePaths,
   getFileExtension,
   TFileTree,
+  TProjectCodeViewerFilePath,
 } from "./utils";
+import { useSearchParams } from "react-router";
+import { ACTIVE_FILE_SEARCH_PARAM } from "~/constants/search-params";
 
 export type TCode = {
   isLoading: boolean;
@@ -16,12 +19,10 @@ export type TCodeRecord = Record<string, TCode>;
 
 export type TProjectCodeViewerContext = {
   tree: TFileTree;
-  activeFile: string;
-  baseURL: string;
-  baseRawURL: string;
+  activeFile: TProjectCodeViewerFilePath;
   isLoading: boolean;
   code: TCodeRecord;
-  setActiveFile: (file: string) => void;
+  setActiveFile: (file: TFileTree) => void;
 };
 
 export const ProjectCodeViewerContext =
@@ -29,24 +30,32 @@ export const ProjectCodeViewerContext =
 
 export type TProjectCodeViewerProviderProps = {
   children: React.ReactNode;
-  files: string[];
-  baseURL: string;
-  baseRawURL: string;
-  defaultActiveFile: string;
+  files: TProjectCodeViewerFilePath[];
+  defaultActiveFilename?: TProjectCodeViewerFilePath;
 };
 
 export function ProjectCodeViewerProvider(
   props: TProjectCodeViewerProviderProps,
 ) {
-  const { children, files, baseURL, baseRawURL, defaultActiveFile } = props;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { children, files } = props;
 
-  const [activeFile, setActiveFile] = React.useState(`/${defaultActiveFile}`);
+  const activeFileDisplayURL = searchParams.get(ACTIVE_FILE_SEARCH_PARAM);
+  const _defaultActiveFilename =
+    (activeFileDisplayURL &&
+      files.find((file) => file.displayURL === activeFileDisplayURL)) ||
+    files[0];
+
+  const { defaultActiveFilename = _defaultActiveFilename } = props;
+
+  const [activeFile, setActiveFile] = React.useState(defaultActiveFilename);
+
   const [code, setCode] = React.useState<TCodeRecord>({
-    [activeFile]: {
+    [activeFile.displayURL]: {
       isLoading: true,
       content: null,
       error: undefined,
-      language: getFileExtension(activeFile),
+      language: getFileExtension(activeFile.displayURL),
     },
   });
 
@@ -55,46 +64,57 @@ export function ProjectCodeViewerProvider(
   }, [files]);
 
   const fetchFile = React.useCallback(
-    async (file: string) => {
+    async (file: TProjectCodeViewerFilePath) => {
       setCode((code) => ({
         ...code,
-        [file]: {
+        [file.displayURL]: {
           isLoading: true,
           content: null,
           error: undefined,
-          language: getFileExtension(file),
+          language: getFileExtension(file.displayURL),
         },
       }));
       try {
-        const response = await fetch(`${baseRawURL}${file}`);
+        const response = await fetch(file.rawFileURL);
         const content = await response.text();
         setCode((code) => ({
           ...code,
-          [file]: {
+          [file.displayURL]: {
             isLoading: false,
             content,
             error: undefined,
-            language: getFileExtension(file),
+            language: getFileExtension(file.displayURL),
           },
         }));
       } catch (error) {
         setCode((code) => ({
           ...code,
-          [file]: {
+          [file.displayURL]: {
             isLoading: false,
             content: null,
             error,
-            language: getFileExtension(file),
+            language: getFileExtension(file.displayURL),
           },
         }));
       }
     },
 
-    [baseURL],
+    [],
+  );
+
+  const handleSetActiveFile = React.useCallback(
+    (file: TProjectCodeViewerFilePath) => {
+      setActiveFile(file);
+      setSearchParams((prev) => {
+        prev.set(ACTIVE_FILE_SEARCH_PARAM, file.displayURL);
+        return prev;
+      });
+    },
+    [setActiveFile, setSearchParams],
   );
 
   React.useEffect(() => {
-    if (!code[activeFile] || !code[activeFile].content) {
+    if (!code[activeFile.displayURL] || !code[activeFile.displayURL].content) {
       fetchFile(activeFile);
     }
   }, [activeFile]);
@@ -106,9 +126,7 @@ export function ProjectCodeViewerProvider(
         activeFile,
         isLoading: false,
         code,
-        baseURL,
-        baseRawURL,
-        setActiveFile,
+        setActiveFile: handleSetActiveFile,
       }}
     >
       {children}

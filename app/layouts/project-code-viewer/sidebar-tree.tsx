@@ -26,8 +26,8 @@ export function ProjectCodeViewerSidebarTree(
           index={index}
           name={item.name}
           type="file"
-          isActive={item.path === activeFile}
-          onClick={() => item.path && setActiveFile(item.path)}
+          isActive={item.displayURL === activeFile.displayURL}
+          onClick={() => setActiveFile(item)}
         />
       </SidebarMenuItem>
     );

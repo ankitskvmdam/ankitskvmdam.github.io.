@@ -4,29 +4,23 @@ import { CodeRenderer } from "~/components/code-renderer";
 import { ProjectCodeViewerMobileSidebar } from "./mobile-sidebar";
 import { ProjectCodeViewerProvider } from "./context";
 import { ProjectCodeViewerCode } from "./code";
+import { TProjectCodeViewerFilePath } from "./utils";
 
 export type TProjectCodeViewerProps = {
-  // To fetch raw files from GitHub, make sure it doesn't end with slash
-  baseRawURL: string;
-  // Make sure baseURL doesn't end with slash
-  baseURL: string;
-  // Make sure file doesn't start with slash
-  files: string[];
-  defaultActiveFile: string;
+  files: TProjectCodeViewerFilePath[];
+  defaultActiveFilename?: TProjectCodeViewerFilePath;
 };
 
 export function ProjectCodeViewer(props: TProjectCodeViewerProps) {
-  const { baseURL, baseRawURL, files, defaultActiveFile } = props;
+  const { files, defaultActiveFilename } = props;
 
   return (
     <ProjectCodeViewerProvider
-      baseURL={baseURL}
-      baseRawURL={baseRawURL}
       files={files}
-      defaultActiveFile={defaultActiveFile}
+      defaultActiveFilename={defaultActiveFilename}
     >
       <div className="h-full max-h-[800px] min-h-[500px] flex min-w-0 relative">
-        <div className="h-full relative hidden md:block">
+        <div className="h-full w-sm relative hidden md:block">
           <ProjectCodeViewerSidebar />
         </div>
         <div className="h-full relative block md:hidden">

@@ -5,12 +5,17 @@ import { CodeRendererToolbar } from "~/components/code-renderer/toolbar";
 import { CodeRendererBody } from "~/components/code-renderer/body";
 
 export function ProjectCodeViewerCode() {
-  const { activeFile, baseURL, code } = useProjectCodeViewer();
+  const { activeFile, code } = useProjectCodeViewer();
 
-  if (!activeFile || !code[activeFile] || code[activeFile].isLoading) {
+  const { displayURL, viewFileURL } = activeFile;
+
+  if (!code[displayURL] || code[displayURL].isLoading) {
     return (
       <CodeRendererContainer className="bg-sidebar">
-        <CodeRendererToolbar showCopyButton={false} title={activeFile} />
+        <CodeRendererToolbar
+          showCopyButton={false}
+          title={activeFile.displayURL}
+        />
         <div className="flex flex-1 items-center justify-center">
           <Loader2 className="animate-spin" />
         </div>
@@ -19,25 +24,21 @@ export function ProjectCodeViewerCode() {
   }
 
   if (
-    !code[activeFile] ||
-    code[activeFile].error ||
-    !code[activeFile].content
+    !code[displayURL] ||
+    code[displayURL].error ||
+    !code[displayURL].content
   ) {
     return (
       <CodeRendererContainer className="bg-sidebar">
-        <CodeRendererToolbar showCopyButton={false} title={activeFile} />
+        <CodeRendererToolbar showCopyButton={false} title={displayURL} />
         <div className="flex flex-1 items-center justify-center">
           <div>
             <p className="text-center text-red-500 dark:text-red-400">
               Unable to fetch code.
             </p>
-            To view the actual code visit
-            <a
-              target="_blank"
-              href={`${baseURL}${activeFile}`}
-              className="text-anchor"
-            >
-              {activeFile}
+            To view the actual code visit&nbsp;
+            <a target="_blank" href={viewFileURL} className="text-anchor">
+              here
             </a>
             .
           </div>
@@ -48,10 +49,10 @@ export function ProjectCodeViewerCode() {
 
   return (
     <CodeRendererContainer className="bg-sidebar">
-      <CodeRendererToolbar showCopyButton title={activeFile} />
+      <CodeRendererToolbar showCopyButton title={displayURL} />
       <CodeRendererBody
-        code={code[activeFile].content}
-        language={code[activeFile].language}
+        code={code[displayURL].content}
+        language={code[displayURL].language}
         showLineNumbers
       />
     </CodeRendererContainer>

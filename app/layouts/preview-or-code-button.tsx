@@ -29,7 +29,7 @@ export function PreviewOrCodeButton() {
 
   const updateActiveTab = React.useCallback(
     (tabId: string) => {
-      setSearchParams({ tab: tabId });
+      setSearchParams({ [TAB_SEARCH_PARAM_QUERY_NAME]: tabId });
     },
     [setSearchParams],
   );
