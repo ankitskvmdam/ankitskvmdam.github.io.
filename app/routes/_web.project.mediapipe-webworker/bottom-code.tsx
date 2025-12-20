@@ -12,9 +12,10 @@ const FILES = [
   "_web.project.mediapipe-webworker/bottom.tsx",
   "_web.project.mediapipe-webworker/inputs.tsx",
   "_web.project.mediapipe-webworker/preview-main.tsx",
-  "some/path/a.css",
-  "some/path/b.html",
-  "some/path/of/example.json",
+  "_web.project.mediapipe-webworker/preview-sidebar.tsx",
+  "_web.project.mediapipe-webworker/preview-update-paramters.tsx",
+  "_web.project.mediapipe-webworker/preview-view-parameters.tsx",
+  "_web.project.mediapipe-webworker/preview-view-parameters.tsx",
 ];
 export function ProjectBottomCode(props: React.HTMLProps<HTMLDivElement>) {
   return (

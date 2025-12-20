@@ -43,7 +43,7 @@ export function ProjectCodeViewerProvider(
   const [activeFile, setActiveFile] = React.useState(`/${defaultActiveFile}`);
   const [code, setCode] = React.useState<TCodeRecord>({
     [activeFile]: {
-      isLoading: false,
+      isLoading: true,
       content: null,
       error: undefined,
       language: getFileExtension(activeFile),
@@ -65,71 +65,29 @@ export function ProjectCodeViewerProvider(
           language: getFileExtension(file),
         },
       }));
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-      setCode((code) => ({
-        ...code,
-        [file]: {
-          isLoading: false,
-          content: `
-          import { AppSidebar } from "@/components/app-sidebar"
-          import {
-            Breadcrumb,
-            BreadcrumbItem,
-            BreadcrumbLink,
-            BreadcrumbList,
-            BreadcrumbPage,
-            BreadcrumbSeparator,
-          } from "@/components/ui/breadcrumb"
-          import { Separator } from "@/components/ui/separator"
-          import {
-            SidebarInset,
-            SidebarProvider,
-            SidebarTrigger,
-          } from "@/components/ui/sidebar"
-
-          export default function Page() {
-            return (
-              <SidebarProvider>
-                <AppSidebar />
-                <SidebarInset>
-                  <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-                    <SidebarTrigger className="-ml-1" />
-                    <Separator
-                      orientation="vertical"
-                      className="mr-2 data-[orientation=vertical]:h-4"
-                    />
-                    <Breadcrumb>
-                      <BreadcrumbList>
-                        <BreadcrumbItem className="hidden md:block">
-                          <BreadcrumbLink href="#">
-                            Building Your Application
-                          </BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator className="hidden md:block" />
-                        <BreadcrumbItem>
-                          <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                        </BreadcrumbItem>
-                      </BreadcrumbList>
-                    </Breadcrumb>
-                  </header>
-                  <div className="flex flex-1 flex-col gap-4 p-4">
-                    <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                      <div className="bg-muted/50 aspect-video rounded-xl" />
-                      <div className="bg-muted/50 aspect-video rounded-xl" />
-                      <div className="bg-muted/50 aspect-video rounded-xl" />
-                    </div>
-                    <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
-                  </div>
-                </SidebarInset>
-              </SidebarProvider>
-            )
-          }
-
-`,
-          error: undefined,
-          language: getFileExtension(activeFile),
-        },
-      }));
+      try {
+        const response = await fetch(`${baseRawURL}${file}`);
+        const content = await response.text();
+        setCode((code) => ({
+          ...code,
+          [file]: {
+            isLoading: false,
+            content,
+            error: undefined,
+            language: getFileExtension(file),
+          },
+        }));
+      } catch (error) {
+        setCode((code) => ({
+          ...code,
+          [file]: {
+            isLoading: false,
+            content: null,
+            error,
+            language: getFileExtension(file),
+          },
+        }));
+      }
     },
 
     [baseURL],
