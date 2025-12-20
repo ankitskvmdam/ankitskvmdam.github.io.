@@ -22,7 +22,7 @@ export function ProjectCodeViewerSidebar(
     <SidebarProvider className="flex min-h-full! flex-col">
       <Sidebar
         collapsible="none"
-        className="w-full flex-1 rounded-tl-md rounded-bl-md bg-layer-0"
+        className="w-full flex-1 rounded-tl-md rounded-bl-md"
       >
         <SidebarGroupLabel className="h-12 rounded-none px-4 text-sm">
           Files

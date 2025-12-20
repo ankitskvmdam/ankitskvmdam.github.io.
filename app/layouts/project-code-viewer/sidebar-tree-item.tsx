@@ -19,7 +19,7 @@ export function ProjectCodeViewerSidebarTreeItem(
     <SidebarMenuButton
       isActive={isActive}
       onClick={onClick}
-      className="focus:bg-muted-foreground/15 focus-visible:bg-muted-foreground/15 active:bg-muted-foreground/15 data-[active=true]:bg-muted-foreground/15 rounded-none pl-(--index) whitespace-nowrap"
+      className="focus:bg-muted-foreground/15 focus-visible:bg-muted-foreground/15 active:bg-muted-foreground/15 data-[active=true]:bg-muted-foreground/15 rounded-none pl-(--index) pr-4 whitespace-nowrap"
       data-index={index}
       style={
         {
