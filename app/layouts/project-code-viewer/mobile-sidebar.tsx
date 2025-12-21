@@ -10,6 +10,9 @@ export function ProjectCodeViewerMobileSidebar() {
   const ref = React.useRef<HTMLDivElement>(null);
 
   useClickOutside(ref, () => setIsOpen(false));
+  const handleOnMenuClick = React.useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   return (
     <div
@@ -31,7 +34,7 @@ export function ProjectCodeViewerMobileSidebar() {
           "absolute w-sm top-0 bottom-0 [&_[data-slot='sidebar-group-label']]:pl-12 [&_[data-slot='sidebar-group-label']]:h-11",
         )}
       >
-        <ProjectCodeViewerSidebar />
+        <ProjectCodeViewerSidebar onMenuClick={handleOnMenuClick} />
       </div>
     </div>
   );

@@ -7,17 +7,24 @@ import {
 } from "~/components/ui/collapsible";
 import { ProjectCodeViewerSidebarTreeItem } from "./sidebar-tree-item";
 import { useProjectCodeViewer } from "./context";
+import React from "react";
 
 export type TProjectCodeViewerSidebarTreeProps = {
   item: TFileTree;
   index: number;
+  onMenuClick?: (item: TFileTree) => void;
 };
 
 export function ProjectCodeViewerSidebarTree(
   props: TProjectCodeViewerSidebarTreeProps,
 ) {
-  const { item, index } = props;
+  const { item, index, onMenuClick } = props;
   const { activeFile, setActiveFile } = useProjectCodeViewer();
+
+  const handleOnClick = React.useCallback(() => {
+    setActiveFile(item);
+    onMenuClick?.(item);
+  }, [onMenuClick, item]);
 
   if (item.children.length === 0) {
     return (
@@ -27,7 +34,7 @@ export function ProjectCodeViewerSidebarTree(
           name={item.name}
           type="file"
           isActive={item.displayURL === activeFile.displayURL}
-          onClick={() => setActiveFile(item)}
+          onClick={handleOnClick}
         />
       </SidebarMenuItem>
     );
@@ -53,6 +60,7 @@ export function ProjectCodeViewerSidebarTree(
                 key={key}
                 item={subItem}
                 index={index + 1}
+                onMenuClick={onMenuClick}
               />
             ))}
           </SidebarMenuSub>

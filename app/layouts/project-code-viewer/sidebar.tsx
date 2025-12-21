@@ -8,8 +8,16 @@ import {
 } from "~/components/ui/sidebar";
 import { ProjectCodeViewerSidebarTree } from "./sidebar-tree";
 import { useProjectCodeViewer } from "./context";
+import { TFileTree } from "./utils";
 
-export function ProjectCodeViewerSidebar() {
+export type TProjectCodeViewerSidebarProps = {
+  onMenuClick?: (item: TFileTree) => void;
+};
+
+export function ProjectCodeViewerSidebar(
+  props: TProjectCodeViewerSidebarProps,
+) {
+  const { onMenuClick } = props;
   const { tree } = useProjectCodeViewer();
 
   return (
@@ -29,6 +37,7 @@ export function ProjectCodeViewerSidebar() {
                   key={index}
                   item={file}
                   index={1}
+                  onMenuClick={onMenuClick}
                 />
               ))}
             </SidebarMenu>
