@@ -32,9 +32,18 @@ export function useGetCameraStream() {
     [],
   );
 
+  const cleanup = React.useCallback(() => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+    }
+    setStream(null);
+  }, []);
+
   return {
     stream,
     requestCameraStream,
+    cleanup,
     error,
   };
 }
