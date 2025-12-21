@@ -1,5 +1,5 @@
 import { StreamContainer } from "~/layouts/containers";
-import { StreamVideoPlayer } from "~/layouts/stream-video-palyer";
+import { StreamVideoPlayer } from "~/layouts/stream-video-player";
 
 export type TPreviewRunnerViewProps = {
   stream: MediaStream;

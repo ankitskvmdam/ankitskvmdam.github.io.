@@ -6,6 +6,7 @@ import { PreviewRunnerView } from "./preview-runner-view";
 import { StreamContainer } from "~/layouts/containers";
 import { useSearchParams } from "react-router";
 import {
+  CODE_TAB_SEARCH_PARAM,
   PREVIEW_TAB_SEARCH_PARAM,
   TAB_SEARCH_PARAM_QUERY_NAME,
 } from "~/constants/search-params";
@@ -19,8 +20,9 @@ export function PreviewRunner() {
   const [searchParams] = useSearchParams();
 
   React.useEffect(() => {
-    const currentTab = searchParams.get(TAB_SEARCH_PARAM_QUERY_NAME);
-    if (currentTab === PREVIEW_TAB_SEARCH_PARAM) {
+    if (
+      searchParams.get(TAB_SEARCH_PARAM_QUERY_NAME) === PREVIEW_TAB_SEARCH_PARAM
+    ) {
       requestCameraStream({
         video: {
           deviceId: inputVideoDevice.id,
@@ -29,10 +31,17 @@ export function PreviewRunner() {
           frameRate: { ideal: 60 },
         },
       });
-    } else {
+    }
+  }, [inputVideoDevice, inputVideoDevice.id, searchParams]);
+
+  React.useEffect(() => {
+    if (
+      searchParams.get(TAB_SEARCH_PARAM_QUERY_NAME) === CODE_TAB_SEARCH_PARAM
+    ) {
+      // Cleanup previous stream
       cleanup();
     }
-  }, [inputVideoDevice, inputVideoDevice.id, searchParams, cleanup]);
+  }, [cleanup, searchParams]);
 
   if (!stream && !error) {
     return (

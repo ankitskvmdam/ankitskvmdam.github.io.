@@ -6,7 +6,11 @@ import {
   TProjectCodeViewerFilePath,
 } from "./utils";
 import { useSearchParams } from "react-router";
-import { ACTIVE_FILE_SEARCH_PARAM } from "~/constants/search-params";
+import {
+  ACTIVE_FILE_SEARCH_PARAM,
+  CODE_TAB_SEARCH_PARAM,
+  TAB_SEARCH_PARAM_QUERY_NAME,
+} from "~/constants/search-params";
 
 export type TCode = {
   isLoading: boolean;
@@ -105,9 +109,9 @@ export function ProjectCodeViewerProvider(
   const handleSetActiveFile = React.useCallback(
     (file: TProjectCodeViewerFilePath) => {
       setActiveFile(file);
-      setSearchParams((prev) => {
-        prev.set(ACTIVE_FILE_SEARCH_PARAM, file.displayURL);
-        return prev;
+      setSearchParams({
+        [ACTIVE_FILE_SEARCH_PARAM]: file.displayURL,
+        [TAB_SEARCH_PARAM_QUERY_NAME]: CODE_TAB_SEARCH_PARAM,
       });
     },
     [setActiveFile, setSearchParams],
