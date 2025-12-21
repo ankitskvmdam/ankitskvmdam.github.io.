@@ -2,6 +2,7 @@ import { useStore } from "./store";
 import { SelectInputDevice } from "~/layouts/select-input-video-device";
 import { PreviewViewParameters } from "./preview-view-parameters";
 import { PreviewUpdateParamters } from "./preview-update-parameters";
+import { PreviewRunner } from "./preview-runner";
 
 export function PreviewMain() {
   const state = useStore((state) => ({
@@ -22,7 +23,9 @@ export function PreviewMain() {
         <PreviewUpdateParamters />
       </div>
 
-      <div className="text-muted-foreground py-4">Page under construction.</div>
+      <div className="text-muted-foreground py-4">
+        <PreviewRunner />
+      </div>
     </div>
   );
 }

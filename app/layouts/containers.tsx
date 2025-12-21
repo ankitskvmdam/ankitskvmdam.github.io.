@@ -1,3 +1,6 @@
+import React from "react";
+import { cn } from "~/lib/utils";
+
 export type TProjectPageContainerProps = {
   top?: React.ReactNode;
   bottom?: React.ReactNode;
@@ -45,6 +48,24 @@ export function ProjectHeadingAndDescContainer(
       <p className="text-muted-foreground text-sm leading-relaxed">
         {description}
       </p>
+    </div>
+  );
+}
+
+export type TStreamContainerProps = React.PropsWithChildren<{
+  className?: string;
+}>;
+
+export function StreamContainer(props: TStreamContainerProps) {
+  const { className, children } = props;
+  return (
+    <div
+      className={cn(
+        "w-full bg-layer-0 p-2 rounded-lg relative h-140 lg:h-170",
+        className,
+      )}
+    >
+      {children}
     </div>
   );
 }
