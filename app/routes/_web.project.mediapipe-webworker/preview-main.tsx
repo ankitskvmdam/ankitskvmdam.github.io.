@@ -2,23 +2,23 @@ import { SelectInputDevice } from "~/layouts/select-input-video-device";
 import { PreviewViewParameters } from "./preview-view-parameters";
 import { PreviewUpdateParamters } from "./preview-update-parameters";
 import { PreviewRunner } from "./preview-runner";
-import { useMediapipeInputs } from "~/layouts/mediapipe-inputs/store";
+import { useSearchParams } from "react-router";
+import {
+  PREVIEW_TAB_SEARCH_PARAM,
+  TAB_SEARCH_PARAM_QUERY_NAME,
+} from "~/constants/search-params";
 
 export function PreviewMain() {
-  const state = useMediapipeInputs((state) => ({
-    inputVideoDevice: state.inputVideoDevice,
-    setInputVideoDevice: state.setInputVideoDevice,
-  }));
-
+  const [searchParams] = useSearchParams();
   return (
     <div>
       <div className="flex justify-between gap-x-2">
-        <div>
-          <SelectInputDevice
-            inputVideoDevice={state.inputVideoDevice}
-            onValueChange={state.setInputVideoDevice}
-          />
-        </div>
+        {searchParams.get(TAB_SEARCH_PARAM_QUERY_NAME) ===
+          PREVIEW_TAB_SEARCH_PARAM && (
+          <div>
+            <SelectInputDevice />
+          </div>
+        )}
         <PreviewViewParameters />
         <PreviewUpdateParamters />
       </div>

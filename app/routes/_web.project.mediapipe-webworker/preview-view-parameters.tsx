@@ -7,10 +7,10 @@ import {
 import { Button } from "~/components/ui/button";
 import { Eye } from "lucide-react";
 import { useMediapipeInputs } from "~/layouts/mediapipe-inputs/store";
+import { useInputDevice } from "~/layouts/select-input-video-device/store";
 
 export function PreviewViewParameters() {
   const state = useMediapipeInputs((state) => ({
-    inputVideoDevice: state.inputVideoDevice,
     interferenceDelegate: state.interferenceDelegate,
     modelType: state.modelType,
     shouldEnableSegmentationMask: state.shouldEnableSegmentationMask,
@@ -19,6 +19,8 @@ export function PreviewViewParameters() {
     minimumPosePresenceConfidence: state.minimumPosePresenceConfidence,
     minimumTrackingConfidence: state.minimumTrackingConfidence,
   }));
+
+  const inputVideoDevice = useInputDevice((state) => state.selectedInputDevice);
 
   return (
     <Popover>
@@ -34,7 +36,7 @@ export function PreviewViewParameters() {
       >
         <CodeRenderer
           language="json"
-          children={JSON.stringify(state, null, 2)}
+          children={JSON.stringify({ inputVideoDevice, ...state }, null, 2)}
         />
       </PopoverContent>
     </Popover>

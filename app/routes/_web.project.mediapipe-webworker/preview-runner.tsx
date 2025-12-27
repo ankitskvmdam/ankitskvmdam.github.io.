@@ -9,12 +9,12 @@ import {
   PREVIEW_TAB_SEARCH_PARAM,
   TAB_SEARCH_PARAM_QUERY_NAME,
 } from "~/constants/search-params";
-import { useMediapipeInputs } from "~/layouts/mediapipe-inputs/store";
+import { useInputDevice } from "~/layouts/select-input-video-device/store";
 
 export function PreviewRunner() {
   const { stream, requestCameraStream, error, cleanup } = useGetCameraStream();
-  const { inputVideoDevice } = useMediapipeInputs((state) => ({
-    inputVideoDevice: state.inputVideoDevice,
+  const { deviceId } = useInputDevice((state) => ({
+    deviceId: state.selectedInputDevice.value,
   }));
 
   const [searchParams] = useSearchParams();
@@ -25,14 +25,14 @@ export function PreviewRunner() {
     ) {
       requestCameraStream({
         video: {
-          deviceId: inputVideoDevice.id,
+          deviceId,
           height: { ideal: 1080 },
           width: { ideal: 1920 },
           frameRate: { ideal: 60 },
         },
       });
     }
-  }, [inputVideoDevice, inputVideoDevice.id, searchParams]);
+  }, [deviceId, searchParams]);
 
   React.useEffect(() => {
     if (
