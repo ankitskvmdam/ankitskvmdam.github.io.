@@ -43,6 +43,12 @@ export function PreviewRunner() {
     }
   }, [cleanup, searchParams]);
 
+  React.useEffect(() => {
+    return () => {
+      cleanup();
+    };
+  }, [cleanup]);
+
   if (!stream && !error) {
     return (
       <StreamContainer>
