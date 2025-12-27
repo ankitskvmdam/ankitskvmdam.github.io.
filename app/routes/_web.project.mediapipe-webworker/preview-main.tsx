@@ -1,11 +1,11 @@
-import { useStore } from "./store";
 import { SelectInputDevice } from "~/layouts/select-input-video-device";
 import { PreviewViewParameters } from "./preview-view-parameters";
 import { PreviewUpdateParamters } from "./preview-update-parameters";
 import { PreviewRunner } from "./preview-runner";
+import { useMediapipeInputs } from "~/layouts/mediapipe-inputs/store";
 
 export function PreviewMain() {
-  const state = useStore((state) => ({
+  const state = useMediapipeInputs((state) => ({
     inputVideoDevice: state.inputVideoDevice,
     setInputVideoDevice: state.setInputVideoDevice,
   }));

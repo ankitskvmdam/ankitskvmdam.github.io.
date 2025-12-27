@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "~/components/ui/sheet";
-import { Inputs } from "./inputs";
+import { MediapipeInputs } from "~/layouts/mediapipe-inputs/inputs";
 
 export function PreviewUpdateParamters() {
   return (
@@ -28,7 +28,7 @@ export function PreviewUpdateParamters() {
       </SheetHeader>
       <SheetContent>
         <div className="p-4 max-h-screen overflow-auto">
-          <Inputs />
+          <MediapipeInputs />
         </div>
         <SheetFooter>
           <SheetClose asChild>

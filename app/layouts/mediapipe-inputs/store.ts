@@ -1,12 +1,14 @@
 import { createWithEqualityFn } from "zustand/traditional";
 import { shallow } from "zustand/shallow";
 
-import { TInterferenceDelegate, TModelType } from "./types";
 import { TInputVideoDevice } from "~/layouts/select-input-video-device";
 
-export type TUseMediapipeInWorkerState = {
+export type TInterferenceDelegate = "GPU" | "CPU";
+export type TMediapipeModelType = "Heavy" | "Lite" | "Full";
+
+export type TMediapipeInputs = {
   interferenceDelegate: TInterferenceDelegate;
-  modelType: TModelType;
+  modelType: TMediapipeModelType;
   inputVideoDevice: TInputVideoDevice;
   shouldEnableSegmentationMask: boolean;
   numPoses: number;
@@ -15,9 +17,9 @@ export type TUseMediapipeInWorkerState = {
   minimumTrackingConfidence: number;
 };
 
-export type TUseMediapipeInWorkerActions = {
+export type TMediapipeInputsActions = {
   setInterferenceDelegate: (delegate: TInterferenceDelegate) => void;
-  setModelType: (type: TModelType) => void;
+  setModelType: (type: TMediapipeModelType) => void;
   setInputVideoDevice: (device: TInputVideoDevice) => void;
   setShouldEnableSegmentationMask: (value: boolean) => void;
   setNumPoses: (value: number) => void;
@@ -26,8 +28,8 @@ export type TUseMediapipeInWorkerActions = {
   setMinimumTrackingConfidence: (value: number) => void;
 };
 
-export const useStore = createWithEqualityFn<
-  TUseMediapipeInWorkerState & TUseMediapipeInWorkerActions
+export const useMediapipeInputs = createWithEqualityFn<
+  TMediapipeInputs & TMediapipeInputsActions
 >(
   (set) => ({
     interferenceDelegate: "GPU",
@@ -43,7 +45,7 @@ export const useStore = createWithEqualityFn<
     minimumTrackingConfidence: 0.5,
     setInterferenceDelegate: (delegate: TInterferenceDelegate) =>
       set({ interferenceDelegate: delegate }),
-    setModelType: (type: TModelType) => set({ modelType: type }),
+    setModelType: (type: TMediapipeModelType) => set({ modelType: type }),
     setInputVideoDevice: (device: { id: string; label: string }) =>
       set({ inputVideoDevice: device }),
     setShouldEnableSegmentationMask: (value: boolean) =>

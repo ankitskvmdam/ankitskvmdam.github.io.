@@ -1,5 +1,4 @@
 import { CodeRenderer } from "~/components/code-renderer";
-import { useStore } from "./store";
 import {
   Popover,
   PopoverContent,
@@ -7,9 +6,10 @@ import {
 } from "~/components/ui/popover";
 import { Button } from "~/components/ui/button";
 import { Eye } from "lucide-react";
+import { useMediapipeInputs } from "~/layouts/mediapipe-inputs/store";
 
 export function PreviewViewParameters() {
-  const state = useStore((state) => ({
+  const state = useMediapipeInputs((state) => ({
     inputVideoDevice: state.inputVideoDevice,
     interferenceDelegate: state.interferenceDelegate,
     modelType: state.modelType,

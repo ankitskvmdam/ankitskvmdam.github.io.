@@ -6,14 +6,14 @@ import {
   FieldSeparator,
   FieldSet,
 } from "~/components/ui/field";
-import { useStore } from "./store";
+import { useMediapipeInputs } from "./store";
 import { ParameterSelect } from "~/layouts/parameter-select";
 import { Switch } from "~/components/ui/switch";
 import { ParameterSlider } from "~/layouts/parameter-slider";
 import { ExternalLink } from "lucide-react";
 
-export function Inputs() {
-  const state = useStore((state) => state);
+export function MediapipeInputs() {
+  const state = useMediapipeInputs((state) => state);
 
   return (
     <form>

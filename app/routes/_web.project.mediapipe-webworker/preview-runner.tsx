@@ -1,6 +1,5 @@
 import { Loader2 } from "lucide-react";
 import { useGetCameraStream } from "~/hooks/use-get-camera-stream";
-import { useStore } from "./store";
 import React from "react";
 import { PreviewRunnerView } from "./preview-runner-view";
 import { StreamContainer } from "~/layouts/containers";
@@ -10,10 +9,11 @@ import {
   PREVIEW_TAB_SEARCH_PARAM,
   TAB_SEARCH_PARAM_QUERY_NAME,
 } from "~/constants/search-params";
+import { useMediapipeInputs } from "~/layouts/mediapipe-inputs/store";
 
 export function PreviewRunner() {
   const { stream, requestCameraStream, error, cleanup } = useGetCameraStream();
-  const { inputVideoDevice } = useStore((state) => ({
+  const { inputVideoDevice } = useMediapipeInputs((state) => ({
     inputVideoDevice: state.inputVideoDevice,
   }));
 
