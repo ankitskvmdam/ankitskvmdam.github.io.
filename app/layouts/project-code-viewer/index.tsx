@@ -19,7 +19,7 @@ export function ProjectCodeViewer(props: TProjectCodeViewerProps) {
       files={files}
       defaultActiveFilename={defaultActiveFilename}
     >
-      <div className="h-full max-h-[800px] min-h-[500px] flex min-w-0 relative">
+      <div className="h-full max-h-[calc(100vh-220px)] min-h-[500px] flex min-w-0 relative">
         <div className="h-full w-sm relative hidden md:block">
           <ProjectCodeViewerSidebar />
         </div>
