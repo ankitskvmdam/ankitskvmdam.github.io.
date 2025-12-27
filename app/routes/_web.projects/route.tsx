@@ -5,6 +5,7 @@ import { ProjectsBackground } from "./background";
 import { ProjectsList } from "./projects";
 import { PROJECTS_ROUTE } from "~/constants/routes";
 import { getMeta } from "~/utils/meta";
+import { ProjectsMoreProjects } from "./more-projects";
 
 export const meta: MetaFunction = () => {
   const title = "Projects | Ankit Kumar (अंकित कुमार)";
@@ -42,7 +43,7 @@ export default function ProjectsRoute() {
           <ProjectsBackground className="fill-layer-0 absolute bottom-0 right-0 z-1 -rotate-12 h-140 md:h-200" />
         </div>
         <ProjectsList />
-        <div className="h-10 w-10" />
+        <ProjectsMoreProjects />
       </div>
     </div>
   );
