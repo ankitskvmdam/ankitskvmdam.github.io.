@@ -1,15 +1,14 @@
 import { ProjectHeadingAndDescContainer } from "~/layouts/containers";
 import { Inputs } from "./inputs";
+import { useTranslation } from "react-i18next";
 
 export function ProjectPreviewSidebar() {
+  const { t } = useTranslation("projects");
   return (
     <div>
       <ProjectHeadingAndDescContainer
-        heading="Running Pose Landmark Detection in Web Worker"
-        description="MediaPipe's Pose Landmarker (or other models/tasks by MediaPipe)
-is heavy and often blocks the main thread during initialization.
-However, we can offload initialization and prediction to a web
-worker to keep the main thread unblocked and responsive."
+        heading={t("runningMediaPipeInWebWorker.title")}
+        description={t("runningMediaPipeInWebWorker.description")}
       />
 
       <div className="mt-4 pt-4 border-t border-t-muted hidden lg:block">

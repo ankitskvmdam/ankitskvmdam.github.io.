@@ -3,7 +3,7 @@ import { PreviewOrCodeButton } from "~/layouts/preview-or-code-button";
 import { ProjectBottom } from "./bottom";
 import { MetaFunction } from "react-router";
 import { getMeta } from "~/utils/meta";
-import { MEDIAPIPE_WEBWORKER_ROUTE, PROJECT_ROUTE } from "~/constants/routes";
+import { MEDIAPIPE_WEBWORKER_ROUTE } from "~/constants/routes";
 
 export const meta: MetaFunction = () => {
   const title =

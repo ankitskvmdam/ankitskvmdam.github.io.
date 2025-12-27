@@ -23,6 +23,17 @@ const projects = {
     title: "Train and Package REINVENT 4 for Ersilia Hub",
     description: `Packaged and optimized REINVENT models for Ersilia, and explored 3D molecular generation to support next-generation drug discovery tools.`,
   },
+  moreProjects: {
+    title: "More Projects",
+    description: "",
+  },
+  runningMediaPipeInWebWorker: {
+    title: "Running Pose Landmark Detection in Web Worker",
+    description: `MediaPipe's Pose Landmarker (or other models/tasks by MediaPipe)
+is heavy and often blocks the main thread during initialization.
+However, we can offload initialization and prediction to a web
+worker to keep the main thread unblocked and responsive.`,
+  },
 };
 
 export default projects;
