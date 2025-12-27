@@ -42,29 +42,34 @@ export const FILES: TProjectCodeViewerFilePath[] = [
     viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/preview-update-parameters.tsx`,
   },
   {
-    displayURL: "/app/inputs.tsx",
-    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/inputs.tsx`,
-    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/inputs.tsx`,
-  },
-  {
-    displayURL: "/app/types.ts",
-    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/types.ts`,
-    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/types.ts`,
-  },
-  {
     displayURL: "/hooks/use-get-camera-stream.ts",
     rawFileURL: `${RAW_HOOKS}/use-get-camera-stream.ts`,
     viewFileURL: `${VIEW_HOOKS}/use-get-camera-stream.ts`,
   },
   {
-    displayURL: "/layouts/select-input-video-device.tsx",
-    rawFileURL: `${RAW_LAYOUT}/select-input-video-device.tsx`,
-    viewFileURL: `${VIEW_LAYOUT}/select-input-video-device.tsx`,
+    displayURL: "/layouts/mediapipe-inputs/inputs.tsx",
+    rawFileURL: `${RAW_LAYOUT}/mediapipe-inputs/inputs.tsx`,
+    viewFileURL: `${VIEW_LAYOUT}/mediapipe-inputs/inputs.tsx`,
   },
   {
-    displayURL: "/layouts/stream-video-player.tsx",
-    rawFileURL: `${RAW_LAYOUT}/stream-video-player.tsx`,
-    viewFileURL: `${VIEW_LAYOUT}/stream-video-player.tsx`,
+    displayURL: "/layouts/mediapipe-inputs/store.ts",
+    rawFileURL: `${RAW_LAYOUT}/mediapipe-inputs/store.ts`,
+    viewFileURL: `${VIEW_LAYOUT}/mediapipe-inputs/store.ts`,
+  },
+  {
+    displayURL: "/layouts/select-input-video-device/index.tsx",
+    rawFileURL: `${RAW_LAYOUT}/select-input-video-device/index.tsx`,
+    viewFileURL: `${VIEW_LAYOUT}/select-input-video-device/index.tsx`,
+  },
+  {
+    displayURL: "/layouts/select-input-video-device/store.ts",
+    rawFileURL: `${RAW_LAYOUT}/select-input-video-device/store.ts`,
+    viewFileURL: `${VIEW_LAYOUT}/select-input-video-device/store.ts`,
+  },
+  {
+    displayURL: "/layouts/containers.tsx",
+    rawFileURL: `${RAW_LAYOUT}/containers.tsx`,
+    viewFileURL: `${VIEW_LAYOUT}/containers.tsx`,
   },
   {
     displayURL: "/layouts/parameter-select.tsx",
@@ -72,8 +77,8 @@ export const FILES: TProjectCodeViewerFilePath[] = [
     viewFileURL: `${VIEW_LAYOUT}/parameter-select.tsx`,
   },
   {
-    displayURL: "/layouts/containers.tsx",
-    rawFileURL: `${RAW_LAYOUT}/containers.tsx`,
-    viewFileURL: `${VIEW_LAYOUT}/containers.tsx`,
+    displayURL: "/layouts/stream-video-player.tsx",
+    rawFileURL: `${RAW_LAYOUT}/stream-video-player.tsx`,
+    viewFileURL: `${VIEW_LAYOUT}/stream-video-player.tsx`,
   },
 ];
