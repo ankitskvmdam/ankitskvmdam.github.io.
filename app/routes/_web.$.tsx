@@ -21,7 +21,6 @@ export default function CatchAll() {
   return (
     <div className="section section-min-h-available-screen">
       <div className="section-wrapper flex-1 section-padding relative min-h-128">
-        <div className="dot-bg"></div>
         <SectionPageIntro
           className="z-10 relative"
           pageHeading="/page-not-found"
