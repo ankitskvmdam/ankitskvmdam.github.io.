@@ -47,7 +47,6 @@ export default function BlogsRoute() {
       <div className="section-wrapper section-padding">
         <div className="relative z-10">
           <div className="bg-[url('/assets/typewriter.webp')] absolute opacity-20 dark:opacity-10 bg-cover bottom-0 right-0 size-52 translate-y-5 md:size-100 lg:size-140 lg:-translate-x-1/2" />
-          <div className="dot-bg h-[calc(100%+10rem)] absolute -top-30"></div>
           <SectionPageIntro
             className="section-intro-with-min-h"
             pageHeading={BLOGS_ROUTE}

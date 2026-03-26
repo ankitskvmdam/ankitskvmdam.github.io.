@@ -1,6 +1,7 @@
 import { DotIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import { HalftoneDots } from "@paper-design/shaders-react";
 import { DirectoryArrowLine } from "~/components/icons";
 import { Slash } from "~/components/section/slash";
 import { Button } from "~/components/ui/button";
@@ -24,11 +25,24 @@ export function BlogsList(props: TBlogsList) {
               className="flex flex-col h-full group"
               key={blog.slug}
             >
-              <div className="overflow-hidden rounded-xl flex transition-transform">
-                <img
-                  src={blog.thumbnail ?? "/assets/typewriter.png"}
-                  className="h-52 object-cover flex-1"
-                  alt={blog.title}
+              <div className="overflow-hidden rounded-xl flex transition-transform relative">
+                <HalftoneDots
+                  image={blog.thumbnail ?? "/assets/typewriter.png"}
+                  height={208}
+                  width="100%"
+                  colorBack="#f2f1e8"
+                  colorFront="#2b2b2b"
+                  originalColors={false}
+                  type="classic"
+                  grid="hex"
+                  inverted={false}
+                  size={0.5}
+                  radius={1.25}
+                  contrast={0.4}
+                  grainMixer={0.2}
+                  grainOverlay={0.2}
+                  grainSize={0.5}
+                  fit="cover"
                 />
               </div>
               <div className="py-2 flex flex-col space-y-2">
