@@ -50,7 +50,7 @@ export function useGetHighlightProjects() {
           {
             id: "web",
             type: "website",
-            href: "./clean-jsdoc-theme/v4/",
+            href: "./clean-jsdoc-theme/",
           },
         ],
       },

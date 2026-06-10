@@ -22,7 +22,7 @@ export async function loader() {
     { url: BLOGS_ROUTE, priority: "0.8", changefreq: "weekly" },
     { url: PROJECTS_ROUTE, priority: "0.8", changefreq: "weekly" },
     // Clean jsdoc theme.
-    { url: `/clean-jsdoc-theme/v4`, priority: "0.8", changefreq: "monthly" },
+    { url: `/clean-jsdoc-theme`, priority: "0.8", changefreq: "monthly" },
 
     // Projects
     { url: MEDIAPIPE_WEBWORKER_ROUTE, priority: "0.8", changefreq: "yearly" },

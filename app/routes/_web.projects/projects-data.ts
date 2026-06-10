@@ -34,7 +34,7 @@ export const projectsData: TProjectData[] = [
       {
         id: "web",
         type: "website",
-        href: "./clean-jsdoc-theme/v4/",
+        href: "./clean-jsdoc-theme/",
       },
     ],
   },
