@@ -7,7 +7,7 @@ description: Options accepted by the {@link Cache} constructor.
 
 # CacheOptions
 
-<SourceLink href="/source/index-js/#L21" label="index.js:21" />
+<SourceLink href="/source/index-js/#L85" label="index.js:85" />
 
 Options accepted by the [Cache](/module/sample-api#cache) constructor.
 

@@ -1,1 +1,0 @@
-import{a as r,b as c,c as a}from"./chunk-O2FRT4AZ.js";function d(){let t=a["copy-btn"];t&&document.querySelectorAll('[data-island="copy-btn"]').forEach(e=>{let n=e.parentElement,o=n&&n.querySelector("pre"),p=o&&o.textContent||"";c(r(t,{text:p}),e)})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",d,{once:!0}):d();

@@ -7,7 +7,7 @@ description: "A tiny in-memory, least-recently-used (LRU) cache. This class is a
 
 # Cache
 
-<SourceLink href="/source/index-js/#L36" label="index.js:36" />
+<SourceLink href="/source/index-js/#L100" label="index.js:100" />
 
 A tiny in-memory, least-recently-used (LRU) cache.
 
@@ -18,7 +18,10 @@ This class is a demo of how `clean-jsdoc-theme` renders a documented class: the 
 Basic usage
 
 ```js
-const cache = new Cache({ maxSize: 2 });cache.set('a', 1);cache.set('b', 2);cache.get('a'); // => 1
+const cache = new Cache({ maxSize: 2 });
+cache.set('a', 1);
+cache.set('b', 2);
+cache.get('a'); // => 1
 ```
 
 - **See:**
@@ -38,7 +41,7 @@ const cache = new Cache({ maxSize: 2 });cache.set('a', 1);cache.set('b', 2);c
 
 <MemberHeading id="set" depth="3" name="set" sig="set(key, value) -> Cache" />
 
-<MemberMeta sourceHref="/source/index-js/#L82" sourceLabel="index.js:82" />
+<MemberMeta sourceHref="/source/index-js/#L146" sourceLabel="index.js:146" />
 
 Store a value under a key. If the cache is full, the least-recently-used entry is evicted first.
 
@@ -59,7 +62,7 @@ cache.set('user:1', { name: 'Ada' }).set('user:2', { name: 'Linus' });
 
 <MemberHeading id="get" depth="3" name="get" sig="get(key) -> *" />
 
-<MemberMeta sourceHref="/source/index-js/#L97" sourceLabel="index.js:97" />
+<MemberMeta sourceHref="/source/index-js/#L161" sourceLabel="index.js:161" />
 
 Look up a value by key, marking it as recently used.
 
@@ -73,7 +76,7 @@ Look up a value by key, marking it as recently used.
 
 <MemberHeading id="has" depth="3" name="has" sig="has(key) -> boolean" />
 
-<MemberMeta sourceHref="/source/index-js/#L111" sourceLabel="index.js:111" />
+<MemberMeta sourceHref="/source/index-js/#L175" sourceLabel="index.js:175" />
 
 Check whether a key is present without affecting its recency.
 
@@ -87,7 +90,7 @@ Check whether a key is present without affecting its recency.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear() -> void" />
 
-<MemberMeta sourceHref="/source/index-js/#L120" sourceLabel="index.js:120" />
+<MemberMeta sourceHref="/source/index-js/#L184" sourceLabel="index.js:184" />
 
 Remove every entry from the cache.
 
@@ -99,7 +102,7 @@ Remove every entry from the cache.
 
 <MemberHeading id="maxsize" depth="3" name="maxSize" sig="maxSize" />
 
-<MemberMeta sourceHref="/source/index-js/#L48" sourceLabel="index.js:48" />
+<MemberMeta sourceHref="/source/index-js/#L112" sourceLabel="index.js:112" />
 
 The maximum number of entries this cache will hold.
 
@@ -109,7 +112,7 @@ The maximum number of entries this cache will hold.
 
 <MemberHeading id="ttl" depth="3" name="ttl" sig="ttl" />
 
-<MemberMeta sourceHref="/source/index-js/#L55" sourceLabel="index.js:55" />
+<MemberMeta sourceHref="/source/index-js/#L119" sourceLabel="index.js:119" />
 
 Time-to-live per entry, in milliseconds. `0` means entries never expire.
 
@@ -119,6 +122,6 @@ Time-to-live per entry, in milliseconds. `0` means entries never expire.
 
 <MemberHeading id="size" depth="3" name="size" sig="size" />
 
-<MemberMeta badges="readonly" sourceHref="/source/index-js/#L67" sourceLabel="index.js:67" />
+<MemberMeta badges="readonly" sourceHref="/source/index-js/#L131" sourceLabel="index.js:131" />
 
 The number of entries currently stored.
