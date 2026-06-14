@@ -34,9 +34,17 @@ Server-rendered HTML with lazy-hydrated Preact islands — each shipped only to 
 
 First-class light and dark themes on an OKLCH palette — no CSS required. Bring your own site name or logo, Google Fonts, sidebar menu, and custom CSS/JS whenever you want them.
 
+### Ships in any language
+
+Built-in localization: declare your locales and the `clean-jsdoc` CLI builds one static site per language — translated UI, API descriptions, and prose, with a header language switcher, per-language fonts, and `hreflang` for SEO. See [Localize your docs](/guides/localize-your-docs).
+
 ### Built for LLMs
 
 Every page emits a companion `.md` authored for machine reading, plus opt-out "copy page" and "open in Claude / ChatGPT / Perplexity" actions — so an AI reads the same reference your users do.
+
+### An out-of-the-box AI skill
+
+A downloadable [**skill**](/theme/llm-skill) that turns any coding assistant into a `clean-jsdoc-theme` expert — point your agent at it and relax while it sets up your config, authors your guides, and structures your sidebar correctly the first time. No prompt-engineering, no guessing.
 
 ## The packages
 
@@ -66,14 +74,14 @@ These are what you actually install — each feeds your docs through the same `s
 | [`clean-jsdoc-theme`](https://www.npmjs.com/package/clean-jsdoc-theme)                   | The JSDoc template. JSDoc calls its `publish()` bridge, which orchestrates setu → dwar and writes the files. | [JSDoc Getting Started](/theme/jsdoc-getting-started)     | [GitHub](https://github.com/ankitskvmdam/clean-jsdoc-theme/tree/master/packages/clean-jsdoc-theme) |
 | [`@clean-jsdoc-theme/typedoc`](https://www.npmjs.com/package/@clean-jsdoc-theme/typedoc) | The TypeDoc plugin. Registers a `clean-jsdoc-theme` output that runs reflection → setu → dwar.               | [TypeDoc Getting Started](/theme/typedoc-getting-started) | [GitHub](https://github.com/ankitskvmdam/clean-jsdoc-theme/tree/master/packages/typedoc)           |
 
-### Reserved
+### Localization
 
-Published and reserved on npm but not yet usable — stubs under active development. See [Reserved packages](/packages/reserved) for what each will do.
+Ship your docs in multiple languages. **aadesh** is the `clean-jsdoc` CLI that drives the extract → translate → build workflow; **bhasha** is the pure, browser-safe i18n core (catalog, translator, key scheme) the build and the UI share. Start with [Localize your docs](/guides/localize-your-docs).
 
-| Package                                                                                | Planned role                                               |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [`@clean-jsdoc-theme/aadesh`](https://www.npmjs.com/package/@clean-jsdoc-theme/aadesh) | A `clean-jsdoc` build / i18n workflow CLI.                 |
-| [`@clean-jsdoc-theme/bhasha`](https://www.npmjs.com/package/@clean-jsdoc-theme/bhasha) | Localization / i18n tooling (extract → translate → build). |
+| Package                                                                                | What it does                                                                                               | Docs                                  | Source                                                                                  |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------------------------------------------------------------------- |
+| [`@clean-jsdoc-theme/aadesh`](https://www.npmjs.com/package/@clean-jsdoc-theme/aadesh) | The `clean-jsdoc` localization CLI — extract, translate-prompt, validate, and build one site per locale.   | [Overview](/packages/aadesh-overview) | [GitHub](https://github.com/ankitskvmdam/clean-jsdoc-theme/tree/master/packages/aadesh) |
+| [`@clean-jsdoc-theme/bhasha`](https://www.npmjs.com/package/@clean-jsdoc-theme/bhasha) | The isomorphic i18n core: chrome catalog, `t` translator, `LanguageProvider`, and the API key/hash scheme. | [Overview](/packages/bhasha-overview) | [GitHub](https://github.com/ankitskvmdam/clean-jsdoc-theme/tree/master/packages/bhasha) |
 
 The boundaries are deliberately one-way — **setu** never imports dwar or rang, **dwar** consumes only the `SiteManifest`, and `render()` is pure — which is what lets both entry points share one rendering core with no duplicated logic. For why the project is split this way, see the [Overview](/theme/overview); to combine hand-written guides with your generated reference, see [Combining guides and API](/guides/combine-guides-and-api).
 

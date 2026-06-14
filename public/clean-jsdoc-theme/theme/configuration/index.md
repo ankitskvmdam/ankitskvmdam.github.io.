@@ -301,6 +301,28 @@ Custom links pinned above the sidebar navigation.
   </Tab>
 </Tabs>
 
+### `pageNav`
+
+The prev/next pager at the foot of each content page — two cards linking the adjacent pages in sidebar reading order. On by default; source-viewer pages never show it.
+
+**Expected:** a boolean shorthand, or an object `{ enabled }`. Defaults to `true`.
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { pageNav: false }
+    // or the object form: opts: { pageNav: { enabled: false } }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { pageNav: false }
+    // or the object form: cleanJsdocTheme: { pageNav: { enabled: false } }
+    ```
+  </Tab>
+</Tabs>
+
 ## Appearance & assets
 
 ### `fonts`
@@ -502,6 +524,64 @@ You don't configure this, but it's worth knowing how local files referenced from
 `.svg` files get one extra step: their markup is **inlined** directly into the page rather than loaded through an `<img>`. That lets an SVG's own `[data-theme="dark"]` styles follow the in-page theme toggle — an `<img>`-loaded SVG can only see the operating system's color scheme, never your site's toggle.
 
 Logos ([`siteName`](#sitename)) and [`customCssFile` / `customJsFile`](#customcssfile-and-customjsfile) ride the same content-hashed `_assets/` pipeline.
+
+## Localization
+
+These two opt your site into a **multi-language** build — one static site per locale, with a header language switcher and `hreflang` alternates wired in. They declare the locales; the actual translation workflow (extracting catalogs, translating, and building each locale) runs through the [`clean-jsdoc`](/packages/aadesh-overview) CLI. The full walkthrough is in [Localize your docs](/guides/localize-your-docs). A build with no `locales` is unaffected — it renders exactly as before.
+
+<Callout type="info">
+  Localized **builds** are JSDoc-only today. The TypeDoc bridge can _extract_ catalogs but does not yet render the per-locale sites.
+</Callout>
+
+### `locales`
+
+The languages to build.
+
+**Expected:** an array of `{ code, name }` objects (the `name` is the switcher label), or bare locale-code strings. Codes are BCP-47-ish (`en`, `pt-BR`).
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: {
+      locales: [
+        { code: "en", name: "English" },
+        { code: "ja", name: "日本語" },
+      ],
+    }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: {
+      locales: [
+        { code: "en", name: "English" },
+        { code: "ja", name: "日本語" },
+      ],
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### `defaultLocale`
+
+The language rendered at the site root (every other locale lands under `/<code>`).
+
+**Expected:** a locale code that appears in [`locales`](#locales). Optional — defaults to the first entry.
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { defaultLocale: "en" }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { defaultLocale: "en" }
+    ```
+  </Tab>
+</Tabs>
 
 ## Build
 

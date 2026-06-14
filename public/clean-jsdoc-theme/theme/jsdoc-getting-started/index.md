@@ -100,10 +100,27 @@ Theme options live under **`opts`** in `jsdoc.json`, alongside JSDoc's own optio
   A couple of options — [`outputSourceFiles`](/theme/configuration#outputsourcefiles) and [`sourceLinkToComment`](/theme/configuration#sourcelinktocomment) — are JSDoc-only and sit under `templates.default`, not `opts` (the theme reads them from `jsdoc/env`). They're flagged on the Configuration page.
 </Callout>
 
+## Multiple languages
+
+The theme can render your docs in **several languages** — one static site per locale (the default at the root, others under `/<locale>`), with a header language switcher. You declare the locales in `opts.locales`, then drive the translation + per-locale builds with the `clean-jsdoc` CLI:
+
+```json5
+opts: {
+  locales: [
+    { code: "en", name: "English" },
+    { code: "ja", name: "日本語" },
+  ],
+  defaultLocale: "en",
+}
+```
+
+A build with no `locales` is unaffected. See **[Localize your docs](/guides/localize-your-docs)** for the full workflow (`extract` → translate → `build`), and the [`locales` / `defaultLocale`](/theme/configuration#localization) reference.
+
 ## Next steps
 
 - **[Build an API reference](/guides/build-an-api-reference)** — what becomes a page, the source-file viewer, and `Source: file:line` links.
 - **[Build a guides site](/guides/build-a-guides-site)** and **[Combine guides + API](/guides/combine-guides-and-api)** — add hand-written Markdown to the same site.
 - **[Structure your sidebar](/guides/structure-your-sidebar)** — `@category`, `@order`, and the sidebar options.
 - **[Authoring](/authoring/callouts)** — callouts, steps, tabs, and embeds you can use in comments and prose.
+- **[Localize your docs](/guides/localize-your-docs)** — ship the site in multiple languages.
 - Prefer TypeScript? See **[TypeDoc Getting Started](/theme/typedoc-getting-started)** — same output, different toolchain.

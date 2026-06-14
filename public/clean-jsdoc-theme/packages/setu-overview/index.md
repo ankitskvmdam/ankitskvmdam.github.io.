@@ -9,6 +9,10 @@ order: 20
 
 `@clean-jsdoc-theme/setu` owns the first half of the theme's pipeline: it turns a JSDoc/TypeDoc **doclet collection** into a structured **`SiteManifest`** — pages, a nav tree, and the link resolution that ties them together. It is the build-side counterpart to [dwar](/packages/dwar-overview), which renders the manifest into HTML.
 
+<Callout type="info">
+  **Why the name?** _setu_ (सेतु) is Sanskrit for **bridge** — fitting, since this package bridges your raw doclets to the structured `SiteManifest` the renderer consumes.
+</Callout>
+
 The single entry point is [`generateSite(collection, opts)`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/index.ts):
 
 ```ts

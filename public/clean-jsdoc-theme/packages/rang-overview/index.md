@@ -9,6 +9,10 @@ order: 30
 
 `@clean-jsdoc-theme/rang` is the **Preact component library** that [dwar](/packages/dwar-overview) server-renders and bundles. It owns every byte of page-shell HTML — the [`Layout`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/Layout.tsx), [`Header`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/Header.tsx), and [`Footer`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/Footer.tsx) — the hydratable **islands** that add progressive enhancement, the MDX element → component map, and the shadcn-style primitives styled with Tailwind utilities that reference CSS variables.
 
+<Callout type="info">
+  **Why the name?** _rang_ (रंग) is Hindi/Sanskrit for **color** — apt for the package that owns the theme's entire visual surface: layout, components, and styling.
+</Callout>
+
 The package depends only on the browser-safe contract package ([`@clean-jsdoc-theme/utils`](/packages/utils-overview)) plus [`preact`](https://preactjs.com/), [`class-variance-authority`](https://cva.style/), [`clsx`](https://github.com/lukeed/clsx), [`tailwind-merge`](https://github.com/dcastil/tailwind-merge), and [`lucide-preact`](https://github.com/lucide-icons/lucide) — see [`package.json`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/package.json).
 
 > If you just want to use the theme, you never install this package. It's an internal building block that dwar bundles for you. See the [Packages](/#the-packages) section for the pieces you actually install.

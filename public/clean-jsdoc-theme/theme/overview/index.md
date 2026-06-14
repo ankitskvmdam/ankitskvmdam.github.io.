@@ -33,6 +33,7 @@ It isn't a single template. Under the hood it's a small set of single-responsibi
 - **TypeScript / TypeDoc users** who want that same output from their existing reflection-based docs.
 - **Library authors** who want hand-written Markdown guides and an auto-generated API reference living in **one** site, one sidebar, one search.
 - **Teams who care about AI**, who want every page to ship a clean companion `.md` so assistants and LLMs can read the docs as easily as people can.
+- **Projects that need localization**, who want to ship their docs in multiple languages — translated UI, API descriptions, and prose, one static site per locale with a language switcher. See [Localize your docs](/guides/localize-your-docs).
 
 ## Find your way around
 

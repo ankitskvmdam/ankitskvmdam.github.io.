@@ -31,6 +31,10 @@ cache.get('a'); // => 1
 
 ## Constructor
 
+`new Cache([options])`
+
+Create a new cache.
+
 **Parameters**
 
 - `options` (CacheOptions, optional, default: "{}") — Configuration for the cache.
