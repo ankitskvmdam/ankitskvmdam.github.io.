@@ -50,7 +50,7 @@ Locales आपके मौजूदा `jsdoc.json` opts में रहते
 ## 2. catalogs को extract करें
 
 ```sh
-clean-jsdoc extract
+clean-jsdoc i18n extract
 ```
 
 यह आपकी pipeline चलाता है, हर translatable string (chrome + API) इकट्ठा करता है, और `clean-jsdoc-theme-artifacts/locales/` के अंतर्गत प्रति locale एक committable catalog लिखता है:
@@ -71,7 +71,7 @@ clean-jsdoc-theme-artifacts/locales/
 प्रत्येक locale की `<code>.json` को हाथ से edit करें, या एक LLM के लिए एक prompt generate करें:
 
 ```sh
-clean-jsdoc prompt
+clean-jsdoc i18n prompt
 ```
 
 `prompt` प्रति locale एक तैयार-उपयोग prompt **file** `clean-jsdoc-theme-artifacts/locales/prompts/` के अंतर्गत लिखता है — एक छोटे catalog के लिए `<code>.md`, या context सीमाओं के लिए chunked `<code>.part-01.md`, `<code>.part-02.md`, …। प्रत्येक file में केवल untranslated और stale entries होती हैं, साथ में markdown, `{@link}`, code fences, और `{var}` interpolation tokens को संरक्षित करने के निर्देश। CLI बताता है कि files कहाँ उतरीं:
@@ -89,8 +89,8 @@ ja: 60 entries → 2 prompt files:
 ## 4. Validate करें (वैकल्पिक)
 
 ```sh
-clean-jsdoc validate          # warns on gaps, errors on malformations
-clean-jsdoc validate --strict # gaps become failures too (for CI)
+clean-jsdoc i18n validate          # warns on gaps, errors on malformations
+clean-jsdoc i18n validate --strict # gaps become failures too (for CI)
 ```
 
 ## 5. Build करें

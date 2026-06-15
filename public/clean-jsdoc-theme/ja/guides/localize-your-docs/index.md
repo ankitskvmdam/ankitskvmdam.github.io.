@@ -50,7 +50,7 @@ Locales は既存の `jsdoc.json` opts に置かれます（TypeDoc: `cleanJsdoc
 ## 2. catalog を extract する
 
 ```sh
-clean-jsdoc extract
+clean-jsdoc i18n extract
 ```
 
 これはあなたの pipeline を走らせ、翻訳可能なすべての string（chrome + API）を集め、 `clean-jsdoc-theme-artifacts/locales/` の下に locale ごとに 1 つの commit 可能な catalog を書き出します:
@@ -71,7 +71,7 @@ docs が変わるたびに `extract` を再実行します — これは **merge
 各 locale の `<code>.json` を手で edit するか、LLM 用に prompt を生成します:
 
 ```sh
-clean-jsdoc prompt
+clean-jsdoc i18n prompt
 ```
 
 `prompt` は locale ごとに、すぐ使える prompt **file** を `clean-jsdoc-theme-artifacts/locales/prompts/` の下に書き出します — 小さな catalog には `<code>.md`、context の上限のために chunk された `<code>.part-01.md`、 `<code>.part-02.md`、…。各 file には untranslated と stale な entry だけが入り、 markdown、`{@link}`、code fences、`{var}` の interpolation token を保持するよう指示 が添えられます。CLI は file がどこに置かれたかを表示します:
@@ -89,8 +89,8 @@ ja: 60 entries → 2 prompt files:
 ## 4. Validate する（任意）
 
 ```sh
-clean-jsdoc validate          # warns on gaps, errors on malformations
-clean-jsdoc validate --strict # gaps become failures too (for CI)
+clean-jsdoc i18n validate          # warns on gaps, errors on malformations
+clean-jsdoc i18n validate --strict # gaps become failures too (for CI)
 ```
 
 ## 5. Build する

@@ -65,26 +65,26 @@ v4 nested theme options under **`opts.theme_opts.*`**. v5 reads them **directly 
 
 `opts.theme_opts.<v4>` → `opts.<v5>`.
 
-| v4 (`theme_opts.*`)                                                              | v5 (`opts.*`)   | Status          | Note                                                                      |
-| -------------------------------------------------------------------------------- | --------------- | --------------- | ------------------------------------------------------------------------- |
-| `default_theme`                                                                  | —               | removed         | Light/dark token sets + runtime toggle; no picker.                        |
-| `base_url`                                                                       | `basePath`      | renamed         | Site root prefixed onto links.                                            |
-| `title`                                                                          | `siteName`      | changed         | String **or** a logo set `{ default, dark, light, alt }`.                 |
-| `menu`                                                                           | `menu`          | changed         | Reshaped: `{ id?, title?, link/href?, icon? }`; `target`/`class` dropped. |
-| `sections`                                                                       | `sectionOrder`  | renamed         | Filter + order sidebar sections.                                          |
-| `create_style`                                                                   | `customCss`     | renamed         | Inline CSS (loads after the theme stylesheet).                            |
-| `include_css` / `add_style_path`                                                 | `customCssFile` | renamed/changed | CSS file → content-hashed asset link.                                     |
-| `add_scripts`                                                                    | `customJs`      | renamed         | Inline JS (runs last).                                                    |
-| `include_js` / `add_script_path`                                                 | `customJsFile`  | renamed/changed | JS file → content-hashed asset.                                           |
-| `favicon`                                                                        | —               | removed         | Use JSDoc's own static-file copying.                                      |
-| `homepageTitle`                                                                  | —               | removed         | Home `<title>` derives from README / `docs/index.md` + `siteName`.        |
-| `includeFilesListInHomepage`                                                     | —               | removed         | The Source Files section lists files.                                     |
-| `meta`                                                                           | —               | removed         | No custom `<meta>` injection.                                             |
-| `search`                                                                         | —               | removed         | Always-on fuzzy search + optional Pagefind.                               |
-| `codepen`                                                                        | —               | removed         | Use [`@iframe`](/authoring/embeds) embeds.                                |
-| `static_dir`                                                                     | —               | removed         | Use JSDoc's own static-file config.                                       |
-| `footer`                                                                         | —               | removed         | Derived from `siteName` / `pkg`.                                          |
-| `exclude_inherited`, `displayModuleHeader`, `sort`, `shouldRemoveScrollbarStyle` | —               | removed         | No equivalent.                                                            |
+| v4 (`theme_opts.*`)                                                              | v5 (`opts.*`)   | Status          | Note                                                                                                                                                              |
+| -------------------------------------------------------------------------------- | --------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `default_theme`                                                                  | —               | removed         | Light/dark token sets + runtime toggle; no picker.                                                                                                                |
+| `base_url`                                                                       | `basePath`      | renamed         | Site root prefixed onto links.                                                                                                                                    |
+| `title`                                                                          | `siteName`      | changed         | String **or** a logo set `{ default, dark, light, alt }`.                                                                                                         |
+| `menu`                                                                           | `menu`          | changed         | Reshaped: `{ id?, title?, link/href?, icon? }`; `target`/`class` dropped.                                                                                         |
+| `sections`                                                                       | `sectionOrder`  | renamed         | Filter + order sidebar sections.                                                                                                                                  |
+| `create_style`                                                                   | `customCss`     | renamed         | Inline CSS (loads after the theme stylesheet).                                                                                                                    |
+| `include_css` / `add_style_path`                                                 | `customCssFile` | renamed/changed | CSS file → content-hashed asset link.                                                                                                                             |
+| `add_scripts`                                                                    | `customJs`      | renamed         | Inline JS (runs last).                                                                                                                                            |
+| `include_js` / `add_script_path`                                                 | `customJsFile`  | renamed/changed | JS file → content-hashed asset.                                                                                                                                   |
+| `favicon`                                                                        | —               | removed         | Use JSDoc's own static-file copying.                                                                                                                              |
+| `homepageTitle`                                                                  | —               | removed         | Home `<title>` derives from README / `docs/index.md` + `siteName`.                                                                                                |
+| `includeFilesListInHomepage`                                                     | —               | removed         | The Source Files section lists files.                                                                                                                             |
+| `meta`                                                                           | `meta`          | changed         | Supported again — an array of attribute maps → `<meta>` tags in `<head>`. See [`meta`](/theme/configuration#meta).                                                |
+| `search`                                                                         | —               | removed         | Always-on fuzzy search + optional Pagefind.                                                                                                                       |
+| `codepen`                                                                        | —               | removed         | Use [`@iframe`](/authoring/embeds) embeds.                                                                                                                        |
+| `static_dir`                                                                     | —               | removed         | Use JSDoc's own static-file config.                                                                                                                               |
+| `footer`                                                                         | `footer`        | changed         | Supported again — an inline HTML string or `{ file: "./footer.html" }`. Style it with `customCss` / `customCssFile`. See [`footer`](/theme/configuration#footer). |
+| `exclude_inherited`, `displayModuleHeader`, `sort`, `shouldRemoveScrollbarStyle` | —               | removed         | No equivalent.                                                                                                                                                    |
 
 <Callout type="info">
   The **menu** reshaped: a v4 entry `{ title, link, target, class, id }` becomes a v5 `{ id?, title?, link (or href)?, icon? }` — drop `target`/`class`, add an `icon` (`lucide:<name>` / `simpleicons:<name>`). In v5, `id` also selects built-ins (`{ id: "home" }`, `{ id: "source" }`), and a `menu` takes precedence over `sectionOrder`. See [`menu`](/theme/configuration#menu) and [Structure your sidebar](/guides/structure-your-sidebar).
@@ -126,8 +126,9 @@ v4 nested theme options under **`opts.theme_opts.*`**. v5 reads them **directly 
           { title: "GitHub", link: "https://github.com/me/lib", icon: "simpleicons:github" },
         ],
         sectionOrder: ["Classes", "Modules", "Global"],
+        footer: "© My Library",
         customCssFile: "./static/custom.css",
-        // dropped: default_theme (auto), search (always on), footer (derived)
+        // dropped: default_theme (auto), search (always on)
         docs: "./docs", // optional v5 upside
       },
     }

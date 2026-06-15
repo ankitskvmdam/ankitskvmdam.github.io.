@@ -18,8 +18,10 @@ clean-jsdoc-theme can ship your documentation in **multiple languages**. Each lo
 The workflow runs through the [`clean-jsdoc`](/packages/aadesh-overview) CLI (the **aadesh** package), backed by the pure i18n core ([**bhasha**](/packages/bhasha-overview)).
 
 <Callout type="info">
-  Install the CLI alongside the theme: `pnpm add -D clean-jsdoc-theme @clean-jsdoc-theme/aadesh`
+  **Prerequisites:** JSDoc ≥ 4 (or TypeDoc, for extract) and Node ≥ 20. Install the CLI alongside the theme: `pnpm add -D clean-jsdoc-theme @clean-jsdoc-theme/aadesh`
 </Callout>
+
+The localization commands live under the `clean-jsdoc i18n` group; `build` stays top-level (it renders your site with or without locales).
 
 <Callout type="info">
   Localized **builds** are JSDoc-only today. The TypeDoc bridge can _extract_ catalogs but does not yet render the per-locale sites — full multi-language output is on the JSDoc path.
@@ -50,7 +52,7 @@ A list of `{ code, name }` (or bare `"en"` strings) plus the default. The `name`
 ## 2. Extract the catalogs
 
 ```sh
-clean-jsdoc extract
+clean-jsdoc i18n extract
 ```
 
 This runs your pipeline, collects every translatable string (chrome + API), and writes one committable catalog per locale under `clean-jsdoc-theme-artifacts/locales/`:
@@ -64,17 +66,17 @@ clean-jsdoc-theme-artifacts/locales/
   ...
 ```
 
-Re-run `extract` any time your docs change — it **merges**: new keys are added, changed source marks a key stale, removed keys are soft-deleted (kept until `--prune`). A no-change run produces a zero git diff.
+Re-run `i18n extract` any time your docs change — it **merges**: new keys are added, changed source marks a key stale, removed keys are soft-deleted (kept until `--prune`). A no-change run produces a zero git diff.
 
 ## 3. Translate
 
 Edit each locale's `<code>.json` by hand, or generate a prompt for an LLM:
 
 ```sh
-clean-jsdoc prompt
+clean-jsdoc i18n prompt
 ```
 
-`prompt` writes a ready-to-use prompt **file** per locale under `clean-jsdoc-theme-artifacts/locales/prompts/` — `<code>.md` for a small catalog, or `<code>.part-01.md`, `<code>.part-02.md`, … chunked for context limits. Each file contains only the untranslated and stale entries, with instructions to preserve markdown, `{@link}`, code fences, and `{var}` interpolation tokens. The CLI prints where the files landed:
+`i18n prompt` writes a ready-to-use prompt **file** per locale under `clean-jsdoc-theme-artifacts/locales/prompts/` — `<code>.md` for a small catalog, or `<code>.part-01.md`, `<code>.part-02.md`, … chunked for context limits. Each file contains only the untranslated and stale entries, with instructions to preserve markdown, `{@link}`, code fences, and `{var}` interpolation tokens. The CLI prints where the files landed:
 
 ```text
 ja: 60 entries → 2 prompt files:
@@ -89,8 +91,8 @@ You don't have to translate everything — anything left blank falls back to the
 ## 4. Validate (optional)
 
 ```sh
-clean-jsdoc validate          # warns on gaps, errors on malformations
-clean-jsdoc validate --strict # gaps become failures too (for CI)
+clean-jsdoc i18n validate          # warns on gaps, errors on malformations
+clean-jsdoc i18n validate --strict # gaps become failures too (for CI)
 ```
 
 ## 5. Build
@@ -100,6 +102,16 @@ clean-jsdoc build
 ```
 
 One site per locale: the default locale at `destination`, each other locale under `destination/<locale>`. The language switcher and `hreflang` alternates are wired automatically from the set of locales each page actually exists in.
+
+## 6. Preview & deploy
+
+Serve the output over **HTTP** (not `file://`) — the full-text Pagefind index is fetched at runtime and needs a real server:
+
+```sh
+pnpm dlx serve dist
+```
+
+Deploy the whole `dist/` directory to any static host. The default locale sits at the root and each other locale under its `/<locale>/` prefix, so the switcher and `hreflang` links resolve the same way in production as they do locally.
 
 ## Localizing prose
 
@@ -147,7 +159,7 @@ Prefer a guided run? Invoke the CLI with no arguments:
 clean-jsdoc
 ```
 
-It opens a welcome banner and a command picker that prompts for each command's options and offers to save the equivalent command to your `package.json` scripts.
+It opens a welcome banner and a command picker — the `i18n` group (drilling into extract / prompt / validate) and `build` — that prompts for each command's options and offers to save the equivalent (namespaced) command to your `package.json` scripts.
 
 ## A complete example
 

@@ -447,6 +447,63 @@ Whether custom-asset filenames are content-hashed (for cache-busting). Set `fals
   </Tab>
 </Tabs>
 
+### `footer`
+
+A custom site footer, rendered in place of the default footer on every page. Either an inline HTML string or `{ file: "./footer.html" }` — the bridge reads the file at build time, so `render()` stays pure. It's trusted, author-controlled HTML (rendered verbatim, like v4's `footer`); style it with [`customCss` / `customCssFile`](#customcss-and-customjs), which load **after** the theme stylesheet so your selectors win.
+
+**Expected:** a string, or `{ file }`.
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { footer: "<div class='site-footer'>© 2026 My Library</div>" }
+    // or, for anything longer than a line:
+    opts: { footer: { file: "./footer.html" } }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { footer: "<div class='site-footer'>© 2026 My Library</div>" }
+    // or:
+    cleanJsdocTheme: { footer: { file: "./footer.html" } }
+    ```
+  </Tab>
+</Tabs>
+
+### `meta`
+
+Site-wide custom `<meta>` tags. Pass an array of attribute objects — each object's key/value pairs become the attributes of one `<meta>` tag in `<head>` (`name`/`content`, `property`/`content`, `http-equiv`, `charset`, …). The theme emits `charset`/`viewport`/an auto `description` itself and **de-dupes**: an author entry sharing an identifying attribute (`name` / `property` / `http-equiv` / `charset`) replaces the theme's default rather than duplicating it (so your `description` wins). Values are escaped automatically; invalid attribute names are dropped. These are **site-wide** (no per-page meta yet).
+
+**Expected:** an array of `{ [attr]: value }` objects.
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: {
+      meta: [
+        { name: "description", content: "Fast, typed docs for My Library" },
+        { name: "keywords", content: "jsdoc, typescript, docs" },
+        { property: "og:title", content: "My Library" },
+        { property: "og:image", content: "https://example.com/card.png" },
+        { name: "theme-color", content: "#0b0b0b" }
+      ]
+    }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: {
+      meta: [
+        { name: "description", content: "Fast, typed docs for My Library" },
+        { property: "og:title", content: "My Library" }
+      ]
+    }
+    ```
+  </Tab>
+</Tabs>
+
 ## LLM & copy page
 
 ### `copyPage`

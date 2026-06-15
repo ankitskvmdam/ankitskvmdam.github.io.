@@ -158,6 +158,70 @@ Use `@category` / `@order` on symbols, frontmatter `group` / `order` on guide pa
 
 Point `opts.docs` at a folder of Markdown. See [Build a guides site](/guides/build-a-guides-site) and [Combine guides + API](/guides/combine-guides-and-api).
 
+### How do I add a custom footer?
+
+Set [`footer`](/theme/configuration#footer) to a string of HTML — it renders at the bottom of every page, in place of the default footer:
+
+```json5
+opts: {
+  template: "./node_modules/clean-jsdoc-theme",
+  footer: "<div class='site-footer'>© 2026 My Library — built with care</div>"
+}
+```
+
+For anything longer than a line, hand it a file instead — it's read at build time and keeps your config tidy:
+
+```json5
+opts: { footer: { file: "./footer.html" } }
+```
+
+**Style it with your own CSS.** The footer carries whatever classes you put in your markup; style them with [`customCss` / `customCssFile`](/theme/configuration#customcss-and-customjs), which the theme loads _after_ its own stylesheet, so your rules win without `!important`:
+
+```json5
+opts: { footer: { file: "./footer.html" }, customCssFile: "./footer.css" }
+```
+
+```css
+/* footer.css */
+.site-footer { padding: 2rem 0; text-align: center; color: var(--clean-text-muted); }
+.site-footer a { color: var(--clean-primary); }
+```
+
+Need behaviour (e.g. a dynamic year)? Add `customJs` / `customJsFile` — it runs last, after the theme's own scripts. Most footers don't need it.
+
+### How do I add custom meta tags (SEO, Open Graph, Twitter cards)?
+
+Set [`meta`](/theme/configuration#meta) to an array of attribute objects. Each object becomes one `<meta>` tag in every page's `<head>` — the keys are the attributes:
+
+```json5
+opts: {
+  meta: [
+    { name: "description", content: "Fast, typed docs for My Library" },
+    { name: "keywords", content: "jsdoc, typescript, documentation" },
+    { name: "theme-color", content: "#0b0b0b" }
+  ]
+}
+```
+
+**Open Graph and Twitter cards** work the same way — they're just `<meta>` tags:
+
+```json5
+opts: {
+  meta: [
+    { property: "og:title", content: "My Library" },
+    { property: "og:image", content: "https://example.com/social-card.png" },
+    { name: "twitter:card", content: "summary_large_image" }
+  ]
+}
+```
+
+A few things worth knowing:
+
+- **`charset` and `viewport` are already emitted** — you don't need to add them.
+- **Your tag wins over the theme's default.** A `{ name: "description", … }` replaces the auto description; you won't get two.
+- **These are site-wide** — the same tags render on every page (per-page social cards aren't supported yet).
+- Values are escaped automatically, so quotes and angle brackets are safe.
+
 ### How do I turn off the "copy page" / "open in LLM" button?
 
 Configure or disable it with [`copyPage`](/theme/configuration#copypage).
@@ -186,12 +250,25 @@ Declare your languages in the same `opts` block and drive the build with the `cl
 
 ```sh
 npm i -D @clean-jsdoc-theme/aadesh
-clean-jsdoc extract    # build the per-locale translation catalogs
-# …translate the JSON (or `clean-jsdoc prompt` for an LLM prompt)…
-clean-jsdoc build      # render one static site per locale
+clean-jsdoc i18n extract    # build the per-locale translation catalogs
+# …translate the JSON (or `clean-jsdoc i18n prompt` for an LLM prompt)…
+clean-jsdoc build           # render one static site per locale
 ```
 
 You get one site per language (the default at the root, others under `/<locale>`), a header language switcher, and `hreflang` tags. Prose is localized by file — a `README.<locale>.md` home page and a `docs.<locale>/` overlay — and fonts per locale via `"ja:heading"`-style keys. The full walkthrough is in [Localize your docs](/guides/localize-your-docs).
+
+### I used to run `clean-jsdoc extract` — where did it go?
+
+The localization commands now live under an `i18n` group, so the CLI has room to grow beyond localization. Update your commands (and any `package.json` scripts):
+
+| Old                    | New                             |
+| ---------------------- | ------------------------------- |
+| `clean-jsdoc extract`  | `clean-jsdoc i18n extract`      |
+| `clean-jsdoc prompt`   | `clean-jsdoc i18n prompt`       |
+| `clean-jsdoc validate` | `clean-jsdoc i18n validate`     |
+| `clean-jsdoc build`    | `clean-jsdoc build` (unchanged) |
+
+`build` stays top-level because it renders your site whether or not you use multiple locales — the per-locale fan-out is just what `build` does when `opts.locales` is set. All flags are unchanged. Run `clean-jsdoc` with no arguments for the interactive menu, which now groups the i18n steps together.
 
 ## Working with LLMs
 
