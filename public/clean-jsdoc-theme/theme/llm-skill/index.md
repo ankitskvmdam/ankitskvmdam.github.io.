@@ -32,7 +32,7 @@ It covers, end to end:
 
 ## Why it matters
 
-`clean-jsdoc-theme` isn't the default JSDoc template, and an assistant working from generic "JSDoc theme" knowledge will get the details wrong — it'll forget that [`plugins/markdown`](/theme/jsdoc-getting-started) is required, miss that custom tags need [`allowUnknownTags`](/authoring/custom-tags), or assume spaces nest a [`@category`](/authoring/custom-tags) path when only `/` does.
+`clean-jsdoc-theme` isn't the default JSDoc template, and an assistant working from generic "JSDoc theme" knowledge will get the details wrong — it'll forget that [`plugins/markdown`](/theme/jsdoc-getting-started) is required, miss that custom tags need [`allowUnknownTags`](/components/overview), or assume spaces nest a [`@category`](/components/overview) path when only `/` does.
 
 <Callout type="tip">
   Front-loading the skill turns a back-and-forth ("that option doesn't exist…", "try this instead…") into a correct first answer. It's the same idea as the companion `.md` the theme emits for _your_ docs — give the model the source of truth up front and it reads your project as fluently as a person does.
@@ -90,4 +90,4 @@ It covers, end to end:
 
 - [Configuration](/theme/configuration) — the same options the skill documents, rendered as a browsable reference.
 - [JSDoc Getting Started](/theme/jsdoc-getting-started) · [TypeDoc Getting Started](/theme/typedoc-getting-started) — set up the build.
-- [Structure your sidebar](/guides/structure-your-sidebar) and [Authoring](/authoring/callouts) — the deep dives the skill condenses.
+- [Structure your sidebar](/guides/structure-your-sidebar) and [Authoring](/components/callouts) — the deep dives the skill condenses.

@@ -10,7 +10,7 @@ order: 4
 侧边栏由若干杠杆组装而成，它们全部馈入同一个排序引擎 ([`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts))。 本页面将它们串联起来：分组从何而来、嵌套如何运作，以及决定顺序的确切规则。一旦你 看清**每个条目都携带一条 `group` 路径和一个可选的 `order`**，其余内容便顺理成章。
 
 <Callout type="info">
-  下面这两个源标签 —— `@category` 和 `@order` —— 在 [Custom tags](/authoring/custom-tags) 中有深入的文档说明。本页面讲的是它们（以及 config 选项）如何馈入侧边栏；它不会完整地重新记录这些标签的语法。
+  下面这两个源标签 —— `@category` 和 `@order` —— 在 [Custom tags](/components/overview) 中有深入的文档说明。本页面讲的是它们（以及 config 选项）如何馈入侧边栏；它不会完整地重新记录这些标签的语法。
 </Callout>
 
 ## 统一模型
@@ -67,7 +67,7 @@ export class Lexer {}
 当两者同时存在时，`@category … order=` 胜过 `@order`（更具体、就地共置的声明）。参见 [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts) 中的 `readOrder`。
 
 <Callout type="info">
-  `@category` 和 `@order` 都是 **unknown tags** —— 你的 config 必须设置 `tags.allowUnknownTags: true`（本 repo 中的每个示例 config 都设置了）。完整语法见 [Custom tags](/authoring/custom-tags)。
+  `@category` 和 `@order` 都是 **unknown tags** —— 你的 config 必须设置 `tags.allowUnknownTags: true`（本 repo 中的每个示例 config 都设置了）。完整语法见 [Custom tags](/components/overview)。
 </Callout>
 
 ## 杠杆 3 —— 嵌套分组（`/`-路径）
@@ -158,6 +158,6 @@ export class Lexer {}
 
 ## 接下来去哪里
 
-- `@category` / `@order` 标签参考：[Custom tags](/authoring/custom-tags)。
+- `@category` / `@order` 标签参考：[Custom tags](/components/overview)。
 - 完整的选项列表：[Configuration](/theme/configuration)。
 - 本页面串联起来的两条工作流： [Build a guides site](/guides/build-a-guides-site) · [Build an API reference](/guides/build-an-api-reference) · [Combine guides + API](/guides/combine-guides-and-api)。

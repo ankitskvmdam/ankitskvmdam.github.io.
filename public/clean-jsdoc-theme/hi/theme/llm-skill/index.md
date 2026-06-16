@@ -32,7 +32,7 @@ order: 5
 
 ## यह क्यों मायने रखता है
 
-`clean-jsdoc-theme` default JSDoc template नहीं है, और सामान्य "JSDoc theme" ज्ञान से काम करने वाला assistant विवरण ग़लत कर देगा — यह भूल जाएगा कि [`plugins/markdown`](/theme/jsdoc-getting-started) ज़रूरी है, यह चूक जाएगा कि custom tags को [`allowUnknownTags`](/authoring/custom-tags) चाहिए, या मान लेगा कि spaces एक [`@category`](/authoring/custom-tags) path को nest करते हैं जबकि केवल `/` करता है।
+`clean-jsdoc-theme` default JSDoc template नहीं है, और सामान्य "JSDoc theme" ज्ञान से काम करने वाला assistant विवरण ग़लत कर देगा — यह भूल जाएगा कि [`plugins/markdown`](/theme/jsdoc-getting-started) ज़रूरी है, यह चूक जाएगा कि custom tags को [`allowUnknownTags`](/components/overview) चाहिए, या मान लेगा कि spaces एक [`@category`](/components/overview) path को nest करते हैं जबकि केवल `/` करता है।
 
 <Callout type="tip">
   skill को आगे रखना एक आगे-पीछे की बातचीत ("वह option मौजूद नहीं है…", "इसके बजाय यह आज़माएँ…") को एक सही पहले-ही उत्तर में बदल देता है। यह वही विचार है जो साथी `.md` के पीछे है जो theme _आपके_ docs के लिए emit करता है — model को सच का स्रोत पहले दे दें और यह आपके project को उतनी ही धाराप्रवाह पढ़ता है जितना एक व्यक्ति पढ़ता है।
@@ -90,4 +90,4 @@ order: 5
 
 - [Configuration](/theme/configuration) — वही options जिन्हें skill document करती है, एक browsable reference के रूप में rendered।
 - [JSDoc Getting Started](/theme/jsdoc-getting-started) · [TypeDoc Getting Started](/theme/typedoc-getting-started) — build सेट करें।
-- [Structure your sidebar](/guides/structure-your-sidebar) और [Authoring](/authoring/callouts) — वे गहरे विवरण जिन्हें skill संक्षिप्त करती है।
+- [Structure your sidebar](/guides/structure-your-sidebar) और [Authoring](/components/callouts) — वे गहरे विवरण जिन्हें skill संक्षिप्त करती है।

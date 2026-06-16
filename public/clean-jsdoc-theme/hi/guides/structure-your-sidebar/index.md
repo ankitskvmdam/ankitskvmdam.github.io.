@@ -10,7 +10,7 @@ order: 4
 sidebar कई लीवरों से इकट्ठी होती है जो सब एक ही ordering engine को feed करते हैं ([`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts))। यह page उन्हें एक साथ बाँधता है: groups कहाँ से आते हैं, nesting कैसे काम करती है, और वे ठीक नियम जो क्रम तय करते हैं। एक बार आप देख लें कि **हर entry एक `group` path और एक वैकल्पिक `order` रखती है**, बाकी अपने आप समझ आ जाता है।
 
 <Callout type="info">
-  नीचे दिए गए दो source tags — `@category` और `@order` — [Custom tags](/authoring/custom-tags) पर गहराई से प्रलेखित हैं। यह page इस पर है कि वे (और config options) sidebar को कैसे feed करते हैं; यह tag syntax को पूरी तरह दोबारा प्रलेखित नहीं करता।
+  नीचे दिए गए दो source tags — `@category` और `@order` — [Custom tags](/components/overview) पर गहराई से प्रलेखित हैं। यह page इस पर है कि वे (और config options) sidebar को कैसे feed करते हैं; यह tag syntax को पूरी तरह दोबारा प्रलेखित नहीं करता।
 </Callout>
 
 ## एकीकृत मॉडल
@@ -67,7 +67,7 @@ inline `order=` option केवल उस symbol पर काम करता 
 जब दोनों मौजूद हों, `@category … order=` `@order` को हरा देता है (अधिक विशिष्ट, सह-स्थित घोषणा)। देखें [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts) में `readOrder`।
 
 <Callout type="info">
-  `@category` और `@order` दोनों **unknown tags** हैं — आपके config को `tags.allowUnknownTags: true` सेट करना चाहिए (इस repo का हर example config करता है)। पूर्ण syntax [Custom tags](/authoring/custom-tags) पर।
+  `@category` और `@order` दोनों **unknown tags** हैं — आपके config को `tags.allowUnknownTags: true` सेट करना चाहिए (इस repo का हर example config करता है)। पूर्ण syntax [Custom tags](/components/overview) पर।
 </Callout>
 
 ## लीवर 3 — nested groups (`/`-paths)
@@ -158,6 +158,6 @@ prose और API sections को यह कैसे अंतर्व्या
 
 ## आगे कहाँ जाएँ
 
-- `@category` / `@order` tag reference: [Custom tags](/authoring/custom-tags)।
+- `@category` / `@order` tag reference: [Custom tags](/components/overview)।
 - पूरी option सूची: [Configuration](/theme/configuration)।
 - वे दो workflows जिन्हें यह एक साथ बाँधता है: [Build a guides site](/guides/build-a-guides-site) · [Build an API reference](/guides/build-an-api-reference) · [Combine guides + API](/guides/combine-guides-and-api)।

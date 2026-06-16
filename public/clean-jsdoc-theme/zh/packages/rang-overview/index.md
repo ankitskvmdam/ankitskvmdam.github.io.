@@ -58,7 +58,7 @@ order: 30
 
 ## MDX 元素映射
 
-当 dwar 编译某个页面的 MDX 时，它用 rang 的 `defaultMdxComponents` 来渲染它——即 [`mdx-components.tsx`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/mdx-components.tsx) 中那份元素名 → 组件的注册表。 它将 MDX 发出的内建标签（`h1`–`h6`、`a`、`img`、`p`、`pre`、`code`、 列表、`blockquote`、表格、`hr`）映射到来自 [`mdx-tags.tsx`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/mdx-tags.tsx) 和 [`CodeBlock.tsx`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/CodeBlock.tsx) 的带样式渲染器上，外加 setu 发出的那些**首字母大写**组件，以便它们也经由该映射进行路由： `Callout`、`Embed`、`SourceLink`、`MemberMeta`、`MemberHeading`、`Steps` / `Step`，以及 `Tabs` / `Tab`。（关于这些组件面向用户的一面，参见 [Callouts](/authoring/callouts) 和 [Tabs](/authoring/tabs)。）
+当 dwar 编译某个页面的 MDX 时，它用 rang 的 `defaultMdxComponents` 来渲染它——即 [`mdx-components.tsx`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/mdx-components.tsx) 中那份元素名 → 组件的注册表。 它将 MDX 发出的内建标签（`h1`–`h6`、`a`、`img`、`p`、`pre`、`code`、 列表、`blockquote`、表格、`hr`）映射到来自 [`mdx-tags.tsx`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/mdx-tags.tsx) 和 [`CodeBlock.tsx`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/rang/src/components/CodeBlock.tsx) 的带样式渲染器上，外加 setu 发出的那些**首字母大写**组件，以便它们也经由该映射进行路由： `Callout`、`Embed`、`SourceLink`、`MemberMeta`、`MemberHeading`、`Steps` / `Step`，以及 `Tabs` / `Tab`。（关于这些组件面向用户的一面，参见 [Callouts](/components/callouts) 和 [Tabs](/components/tabs)。）
 
 ## dwar 如何消费它
 

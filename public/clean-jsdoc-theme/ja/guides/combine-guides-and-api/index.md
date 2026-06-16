@@ -123,5 +123,5 @@ sources を組み合わせると、複数のものが home page になり _う�
 ## 次に進む先
 
 - merge された sidebar を細かく調整する: [Structure your sidebar](/guides/structure-your-sidebar)。
-- symbol の group/order tags: [Custom tags](/authoring/custom-tags)。
+- symbol の group/order tags: [Custom tags](/components/overview)。
 - すべての option を詳しく: [Configuration](/theme/configuration)。

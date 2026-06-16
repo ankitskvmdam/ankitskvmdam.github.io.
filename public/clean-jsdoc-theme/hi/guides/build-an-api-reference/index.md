@@ -112,6 +112,6 @@ default रूप से kind sections एक निश्चित क्रम
 ## आगे कहाँ जाएँ
 
 - reference के साथ-साथ हाथ से लिखे guides जोड़ें: [Combine guides + API](/guides/combine-guides-and-api)।
-- Custom source tags (`@category`, `@order`): [Custom tags](/authoring/custom-tags)।
+- Custom source tags (`@category`, `@order`): [Custom tags](/components/overview)।
 - हर option विस्तार से: [Configuration](/theme/configuration)।
 - package के आंतरिक भाग: [Packages](/#the-packages)।

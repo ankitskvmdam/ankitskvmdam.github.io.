@@ -121,6 +121,6 @@ A build with no `locales` is unaffected. See **[Localize your docs](/guides/loca
 - **[Build an API reference](/guides/build-an-api-reference)** — what becomes a page, the source-file viewer, and `Source: file:line` links.
 - **[Build a guides site](/guides/build-a-guides-site)** and **[Combine guides + API](/guides/combine-guides-and-api)** — add hand-written Markdown to the same site.
 - **[Structure your sidebar](/guides/structure-your-sidebar)** — `@category`, `@order`, and the sidebar options.
-- **[Authoring](/authoring/callouts)** — callouts, steps, tabs, and embeds you can use in comments and prose.
+- **[Authoring](/components/callouts)** — callouts, steps, tabs, and embeds you can use in comments and prose.
 - **[Localize your docs](/guides/localize-your-docs)** — ship the site in multiple languages.
 - Prefer TypeScript? See **[TypeDoc Getting Started](/theme/typedoc-getting-started)** — same output, different toolchain.

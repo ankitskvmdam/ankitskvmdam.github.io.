@@ -32,7 +32,7 @@ order: 5
 
 ## なぜ重要か
 
-`clean-jsdoc-theme` は default の JSDoc template ではありません。一般的な「JSDoc theme」の知識から作業する assistant は細部を間違えます — [`plugins/markdown`](/theme/jsdoc-getting-started) が必須であることを忘れたり、custom tags に [`allowUnknownTags`](/authoring/custom-tags) が必要なことを見落としたり、[`@category`](/authoring/custom-tags) の path を nest するのは `/` だけなのに space が nest すると思い込んだりします。
+`clean-jsdoc-theme` は default の JSDoc template ではありません。一般的な「JSDoc theme」の知識から作業する assistant は細部を間違えます — [`plugins/markdown`](/theme/jsdoc-getting-started) が必須であることを忘れたり、custom tags に [`allowUnknownTags`](/components/overview) が必要なことを見落としたり、[`@category`](/components/overview) の path を nest するのは `/` だけなのに space が nest すると思い込んだりします。
 
 <Callout type="tip">
   skill を前もって与えると、行ったり来たり（「その option は存在しません…」「代わり にこれを試してください…」）が、正しい最初の回答に変わります。これは theme が _あなたの_ docs のために emit する companion `.md` と同じ発想です — model に真実の 源を前もって与えれば、人と同じくらい流暢にあなたの project を読み取ります。
@@ -90,4 +90,4 @@ order: 5
 
 - [Configuration](/theme/configuration) — skill が document するのと同じ options を、閲覧可能な reference として render したもの。
 - [JSDoc Getting Started](/theme/jsdoc-getting-started) · [TypeDoc Getting Started](/theme/typedoc-getting-started) — build をセットアップ。
-- [Structure your sidebar](/guides/structure-your-sidebar) と [Authoring](/authoring/callouts) — skill が凝縮している深掘り。
+- [Structure your sidebar](/guides/structure-your-sidebar) と [Authoring](/components/callouts) — skill が凝縮している深掘り。

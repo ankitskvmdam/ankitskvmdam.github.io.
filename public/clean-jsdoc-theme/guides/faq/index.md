@@ -2,7 +2,7 @@
 title: FAQ
 kind: guide
 group: Guides
-order: 6
+order: 8
 ---
 
 # FAQ
@@ -11,7 +11,7 @@ Short, practical answers to the questions that come up most — embedding live c
 
 ## Embedding live content
 
-The theme can drop a sandboxed `<iframe>` into any page — a CodePen, a YouTube video, a StackBlitz, or any site. There are two ways to author one, and they share [one config grammar](/authoring/embeds):
+The theme can drop a sandboxed `<iframe>` into any page — a CodePen, a YouTube video, a StackBlitz, or any site. There are two ways to author one, and they share [one config grammar](/components/embeds):
 
 - **In prose** (README, guides, the `docs` folder) — an ` ```iframe ` fenced block.
 - **In a doc comment** — the `@iframe <url> key=value` block tag.
@@ -31,6 +31,21 @@ https://codepen.io/USER/embed/PEN_ID title="CodePen demo" height=400
 <Callout type="tip">
   On CodePen, open **Embed** and copy the URL from the `<iframe src="…">` snippet. Add `clickToLoad=true` to show a light poster until the reader clicks.
 </Callout>
+
+### How do I let readers open an example in CodePen / JSFiddle / CodeSandbox?
+
+`@iframe` embeds an **existing** pen by URL. To open the **code from an `@example`** — prefilled, no pen needed — use the **playground** feature instead: turn it on in `opts.playground`, then tag the example with `@playground`:
+
+```js
+/**
+ * @example
+ * const out = resize(img, 200);
+ * @playground codepen jsfiddle filename=resize.js highlight=1
+ */
+export function resize(img, width) {}
+```
+
+The code block's header gains an **"Open Code in"** dropdown (CodePen / JSFiddle / CodeSandbox), all client-side — no API key. It also works in prose (a ` ```js playground ` fence or a `<playground>` block). Full walkthrough: [Add a playground](/components/playground). (`@playground` needs `tags.allowUnknownTags: true`, same as `@iframe`.)
 
 ### How do I embed a YouTube video?
 
@@ -80,7 +95,7 @@ Add `clickToLoad=true`: the reader sees a poster button (with a `<noscript>` fal
 
 ### Do embeds follow the light / dark theme?
 
-By default, yes — the embed URL is re-resolved when the theme changes (a `{theme}` token is swapped, or `?theme-id=<theme>` is appended). Opt out with `themed=false`. Full reference: [Embeds & live demos](/authoring/embeds).
+By default, yes — the embed URL is re-resolved when the theme changes (a `{theme}` token is swapped, or `?theme-id=<theme>` is appended). Opt out with `themed=false`. Full reference: [Embeds & live demos](/components/embeds).
 
 ## Richer doc comments
 
@@ -100,7 +115,7 @@ Write a GitHub-style alert blockquote right in the description:
 export function connect() {}
 ```
 
-The markers map to four styles: `[!NOTE]` / `[!INFO]` / `[!IMPORTANT]` → info, `[!TIP]` / `[!SUCCESS]` → tip, `[!WARNING]` / `[!CAUTION]` → warning, and `[!ERROR]` / `[!DANGER]` → error. See [Callouts](/authoring/callouts).
+The markers map to four styles: `[!NOTE]` / `[!INFO]` / `[!IMPORTANT]` → info, `[!TIP]` / `[!SUCCESS]` → tip, `[!WARNING]` / `[!CAUTION]` → warning, and `[!ERROR]` / `[!DANGER]` → error. See [Callouts](/components/callouts).
 
 ### Can I use steps or tabs in a comment?
 
@@ -132,7 +147,7 @@ Yes — the same `<steps>` (and `<tabs>`) markup works in a description; there's
  */
 ````
 
-See [Steps](/authoring/steps) and [Tabs](/authoring/tabs) for the full syntax and the blank-line rule, and the live [sample-api module page](/api-docs/module/sample-api) for it rendered.
+See [Steps](/components/steps) and [Tabs](/components/tabs) for the full syntax and the blank-line rule, and the live [sample-api module page](/api-docs/module/sample-api) for it rendered.
 
 ### What about deprecation notices?
 
@@ -153,6 +168,16 @@ Set `siteName` to a logo object with `light` / `dark` image paths (and an `alt` 
 ### How do I control the sidebar grouping and order?
 
 Use `@category` / `@order` on symbols, frontmatter `group` / `order` on guide pages, and the `sectionOrder` option. [Structure your sidebar](/guides/structure-your-sidebar) covers every lever.
+
+### My `@category` / `@order` / `@playground` / `@iframe` tags aren't working
+
+The most likely cause: **`tags.allowUnknownTags` isn't `true`** in your `jsdoc.json`. These are all tags base JSDoc doesn't define, so it **strips them before the theme runs** — your categories collapse to the default kind sections, `@order` does nothing, and `@playground` / `@iframe` never render. Set the flag:
+
+```json
+{ "tags": { "allowUnknownTags": true } }
+```
+
+(TypeDoc has no such restriction — it passes these through.) See [Custom tags](/components/overview) for the full list.
 
 ### How do I add hand-written guides next to the API reference?
 
@@ -221,6 +246,16 @@ A few things worth knowing:
 - **Your tag wins over the theme's default.** A `{ name: "description", … }` replaces the auto description; you won't get two.
 - **These are site-wide** — the same tags render on every page (per-page social cards aren't supported yet).
 - Values are escaped automatically, so quotes and angle brackets are safe.
+
+### How do I set a favicon?
+
+Point [`favicon`](/theme/configuration#favicon) at an image file. The theme copies it to a content-hashed asset and adds a `<link rel="icon">` to every page's `<head>`:
+
+```json5
+opts: { favicon: "./assets/logo.svg" }
+```
+
+This is the way to use an **SVG** favicon — browsers only auto-discover a root `favicon.ico`, never an SVG, so it needs the `<link>` the theme emits. (An SVG can even adapt to light/dark via a `@media (prefers-color-scheme: dark)` block inside it.) The v4 `favicon` option was briefly dropped early in v5 and is back.
 
 ### How do I turn off the "copy page" / "open in LLM" button?
 

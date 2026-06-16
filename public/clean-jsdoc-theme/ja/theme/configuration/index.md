@@ -123,6 +123,30 @@ renderer がすべての internal link と asset の前に付加する site root
   </Tab>
 </Tabs>
 
+### `favicon`
+
+favicon image への path です。bridge はそれを content-hashed な `_assets/` asset に copy し、すべての page の `<head>` に `<link rel="icon">`（extension から導出された `type` 付き — `.svg` → `image/svg+xml`）を emit します。
+
+**期待される値:** working dir からの相対の、string の file path（`.svg`、`.png`、 `.ico`、…）。省略 → favicon link なし。
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { favicon: "./assets/logo-small.svg" }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { favicon: "./assets/logo-small.svg" }
+    ```
+  </Tab>
+</Tabs>
+
+<Callout type="tip">
+  **SVG** favicon にはこの option が必要です — browsers は root の `favicon.ico` し か自動発見せず、SVG は決して発見しません。SVG icon は、その中の `@media (prefers-color-scheme: dark)` block によって light/dark に適応させること もできます。
+</Callout>
+
 ## Content sources
 
 ### `readme`
@@ -355,15 +379,20 @@ theme を再配色します。`colors` は light-mode の palette（`:root` の 
 
 **期待される値:** 以下の keys の任意の subset を持つ object。各値は CSS color の string です（theme は [oklch](https://oklch.com) を採用していますが、有効な CSS color なら何でも動きます）:
 
-| Key        | 役割                                  |
-| ---------- | ----------------------------------- |
-| `bg`       | Page background                     |
-| `bgMuted`  | 控えめな面（code blocks、cards、sidebar）    |
-| `fg`       | Body text                           |
-| `fgMuted`  | 二次的 / muted な text                  |
-| `accent`   | Links, focus rings, primary buttons |
-| `accentFg` | `accent` background 上の text/icon    |
-| `border`   | 細い線と dividers                       |
+| Key               | 役割                                                             |
+| ----------------- | -------------------------------------------------------------- |
+| `bg`              | Page background                                                |
+| `bgMuted`         | 控えめな面（code blocks、cards、sidebar）                               |
+| `fg`              | Body text                                                      |
+| `fgMuted`         | 二次的 / muted な text                                             |
+| `accent`          | Links, focus rings, primary buttons                            |
+| `accentFg`        | `accent` background 上の text/icon                               |
+| `border`          | 細い線と dividers                                                  |
+| `codeHeaderBg`    | Code-block header strip の background                           |
+| `codeHeaderFg`    | Code-block header label の text                                 |
+| `codeHighlightBg` | Highlight された code 行の background（`@playground` / `highlight=`） |
+
+3 つの `code*` keys は code-block の chrome を style します — header strip（その background と `CODE`/filename label）と、highlight された行の tint です。default では light で中立的な `#f7f7f7` 相当、dark で持ち上げた greys になるので、custom palette に 合わせたいときだけ設定すれば足ります。
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)">

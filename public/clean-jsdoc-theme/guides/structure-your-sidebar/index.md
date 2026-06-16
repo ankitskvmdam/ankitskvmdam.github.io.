@@ -10,7 +10,7 @@ order: 4
 The sidebar is assembled from several levers that all feed one ordering engine ([`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)). This page ties them together: where groups come from, how nesting works, and the exact rules that decide the order. Once you see that **every entry carries a `group` path and an optional `order`**, the rest follows.
 
 <Callout type="info">
-  The two source tags below — `@category` and `@order` — are documented in depth on [Custom tags](/authoring/custom-tags). This page covers how they (and the config options) feed the sidebar; it doesn't re-document the tag syntax in full.
+  The two source tags below — `@category` and `@order` — are documented in depth on [Custom tags](/components/overview). This page covers how they (and the config options) feed the sidebar; it doesn't re-document the tag syntax in full.
 </Callout>
 
 ## The unified model
@@ -67,7 +67,7 @@ The inline `order=` option only works on a symbol that _has_ a `@category`. To p
 When both are present, `@category … order=` wins over `@order` (the more specific, co-located declaration). See `readOrder` in [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts).
 
 <Callout type="info">
-  Both `@category` and `@order` are **unknown tags** — your config must set `tags.allowUnknownTags: true` (every example config in this repo does). Full syntax on [Custom tags](/authoring/custom-tags).
+  Both `@category` and `@order` are **unknown tags** — your config must set `tags.allowUnknownTags: true` (every example config in this repo does). Full syntax on [Custom tags](/components/overview).
 </Callout>
 
 ## Lever 3 — nested groups (`/`-paths)
@@ -158,6 +158,6 @@ Combine that with `@category Core/Parsing order=1` on your classes and `order:` 
 
 ## Where to go next
 
-- The `@category` / `@order` tag reference: [Custom tags](/authoring/custom-tags).
+- The `@category` / `@order` tag reference: [Custom tags](/components/overview).
 - The full option list: [Configuration](/theme/configuration).
 - The two workflows this ties together: [Build a guides site](/guides/build-a-guides-site) · [Build an API reference](/guides/build-an-api-reference) · [Combine guides + API](/guides/combine-guides-and-api).

@@ -107,6 +107,6 @@ localization workflow अपनी locales को उसी `cleanJsdocTheme` bl
 - **[Build an API reference](/guides/build-an-api-reference)** — क्या एक page बनता है और source-file viewer कैसे काम करता है।
 - **[Build a guides site](/guides/build-a-guides-site)** और **[Combine guides + API](/guides/combine-guides-and-api)** — उसी site में हाथ से लिखे Markdown जोड़ें।
 - **[Structure your sidebar](/guides/structure-your-sidebar)** — grouping और ordering के levers।
-- **[Authoring](/authoring/callouts)** — callouts, steps, tabs, और embeds।
+- **[Authoring](/components/callouts)** — callouts, steps, tabs, और embeds।
 - **[अपने docs को localize करें](/guides/localize-your-docs)** — कई-भाषा workflow (extract TypeDoc पर काम करता है; localized builds आज केवल JSDoc के लिए हैं)।
 - **[Packages](/#the-packages)** — साझा `setu → dwar` pipeline (और [`@clean-jsdoc-theme/typedoc`](https://github.com/ankitskvmdam/clean-jsdoc-theme/tree/master/packages/typedoc) plugin) पर्दे के पीछे कैसे काम करते हैं।

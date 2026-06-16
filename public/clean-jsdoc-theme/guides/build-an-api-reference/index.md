@@ -112,6 +112,6 @@ By default the kind sections render in a fixed order (Classes, Modules, Namespac
 ## Where to go next
 
 - Add hand-written guides alongside the reference: [Combine guides + API](/guides/combine-guides-and-api).
-- Custom source tags (`@category`, `@order`): [Custom tags](/authoring/custom-tags).
+- Custom source tags (`@category`, `@order`): [Custom tags](/components/overview).
 - Every option in detail: [Configuration](/theme/configuration).
 - The package internals: [Packages](/#the-packages).

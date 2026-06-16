@@ -40,7 +40,7 @@ It isn't a single template. Under the hood it's a small set of single-responsibi
 - **Getting started** — [JSDoc](/theme/jsdoc-getting-started) or [TypeDoc](/theme/typedoc-getting-started): install the theme and build your first site.
 - **[Configuration](/theme/configuration)** — every theme option, with the JSDoc and TypeDoc forms side by side.
 - **Guides** — [build a guides site](/guides/build-a-guides-site), an [API reference](/guides/build-an-api-reference), [combine the two](/guides/combine-guides-and-api), and [structure your sidebar](/guides/structure-your-sidebar).
-- **Authoring** — [callouts](/authoring/callouts), [steps](/authoring/steps), [tabs](/authoring/tabs), [embeds](/authoring/embeds), and [custom tags](/authoring/custom-tags) you can use in prose and doc comments.
+- **Authoring** — [callouts](/components/callouts), [steps](/components/steps), [tabs](/components/tabs), [embeds](/components/embeds), and [custom tags](/components/overview) you can use in prose and doc comments.
 - **[Packages](/#the-packages)** — the building blocks, if you want to understand or extend the internals.
 
 Ready to set it up? Head to **[JSDoc Getting Started](/theme/jsdoc-getting-started)** or **[TypeDoc Getting Started](/theme/typedoc-getting-started)**.

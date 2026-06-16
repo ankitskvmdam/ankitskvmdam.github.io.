@@ -65,26 +65,26 @@ v4 は theme options を **`opts.theme_opts.*`** の下に nest していまし�
 
 `opts.theme_opts.<v4>` → `opts.<v5>`。
 
-| v4 (`theme_opts.*`)                                                              | v5 (`opts.*`)   | 状態         | 注記                                                                |
-| -------------------------------------------------------------------------------- | --------------- | ---------- | ----------------------------------------------------------------- |
-| `default_theme`                                                                  | —               | 削除         | Light/dark token sets + runtime toggle; picker なし。                |
-| `base_url`                                                                       | `basePath`      | renamed    | links に prefix される site root。                                     |
-| `title`                                                                          | `siteName`      | 変更         | String **または** logo set `{ default, dark, light, alt }`。          |
-| `menu`                                                                           | `menu`          | 変更         | 再構成: `{ id?, title?, link/href?, icon? }`; `target`/`class` は削除。  |
-| `sections`                                                                       | `sectionOrder`  | renamed    | sidebar sections を filter + order。                                |
-| `create_style`                                                                   | `customCss`     | renamed    | Inline CSS（theme stylesheet の後に load）。                            |
-| `include_css` / `add_style_path`                                                 | `customCssFile` | renamed/変更 | CSS file → content-hashed asset link。                             |
-| `add_scripts`                                                                    | `customJs`      | renamed    | Inline JS（最後に実行）。                                                 |
-| `include_js` / `add_script_path`                                                 | `customJsFile`  | renamed/変更 | JS file → content-hashed asset。                                   |
-| `favicon`                                                                        | —               | 削除         | JSDoc 自身の static-file copying を使用。                                |
-| `homepageTitle`                                                                  | —               | 削除         | Home `<title>` は README / `docs/index.md` + `siteName` から derive。 |
-| `includeFilesListInHomepage`                                                     | —               | 削除         | Source Files section が files を列挙。                                 |
-| `meta`                                                                           | —               | 削除         | custom `<meta>` injection なし。                                     |
-| `search`                                                                         | —               | 削除         | 常時 on の fuzzy search + 省略可能な Pagefind。                            |
-| `codepen`                                                                        | —               | 削除         | [`@iframe`](/authoring/embeds) embeds を使用。                        |
-| `static_dir`                                                                     | —               | 削除         | JSDoc 自身の static-file config を使用。                                 |
-| `footer`                                                                         | —               | 削除         | `siteName` / `pkg` から derive。                                     |
-| `exclude_inherited`, `displayModuleHeader`, `sort`, `shouldRemoveScrollbarStyle` | —               | 削除         | 相当なし。                                                             |
+| v4 (`theme_opts.*`)                                                              | v5 (`opts.*`)   | 状態         | 注記                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------- | --------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `default_theme`                                                                  | —               | 削除         | Light/dark token sets + runtime toggle; picker なし。                                                                                                                                                                                                       |
+| `base_url`                                                                       | `basePath`      | renamed    | links に prefix される site root。                                                                                                                                                                                                                            |
+| `title`                                                                          | `siteName`      | 変更         | String **または** logo set `{ default, dark, light, alt }`。                                                                                                                                                                                                 |
+| `menu`                                                                           | `menu`          | 変更         | 再構成: `{ id?, title?, link/href?, icon? }`; `target`/`class` は削除。                                                                                                                                                                                         |
+| `sections`                                                                       | `sectionOrder`  | renamed    | sidebar sections を filter + order。                                                                                                                                                                                                                       |
+| `create_style`                                                                   | `customCss`     | renamed    | Inline CSS（theme stylesheet の後に load）。                                                                                                                                                                                                                   |
+| `include_css` / `add_style_path`                                                 | `customCssFile` | renamed/変更 | CSS file → content-hashed asset link。                                                                                                                                                                                                                    |
+| `add_scripts`                                                                    | `customJs`      | renamed    | Inline JS（最後に実行）。                                                                                                                                                                                                                                        |
+| `include_js` / `add_script_path`                                                 | `customJsFile`  | renamed/変更 | JS file → content-hashed asset。                                                                                                                                                                                                                          |
+| `favicon`                                                                        | `favicon`       | kept       | file path; theme がそれを copy し `<link rel="icon">` を emit します。                                                                                                                                                                                             |
+| `homepageTitle`                                                                  | —               | 削除         | Home `<title>` は README / `docs/index.md` + `siteName` から derive。                                                                                                                                                                                        |
+| `includeFilesListInHomepage`                                                     | —               | 削除         | Source Files section が files を列挙。                                                                                                                                                                                                                        |
+| `meta`                                                                           | `meta`          | 変更         | 再び supported — attribute maps の array → `<head>` の `<meta>` tags。[`meta`](/theme/configuration#meta) を参照。                                                                                                                                                |
+| `search`                                                                         | —               | 削除         | 常時 on の fuzzy search + 省略可能な Pagefind。                                                                                                                                                                                                                   |
+| `codepen`                                                                        | `playground`    | 変更         | v4 は `@example` から CodePen を事前入力しました; v5 はそれを [`playground`](/components/playground) に一般化します — `opts.playground` + `@playground` tag を介して、example を CodePen、JSFiddle、CodeSandbox で開けます。（既存の pen を URL で embed するには [`@iframe`](/components/embeds) を使用。） |
+| `static_dir`                                                                     | —               | 削除         | JSDoc 自身の static-file config を使用。                                                                                                                                                                                                                        |
+| `footer`                                                                         | `footer`        | 変更         | 再び supported — inline HTML string または `{ file: "./footer.html" }`。`customCss` / `customCssFile` で style します。[`footer`](/theme/configuration#footer) を参照。                                                                                                 |
+| `exclude_inherited`, `displayModuleHeader`, `sort`, `shouldRemoveScrollbarStyle` | —               | 削除         | 相当なし。                                                                                                                                                                                                                                                    |
 
 <Callout type="info">
   **menu** が再構成されました: v4 の entry `{ title, link, target, class, id }` は v5 の `{ id?, title?, link (or href)?, icon? }` になります — `target`/`class` を 削除し、`icon`（`lucide:<name>` / `simpleicons:<name>`）を追加します。v5 では、 `id` は built-ins も選択し（`{ id: "home" }`、`{ id: "source" }`）、`menu` は `sectionOrder` より優先されます。[`menu`](/theme/configuration#menu) と [Structure your sidebar](/guides/structure-your-sidebar) を参照してください。
@@ -126,8 +126,9 @@ v4 は theme options を **`opts.theme_opts.*`** の下に nest していまし�
           { title: "GitHub", link: "https://github.com/me/lib", icon: "simpleicons:github" },
         ],
         sectionOrder: ["Classes", "Modules", "Global"],
+        footer: "© My Library",
         customCssFile: "./static/custom.css",
-        // 削除: default_theme (auto), search (常時 on), footer (derived)
+        // 削除: default_theme (auto), search (常時 on)
         docs: "./docs", // 省略可能な v5 の利点
       },
     }
@@ -140,7 +141,7 @@ v4 は theme options を **`opts.theme_opts.*`** の下に nest していまし�
 移行は upgrade でもあります。v5 に移ったら、次に手を伸ばしてください:
 
 - [**API のそばに Prose guides**](/guides/combine-guides-and-api) — `docs` + `docGroups`、このサイトが使っているのと同じ pipeline。
-- [**Authoring primitives**](/authoring/callouts) — comments と prose の中の callouts、steps、tabs、live embeds。
+- [**Authoring primitives**](/components/callouts) — comments と prose の中の callouts、steps、tabs、live embeds。
 - [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags、`clubSidebarItems`、`menu`。
 - [**LLM features**](/theme/llm-skill) — page ごとの companion `.md`、copy-page ボタン、`aiPrompt`。
 

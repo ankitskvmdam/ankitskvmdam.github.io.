@@ -79,7 +79,7 @@ defaultMdxComponents['Tabs'];      // SSR tablist that dwar enhances on the clie
 defaultMdxComponents['MemberHeading'];
 ```
 
-したがって、`type` 付きの markdown blockquote と setu の `<Callout type="…">` は どちらも同じ renderer に到達し、fenced code block は highlighted な `CodeBlock` に なります。これらの user-facing な側面は authoring docs で確認できます: [Callouts](/authoring/callouts) と [Tabs](/authoring/tabs)。
+したがって、`type` 付きの markdown blockquote と setu の `<Callout type="…">` は どちらも同じ renderer に到達し、fenced code block は highlighted な `CodeBlock` に なります。これらの user-facing な側面は authoring docs で確認できます: [Callouts](/components/callouts) と [Tabs](/components/tabs)。
 
 dwar は render の前にこの map を任意の override と merge します — その `mergeMdxComponents` はまず `defaultMdxComponents` を spread し、それから override を その上に置きます （[`dwar/src/index.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/dwar/src/index.ts)）。
 
@@ -154,4 +154,4 @@ const theme = {
 
 - [rang 概要](/packages/rang-overview) — chrome-vs-island モデルと、package がなぜ 存在するか。
 - [dwar 概要](/packages/dwar-overview) — これらの components を server-render し bundle する package。
-- [Callouts](/authoring/callouts) · [Tabs](/authoring/tabs) — 上記の MDX components の user-facing な側面。
+- [Callouts](/components/callouts) · [Tabs](/components/tabs) — 上記の MDX components の user-facing な側面。

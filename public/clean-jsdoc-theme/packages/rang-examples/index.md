@@ -79,7 +79,7 @@ defaultMdxComponents['Tabs'];      // SSR tablist that dwar enhances on the clie
 defaultMdxComponents['MemberHeading'];
 ```
 
-So a markdown blockquote with a `type` and setu's `<Callout type="…">` both land on the same renderer, and a fenced code block becomes a highlighted `CodeBlock`. You can see the user-facing side of these in the authoring docs: [Callouts](/authoring/callouts) and [Tabs](/authoring/tabs).
+So a markdown blockquote with a `type` and setu's `<Callout type="…">` both land on the same renderer, and a fenced code block becomes a highlighted `CodeBlock`. You can see the user-facing side of these in the authoring docs: [Callouts](/components/callouts) and [Tabs](/components/tabs).
 
 dwar merges this map with any override before rendering — its `mergeMdxComponents` spreads `defaultMdxComponents` first, then the override on top ([`dwar/src/index.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/dwar/src/index.ts)).
 
@@ -154,4 +154,4 @@ The other fields — `Sidebar`, `TOC`, `Header`, `Footer`, `Layout` — are **ty
 
 - [rang Overview](/packages/rang-overview) — the chrome-vs-island model and why the package exists.
 - [dwar Overview](/packages/dwar-overview) — the package that server-renders and bundles these components.
-- [Callouts](/authoring/callouts) · [Tabs](/authoring/tabs) — the user-facing side of the MDX components above.
+- [Callouts](/components/callouts) · [Tabs](/components/tabs) — the user-facing side of the MDX components above.

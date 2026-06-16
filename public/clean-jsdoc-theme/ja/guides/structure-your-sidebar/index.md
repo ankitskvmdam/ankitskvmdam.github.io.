@@ -10,7 +10,7 @@ order: 4
 sidebar は、すべてが 1 つの ordering engine （[`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)） に流れ込む複数のレバーから組み立てられます。この page はそれらを結び付けます: group が どこから来るか、nesting がどう動くか、そして順序を決めるまさにその規則。**すべての entry が `group` path と任意の `order` を持つ** ことが見えれば、あとはそれに従います。
 
 <Callout type="info">
-  以下の 2 つの source tags — `@category` と `@order` — は [Custom tags](/authoring/custom-tags) で詳しく文書化されています。この page では それら（および config options）が sidebar をどう feed するかをカバーします; tag syntax を全面的に再文書化するものではありません。
+  以下の 2 つの source tags — `@category` と `@order` — は [Custom tags](/components/overview) で詳しく文書化されています。この page では それら（および config options）が sidebar をどう feed するかをカバーします; tag syntax を全面的に再文書化するものではありません。
 </Callout>
 
 ## 統一モデル
@@ -67,7 +67,7 @@ inline の `order=` option は、`@category` を _持つ_ symbol でのみ機能
 両方が存在するとき、`@category … order=` が `@order` に勝ちます（より具体的で、同じ 場所に置かれた宣言だからです）。 [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts) の `readOrder` を参照してください。
 
 <Callout type="info">
-  `@category` と `@order` はどちらも **unknown tags** です — config で `tags.allowUnknownTags: true` を設定する必要があります（この repo のすべての example config がそうしています）。完全な syntax は [Custom tags](/authoring/custom-tags) に。
+  `@category` と `@order` はどちらも **unknown tags** です — config で `tags.allowUnknownTags: true` を設定する必要があります（この repo のすべての example config がそうしています）。完全な syntax は [Custom tags](/components/overview) に。
 </Callout>
 
 ## レバー 3 — nested groups（`/`-paths）
@@ -158,6 +158,6 @@ Clubbing は順序にも配慮します: club された parent はその members
 
 ## 次に進む先
 
-- `@category` / `@order` tag リファレンス: [Custom tags](/authoring/custom-tags)。
+- `@category` / `@order` tag リファレンス: [Custom tags](/components/overview)。
 - 完全な option 一覧: [Configuration](/theme/configuration)。
 - これが結び付ける 2 つの workflow: [Build a guides site](/guides/build-a-guides-site) · [Build an API reference](/guides/build-an-api-reference) · [Combine guides + API](/guides/combine-guides-and-api)。

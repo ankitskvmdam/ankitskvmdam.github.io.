@@ -112,6 +112,6 @@ templates: { default: { outputSourceFiles: false } }
 ## 接下来去哪里
 
 - 在参考文档旁边添加手写指南： [Combine guides + API](/guides/combine-guides-and-api)。
-- 自定义源码标签（`@category`、`@order`）：[Custom tags](/authoring/custom-tags)。
+- 自定义源码标签（`@category`、`@order`）：[Custom tags](/components/overview)。
 - 每个选项的详细说明：[Configuration](/theme/configuration)。
 - 包的内部实现：[Packages](/#the-packages)。

@@ -79,7 +79,7 @@ defaultMdxComponents['Tabs'];      // SSR tablist that dwar enhances on the clie
 defaultMdxComponents['MemberHeading'];
 ```
 
-因此，一个带有 `type` 的 markdown 引用块与 setu 的 `<Callout type="…">` 都会落到同一个 渲染器上，而一个围栏代码块会变成一个高亮的 `CodeBlock`。你可以在创作文档中看到这些组件 面向用户的一面：[Callouts](/authoring/callouts) 和 [Tabs](/authoring/tabs)。
+因此，一个带有 `type` 的 markdown 引用块与 setu 的 `<Callout type="…">` 都会落到同一个 渲染器上，而一个围栏代码块会变成一个高亮的 `CodeBlock`。你可以在创作文档中看到这些组件 面向用户的一面：[Callouts](/components/callouts) 和 [Tabs](/components/tabs)。
 
 dwar 在渲染前会将这个映射与任何 override 合并 —— 它的 `mergeMdxComponents` 先展开 `defaultMdxComponents`，然后在其上叠加 override （[`dwar/src/index.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/dwar/src/index.ts)）。
 
@@ -154,4 +154,4 @@ const theme = {
 
 - [rang 概览](/packages/rang-overview) —— chrome 与 island 的模型，以及这个包为何存在。
 - [dwar 概览](/packages/dwar-overview) —— 负责服务端渲染并打包这些组件的包。
-- [Callouts](/authoring/callouts) · [Tabs](/authoring/tabs) —— 上述 MDX 组件面向用户的一面。
+- [Callouts](/components/callouts) · [Tabs](/components/tabs) —— 上述 MDX 组件面向用户的一面。

@@ -40,7 +40,7 @@ order: 1
 - **入门** — [JSDoc](/theme/jsdoc-getting-started) 或 [TypeDoc](/theme/typedoc-getting-started)：安装主题并构建你的第一个站点。
 - **[配置](/theme/configuration)** — 每一个主题选项，并排展示 JSDoc 和 TypeDoc 两种形式。
 - **指南** — [构建一个指南站点](/guides/build-a-guides-site)、一份 [API 参考](/guides/build-an-api-reference)、 [将两者结合](/guides/combine-guides-and-api)，以及 [构建你的侧边栏结构](/guides/structure-your-sidebar)。
-- **创作** — [callout](/authoring/callouts)、[step](/authoring/steps)、 [tab](/authoring/tabs)、[embed](/authoring/embeds)，以及 [自定义标签](/authoring/custom-tags)，你可以在正文和文档注释中使用它们。
+- **创作** — [callout](/components/callouts)、[step](/components/steps)、 [tab](/components/tabs)、[embed](/components/embeds)，以及 [自定义标签](/components/overview)，你可以在正文和文档注释中使用它们。
 - **[包](/#the-packages)** — 这些构建模块，适合想要理解 或扩展内部实现的你。
 
 准备好开始设置了吗？前往 **[JSDoc Getting Started](/theme/jsdoc-getting-started)** 或 **[TypeDoc Getting Started](/theme/typedoc-getting-started)**。

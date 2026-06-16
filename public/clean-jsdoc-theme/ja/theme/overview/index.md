@@ -40,7 +40,7 @@ order: 1
 - **Getting started** — [JSDoc](/theme/jsdoc-getting-started) または [TypeDoc](/theme/typedoc-getting-started): theme を install して最初の site を 構築します。
 - **[Configuration](/theme/configuration)** — すべての theme option を、JSDoc と TypeDoc の形式を並べて示します。
 - **Guides** — [guides site を構築する](/guides/build-a-guides-site)、 [API reference](/guides/build-an-api-reference)、 [両者を組み合わせる](/guides/combine-guides-and-api)、そして [sidebar を構成する](/guides/structure-your-sidebar)。
-- **Authoring** — prose や doc comments で使える [callouts](/authoring/callouts)、 [steps](/authoring/steps)、[tabs](/authoring/tabs)、[embeds](/authoring/embeds)、 そして [custom tags](/authoring/custom-tags)。
+- **Authoring** — prose や doc comments で使える [callouts](/components/callouts)、 [steps](/components/steps)、[tabs](/components/tabs)、[embeds](/components/embeds)、 そして [custom tags](/components/overview)。
 - **[Packages](/#the-packages)** — internals を理解したり拡張したりしたい場合の building blocks。
 
 セットアップの準備はできましたか？ **[JSDoc Getting Started](/theme/jsdoc-getting-started)** または **[TypeDoc Getting Started](/theme/typedoc-getting-started)** へどうぞ。

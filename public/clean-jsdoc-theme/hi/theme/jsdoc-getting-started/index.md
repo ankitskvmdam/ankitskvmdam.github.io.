@@ -121,6 +121,6 @@ opts: {
 - **[Build an API reference](/guides/build-an-api-reference)** — क्या एक page बनता है, source-file viewer, और `Source: file:line` links।
 - **[Build a guides site](/guides/build-a-guides-site)** और **[Combine guides + API](/guides/combine-guides-and-api)** — उसी site में हाथ से लिखे Markdown जोड़ें।
 - **[Structure your sidebar](/guides/structure-your-sidebar)** — `@category`, `@order`, और sidebar options।
-- **[Authoring](/authoring/callouts)** — callouts, steps, tabs, और embeds जिन्हें आप comments और prose में इस्तेमाल कर सकते हैं।
+- **[Authoring](/components/callouts)** — callouts, steps, tabs, और embeds जिन्हें आप comments और prose में इस्तेमाल कर सकते हैं।
 - **[Localize your docs](/guides/localize-your-docs)** — site को कई भाषाओं में ship करें।
 - TypeScript पसंद है? देखें **[TypeDoc Getting Started](/theme/typedoc-getting-started)** — वही output, अलग toolchain।

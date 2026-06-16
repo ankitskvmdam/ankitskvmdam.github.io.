@@ -2,7 +2,7 @@
 title: FAQ
 kind: guide
 group: Guides
-order: 6
+order: 8
 ---
 
 # FAQ
@@ -11,7 +11,7 @@ order: 6
 
 ## 嵌入实时内容
 
-主题可以在任何页面中插入一个沙箱化的 `<iframe>` —— 一个 CodePen、一个 YouTube 视频、一个 StackBlitz，或任意站点。有两种编写方式，它们 共享[同一套 config 语法](/authoring/embeds)：
+主题可以在任何页面中插入一个沙箱化的 `<iframe>` —— 一个 CodePen、一个 YouTube 视频、一个 StackBlitz，或任意站点。有两种编写方式，它们 共享[同一套 config 语法](/components/embeds)：
 
 - **在正文中**（README、guides、`docs` 文件夹）—— 一个 ` ```iframe ` 围栏代码块。
 - **在 doc comment 中** —— `@iframe <url> key=value` block tag。
@@ -31,6 +31,21 @@ https://codepen.io/USER/embed/PEN_ID title="CodePen demo" height=400
 <Callout type="tip">
   在 CodePen 上，打开 **Embed** 并从 `<iframe src="…">` 代码片段中复制 URL。添加 `clickToLoad=true` 可在读者点击前显示一张轻量的海报图。
 </Callout>
+
+### 我该如何让读者在 CodePen / JSFiddle / CodeSandbox 中打开一个示例？
+
+`@iframe` 通过 URL 嵌入一个**已存在**的 pen。要打开**来自一个 `@example` 的代码** —— 预填好、无需现成的 pen —— 请改用 **playground** 功能：在 `opts.playground` 中 开启它，然后用 `@playground` 给该示例打 tag：
+
+```js
+/**
+ * @example
+ * const out = resize(img, 200);
+ * @playground codepen jsfiddle filename=resize.js highlight=1
+ */
+export function resize(img, width) {}
+```
+
+代码块的 header 会多出一个 **"Open Code in"** 下拉菜单（CodePen / JSFiddle / CodeSandbox），全部在客户端完成 —— 无需 API key。它在正文中也有效（一个 ` ```js playground ` fence 或一个 `<playground>` block）。完整演练： [Add a playground](/components/playground)。（`@playground` 需要 `tags.allowUnknownTags: true`，与 `@iframe` 相同。）
 
 ### 我该如何嵌入一个 YouTube 视频？
 
@@ -80,7 +95,7 @@ export function render() {}
 
 ### embeds 会跟随浅色 / 深色主题吗？
 
-默认会 —— 主题切换时会重新解析 embed URL（会替换一个 `{theme}` token，或追加 `?theme-id=<theme>`）。用 `themed=false` 退出此行为。完整参考：[Embeds & live demos](/authoring/embeds)。
+默认会 —— 主题切换时会重新解析 embed URL（会替换一个 `{theme}` token，或追加 `?theme-id=<theme>`）。用 `themed=false` 退出此行为。完整参考：[Embeds & live demos](/components/embeds)。
 
 ## 更丰富的 doc comments
 
@@ -100,7 +115,7 @@ export function render() {}
 export function connect() {}
 ```
 
-这些标记映射到四种样式：`[!NOTE]` / `[!INFO]` / `[!IMPORTANT]` → info， `[!TIP]` / `[!SUCCESS]` → tip，`[!WARNING]` / `[!CAUTION]` → warning，以及 `[!ERROR]` / `[!DANGER]` → error。参见 [Callouts](/authoring/callouts)。
+这些标记映射到四种样式：`[!NOTE]` / `[!INFO]` / `[!IMPORTANT]` → info， `[!TIP]` / `[!SUCCESS]` → tip，`[!WARNING]` / `[!CAUTION]` → warning，以及 `[!ERROR]` / `[!DANGER]` → error。参见 [Callouts](/components/callouts)。
 
 ### 我能在 comment 中使用 steps 或 tabs 吗？
 
@@ -132,7 +147,7 @@ export function connect() {}
  */
 ````
 
-完整语法和空行规则参见 [Steps](/authoring/steps) 和 [Tabs](/authoring/tabs)，渲染效果可见实时的 [sample-api module page](/api-docs/module/sample-api)。
+完整语法和空行规则参见 [Steps](/components/steps) 和 [Tabs](/components/tabs)，渲染效果可见实时的 [sample-api module page](/api-docs/module/sample-api)。
 
 ### 弃用通知怎么办？
 
@@ -154,9 +169,29 @@ export function connect() {}
 
 在符号上使用 `@category` / `@order`，在 guide 页面上使用 frontmatter 的 `group` / `order`， 以及 `sectionOrder` 选项。[Structure your sidebar](/guides/structure-your-sidebar) 涵盖了每一个调节杆。
 
+### 我的 `@category` / `@order` / `@playground` / `@iframe` tags 不起作用
+
+最可能的原因：你的 `jsdoc.json` 中 **`tags.allowUnknownTags` 不是 `true`**。 这些全都是基础 JSDoc 不定义的 tags，所以它会在主题运行**之前就把它们剥离**—— 你的 categories 会塌缩为默认的 kind sections，`@order` 不起任何作用，而 `@playground` / `@iframe` 永远不会渲染。请设置该 flag：
+
+```json
+{ "tags": { "allowUnknownTags": true } }
+```
+
+（TypeDoc 没有这样的限制 —— 它会原样传递这些 tag。）完整列表参见 [Custom tags](/components/overview)。
+
 ### 我该如何在 API reference 旁边添加手写的 guides？
 
 将 `opts.docs` 指向一个 Markdown 文件夹。参见 [Build a guides site](/guides/build-a-guides-site) 和 [Combine guides + API](/guides/combine-guides-and-api)。
+
+### 我该如何设置 favicon？
+
+将 [`favicon`](/theme/configuration#favicon) 指向一个图片文件。主题会把它复制为一个 带内容哈希的资源，并向每个页面的 `<head>` 添加一个 `<link rel="icon">`：
+
+```json5
+opts: { favicon: "./assets/logo.svg" }
+```
+
+这是使用 **SVG** favicon 的方式 —— 浏览器只会自动发现根目录下的 `favicon.ico`，绝不会自动发现 SVG，因此它需要主题输出的那个 `<link>`。（一个 SVG 甚至可以通过其内部的 `@media (prefers-color-scheme: dark)` block 来适配浅色/深色。） v4 的 `favicon` 选项在 v5 早期一度被移除，现已回归。
 
 ### 我该如何关闭 “copy page” / “open in LLM” 按钮？
 

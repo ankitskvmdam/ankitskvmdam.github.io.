@@ -32,7 +32,7 @@ order: 5
 
 ## 它为何重要
 
-`clean-jsdoc-theme` 并不是默认的 JSDoc template，一个依据通用 "JSDoc theme" 知识工作的助手会把细节搞错 —— 它会忘记 [`plugins/markdown`](/theme/jsdoc-getting-started) 是必需的、会遗漏自定义标签 需要 [`allowUnknownTags`](/authoring/custom-tags)，或者会以为空格能嵌套一条 [`@category`](/authoring/custom-tags) 路径，而实际上只有 `/` 才可以。
+`clean-jsdoc-theme` 并不是默认的 JSDoc template，一个依据通用 "JSDoc theme" 知识工作的助手会把细节搞错 —— 它会忘记 [`plugins/markdown`](/theme/jsdoc-getting-started) 是必需的、会遗漏自定义标签 需要 [`allowUnknownTags`](/components/overview)，或者会以为空格能嵌套一条 [`@category`](/components/overview) 路径，而实际上只有 `/` 才可以。
 
 <Callout type="tip">
   把 skill 前置，能把一来一回的拉锯（"那个 option 不存在……"、"换成这个试试 ……"）变成一次正确的首答。这与主题&#x4E3A;_&#x4F60;&#x7684;_&#x6587;档输出的配套 `.md` 是同一个思路 —— 把真实信息源提前交给模型，它就能像人一样流畅地读懂你的项目。
@@ -90,4 +90,4 @@ order: 5
 
 - [Configuration](/theme/configuration) —— skill 所记录的同一批选项，以可浏览 的参考文档形式呈现。
 - [JSDoc Getting Started](/theme/jsdoc-getting-started) · [TypeDoc Getting Started](/theme/typedoc-getting-started) —— 搭建构建流程。
-- [Structure your sidebar](/guides/structure-your-sidebar) 与 [Authoring](/authoring/callouts) —— skill 所浓缩的那些深入讲解。
+- [Structure your sidebar](/guides/structure-your-sidebar) 与 [Authoring](/components/callouts) —— skill 所浓缩的那些深入讲解。

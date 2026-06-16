@@ -101,7 +101,7 @@ setu 生产了模型；dwar 渲染它。二者从不互相导入——它们 只
 
 你在源码注释和文档文件中编写的内容，在这里会变成 manifest 结构。 有几处值得了解的关联：
 
-- **`@category` 和 `@order`。** 一个 API 符号的 `@category Core/Parsing order=1` 标签会成为它的侧边栏分组（`/`-路径会嵌套它：`Core` ▸ `Parsing`）及其 组内排序键。独立的 `@order N` 可以&#x4E3A;_&#x4EFB;&#x610F;_&#x7B26;号定位——即便是一个 未加标签的 `@class`——使其位于所属 kind 区段内。解析逻辑见 [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)。 参阅 [组织你的侧边栏](/guides/structure-your-sidebar) 和 [自定义标签](/authoring/custom-tags)。
+- **`@category` 和 `@order`。** 一个 API 符号的 `@category Core/Parsing order=1` 标签会成为它的侧边栏分组（`/`-路径会嵌套它：`Core` ▸ `Parsing`）及其 组内排序键。独立的 `@order N` 可以&#x4E3A;_&#x4EFB;&#x610F;_&#x7B26;号定位——即便是一个 未加标签的 `@class`——使其位于所属 kind 区段内。解析逻辑见 [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)。 参阅 [组织你的侧边栏](/guides/structure-your-sidebar) 和 [自定义标签](/components/overview)。
 - **README → 首页。** 你的 README（由 JSDoc/TypeDoc 渲染为 HTML）会成为 slug 为 `''` 的首页，经由 [`buildReadmePage`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/guide-view.ts)。 你文档目录中根级的 `index.md` 会覆盖它。
 - **文档文件夹 → 指南页面。** 你文档目录下的每个 Markdown/HTML 文件 都会成为一个文章页面，使用其干净（无前缀）的 slug，并按其 frontmatter `group` 或目录路径分组，经由 [`buildDocPages`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/guide-view.ts)。 frontmatter 的 `title` / `group` / `order` / `hidden` 都会被遵循。参阅 [构建一个指南站点](/guides/build-a-guides-site)。
 - **`{@link}` / `@see` / `@tutorial`。** 会针对在第 2 遍中构建的链接注册表 进行解析——只有那些确实拥有页面或成员标题的目标才会被解析； 其余的则回退为惰性文本，而不是一个失效的锚点 （[`link-registry.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/link-registry.ts)）。

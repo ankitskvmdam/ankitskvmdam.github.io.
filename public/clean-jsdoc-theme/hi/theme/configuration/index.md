@@ -123,6 +123,30 @@ Default रूप से आपके package के `name` पर।
   </Tab>
 </Tabs>
 
+### `favicon`
+
+एक favicon image का path। bridge इसे एक content-hashed `_assets/` asset में copy करता है और हर page के `<head>` में एक `<link rel="icon">` emit करता है (एक `type` के साथ जो extension से निकाला जाता है — `.svg` → `image/svg+xml`)।
+
+**अपेक्षित:** एक string file path (`.svg`, `.png`, `.ico`, …), working dir के सापेक्ष। छोड़ा गया → कोई favicon link नहीं।
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { favicon: "./assets/logo-small.svg" }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { favicon: "./assets/logo-small.svg" }
+    ```
+  </Tab>
+</Tabs>
+
+<Callout type="tip">
+  एक **SVG** favicon को इस option की ज़रूरत होती है — browsers केवल एक root `favicon.ico` को auto-discover करते हैं, कभी किसी SVG को नहीं। एक SVG icon SVG के अंदर एक `@media (prefers-color-scheme: dark)` block के साथ light/dark के अनुसार ढल भी सकता है।
+</Callout>
+
 ## Content sources
 
 ### `readme`
@@ -355,15 +379,20 @@ theme को फिर से रंगें। `colors` light-mode palette ह
 
 **अपेक्षित:** इन keys के किसी भी subset वाला एक object, हर एक एक CSS color string (theme [oklch](https://oklch.com) के साथ आता है, पर कोई भी मान्य CSS color चलता है):
 
-| Key        | भूमिका                                    |
-| ---------- | ----------------------------------------- |
-| `bg`       | Page background                           |
-| `bgMuted`  | हल्की सतहें (code blocks, cards, sidebar) |
-| `fg`       | Body text                                 |
-| `fgMuted`  | द्वितीयक / muted text                     |
-| `accent`   | Links, focus rings, primary buttons       |
-| `accentFg` | `accent` background पर text/icon          |
-| `border`   | महीन रेखाएँ और dividers                   |
+| Key               | भूमिका                                                          |
+| ----------------- | --------------------------------------------------------------- |
+| `bg`              | Page background                                                 |
+| `bgMuted`         | हल्की सतहें (code blocks, cards, sidebar)                       |
+| `fg`              | Body text                                                       |
+| `fgMuted`         | द्वितीयक / muted text                                           |
+| `accent`          | Links, focus rings, primary buttons                             |
+| `accentFg`        | `accent` background पर text/icon                                |
+| `border`          | महीन रेखाएँ और dividers                                         |
+| `codeHeaderBg`    | Code-block header strip background                              |
+| `codeHeaderFg`    | Code-block header label text                                    |
+| `codeHighlightBg` | Highlighted code-line background (`@playground` / `highlight=`) |
+
+तीनों `code*` keys code-block chrome को style करती हैं — header strip (इसका background + `CODE`/filename label) और किसी highlighted line पर tint। ये light में एक neutral `#f7f7f7`-समतुल्य पर और dark में elevated greys पर default होती हैं, इसलिए आप इन्हें केवल किसी custom palette से मेल खाने के लिए सेट करते हैं।
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)">

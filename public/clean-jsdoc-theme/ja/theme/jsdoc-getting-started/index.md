@@ -121,6 +121,6 @@ opts: {
 - **[Build an API reference](/guides/build-an-api-reference)** — 何が page になる のか、source-file viewer、そして `Source: file:line` links。
 - **[Build a guides site](/guides/build-a-guides-site)** と **[Combine guides + API](/guides/combine-guides-and-api)** — 同じ site に手書きの Markdown を追加します。
 - **[Structure your sidebar](/guides/structure-your-sidebar)** — `@category`、 `@order`、そして sidebar options。
-- **[Authoring](/authoring/callouts)** — comments や prose で使える callouts、steps、 tabs、embeds。
+- **[Authoring](/components/callouts)** — comments や prose で使える callouts、steps、 tabs、embeds。
 - **[Localize your docs](/guides/localize-your-docs)** — site を複数言語で ship します。
 - TypeScript がお好みですか？ **[TypeDoc Getting Started](/theme/typedoc-getting-started)** を参照してください。同じ output、異なる toolchain です。
