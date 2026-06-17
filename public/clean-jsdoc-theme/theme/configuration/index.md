@@ -299,7 +299,7 @@ Collapse related entries (e.g. a module and its members) under a shared, collaps
 
 Custom links pinned above the sidebar navigation.
 
-**Expected:** an array of entries. Each is an object with `title`, a `link` (or `href`), an optional `id`, and an optional `icon` — `lucide:<name>` or `simpleicons:<name>`, loaded from a CDN.
+**Expected:** an array of entries. Each is an object with `title`, a `link` (or `href`), an optional `id`, and an optional `icon` — `lucide:<name>` or `simpleicons:<name>`, loaded from a CDN. Two optional fields control link presentation: `target` (the link target — an external link defaults to `_blank`) and `class` (extra CSS class(es) merged onto the rendered link).
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)">
@@ -308,6 +308,8 @@ Custom links pinned above the sidebar navigation.
       menu: [
         { title: "Home", link: "/", icon: "lucide:home" },
         { title: "GitHub", link: "https://github.com/you/repo", icon: "simpleicons:github" },
+        // Open in the same tab + tag with a custom class for styling via customCss:
+        { title: "Changelog", link: "/changelog", target: "_self", class: "menu-changelog" },
       ],
     }
     ```
@@ -319,6 +321,7 @@ Custom links pinned above the sidebar navigation.
       menu: [
         { title: "Home", link: "/", icon: "lucide:home" },
         { title: "GitHub", link: "https://github.com/you/repo", icon: "simpleicons:github" },
+        { title: "Changelog", link: "/changelog", target: "_self", class: "menu-changelog" },
       ],
     }
     ```

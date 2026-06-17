@@ -52,7 +52,7 @@ OKLCH palette 上の first-class な light テーマと dark テーマ。CSS は
 
 ほとんどの users はこれらに直接触れることはありません。entry point を install し、 いくつかの [options](/theme/configuration) を設定すれば完了です。とはいえ、 すべての building block は **npm に published** され、 documented で、再利用可能です。
 
-![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (with components from rang) → static site](/_assets/build-pipeline.3de65053.svg)
+![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (with components from rang) → static site](/_assets/build-pipeline.5335c718.svg)
 
 ### コア pipeline
 

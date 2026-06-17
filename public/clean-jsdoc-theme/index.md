@@ -52,7 +52,7 @@ A downloadable [**skill**](/theme/llm-skill) that turns any coding assistant int
 
 Most users never touch these directly — you install an [entry point](#entry-points), set a few [options](/theme/configuration), and you're done. But every building block is **published to npm**, documented, and reusable.
 
-![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (with components from rang) → static site](/_assets/build-pipeline.3de65053.svg)
+![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (with components from rang) → static site](/_assets/build-pipeline.5335c718.svg)
 
 ### Core pipeline
 

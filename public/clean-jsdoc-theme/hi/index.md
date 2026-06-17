@@ -52,7 +52,7 @@ Built-in localization: अपनी locales declare करें और `clean-j
 
 ज़्यादातर users इन्हें सीधे कभी नहीं छूते — आप एक entry point install करते हैं, कुछ [options](/theme/configuration) सेट करते हैं, और बस हो गया। लेकिन हर building block **npm पर published**, documented, और पुनः-उपयोग-योग्य है।
 
-![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (rang के components के साथ) → static site](/_assets/build-pipeline.3de65053.svg)
+![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (rang के components के साथ) → static site](/_assets/build-pipeline.5335c718.svg)
 
 ### मुख्य pipeline
 

@@ -52,7 +52,7 @@ group: Docs
 
 大多数用户从不直接接触它们——你安装一个[入口](#entry-points)，设置几个 [选项](/theme/configuration)，就搞定了。但每一个构建块都**发布到了 npm**，有文档，且可复用。
 
-![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (with components from rang) → static site](/_assets/build-pipeline.3de65053.svg)
+![Build pipeline: JSDoc / TypeDoc → setu.generateSite() → SiteManifest → dwar.render() (with components from rang) → static site](/_assets/build-pipeline.5335c718.svg)
 
 ### 核心管道
 
