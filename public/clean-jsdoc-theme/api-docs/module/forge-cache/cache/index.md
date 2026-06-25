@@ -9,7 +9,7 @@ order: 1
 
 # Cache
 
-**Implements:&#x20;**`Store`, `Serializable`
+**Implements:&#x20;**[`Store`](/module/forge-contracts#store), [`Serializable`](/module/forge-contracts#serializable)
 
 <SourceLink href="/source/cache-js/#L53" label="cache.js:53" />
 
@@ -50,13 +50,13 @@ Basic usage
 
 ## Constructor
 
-`new Cache([options])`
+<Signature code="new Cache(options?: CacheOptions): Cache" />
 
 Create a new cache.
 
 **Parameters**
 
-- `options` (CacheOptions, optional, default: "{}") — Configuration for the cache.
+- `options` ([CacheOptions](/module/forge-cache#cacheoptions), optional, default: "{}") — Configuration for the cache.
   - `options.maxSize` (number, optional, default: 100) — Max entries before eviction.
   - `options.ttl` (number, optional, default: 0) — Per-entry time-to-live in ms.
 
@@ -64,7 +64,7 @@ Create a new cache.
 
 ## Instance Methods
 
-<MemberHeading id="set" depth="3" name="set" sig="set(key, value) -> Cache" />
+<MemberHeading id="set" depth="3" name="set" sig="set(key: string, value: *): Cache" />
 
 <MemberMeta sourceHref="/source/cache-js/#L113" sourceLabel="cache.js:113" />
 
@@ -79,7 +79,7 @@ Store a value under a key. If the cache is full, the least-recently-used entry i
 
 **Returns**
 
-- `Cache` — The cache instance, for chaining.
+- [`Cache`](/module/forge-cache#cache) — The cache instance, for chaining.
 
 **Fires**
 
@@ -95,7 +95,7 @@ Calls chain
   ```
 </Playground>
 
-<MemberHeading id="get" depth="3" name="get" sig="get(key) -> *" />
+<MemberHeading id="get" depth="3" name="get" sig="get(key: string): *" />
 
 <MemberMeta sourceHref="/source/cache-js/#L128" sourceLabel="cache.js:128" />
 
@@ -111,7 +111,7 @@ Look up a value by key, marking it as recently used.
 
 - `*` — The cached value, or `undefined` if the key is not present.
 
-<MemberHeading id="has" depth="3" name="has" sig="has(key) -> boolean" />
+<MemberHeading id="has" depth="3" name="has" sig="has(key: string): boolean" />
 
 <MemberMeta sourceHref="/source/cache-js/#L142" sourceLabel="cache.js:142" />
 
@@ -125,7 +125,7 @@ Check whether a key is present **without** affecting its recency.
 
 - `boolean` — `true` if the key is cached.
 
-<MemberHeading id="remove" depth="3" name="remove" sig="remove(key) -> boolean" />
+<MemberHeading id="remove" depth="3" name="remove" sig="remove(key: string): boolean" />
 
 <MemberMeta badges="deprecated" sourceHref="/source/cache-js/#L154" sourceLabel="cache.js:154" />
 
@@ -143,7 +143,7 @@ Remove a single entry.
 
 - `boolean` — `true` if an entry was removed.
 
-<MemberHeading id="clear" depth="3" name="clear" sig="clear() -> void" />
+<MemberHeading id="clear" depth="3" name="clear" sig="clear(): void" />
 
 <MemberMeta sourceHref="/source/cache-js/#L163" sourceLabel="cache.js:163" />
 
@@ -153,7 +153,7 @@ Remove every entry from the cache.
 
 - `void`
 
-<MemberHeading id="tojson" depth="3" name="toJSON" sig="toJSON() -> Object.<string, *>" />
+<MemberHeading id="tojson" depth="3" name="toJSON" sig="toJSON(): Object.<string, *>" />
 
 <MemberMeta sourceHref="/source/cache-js/#L172" sourceLabel="cache.js:172" />
 
@@ -167,27 +167,19 @@ Serialize the cache to a plain object — satisfies [Serializable](/module/forge
 
 ## Instance Fields
 
-<MemberHeading id="maxsize" depth="3" name="maxSize" sig="maxSize" />
+<MemberHeading id="maxsize" depth="3" name="maxSize" sig="maxSize: number" />
 
 <MemberMeta sourceHref="/source/cache-js/#L72" sourceLabel="cache.js:72" />
 
 The maximum number of entries this cache will hold.
 
-**Type**
-
-`number`
-
-<MemberHeading id="ttl" depth="3" name="ttl" sig="ttl" />
+<MemberHeading id="ttl" depth="3" name="ttl" sig="ttl: number" />
 
 <MemberMeta sourceHref="/source/cache-js/#L79" sourceLabel="cache.js:79" />
 
 Time-to-live per entry, in milliseconds. `0` means entries never expire.
 
-**Type**
-
-`number`
-
-<MemberHeading id="size" depth="3" name="size" sig="size" />
+<MemberHeading id="size" depth="3" name="size" sig="size: number" />
 
 <MemberMeta badges="readonly" sourceHref="/source/cache-js/#L96" sourceLabel="cache.js:96" />
 

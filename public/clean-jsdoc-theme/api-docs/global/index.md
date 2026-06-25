@@ -10,7 +10,16 @@ longname: Globals
 
 ## Instance Methods
 
-<MemberHeading id="definetask" depth="3" name="defineTask" sig="defineTask(id, run, priority) -> Task" />
+<MemberHeading
+  id="definetask"
+  depth="3"
+  name="defineTask"
+  sig="defineTask(
+	id: string,
+	run: TaskHandler,
+	priority?: Priority,
+): Task"
+/>
 
 <MemberMeta sourceHref="/source/globals-js/#L60" sourceLabel="globals.js:60" />
 
@@ -21,12 +30,12 @@ A convenience global that mirrors the [createCache](/module/forge-cache#createca
 **Parameters**
 
 - `id` (string) — Stable task identifier.
-- `run` (TaskHandler) — The work to perform.
-- `priority` (Priority, optional, default: "Priority.NORMAL") — Scheduling weight.
+- `run` ([TaskHandler](/module/forge-queue#taskhandler)) — The work to perform.
+- `priority` ([Priority](/module/forge-cache#priority), optional, default: "Priority.NORMAL") — Scheduling weight.
 
 **Returns**
 
-- `Task` — The assembled task.
+- [`Task`](/module/forge-queue#task) — The assembled task.
 
 **Example**
 
@@ -41,7 +50,7 @@ const task = defineTask('reindex', async () => rebuildIndex());queue.push(task)
 
 ## Enums
 
-<MemberHeading id="loglevel" depth="3" name="LogLevel" sig="LogLevel" />
+<MemberHeading id="loglevel" depth="3" name="LogLevel" sig="LogLevel: number" />
 
 <MemberMeta badges="readonly,enum" sourceHref="/source/globals-js/#L19" sourceLabel="globals.js:19" />
 
@@ -56,7 +65,7 @@ Severity levels for Forge's logger — a global numeric enum, rendered as a memb
 
 ## Other
 
-<MemberHeading id="defaultoptions" depth="3" name="DEFAULT_OPTIONS" sig="DEFAULT_OPTIONS" />
+<MemberHeading id="defaultoptions" depth="3" name="DEFAULT_OPTIONS" sig="DEFAULT_OPTIONS: Object" />
 
 <MemberMeta sourceHref="/source/globals-js/#L38" sourceLabel="globals.js:38" />
 

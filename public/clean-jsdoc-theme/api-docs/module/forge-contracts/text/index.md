@@ -18,7 +18,7 @@ String helpers used across Forge.
 
 ## Static Methods
 
-<MemberHeading id="slugify" depth="3" name="slugify" sig="slugify(input) -> string" />
+<MemberHeading id="slugify" depth="3" name="slugify" sig="slugify(input: string): string" />
 
 <MemberMeta badges="static" sourceHref="/source/contracts-js/#L110" sourceLabel="contracts.js:110" />
 
@@ -38,7 +38,7 @@ Convert a string to a URL-friendly slug.
 text.slugify('Hello World'); // => 'hello-world'
 ```
 
-<MemberHeading id="truncate" depth="3" name="truncate" sig="truncate(input, max) -> string" />
+<MemberHeading id="truncate" depth="3" name="truncate" sig="truncate(input: string, max?: number): string" />
 
 <MemberMeta badges="static" sourceHref="/source/contracts-js/#L121" sourceLabel="contracts.js:121" />
 
@@ -53,7 +53,15 @@ Truncate a string to `max` characters, appending an ellipsis.
 
 - `string` — The truncated string.
 
-<MemberHeading id="seedcache" depth="3" name="seedCache" sig="seedCache(entries, options) -> Cache" />
+<MemberHeading
+  id="seedcache"
+  depth="3"
+  name="seedCache"
+  sig="seedCache(
+	entries: Object.<string, *>,
+	options?: CacheOptions,
+): Cache"
+/>
 
 <MemberMeta badges="static" sourceHref="/source/cache-js/#L204" sourceLabel="cache.js:204" />
 
@@ -64,11 +72,11 @@ This is a **global** function (no `@memberof`), so it appears on the aggregated 
 **Parameters**
 
 - `entries` (Object.\<string, \*>) — Initial entries to seed the cache with.
-- `options` (CacheOptions, optional) — Options forwarded to the [Cache](/module/forge-cache#cache) constructor.
+- `options` ([CacheOptions](/module/forge-cache#cacheoptions), optional) — Options forwarded to the [Cache](/module/forge-cache#cache) constructor.
 
 **Returns**
 
-- `Cache` — A new, seeded cache.
+- [`Cache`](/module/forge-cache#cache) — A new, seeded cache.
 
 **Example**
 

@@ -105,12 +105,8 @@ The embed below is authored with the `@iframe` block tag (see the module's sourc
 
 ## Other
 
-<MemberHeading id="version" depth="3" name="VERSION" sig="VERSION" />
+<MemberHeading id="version" depth="3" name="VERSION" sig="VERSION: string" />
 
 <MemberMeta badges="static" sourceHref="/source/index-js/#L127" sourceLabel="index.js:127" />
 
 The current Forge version. A module-level `constant` rendered with a **Type** and **Default** row.
-
-**Type**
-
-`string`

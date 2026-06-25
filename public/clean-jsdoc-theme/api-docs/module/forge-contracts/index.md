@@ -15,7 +15,7 @@ Contracts & helpers — the interfaces, mixin, and namespace that the concrete c
 
 ## Instance Methods
 
-<MemberHeading id="slug" depth="3" name="slug" sig="slug(input) -> string" />
+<MemberHeading id="slug" depth="3" name="slug" sig="slug(input: string): string" />
 
 <MemberMeta sourceHref="/source/contracts-js/#L134" sourceLabel="contracts.js:134" />
 

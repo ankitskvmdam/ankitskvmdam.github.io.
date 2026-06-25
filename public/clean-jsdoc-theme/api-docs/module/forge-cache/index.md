@@ -15,7 +15,15 @@ Storage primitives — the [Cache](/module/forge-cache#cache) class and its help
 
 ## Static Methods
 
-<MemberHeading id="createcache" depth="3" name="createCache" sig="createCache(entries, options) -> Cache" />
+<MemberHeading
+  id="createcache"
+  depth="3"
+  name="createCache"
+  sig="createCache(
+	entries: Object.<string, *>,
+	options?: CacheOptions,
+): Cache"
+/>
 
 <MemberMeta badges="static" sourceHref="/source/cache-js/#L204" sourceLabel="cache.js:204" />
 
@@ -26,11 +34,11 @@ This is a **global** function (no `@memberof`), so it appears on the aggregated 
 **Parameters**
 
 - `entries` (Object.\<string, \*>) — Initial entries to seed the cache with.
-- `options` (CacheOptions, optional) — Options forwarded to the [Cache](/module/forge-cache#cache) constructor.
+- `options` ([CacheOptions](/module/forge-cache#cacheoptions), optional) — Options forwarded to the [Cache](/module/forge-cache#cache) constructor.
 
 **Returns**
 
-- `Cache` — A new, seeded cache.
+- [`Cache`](/module/forge-cache#cache) — A new, seeded cache.
 
 **Example**
 
@@ -44,19 +52,15 @@ const cache = createCache({ a: 1, b: 2 }, { maxSize: 10 });cache.get('b'); // =
 
 ## Enums
 
-<MemberHeading id="priority" depth="3" name="Priority" sig="Priority" />
+<MemberHeading id="priority" depth="3" name="Priority" sig="Priority: number" />
 
 <MemberMeta badges="static,readonly,enum" sourceHref="/source/cache-js/#L219" sourceLabel="cache.js:219" />
 
 Relative priority for cached writes — a numeric [enum](https://jsdoc.app/tags-enum) rendered as a member table on the Globals page.
 
-**Type**
-
-`number`
-
 ## Other
 
-<MemberHeading id="cacheoptions" depth="3" name="CacheOptions" sig="CacheOptions" />
+<MemberHeading id="cacheoptions" depth="3" name="CacheOptions" sig="CacheOptions: Object" />
 
 <MemberMeta sourceHref="/source/cache-js/#L19" sourceLabel="cache.js:19" />
 
@@ -67,10 +71,6 @@ Options accepted by the [Cache](/module/forge-cache#cache) constructor.
 - `maxSize` (number, optional, default: 100) — Maximum number of entries to keep before the least-recently-used entry is evicted.
 - `ttl` (number, optional, default: 0) — Time-to-live for an entry, in milliseconds. `0` disables expiry.
 - `freeze` (boolean, optional, default: false) — Freeze values on insert so callers can't mutate cached objects.
-
-**Type**
-
-`Object`
 
 <MemberHeading id="cache" depth="3" name="Cache" sig="Cache" />
 
@@ -96,7 +96,7 @@ Eviction follows a strict recency order:
 
 **Parameters**
 
-- `options` (CacheOptions, optional, default: "{}") — Configuration for the cache.
+- `options` ([CacheOptions](/module/forge-cache#cacheoptions), optional, default: "{}") — Configuration for the cache.
   - `options.maxSize` (number, optional, default: 100) — Max entries before eviction.
   - `options.ttl` (number, optional, default: 0) — Per-entry time-to-live in ms.
 

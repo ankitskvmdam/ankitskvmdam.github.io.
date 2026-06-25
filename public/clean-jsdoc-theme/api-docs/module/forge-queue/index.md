@@ -15,7 +15,7 @@ The event-driven task [Queue](/module/forge-queue#queue) and its supporting type
 
 ## Other
 
-<MemberHeading id="task" depth="3" name="Task" sig="Task" />
+<MemberHeading id="task" depth="3" name="Task" sig="Task: Object" />
 
 <MemberMeta sourceHref="/source/queue-js/#L16" sourceLabel="queue.js:16" />
 
@@ -24,14 +24,10 @@ A unit of work the [Queue](/module/forge-queue#queue) can run.
 **Properties**
 
 - `id` (string) — Stable identifier for the task.
-- `priority` (Priority, optional, default: "Priority.NORMAL") — Relative scheduling weight.
-- `run` (TaskHandler) — The function invoked when the task is scheduled.
+- `priority` ([Priority](/module/forge-cache#priority), optional, default: "Priority.NORMAL") — Relative scheduling weight.
+- `run` ([TaskHandler](/module/forge-queue#taskhandler)) — The function invoked when the task is scheduled.
 
-**Type**
-
-`Object`
-
-<MemberHeading id="taskhandler" depth="3" name="TaskHandler" sig="TaskHandler" />
+<MemberHeading id="taskhandler" depth="3" name="TaskHandler" sig="TaskHandler: function" />
 
 <MemberMeta sourceHref="/source/queue-js/#L24" sourceLabel="queue.js:24" />
 
@@ -45,15 +41,11 @@ The function a [Task](/module/forge-queue#task) runs when scheduled.
 
 - `Promise.<void> | void` — Resolves when the task is complete.
 
-<MemberHeading id="maxconcurrency" depth="3" name="MAX_CONCURRENCY" sig="MAX_CONCURRENCY" />
+<MemberHeading id="maxconcurrency" depth="3" name="MAX_CONCURRENCY" sig="MAX_CONCURRENCY: number" />
 
 <MemberMeta badges="static" sourceHref="/source/queue-js/#L30" sourceLabel="queue.js:30" />
 
 Maximum concurrency the queue will ever allow, regardless of options.
-
-**Type**
-
-`number`
 
 <MemberHeading id="queue" depth="3" name="Queue" sig="Queue" />
 

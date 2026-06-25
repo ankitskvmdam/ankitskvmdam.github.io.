@@ -8,7 +8,7 @@ group: Contracts
 
 # Record
 
-**Mixes:&#x20;**`Timestamped`
+**Mixes:&#x20;**[`Timestamped`](/module/forge-contracts#timestamped)
 
 <SourceLink href="/source/contracts-js/#L85" label="contracts.js:85" />
 
@@ -18,7 +18,7 @@ A timestamped record — demonstrates `@mixes`.
 
 ## Constructor
 
-`new Record(data)`
+<Signature code="new Record(data: Object): Record" />
 
 **Parameters**
 
@@ -28,10 +28,6 @@ A timestamped record — demonstrates `@mixes`.
 
 ## Instance Fields
 
-<MemberHeading id="data" depth="3" name="data" sig="data" />
+<MemberHeading id="data" depth="3" name="data" sig="data: Object" />
 
 <MemberMeta sourceHref="/source/contracts-js/#L89" sourceLabel="contracts.js:89" />
-
-**Type**
-
-`Object`

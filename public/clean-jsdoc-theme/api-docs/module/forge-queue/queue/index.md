@@ -52,7 +52,7 @@ Draining a queue
 
 ## Constructor
 
-`new Queue([options])`
+<Signature code="new Queue(options?: Object): Queue" />
 
 **Parameters**
 
@@ -64,7 +64,7 @@ Draining a queue
 
 ## Instance Methods
 
-<MemberHeading id="push" depth="3" name="push" sig="push(task) -> this" />
+<MemberHeading id="push" depth="3" name="push" sig="push(task: Task): this" />
 
 <MemberMeta sourceHref="/source/queue-js/#L93" sourceLabel="queue.js:93" />
 
@@ -72,13 +72,13 @@ Add a task to the queue, inserted by [Priority](/module/forge-cache#priority).
 
 **Parameters**
 
-- `task` (Task) — The task to enqueue.
+- `task` ([Task](/module/forge-queue#task)) — The task to enqueue.
 
 **Returns**
 
 - `this` — The queue, for chaining.
 
-<MemberHeading id="drain" depth="3" name="drain" sig="drain() -> Promise.<number>" />
+<MemberHeading id="drain" depth="3" name="drain" sig="drain(): Promise.<number>" />
 
 <MemberMeta badges="async" sourceHref="/source/queue-js/#L108" sourceLabel="queue.js:108" />
 
@@ -108,7 +108,7 @@ Iterate pending tasks in scheduling order, highest priority first.
 
 **Yields**
 
-- `Task` — The next pending task.
+- [`Task`](/module/forge-queue#task) — The next pending task.
 
 **Example**
 
@@ -120,7 +120,7 @@ The {@lang} directive forces this block's language
   ```
 </Playground>
 
-<MemberHeading id="onerror" depth="3" name="onError" sig="onError(error) -> void" />
+<MemberHeading id="onerror" depth="3" name="onError" sig="onError(error: Error): void" />
 
 <MemberMeta badges="abstract" sourceHref="/source/queue-js/#L138" sourceLabel="queue.js:138" />
 
@@ -134,7 +134,7 @@ Handle a task failure. Subclasses **must** implement this.
 
 - `void`
 
-<MemberHeading id="next" depth="3" name="_next" sig="_next() -> Task | undefined" />
+<MemberHeading id="next" depth="3" name="_next" sig="_next(): Task | undefined" />
 
 <MemberMeta badges="protected" sourceHref="/source/queue-js/#L148" sourceLabel="queue.js:148" />
 
@@ -142,9 +142,9 @@ Pull and start the next task. Internal scheduling step.
 
 **Returns**
 
-- `Task | undefined` — The task that was started, if any.
+- [`Task`](/module/forge-queue#task)` | undefined` — The task that was started, if any.
 
-<MemberHeading id="clear" depth="3" name="clear" sig="clear() -> void" />
+<MemberHeading id="clear" depth="3" name="clear" sig="clear(): void" />
 
 <MemberMeta sourceHref="/source/queue-js/#L158" sourceLabel="queue.js:158" />
 
@@ -156,12 +156,8 @@ Stop and clear the queue, aborting any in-flight task.
 
 ## Instance Fields
 
-<MemberHeading id="concurrency" depth="3" name="concurrency" sig="concurrency" />
+<MemberHeading id="concurrency" depth="3" name="concurrency" sig="concurrency: number" />
 
 <MemberMeta badges="readonly" sourceHref="/source/queue-js/#L76" sourceLabel="queue.js:76" />
 
 Effective concurrency, clamped to [MAX\_CONCURRENCY](/module/forge-queue#maxconcurrency).
-
-**Type**
-
-`number`

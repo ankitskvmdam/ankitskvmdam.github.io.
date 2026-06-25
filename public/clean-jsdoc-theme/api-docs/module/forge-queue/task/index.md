@@ -14,8 +14,8 @@ A unit of work the [Queue](/module/forge-queue#queue) can run.
 **Properties**
 
 - `id` (string) — Stable identifier for the task.
-- `priority` (Priority, optional, default: "Priority.NORMAL") — Relative scheduling weight.
-- `run` (TaskHandler) — The function invoked when the task is scheduled.
+- `priority` ([Priority](/module/forge-cache#priority), optional, default: "Priority.NORMAL") — Relative scheduling weight.
+- `run` ([TaskHandler](/module/forge-queue#taskhandler)) — The function invoked when the task is scheduled.
 
 **Type**
 
