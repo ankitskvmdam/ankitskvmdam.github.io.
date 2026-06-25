@@ -123,6 +123,27 @@ order: 4
   </Tab>
 </Tabs>
 
+### `siteUrl`
+
+你站点的公开 base URL。设置后，构建会在 output root 生成一个 **`sitemap.xml`**——每个页面一条记录（不含隐藏的 source-viewer 页面）——你可以 将它提交给搜索引擎，或在 `robots.txt` 中引用。不设置则不生成 sitemap。
+
+**预期值：** 一个绝对的 `http(s)` URL。每个页面的 URL 只使用它的 **origin**； 部署子路径来自 [`basePath`](#basepath)，因此两者绝不会重复计入——无论是裸 origin (`https://example.com`)，还是 path 恰好等于你 `basePath` 的完整 URL (`https://example.com/my-library`)，都会生成相同且正确的 `<loc>` 条目。不需要 sitemap 时省略它（默认）。
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { siteUrl: "https://example.com", basePath: "/my-library" }
+    // → 生成包含 https://example.com/my-library/… URL 的 sitemap.xml
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { siteUrl: "https://example.com", basePath: "/my-library" }
+    ```
+  </Tab>
+</Tabs>
+
 ### `favicon`
 
 一个指向 favicon 图片的路径。桥接器会把它复制为一个带内容哈希的 `_assets/` 资源，并向每个页面的 `<head>` 中输出一个 `<link rel="icon">`（其 `type` 由扩展名派生 —— `.svg` → `image/svg+xml`）。

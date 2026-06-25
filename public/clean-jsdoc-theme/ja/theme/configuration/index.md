@@ -123,6 +123,27 @@ renderer がすべての internal link と asset の前に付加する site root
   </Tab>
 </Tabs>
 
+### `siteUrl`
+
+サイトの公開 base URL です。設定すると、build は output root に **`sitemap.xml`** を emit します — page ごとに 1 エントリ（hidden な source-viewer pages は除外）— で、search engine に submit したり `robots.txt` から参照したりできます。未設定なら sitemap は生成されません。
+
+**期待される値:** 絶対 `http(s)` URL。各 page の URL にはその **origin** のみが 使われ、deploy の sub-path は [`basePath`](#basepath) から来ます。そのため両者が 二重に数えられることはありません — 素の origin (`https://example.com`) でも、 path が `basePath` と一致する完全な URL (`https://example.com/my-library`) でも、 同じ正しい `<loc>` エントリになります。sitemap が不要なら省略してください （default）。
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: { siteUrl: "https://example.com", basePath: "/my-library" }
+    // → https://example.com/my-library/… の URL を持つ sitemap.xml
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: { siteUrl: "https://example.com", basePath: "/my-library" }
+    ```
+  </Tab>
+</Tabs>
+
 ### `favicon`
 
 favicon image への path です。bridge はそれを content-hashed な `_assets/` asset に copy し、すべての page の `<head>` に `<link rel="icon">`（extension から導出された `type` 付き — `.svg` → `image/svg+xml`）を emit します。
