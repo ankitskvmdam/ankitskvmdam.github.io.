@@ -169,6 +169,10 @@ markers चार styles में मैप होते हैं: `[!NOTE]` /
 
 symbols पर `@category` / `@order`, guide pages पर frontmatter `group` / `order`, और `sectionOrder` option उपयोग करें। [Structure your sidebar](/guides/structure-your-sidebar) हर लीवर को कवर करता है।
 
+<Callout type="info">
+  वे लीवर **JSDoc** API sidebar को नियंत्रित करते हैं। **TypeDoc** के लिए, API sidebar एक module/folder पदानुक्रम है — ऊपर दिए options पर केवल doc groups और `menu` प्रतिक्रिया करते हैं। देखें [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)।
+</Callout>
+
 ### मेरे `@category` / `@order` / `@playground` / `@iframe` tags काम नहीं कर रहे
 
 सबसे संभावित कारण: आपके `jsdoc.json` में **`tags.allowUnknownTags` `true` नहीं है**। ये सभी ऐसे tags हैं जिन्हें आधार JSDoc परिभाषित नहीं करता, इसलिए वह **theme के चलने से पहले इन्हें छील देता है** — आपकी categories default kind sections में सिमट जाती हैं, `@order` कुछ नहीं करता, और `@playground` / `@iframe` कभी render नहीं होते। flag सेट करें:

@@ -31,7 +31,7 @@ function generateSite(collection: unknown, opts?: GenerateSiteOptions): SiteMani
 - **一个聚合的 “Globals” 页面。** 每一个未获得自己页面的全局作用域符号 （functions、members、constants、enums、events）都会作为一个合成容器上的成员区段被渲染 （[`buildGlobalsView`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)）。
 - **散文 / 指南页面**，来自三个自由格式的来源：项目 README（即 首页）、一个 docs 目录，以及 JSDoc 教程 （[`guide-view.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/guide-view.ts)）。
 - **只读的源码查看器页面**，以及从每个成员返回的 `Source: file:line` 链接， 前提是桥接器提供了项目的源文件 （[`source-view.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/source-view.ts)）。
-- **nav 树** —— 即侧边栏 —— 按种类或按所撰写的 `@category` 分组为各个区段， 并按 `sectionOrder` / `@order` 排序 （[`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)）。
+- **nav 树** —— 即侧边栏 —— 按种类或按所撰写的 `@category` 分组为各个区段， 并按 `sectionOrder` / `@order` 排序 （[`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)）。 （这是 **JSDoc** flavor 的 nav；TypeDoc flavor 则改为构建一种 module/folder 层级结构 —— 见 [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar)。）
 - **已解析的交叉引用**，针对每一个 `{@link}` / `@see` / `@tutorial` （[`link-registry.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/link-registry.ts)）。
 
 ## 契约边界

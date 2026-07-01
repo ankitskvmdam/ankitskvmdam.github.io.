@@ -141,7 +141,7 @@ v4 将主题选项嵌套在 **`opts.theme_opts.*`** 之下。v5 则**直接从 `
 
 - [**与你的 API 并列的散文指南**](/guides/combine-guides-and-api) — `docs` + `docGroups`，与本站点使用的是同一套管线。
 - [**创作基本元素**](/components/callouts) — 在注释和散文中使用 callouts、 steps、tabs 和实时嵌入。
-- [**侧边栏结构**](/guides/structure-your-sidebar) — `@category` / `@order` 标签、`clubSidebarItems`、`menu`。
+- [**侧边栏结构**](/guides/structure-your-sidebar) — `@category` / `@order` 标签、`clubSidebarItems`、`menu`。（这些是 **JSDoc** 的侧边栏调节杆 —— TypeDoc 的输出改用一种 module/folder 层级结构；见 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。）
 - [**LLM 功能**](/theme/llm-skill) — 每个页面一个配套的 `.md`、复制页面 按钮，以及 `aiPrompt`。
 
 ## Let an agent do it

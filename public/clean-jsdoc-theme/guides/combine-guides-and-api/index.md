@@ -82,6 +82,10 @@ The crucial insight: **a guide page's group and an API symbol's `@category` are 
   source files ───────▶ Source Files         ┘
 ```
 
+<Callout type="info">
+  The merge model below — API kind sections + `@category` groups sitting alongside doc groups — is the **JSDoc** flavor. For **TypeDoc**, the API portion is instead a module/folder hierarchy (doc groups, tutorials, and `menu` still merge in as described). See [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar) and [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor).
+</Callout>
+
 ## How the two are ordered together
 
 This is the part worth getting right. The effective top-level order is built in [`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts):

@@ -10,7 +10,11 @@ order: 4
 sidebar は、すべてが 1 つの ordering engine （[`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)） に流れ込む複数のレバーから組み立てられます。この page はそれらを結び付けます: group が どこから来るか、nesting がどう動くか、そして順序を決めるまさにその規則。**すべての entry が `group` path と任意の `order` を持つ** ことが見えれば、あとはそれに従います。
 
 <Callout type="info">
-  以下の 2 つの source tags — `@category` と `@order` — は [Custom tags](/components/overview) で詳しく文書化されています。この page では それら（および config options）が sidebar をどう feed するかをカバーします; tag syntax を全面的に再文書化するものではありません。
+  **この統一モデルは JSDoc template の挙動です。** TypeDoc の出力は **API sidebar** を異なる方法で構築します — kind/category groups ではなく module/folder hierarchy です — そのため `@category`、`@order`、 `sectionOrder`、`clubSidebarItems` は **TypeDoc API tree には効果がありません**。 それを設定しているなら、そのまま [TypeDoc flavor](#typedoc-flavor) へ進んでください。 Doc groups（`docGroups` + frontmatter）、`menu`、tutorials は両方で同じように 動作します。
+</Callout>
+
+<Callout type="info">
+  以下の 2 つの source tags — `@category` と `@order` — は [Custom tags](/components/overview) で詳しく文書化されています。この page では それら（および config options）が sidebar をどう feed するかをカバーします; tag syntax を全面的に再文書化するものではありません。 [TypeDoc flavor](#typedoc-flavor) までの内容は、特に注記がない限り **JSDoc template** について説明しています。
 </Callout>
 
 ## 統一モデル
@@ -31,6 +35,10 @@ navigate 可能なすべての entry — API symbol、guide page、tutorial — 
 その単一の抽象化こそ、guide と class が sidebar group を共有できる理由です: 両方が group `Core` に解決されれば、それらは一緒に振り分けられます。
 
 ## レバー 1 — `@category` で symbol を group する
+
+<Callout type="info">
+  **JSDoc 専用、sidebar のための機能です。** `@category` は TypeDoc bridge でも 依然として parse されます（[TypeDoc flavor](#typedoc-flavor) で文書化されている とおり）が、TypeDoc API sidebar における symbol の page を移動させることは ありません — その sidebar は category groups ではなく module hierarchy です。
+</Callout>
 
 source symbol を tag して、その page を kind section ではなく明示的な group に置き ます:
 
@@ -54,6 +62,10 @@ export class Lexer {}
 - group を nest するのは **`/`** であって、space ではありません。`Core/Parsing` は nest します; `Getting Started` は、label に space を含む 1 つの flat group です。
 
 ## レバー 2 — `@order` で任意の symbol を並べ替える
+
+<Callout type="info">
+  **JSDoc 専用、sidebar のための機能です。** `@order` は TypeDoc の API sidebar の 順序には効果がありません — module 内の順序はそこでは kind によって固定されて います（[TypeDoc flavor](#typedoc-flavor) を参照）。
+</Callout>
 
 inline の `order=` option は、`@category` を _持つ_ symbol でのみ機能します。**kind section** に属する symbol（素の `@class`、`@module`、…）を配置するには、単独の `@order` tag を使います:
 
@@ -88,6 +100,10 @@ inline の `order=` option は、`@category` を _持つ_ symbol でのみ機能
 
 ## レバー 4 — `clubSidebarItems`
 
+<Callout type="info">
+  **JSDoc 専用、API tree のための機能です。** `clubSidebarItems` は TypeDoc の API sidebar には効果がありません（[TypeDoc flavor](#typedoc-flavor) を参照）。
+</Callout>
+
 [`clubSidebarItems`](/theme/configuration#clubsidebaritems) は、label の **最初の `/` より前の path segment** によって、関連する entry を共有の parent の下にまとめます — 例えば `queue`、`queue/Queue`、`queue/types` は `queue` parent の下に club されます。 1 つの entry にしか共有されない prefix は flat のまま残されます。これは `clubNavTree` （[`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)） が行います。
 
 <Callout type="info">
@@ -97,6 +113,10 @@ inline の `order=` option は、`@category` を _持つ_ symbol でのみ機能
 Clubbing は順序にも配慮します: club された parent はその members の最小 `order` で ソートされ、bare-prefix の entry（例えば `queue` module 自身）は最初にソートされる `index` child になります — ただし明示的な `@order` が兄弟を前に引き出さない限り。
 
 ## レバー 5 — `sectionOrder`
+
+<Callout type="info">
+  **部分的に JSDoc 専用です。** `sectionOrder` は TypeDoc の **API** tree には 効果がありません — ですが JSDoc に対して行うのと同じ方法で、TypeDoc の **doc/tutorial groups** は依然として並べ替えます。 [TypeDoc flavor](#typedoc-flavor) を参照してください。
+</Callout>
 
 [`sectionOrder`](/theme/configuration#sectionorder) は **top-level** の group を並べ替 えます — kind labels、`@category` 名、doc-group 名を混在させた 1 つの統一された list です。
 
@@ -115,11 +135,40 @@ Clubbing は順序にも配慮します: club された parent はその members
 
 ## レバー 7 — `menu`
 
-[`menu`](/theme/configuration#menu) は、自動の Home / Source Files link を、section の 上の **top region** に置き換えます。各 entry は icon（`lucide:<name>` または `simpleicons:<name>`）を持ちます。`menu` が設定されると、それが home/source link を **所有** します — 自動の Home（最初）と Source Files（最後）の entry は抑制され、 あなたが列挙した場合にのみ現れます（`{ id: "home" }` / `{ id: "source" }`）; external links は inline で現れます。menu の下の section は **依然として** `sectionOrder` に従います。 [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts) の `resolveMenuItem` を参照してください; このサイトの [`jsdoc.json`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/docs-site/jsdoc.json) は `menu` を使っています。
+[`menu`](/theme/configuration#menu) は、自動の Home / Source Files link を、section の 上の **top region** に置き換えます。各 entry は icon（`lucide:<name>` または `simpleicons:<name>`）を持ちます。`menu` が設定されると、それが home/source link を **所有** します — 自動の Home（最初）と Source Files（最後）の entry は抑制され、 あなたが列挙した場合にのみ現れます（`{ id: "home" }` / `{ id: "source" }`）; external links は inline で現れます。menu の下の section は **依然として** `sectionOrder` に従います。 [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts) の `resolveMenuItem` を参照してください; このサイトの [`jsdoc.json`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/docs-site/jsdoc.json) は `menu` を使っています。これは TypeDoc にも同様に適用されます。
+
+## TypeDoc flavor
+
+TypeDoc の出力は、その **API sidebar** に対して上記の統一 group/order モデルを 使い**ません**。代わりに TypeDoc 自身の default theme を反映します — `@category` や kind buckets からではなく、あなたの source layout から構築された module/folder hierarchy です:
+
+- **Top level はまずあなたの documents、それから folders と modules**、 アルファベット順 — top-level の kind sections はありません。
+- **Folders** はあなたの source の directory structure を反映します。1 つの 子しか持たない folder は、その子に **merge** されます（`compactFolders`）— 例え ば `base/` の下に単独の `Component` がある場合、`base/Component` として表示され ます。
+- **各 module はクリック可能で展開可能な node です** — その label は module の page を開き、その chevron は展開して members を表示します。
+- **Members はその module の下に nest され**、**kind** で順序付けられます （Enumerations → Classes → Interfaces → Type Aliases → Variables → Functions）、その後アルファベット順です。sidebar には kind ごとの sub-headings はありません。
+- **Namespaces** も同じ方法で node として nest します。
+
+Rendering の詳細（Hierarchy/Implements sections、`@inheritDoc` など）はすべて [TypeDoc Getting Started](/theme/typedoc-getting-started#the-typedoc-sidebar) にあります。
+
+### どのレバーが TypeDoc にも適用されるか
+
+| レバー                                           | TypeDoc **API** tree への効果               | それ以外への効果                                                                                                  |
+| --------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `@category`                                   | なし — module hierarchy 内の symbol を移動させない | 依然として parse される                                                                                           |
+| `@group`                                      | なし — sidebar を駆動しない                     | 依然として parse される（[TypeDoc Getting Started](/theme/typedoc-getting-started#typedoc-specific-rendering) を参照） |
+| `@order`                                      | なし — module 内の kind order は固定           | —                                                                                                         |
+| `sectionOrder`                                | なし                                      | 依然として **doc/tutorial groups** を順序付ける                                                                      |
+| `clubSidebarItems`                            | なし                                      | —                                                                                                         |
+| `docGroups` / doc frontmatter `group`/`order` | —                                       | **機能する** — prose doc groups を順序付け、API hierarchy の前に render される                                            |
+| `menu`                                        | —                                       | **機能する** — JSDoc と同じ top-region の挙動                                                                       |
+| Tutorials                                     | —                                       | **依然として render される**                                                                                      |
+
+<Callout type="info">
+  `@category`/`@group` に駆動される TypeDoc API sidebar を復元すること （TypeDoc 自身の opt-in な category/group navigation に合わせて）は、 **現在 configurable ではありません**。
+</Callout>
 
 ## まとめて組み立てる
 
-現実的な混在 config:
+現実的な混在 config。下記の `sectionOrder` と `clubSidebarItems` は **JSDoc** タブの API sidebar にのみ影響することに注意してください — TypeDoc タブでは、 それらは依然として doc groups/tutorials に適用されますが、API tree は [TypeDoc flavor](#typedoc-flavor) で説明した module hierarchy として、これらの options に関わらず render されます。
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)" value="JSDoc (jsdoc.json)">
@@ -141,10 +190,13 @@ Clubbing は順序にも配慮します: club された parent はその members
   <Tab label="TypeDoc (typedoc.json)" value="TypeDoc (typedoc.json)">
     ```json5
     cleanJsdocTheme: {
+      // "Core" と "Classes" はここでは、TypeDoc API tree には存在しない
+      // doc-group / kind-label semantics にのみ影響します — 上記の "TypeDoc flavor" を参照。
+      // "Getting Started" と "Guides"（doc groups）だけが実際にここで動きます。
       sectionOrder: ["Getting Started", "Core", "Classes", "Guides", "Modules"],
       docGroups: ["Getting Started", "Guides"],
       defaultDocGroup: "Docs",
-      clubSidebarItems: true,
+      clubSidebarItems: true, // TypeDoc API tree には効果なし
       menu: [
         { id: "home", title: "Home", icon: "lucide:home" },
         { title: "GitHub", link: "https://github.com/you/repo", icon: "simpleicons:github" },
@@ -154,10 +206,11 @@ Clubbing は順序にも配慮します: club された parent はその members
   </Tab>
 </Tabs>
 
-これを class への `@category Core/Parsing order=1` と guide への `order:` frontmatter と組み合わせれば、sidebar を上から下まで制御できます。
+**JSDoc** については、これを class への `@category Core/Parsing order=1` と guide への `order:` frontmatter と組み合わせれば、sidebar を上から下まで制御できます。 **TypeDoc** については、API tree は常に [TypeDoc flavor](#typedoc-flavor) の module hierarchy として render されます — 上記の options に応答するのは、あなたの doc groups、`menu`、tutorials だけです。
 
 ## 次に進む先
 
 - `@category` / `@order` tag リファレンス: [Custom tags](/components/overview)。
 - 完全な option 一覧: [Configuration](/theme/configuration)。
 - これが結び付ける 2 つの workflow: [Build a guides site](/guides/build-a-guides-site) · [Build an API reference](/guides/build-an-api-reference) · [Combine guides + API](/guides/combine-guides-and-api)。
+- TypeDoc sidebar + rendering の全体像: [TypeDoc Getting Started](/theme/typedoc-getting-started)。

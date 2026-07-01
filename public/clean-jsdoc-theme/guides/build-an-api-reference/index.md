@@ -61,6 +61,10 @@ The full toolchain setup lives in the getting-started guides; this page focuses 
 
 ## What becomes a page
 
+<Callout type="info">
+  The kind-section sidebar described below is the **JSDoc** flavor. TypeDoc builds each of these same pages too, but presents them in a module/folder hierarchy rather than kind sections — see [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar).
+</Callout>
+
 setu enumerates your documented symbols and turns each into a page. The kinds that get their **own** page are the **container kinds**, built in this order (see `CONTAINER_KINDS` in [`packages/setu/src/index.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/index.ts)):
 
 | Kind        | Sidebar section |
@@ -108,6 +112,10 @@ How the links resolve (see [`packages/setu/src/source-view.ts`](https://github.c
 ## Ordering the API sidebar
 
 By default the kind sections render in a fixed order (Classes, Modules, Namespaces, Mixins, Interfaces, Typedefs, Globals, …). Override it with [`sectionOrder`](/theme/configuration#sectionorder), and use `@category` / `@order` tags on your symbols for finer control. That's its own topic — [Structure your sidebar](/guides/structure-your-sidebar) covers every lever.
+
+<Callout type="info">
+  The levers above (`sectionOrder`, `@category`, `@order`) shape the **JSDoc** API sidebar. The TypeDoc API sidebar is a module/folder hierarchy and isn't ordered by these — see [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor).
+</Callout>
 
 ## Where to go next
 

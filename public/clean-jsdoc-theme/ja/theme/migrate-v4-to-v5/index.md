@@ -141,7 +141,7 @@ v4 は theme options を **`opts.theme_opts.*`** の下に nest していまし�
 
 - [**API のそばに Prose guides**](/guides/combine-guides-and-api) — `docs` + `docGroups`、このサイトが使っているのと同じ pipeline。
 - [**Authoring primitives**](/components/callouts) — comments と prose の中の callouts、steps、tabs、live embeds。
-- [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags、`clubSidebarItems`、`menu`。
+- [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags、`clubSidebarItems`、`menu`。（これらは **JSDoc** の sidebar levers です — TypeDoc の出力は代わりに module/folder hierarchy を使います。参照: [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。）
 - [**LLM features**](/theme/llm-skill) — page ごとの companion `.md`、copy-page ボタン、`aiPrompt`。
 
 ## エージェントに任せる

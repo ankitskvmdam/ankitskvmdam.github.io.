@@ -140,7 +140,7 @@ Migration एक upgrade भी है। एक बार v5 पर आने �
 
 - [**अपने API के साथ Prose guides**](/guides/combine-guides-and-api) — `docs` + `docGroups`, वही pipeline जो यह site इस्तेमाल करती है।
 - [**Authoring primitives**](/components/callouts) — comments और prose में callouts, steps, tabs, और live embeds।
-- [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags, `clubSidebarItems`, `menu`।
+- [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags, `clubSidebarItems`, `menu`। (ये **JSDoc** sidebar लीवर हैं — TypeDoc का output इसके बजाय एक module/folder पदानुक्रम उपयोग करता है; देखें [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)।)
 - [**LLM features**](/theme/llm-skill) — प्रति page एक साथी `.md`, copy-page button, और `aiPrompt`।
 
 ## किसी agent से करवाएँ

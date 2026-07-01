@@ -141,7 +141,7 @@ Migration is also an upgrade. Once you're on v5, reach for:
 
 - [**Prose guides beside your API**](/guides/combine-guides-and-api) — `docs` + `docGroups`, the same pipeline this site uses.
 - [**Authoring primitives**](/components/callouts) — callouts, steps, tabs, and live embeds in comments and prose.
-- [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags, `clubSidebarItems`, `menu`.
+- [**Sidebar structure**](/guides/structure-your-sidebar) — `@category` / `@order` tags, `clubSidebarItems`, `menu`. (These are the **JSDoc** sidebar levers — TypeDoc's output uses a module/folder hierarchy instead; see [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor).)
 - [**LLM features**](/theme/llm-skill) — a companion `.md` per page, the copy-page button, and `aiPrompt`.
 
 ## Let an agent do it

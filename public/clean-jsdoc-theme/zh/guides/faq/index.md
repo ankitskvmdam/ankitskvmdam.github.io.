@@ -169,6 +169,10 @@ export function connect() {}
 
 在符号上使用 `@category` / `@order`，在 guide 页面上使用 frontmatter 的 `group` / `order`， 以及 `sectionOrder` 选项。[Structure your sidebar](/guides/structure-your-sidebar) 涵盖了每一个调节杆。
 
+<Callout type="info">
+  这些调节杆控制的是 **JSDoc** 的 API 侧边栏。对于 **TypeDoc**，API 侧边栏是一种 module/folder 层级结构 —— 只有 doc groups 和 `menu` 会 响应上面的选项。见 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
+</Callout>
+
 ### 我的 `@category` / `@order` / `@playground` / `@iframe` tags 不起作用
 
 最可能的原因：你的 `jsdoc.json` 中 **`tags.allowUnknownTags` 不是 `true`**。 这些全都是基础 JSDoc 不定义的 tags，所以它会在主题运行**之前就把它们剥离**—— 你的 categories 会塌缩为默认的 kind sections，`@order` 不起任何作用，而 `@playground` / `@iframe` 永远不会渲染。请设置该 flag：

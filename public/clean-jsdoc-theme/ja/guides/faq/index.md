@@ -169,6 +169,10 @@ marker は 4 つの style に対応します: `[!NOTE]` / `[!INFO]` / `[!IMPORTA
 
 symbol には `@category` / `@order`、guide pages には frontmatter `group` / `order`、 そして `sectionOrder` option を使います。[Structure your sidebar](/guides/structure-your-sidebar) があらゆるレバーをカバーします。
 
+<Callout type="info">
+  それらのレバーは **JSDoc** API sidebar を制御します。**TypeDoc** の場合、API sidebar は module/folder hierarchy です — 上記の options に応答するのは doc groups と `menu` だけです。参照: [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
+</Callout>
+
 ### `@category` / `@order` / `@playground` / `@iframe` tags が動かない
 
 最も可能性の高い原因: あなたの `jsdoc.json` で **`tags.allowUnknownTags` が `true` になっていない** こと。これらはすべて基本の JSDoc が定義しない tags なので、JSDoc は **theme が走る前にそれらを取り除いてしまいます** — categories は default の kind sections に潰れ、`@order` は何もせず、`@playground` / `@iframe` は決して render され ません。flag を設定してください:

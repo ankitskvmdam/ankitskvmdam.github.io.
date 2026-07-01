@@ -61,6 +61,10 @@ toolchain のセットアップ全体は getting-started guides にあります;
 
 ## 何が page になるか
 
+<Callout type="info">
+  下記の kind-section sidebar は **JSDoc** flavor です。TypeDoc もこれらと 同じ pages をすべて構築しますが、kind sections ではなく module/folder hierarchy として提示します — 参照: [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar)。
+</Callout>
+
 setu はあなたの documented symbol を列挙し、それぞれを page に変えます。**それ自身の** page を得る kind は **container kinds** で、この順序で構築されます（ [`packages/setu/src/index.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/index.ts) の `CONTAINER_KINDS` を参照）:
 
 | Kind        | Sidebar section |
@@ -108,6 +112,10 @@ link がどう解決されるか（ [`packages/setu/src/source-view.ts`](https:/
 ## API sidebar を並べ替える
 
 default では kind section は固定の順序で render されます（Classes、Modules、 Namespaces、Mixins、Interfaces、Typedefs、Globals、…）。 [`sectionOrder`](/theme/configuration#sectionorder) でそれを override し、より細かい 制御には symbol に `@category` / `@order` tags を使います。これはそれ自体が 1 つの トピックです — [Structure your sidebar](/guides/structure-your-sidebar) があらゆる レバーをカバーします。
+
+<Callout type="info">
+  上記のレバー（`sectionOrder`、`@category`、`@order`）は **JSDoc** API sidebar を形作ります。TypeDoc API sidebar は module/folder hierarchy であり、これらに よって順序付けられることはありません — 参照: [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
+</Callout>
 
 ## 次に進む先
 

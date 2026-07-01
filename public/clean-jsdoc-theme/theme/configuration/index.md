@@ -296,11 +296,19 @@ The order of **all** top-level sidebar sections — both your doc/category group
   </Tab>
 </Tabs>
 
+<Callout type="info">
+  `sectionOrder` orders **doc/tutorial groups and JSDoc's API kind sections**. It does **not** order the TypeDoc API tree — that sidebar is a module/folder hierarchy with its own fixed ordering. See [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor).
+</Callout>
+
 ### `clubSidebarItems`
 
 Collapse related entries (e.g. a module and its members) under a shared, collapsible parent, grouped by the path segment before the first `/`.
 
 **Expected:** a boolean. Defaults to `false`.
+
+<Callout type="info">
+  `clubSidebarItems` has no effect on the TypeDoc API tree. See [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor).
+</Callout>
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)">

@@ -296,11 +296,19 @@ JSDoc 的 `--tutorials` 目录。每个教程都会成为一个指南页面，�
   </Tab>
 </Tabs>
 
+<Callout type="info">
+  `sectionOrder` 排序的是**doc/tutorial 分组以及 JSDoc 的 API kind sections**。它**不会**对 TypeDoc API 树排序 —— 那个侧边栏是一种 module/folder 层级结构，有其自身固定的顺序。见 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
+</Callout>
+
 ### `clubSidebarItems`
 
 将相关条目（例如一个模块及其成员）归并到一个共享、 可折叠的父项之下，按第一个 `/` 之前的路径段进行分组。
 
 **预期值：** 一个布尔值。默认值为 `false`。
+
+<Callout type="info">
+  `clubSidebarItems` 对 TypeDoc API 树没有任何效果。见 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
+</Callout>
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)">

@@ -31,7 +31,7 @@ salty doclet collection を与えると、`generateSite` ([`generate-site.ts` �
 - **集約された1つの "Globals" page。** 自分の page を持たないすべての global-scope symbol (functions、members、constants、enums、events) は、1つの synthetic container 上の member section として render されます ([`buildGlobalsView`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts))。
 - **Prose / guide pages** は3つの free-form なソースから: project README (home page)、docs directory、そして JSDoc tutorials ([`guide-view.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/guide-view.ts))。
 - **Read-only な source-viewer pages** と、各 member から戻る `Source: file:line` links。bridge が project の source files を供給したとき ([`source-view.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/source-view.ts))。
-- **nav tree** — sidebar — は kind ごと、または authored な `@category` ごとに sections へグループ化され、`sectionOrder` / `@order` によって順序付けられます ([`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts))。
+- **nav tree** — sidebar — は kind ごと、または authored な `@category` ごとに sections へグループ化され、`sectionOrder` / `@order` によって順序付けられます ([`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts))。 （これは **JSDoc** flavor の nav です; TypeDoc flavor は代わりに module/folder hierarchy を構築します — 参照: [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar)。）
 - **Resolved cross-references** は、すべての `{@link}` / `@see` / `@tutorial` に対して ([`link-registry.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/link-registry.ts))。
 
 ## contract の boundaries

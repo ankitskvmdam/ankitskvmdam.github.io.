@@ -61,6 +61,10 @@ order: 1
 
 ## क्या page बनता है
 
+<Callout type="info">
+  नीचे बताई गई kind-section sidebar **JSDoc** flavor है। TypeDoc भी यही सभी pages बनाता है, पर उन्हें kind sections के बजाय एक module/folder पदानुक्रम में प्रस्तुत करता है — देखें [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar)।
+</Callout>
+
 setu आपके documented symbols की गणना करता है और प्रत्येक को एक page में बदल देता है। जिन kinds को **अपना खुद का** page मिलता है, वे हैं **container kinds**, इस क्रम में बनाई गईं (देखें [`packages/setu/src/index.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/index.ts) में `CONTAINER_KINDS`):
 
 | Kind        | Sidebar section |
@@ -108,6 +112,10 @@ links कैसे हल होते हैं (देखें [`packages/set
 ## API sidebar को क्रमित करना
 
 default रूप से kind sections एक निश्चित क्रम में render होते हैं (Classes, Modules, Namespaces, Mixins, Interfaces, Typedefs, Globals, …)। इसे [`sectionOrder`](/theme/configuration#sectionorder) से override करें, और अधिक सूक्ष्म नियंत्रण के लिए अपने symbols पर `@category` / `@order` tags का उपयोग करें। यह अपने आप में एक विषय है — [Structure your sidebar](/guides/structure-your-sidebar) हर लीवर को कवर करता है।
+
+<Callout type="info">
+  ऊपर वाले लीवर (`sectionOrder`, `@category`, `@order`) **JSDoc** API sidebar को आकार देते हैं। TypeDoc API sidebar एक module/folder पदानुक्रम है और इनसे क्रमित नहीं होती — देखें [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)।
+</Callout>
 
 ## आगे कहाँ जाएँ
 

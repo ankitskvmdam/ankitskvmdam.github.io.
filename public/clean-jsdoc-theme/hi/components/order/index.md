@@ -22,6 +22,10 @@ order: 7
   `@order` एक unknown tag है — अपने `jsdoc.json` में `tags.allowUnknownTags: true` सेट करें वरना JSDoc उसे छील देता है। देखें [overview](/components/overview)। (TypeDoc को किसी flag की ज़रूरत नहीं।)
 </Callout>
 
+<Callout type="info">
+  यह sort key **JSDoc** sidebar पर लागू होता है। `@order` का TypeDoc API sidebar पर कोई प्रभाव नहीं पड़ता — किसी module के भीतर, members `@order` से नहीं बल्कि kind से और फिर alphabetically क्रमित होते हैं। देखें [The TypeDoc sidebar](/theme/typedoc-getting-started#the-typedoc-sidebar)।
+</Callout>
+
 ## कब किसे उपयोग करें
 
 | Situation                                         | Use                                      |

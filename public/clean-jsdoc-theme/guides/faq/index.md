@@ -169,6 +169,10 @@ Set `siteName` to a logo object with `light` / `dark` image paths (and an `alt` 
 
 Use `@category` / `@order` on symbols, frontmatter `group` / `order` on guide pages, and the `sectionOrder` option. [Structure your sidebar](/guides/structure-your-sidebar) covers every lever.
 
+<Callout type="info">
+  Those levers control the **JSDoc** API sidebar. For **TypeDoc**, the API sidebar is a module/folder hierarchy — only doc groups and `menu` respond to the options above. See [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor).
+</Callout>
+
 ### My `@category` / `@order` / `@playground` / `@iframe` tags aren't working
 
 The most likely cause: **`tags.allowUnknownTags` isn't `true`** in your `jsdoc.json`. These are all tags base JSDoc doesn't define, so it **strips them before the theme runs** — your categories collapse to the default kind sections, `@order` does nothing, and `@playground` / `@iframe` never render. Set the flag:

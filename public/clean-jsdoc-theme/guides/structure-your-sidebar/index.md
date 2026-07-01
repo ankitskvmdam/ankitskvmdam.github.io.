@@ -10,7 +10,11 @@ order: 4
 The sidebar is assembled from several levers that all feed one ordering engine ([`assembleNav`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)). This page ties them together: where groups come from, how nesting works, and the exact rules that decide the order. Once you see that **every entry carries a `group` path and an optional `order`**, the rest follows.
 
 <Callout type="info">
-  The two source tags below — `@category` and `@order` — are documented in depth on [Custom tags](/components/overview). This page covers how they (and the config options) feed the sidebar; it doesn't re-document the tag syntax in full.
+  **This unified model is the JSDoc template's behavior.** The TypeDoc output builds its **API sidebar** differently — a module/folder hierarchy, not kind/category groups — so `@category`, `@order`, `sectionOrder`, and `clubSidebarItems` have **no effect on the TypeDoc API tree**. Jump straight to [TypeDoc flavor](#typedoc-flavor) if that's what you're configuring. Doc groups (`docGroups` + frontmatter), `menu`, and tutorials still work the same for both.
+</Callout>
+
+<Callout type="info">
+  The two source tags below — `@category` and `@order` — are documented in depth on [Custom tags](/components/overview). This page covers how they (and the config options) feed the sidebar; it doesn't re-document the tag syntax in full. Unless noted otherwise, everything through [TypeDoc flavor](#typedoc-flavor) describes the **JSDoc template**.
 </Callout>
 
 ## The unified model
@@ -31,6 +35,10 @@ Where they come from:
 That single abstraction is why a guide and a class can share a sidebar group: if both resolve to the group `Core`, they bucket together.
 
 ## Lever 1 — group a symbol with `@category`
+
+<Callout type="info">
+  **JSDoc only, for the sidebar.** `@category` is still parsed by the TypeDoc bridge (as documented in [TypeDoc flavor](#typedoc-flavor)), but it does not move a symbol's page in the TypeDoc API sidebar — that sidebar is a module hierarchy, not category groups.
+</Callout>
 
 Tag a source symbol to put its page in an explicit group instead of its kind section:
 
@@ -54,6 +62,10 @@ This places `Lexer` under **Core ▸ Parsing**, sorted first in its subgroup. Tw
 - **`/` is what nests** a group, not spaces. `Core/Parsing` nests; `Getting Started` is a single flat group whose label contains a space.
 
 ## Lever 2 — order any symbol with `@order`
+
+<Callout type="info">
+  **JSDoc only, for the sidebar.** `@order` has no effect on TypeDoc's API sidebar ordering — within-module ordering there is fixed by kind (see [TypeDoc flavor](#typedoc-flavor)).
+</Callout>
 
 The inline `order=` option only works on a symbol that _has_ a `@category`. To position a symbol that lives in its **kind section** (a plain `@class`, `@module`, …), use the standalone `@order` tag:
 
@@ -88,6 +100,10 @@ Pages with no `order` sort last (effectively `+∞`), then alphabetically. This 
 
 ## Lever 4 — `clubSidebarItems`
 
+<Callout type="info">
+  **JSDoc only, for the API tree.** `clubSidebarItems` has no effect on the TypeDoc API sidebar (see [TypeDoc flavor](#typedoc-flavor)).
+</Callout>
+
 [`clubSidebarItems`](/theme/configuration#clubsidebaritems) collapses related entries under a shared parent by the path segment **before the first `/` in their label** — e.g. `queue`, `queue/Queue`, `queue/types` club under a `queue` parent. A prefix shared by only one entry is left flat. Done by `clubNavTree` ([`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts)).
 
 <Callout type="info">
@@ -97,6 +113,10 @@ Pages with no `order` sort last (effectively `+∞`), then alphabetically. This 
 Clubbing is also order-aware: a clubbed parent sorts by the min `order` of its members, and the bare-prefix entry (e.g. the `queue` module itself) becomes an `index` child sorted first unless an explicit `@order` pulls a sibling ahead.
 
 ## Lever 5 — `sectionOrder`
+
+<Callout type="info">
+  **Partly JSDoc-only.** `sectionOrder` has no effect on the TypeDoc **API** tree — but it still orders TypeDoc's **doc/tutorial groups** the same way it does for JSDoc. See [TypeDoc flavor](#typedoc-flavor).
+</Callout>
 
 [`sectionOrder`](/theme/configuration#sectionorder) orders the **top-level** groups — one unified list mixing kind labels, `@category` names, and doc-group names.
 
@@ -115,11 +135,40 @@ Covered end-to-end in [Build a guides site](/guides/build-a-guides-site).
 
 ## Lever 7 — `menu`
 
-[`menu`](/theme/configuration#menu) replaces the auto Home / Source Files links with a **top region** above the sections, each entry with an icon (`lucide:<name>` or `simpleicons:<name>`). When `menu` is set it **owns** the home/source links — the automatic Home (first) and Source Files (last) entries are suppressed and appear only if you list them (`{ id: "home" }` / `{ id: "source" }`); external links appear inline. The sections below the menu **still** follow `sectionOrder`. See `resolveMenuItem` in [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts); this site's [`jsdoc.json`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/docs-site/jsdoc.json) uses a `menu`.
+[`menu`](/theme/configuration#menu) replaces the auto Home / Source Files links with a **top region** above the sections, each entry with an icon (`lucide:<name>` or `simpleicons:<name>`). When `menu` is set it **owns** the home/source links — the automatic Home (first) and Source Files (last) entries are suppressed and appear only if you list them (`{ id: "home" }` / `{ id: "source" }`); external links appear inline. The sections below the menu **still** follow `sectionOrder`. See `resolveMenuItem` in [`generate-site.ts`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/packages/setu/src/generate-site.ts); this site's [`jsdoc.json`](https://github.com/ankitskvmdam/clean-jsdoc-theme/blob/master/docs-site/jsdoc.json) uses a `menu`. This still applies to TypeDoc.
+
+## TypeDoc flavor
+
+The TypeDoc output does **not** use the unified group/order model above for its **API sidebar**. It mirrors TypeDoc's own default theme instead — a module/folder hierarchy built from your source layout, not from `@category` or kind buckets:
+
+- **Top level = your documents first, then folders and modules**, alphabetically — there are no top-level kind sections.
+- **Folders** mirror your source's directory structure. A folder with a single child is **merged** into that child (`compactFolders`) — e.g. a lone `Component` under `base/` shows as `base/Component`.
+- **Each module is a clickable, expandable node** — its label opens the module's page, its chevron expands to reveal members.
+- **Members nest under their module**, ordered by **kind** (Enumerations → Classes → Interfaces → Type Aliases → Variables → Functions), then alphabetically. There are no per-kind sub-headings in the sidebar.
+- **Namespaces** nest as nodes the same way.
+
+Full rendering details (Hierarchy/Implements sections, `@inheritDoc`, etc.) are on [TypeDoc Getting Started](/theme/typedoc-getting-started#the-typedoc-sidebar).
+
+### Which levers still apply to TypeDoc
+
+| Lever                                         | Effect on the TypeDoc **API** tree                    | Effect elsewhere                                                                                        |
+| --------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `@category`                                   | None — does not move a symbol in the module hierarchy | Still parsed                                                                                            |
+| `@group`                                      | None — does not drive the sidebar                     | Still parsed (see [TypeDoc Getting Started](/theme/typedoc-getting-started#typedoc-specific-rendering)) |
+| `@order`                                      | None — kind order within a module is fixed            | —                                                                                                       |
+| `sectionOrder`                                | None                                                  | Still orders **doc/tutorial groups**                                                                    |
+| `clubSidebarItems`                            | None                                                  | —                                                                                                       |
+| `docGroups` / doc frontmatter `group`/`order` | —                                                     | **Works** — orders prose doc groups, rendered before the API hierarchy                                  |
+| `menu`                                        | —                                                     | **Works** — same top-region behavior as JSDoc                                                           |
+| Tutorials                                     | —                                                     | **Still render**                                                                                        |
+
+<Callout type="info">
+  Restoring a `@category`/`@group`-driven TypeDoc API sidebar (matching TypeDoc's own opt-in category/group navigation) is **not currently configurable**.
+</Callout>
 
 ## Putting it together
 
-A realistic mixed config:
+A realistic mixed config. Note that `sectionOrder` and `clubSidebarItems` below only affect the **JSDoc** tab's API sidebar — on the TypeDoc tab they still apply to doc groups/tutorials, but the API tree renders as the module hierarchy described in [TypeDoc flavor](#typedoc-flavor) regardless of these options.
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)" value="JSDoc (jsdoc.json)">
@@ -141,10 +190,13 @@ A realistic mixed config:
   <Tab label="TypeDoc (typedoc.json)" value="TypeDoc (typedoc.json)">
     ```json5
     cleanJsdocTheme: {
+      // "Core" and "Classes" here only affect doc-group / kind-label semantics
+      // that don't exist for the TypeDoc API tree — see "TypeDoc flavor" above.
+      // Only "Getting Started" and "Guides" (doc groups) actually move here.
       sectionOrder: ["Getting Started", "Core", "Classes", "Guides", "Modules"],
       docGroups: ["Getting Started", "Guides"],
       defaultDocGroup: "Docs",
-      clubSidebarItems: true,
+      clubSidebarItems: true, // no effect on the TypeDoc API tree
       menu: [
         { id: "home", title: "Home", icon: "lucide:home" },
         { title: "GitHub", link: "https://github.com/you/repo", icon: "simpleicons:github" },
@@ -154,10 +206,11 @@ A realistic mixed config:
   </Tab>
 </Tabs>
 
-Combine that with `@category Core/Parsing order=1` on your classes and `order:` frontmatter on your guides, and you control the sidebar top to bottom.
+For **JSDoc**, combine that with `@category Core/Parsing order=1` on your classes and `order:` frontmatter on your guides, and you control the sidebar top to bottom. For **TypeDoc**, the API tree always renders as the module hierarchy from [TypeDoc flavor](#typedoc-flavor) — only your doc groups, `menu`, and tutorials respond to the options above.
 
 ## Where to go next
 
 - The `@category` / `@order` tag reference: [Custom tags](/components/overview).
 - The full option list: [Configuration](/theme/configuration).
 - The two workflows this ties together: [Build a guides site](/guides/build-a-guides-site) · [Build an API reference](/guides/build-an-api-reference) · [Combine guides + API](/guides/combine-guides-and-api).
+- The TypeDoc sidebar + rendering in full: [TypeDoc Getting Started](/theme/typedoc-getting-started).

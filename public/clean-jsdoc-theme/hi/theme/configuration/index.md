@@ -296,11 +296,19 @@ JSDoc की `--tutorials` directory। हर tutorial एक guide page बन
   </Tab>
 </Tabs>
 
+<Callout type="info">
+  `sectionOrder` **doc/tutorial groups और JSDoc की API kind sections** को क्रमित करता है। यह TypeDoc API tree को क्रमित **नहीं** करता — वह sidebar एक अपने स्थिर क्रम वाला module/folder पदानुक्रम है। देखें [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)।
+</Callout>
+
 ### `clubSidebarItems`
 
 संबंधित entries (जैसे एक module और उसके members) को एक साझा, collapsible parent के नीचे समेटें, पहले `/` से पहले वाले path segment के अनुसार समूहित।
 
 **अपेक्षित:** एक boolean। Default `false`।
+
+<Callout type="info">
+  `clubSidebarItems` का TypeDoc API tree पर कोई प्रभाव नहीं पड़ता। देखें [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)।
+</Callout>
 
 <Tabs group="tool">
   <Tab label="JSDoc (jsdoc.json)">
