@@ -291,13 +291,14 @@ JSDoc 的 `--tutorials` 目录。每个教程都会成为一个指南页面，�
 
   <Tab label="TypeDoc (typedoc.json)">
     ```json5
+    // 可接受，但在 TypeDoc 下没有效果 —— 见下方 note。
     cleanJsdocTheme: { sectionOrder: ["Getting Started", "Guides", "Classes", "Modules"] }
     ```
   </Tab>
 </Tabs>
 
 <Callout type="info">
-  `sectionOrder` 排序的是**doc/tutorial 分组以及 JSDoc 的 API kind sections**。它**不会**对 TypeDoc API 树排序 —— 那个侧边栏是一种 module/folder 层级结构，有其自身固定的顺序。见 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
+  在 **JSDoc** 下，`sectionOrder` 排序 doc/tutorial 分组以及 API kind sections。在 **TypeDoc** 下它**完全没有效果** —— 那个侧边栏是一种 module/folder 层级结构，有其自身固定的顺序，其中的 doc 分组由 [`docGroups`](#docgroups) 排序，而非 `sectionOrder`。见 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor)。
 </Callout>
 
 ### `clubSidebarItems`

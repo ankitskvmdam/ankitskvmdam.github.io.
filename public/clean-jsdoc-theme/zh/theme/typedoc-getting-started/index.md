@@ -80,15 +80,14 @@ order: 3
 
 每个主题选项都与 JSDoc 的完全相同 —— 只是位置不同：放在 **`cleanJsdocTheme`** 下面，而不是 `opts`。完整的列表，连同两种形式并排 展示，都在 [Configuration](/theme/configuration) 页面上。先从这几个开始：
 
-| Option                                                                                                              | 它的作用                                                       |
-| ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [`siteName`](/theme/configuration#sitename)                                                                         | 页头标题 —— 纯文本，或一组带 `alt` 后备文本的 `light`/`dark` logo。          |
-| [`fonts`](/theme/configuration#fonts)                                                                               | 覆盖 `heading` / `body`（Google Fonts，已为你加载）以及 `mono`。        |
-| [`colors`](/theme/configuration#colors-and-darkcolors) / [`darkColors`](/theme/configuration#colors-and-darkcolors) | 重新着色 light / dark 调色板 —— 仅覆盖 `bg`、`accent`……，其余保持不变。       |
-| [`sectionOrder`](/theme/configuration#sectionorder)                                                                 | 排定顶层 sidebar 区块的顺序。                                        |
-| [`clubSidebarItems`](/theme/configuration#clubsidebaritems)                                                         | 将相关条目收拢到一个共享的、可折叠的父项之下。                                    |
-| [`menu`](/theme/configuration#menu)                                                                                 | 固定在 sidebar 上方的自定义链接，每个都带一个 `lucide:` / `simpleicons:` 图标。 |
-| [`copyPage`](/theme/configuration#copypage)                                                                         | 每页的 "copy page" / "open in LLM" 按钮（默认开启）。                  |
+| Option                                                                                                              | 它的作用                                                        |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [`siteName`](/theme/configuration#sitename)                                                                         | 页头标题 —— 纯文本，或一组带 `alt` 后备文本的 `light`/`dark` logo。           |
+| [`fonts`](/theme/configuration#fonts)                                                                               | 覆盖 `heading` / `body`（Google Fonts，已为你加载）以及 `mono`。         |
+| [`colors`](/theme/configuration#colors-and-darkcolors) / [`darkColors`](/theme/configuration#colors-and-darkcolors) | 重新着色 light / dark 调色板 —— 仅覆盖 `bg`、`accent`……，其余保持不变。        |
+| [`menu`](/theme/configuration#menu)                                                                                 | 固定在 sidebar 上方的自定义链接，每个都带一个 `lucide:` / `simpleicons:` 图标。  |
+| [`docGroups`](/theme/configuration#docgroups)                                                                       | 排定 sidebar 中 prose **doc groups** 的顺序（API 区块是 module 层级结构）。 |
+| [`copyPage`](/theme/configuration#copypage)                                                                         | 每页的 "copy page" / "open in LLM" 按钮（默认开启）。                   |
 
 <Callout type="info">
   由于 `cleanJsdocTheme` 是一个专用的 namespace，其中未知的 key 只会 **warn**（并附带一条 "did you mean?" 提示）—— 参见 [`strict`](/theme/configuration#strict) 以将其升级为 error。

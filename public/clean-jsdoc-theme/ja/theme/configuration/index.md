@@ -291,13 +291,14 @@ JSDoc の `--tutorials` directory です。各 tutorial は guide page になり
 
   <Tab label="TypeDoc (typedoc.json)">
     ```json5
+    // 受け付けられますが TypeDoc では効果がありません — 下記の note を参照。
     cleanJsdocTheme: { sectionOrder: ["Getting Started", "Guides", "Classes", "Modules"] }
     ```
   </Tab>
 </Tabs>
 
 <Callout type="info">
-  `sectionOrder` は **doc/tutorial groups と JSDoc の API kind sections** を 順序付けます。TypeDoc API tree を順序付ける**ことはありません** — その sidebar は独自の固定された順序を持つ module/folder hierarchy です。 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor) を参照してください。
+  **JSDoc** では `sectionOrder` は doc/tutorial groups と API kind sections を 順序付けます。**TypeDoc** では**まったく効果がありません** — その sidebar は 独自の固定された順序を持つ module/folder hierarchy であり、そこでの doc groups は `sectionOrder` ではなく [`docGroups`](#docgroups) で順序付けられます。 [TypeDoc flavor](/guides/structure-your-sidebar#typedoc-flavor) を参照してください。
 </Callout>
 
 ### `clubSidebarItems`
