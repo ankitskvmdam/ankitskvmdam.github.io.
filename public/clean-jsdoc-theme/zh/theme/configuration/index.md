@@ -15,6 +15,10 @@ order: 4
   未知或拼写错误的选项默认只会**警告**（并附带“did you mean?” 提示）——构建会继续进行。将 [`strict`](#strict) 设为启用，可把这些警告 变为错误。
 </Callout>
 
+<Callout type="tip">
+  没有看到这里记录的某个选项？请确保你使用的是主题的**最新版本**——新选项会定期发布， 构建中缺少某个选项通常意味着已安装的版本早于该选项。
+</Callout>
+
 ## JSDoc vs TypeDoc
 
 本页的每个选项对于两种工具都是相同的——只是**放置位置** 不同。在 JSDoc 中，主题选项位于 `opts` 之下；在 TypeDoc 中，则位于 `cleanJsdocTheme` 之下。
@@ -321,6 +325,40 @@ JSDoc 的 `--tutorials` 目录。每个教程都会成为一个指南页面，�
   <Tab label="TypeDoc (typedoc.json)">
     ```json5
     cleanJsdocTheme: { clubSidebarItems: true }
+    ```
+  </Tab>
+</Tabs>
+
+### `collapsibleSidebarSections`
+
+让顶层侧边栏分节可折叠——每个分节标题都会变成一个可展开/折叠其条目的开关。 分节默认**展开**；访客的折叠/展开状态会按访客各自持久化保存在 `localStorage` 中。
+
+**预期值：** `true`（或省略）→ 每个顶层分节都可折叠（**默认**）；`false` → 都不可折叠；一个 `string[]` → 仅列出的分节标签，进行**精确且区分大小写**的 匹配（`'Class'` 与 `'Classes'` **不**匹配）。这些标签就是渲染出的分节标题： 复数形式的类型标签（`Classes`、`Namespaces`、`Interfaces`、`Modules`、 `Typedefs`/`Type Aliases`、`Enumerations`、`Functions`、`Variables`、 `Globals`）、`@category` 的顶层片段、doc-group 标签、`Tutorials`，以及 `Source Files`。数组中若有条目未匹配到任何渲染出的分节，会打印一条构建警告， 列出实际可用的分节。
+
+<Callout type="info">
+  **没有函数形式**——该值在构建时被解析一次。与 `sectionOrder` / `clubSidebarItems` 不同，`collapsibleSidebarSections` 在 **JSDoc 和 TypeDoc 下的行为完全一致**。
+</Callout>
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: {
+      // all top-level sections collapsible (default if omitted)
+      collapsibleSidebarSections: true,
+
+      // …or only these (exact, case-sensitive labels):
+      collapsibleSidebarSections: ["Namespaces", "Classes"],
+    }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: {
+      collapsibleSidebarSections: true,
+      // …or only these (exact, case-sensitive labels):
+      collapsibleSidebarSections: ["Namespaces", "Classes"],
+    }
     ```
   </Tab>
 </Tabs>

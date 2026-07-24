@@ -112,6 +112,8 @@ inline の `order=` option は、`@category` を _持つ_ symbol でのみ機能
 
 Clubbing は順序にも配慮します: club された parent はその members の最小 `order` で ソートされ、bare-prefix の entry（例えば `queue` module 自身）は最初にソートされる `index` child になります — ただし明示的な `@order` が兄弟を前に引き出さない限り。
 
+ここで併せて知っておくとよいのが [`collapsibleSidebarSections`](/theme/configuration#collapsiblesidebarsections) です。_何が_ group されるかは変えず、render される top-level section headers 自体（kind labels、`@category` groups、doc groups、`Tutorials`、 `Source Files`）を、default で開いた collapse toggle に変えます。`true`/省略 （すべての section）、`false`（どれも対象外）、または完全一致・大文字小文字を 区別する label の `string[]` を受け付けます。この page の他のどのレバーとも異なり、 **JSDoc と TypeDoc の両方**で同じように動作します — 下記の [TypeDoc flavor](#typedoc-flavor) を参照してください。
+
 ## レバー 5 — `sectionOrder`
 
 <Callout type="info">
@@ -151,16 +153,21 @@ Rendering の詳細（Hierarchy/Implements sections、`@inheritDoc` など）は
 
 ### どのレバーが TypeDoc にも適用されるか
 
-| レバー                                           | TypeDoc **API** tree への効果               | それ以外への効果                                                                                                  |
-| --------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `@category`                                   | なし — module hierarchy 内の symbol を移動させない | 依然として parse される                                                                                           |
-| `@group`                                      | なし — sidebar を駆動しない                     | 依然として parse される（[TypeDoc Getting Started](/theme/typedoc-getting-started#typedoc-specific-rendering) を参照） |
-| `@order`                                      | なし — module 内の kind order は固定           | —                                                                                                         |
-| `sectionOrder`                                | なし                                      | なし — 代わりに **doc groups** は `docGroups` で順序付ける                                                             |
-| `clubSidebarItems`                            | なし                                      | —                                                                                                         |
-| `docGroups` / doc frontmatter `group`/`order` | —                                       | **機能する** — prose doc groups を順序付け、API hierarchy の前に render される                                            |
-| `menu`                                        | —                                       | **機能する** — JSDoc と同じ top-region の挙動                                                                       |
-| Tutorials                                     | —                                       | **依然として render される**                                                                                      |
+| レバー                                           | TypeDoc **API** tree への効果                | それ以外への効果                                                                                                  |
+| --------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `@category`                                   | なし — module hierarchy 内の symbol を移動させない  | 依然として parse される                                                                                           |
+| `@group`                                      | なし — sidebar を駆動しない                      | 依然として parse される（[TypeDoc Getting Started](/theme/typedoc-getting-started#typedoc-specific-rendering) を参照） |
+| `@order`                                      | なし — module 内の kind order は固定            | —                                                                                                         |
+| `sectionOrder`                                | なし                                       | なし — 代わりに **doc groups** は `docGroups` で順序付ける                                                             |
+| `clubSidebarItems`                            | なし                                       | —                                                                                                         |
+| `docGroups` / doc frontmatter `group`/`order` | —                                        | **機能する** — prose doc groups を順序付け、API hierarchy の前に render される                                            |
+| `menu`                                        | —                                        | **機能する** — JSDoc と同じ top-region の挙動                                                                       |
+| `collapsibleSidebarSections`                  | **機能する** — JSDoc と同じ collapse-toggle の挙動 | **機能する**                                                                                                  |
+| Tutorials                                     | —                                        | **依然として render される**                                                                                      |
+
+<Callout type="info">
+  `@category`、`@order`、`sectionOrder`、`clubSidebarItems` とは異なり — これらはここでは無効です — [`collapsibleSidebarSections`](/theme/configuration#collapsiblesidebarsections) は TypeDoc の下でも**適用されます**: これは、この build で実際に render される sections に対して解決された、同じ render 済み top-level section headers（module/kind/doc-group labels）を折りたたみ可能な headers に変えます。
+</Callout>
 
 <Callout type="info">
   `@category`/`@group` に駆動される TypeDoc API sidebar を復元すること （TypeDoc 自身の opt-in な category/group navigation に合わせて）は、 **現在 configurable ではありません**。

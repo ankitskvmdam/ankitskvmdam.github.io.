@@ -15,6 +15,10 @@ Each option below shows the snippet for both tools in tabs — pick the one that
   Unknown or misspelled options only **warn** by default (with a "did you mean?" hint) — the build continues. Set [`strict`](#strict) to turn those warnings into errors.
 </Callout>
 
+<Callout type="tip">
+  Don't see an option documented here? Make sure you're on the **latest version** of the theme — new options ship regularly, and an option that seems missing in your build usually means the installed version predates it.
+</Callout>
+
 ## JSDoc vs TypeDoc
 
 Every option on this page is the same for both tools — only **where you put it** differs. In JSDoc the theme options go under `opts`; in TypeDoc, under `cleanJsdocTheme`.
@@ -325,6 +329,40 @@ Collapse related entries (e.g. a module and its members) under a shared, collaps
   </Tab>
 </Tabs>
 
+### `collapsibleSidebarSections`
+
+Make top-level sidebar sections collapsible — each section header becomes a toggle that expands/collapses its entries. Sections default **open**; a visitor's collapsed/expanded choice persists per-visitor in `localStorage`.
+
+**Expected:** `true` (or omitted) → every top-level section is collapsible (**default**); `false` → none are; a `string[]` → only the listed section labels, matched **exactly and case-sensitively** (`'Class'` does **not** match `'Classes'`). The labels are the rendered section headers: the plural kind labels (`Classes`, `Namespaces`, `Interfaces`, `Modules`, `Typedefs`/`Type Aliases`, `Enumerations`, `Functions`, `Variables`, `Globals`), `@category` top-level segments, doc-group labels, `Tutorials`, and `Source Files`. An array entry that matches no rendered section prints a build warning listing the sections that _are_ available.
+
+<Callout type="info">
+  **No function form** — the value is resolved once, at build time. Unlike `sectionOrder` / `clubSidebarItems`, `collapsibleSidebarSections` works identically under **both** JSDoc and TypeDoc.
+</Callout>
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: {
+      // all top-level sections collapsible (default if omitted)
+      collapsibleSidebarSections: true,
+
+      // …or only these (exact, case-sensitive labels):
+      collapsibleSidebarSections: ["Namespaces", "Classes"],
+    }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: {
+      collapsibleSidebarSections: true,
+      // …or only these (exact, case-sensitive labels):
+      collapsibleSidebarSections: ["Namespaces", "Classes"],
+    }
+    ```
+  </Tab>
+</Tabs>
+
 ### `menu`
 
 Custom links pinned above the sidebar navigation.
@@ -535,7 +573,7 @@ A custom site footer, rendered in place of the default footer on every page. Eit
 
 ### `meta`
 
-Site-wide custom `<meta>` tags. Pass an array of attribute objects — each object's key/value pairs become the attributes of one `<meta>` tag in `<head>` (`name`/`content`, `property`/`content`, `http-equiv`, `charset`, …). The theme emits `charset`/`viewport`/an auto `description` itself and **de-dupes**: an author entry sharing an identifying attribute (`name` / `property` / `http-equiv` / `charset`) replaces the theme's default rather than duplicating it (so your `description` wins). Values are escaped automatically; invalid attribute names are dropped. These are **site-wide** (no per-page meta yet).
+Site-wide custom `<meta>` tags. Pass an array of attribute objects — each object's key/value pairs become the attributes of one `<meta>` tag in `<head>` (`name`/`content`, `property`/`content`, `http-equiv`, `charset`, …). The theme emits `charset`, `viewport`, a `generator` tag (`clean-jsdoc-theme <version>`, so a built site records which version produced it), and an auto `description` itself and **de-dupes**: an author entry sharing an identifying attribute (`name` / `property` / `http-equiv` / `charset`) replaces the theme's default rather than duplicating it (so your `description` — or a custom `generator` — wins). Values are escaped automatically; invalid attribute names are dropped. These are **site-wide** (no per-page meta yet).
 
 **Expected:** an array of `{ [attr]: value }` objects.
 
