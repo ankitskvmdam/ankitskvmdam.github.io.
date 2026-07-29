@@ -487,6 +487,38 @@ JSDoc 的 `--tutorials` 目录。每个教程都会成为一个指南页面，�
 
 未知的键和非字符串值会被忽略。如果你完全省略 `darkColors`， 深色模式会回退到对 `colors` 进行合理的 bg/fg 互换。
 
+### `scrollbar`
+
+控制滚动条（页面以及任何可滚动面板，例如侧边栏或代码块）的呈现方式。
+
+**预期值：** `"styled"`（默认）、`"visible"` 或 `"native"` 三者之一。
+
+- `"styled"` —— 主题自带的细 themed overlay 滚动条，静止时不可见，仅在实际 滚动或悬停时才绘制。
+- `"visible"` —— 同样的细 themed 滚动条，但始终显示（不会在静止时隐藏）。
+- `"native"` —— 不做任何滚动条样式处理 —— 使用浏览器自身、始终可见的滚动条。
+
+默认的 overlay 在静止时会隐藏，这会导致在长页面中难以判断自己所在的位置 （[#281](https://github.com/ankitskvmdam/clean-jsdoc-theme/issues/281)）。如果 你希望滚动条始终保持可见，将 `scrollbar` 设置为 `"visible"` 或 `"native"`。该 选项在 **JSDoc 和 TypeDoc** 中均适用。
+
+<Tabs group="tool">
+  <Tab label="JSDoc (jsdoc.json)">
+    ```json5
+    opts: {
+      // "styled" (default) | "visible" | "native"
+      scrollbar: "native",
+    }
+    ```
+  </Tab>
+
+  <Tab label="TypeDoc (typedoc.json)">
+    ```json5
+    cleanJsdocTheme: {
+      // "styled" (default) | "visible" | "native"
+      scrollbar: "native",
+    }
+    ```
+  </Tab>
+</Tabs>
+
 ### `customCss` 和 `customJs`
 
 注入到每个页面的内联 CSS/JS。自定义 CSS 在主题样式表**之后**加载 （因此会覆盖它）；自定义 JS **最后**运行。
