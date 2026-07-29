@@ -1,0 +1,49 @@
+# clean-jsdoc-theme
+
+> A clean, customizable documentation theme for JSDoc and TypeDoc. It renders SSR HTML plus a companion Markdown file per page (for LLMs), a fuzzy search index, and optional Pagefind full-text search.
+
+The live documentation is at https://ankdev.me/clean-jsdoc-theme/ . Each page below links to its clean Markdown (`.md`) version. The full docs as a single file: https://ankdev.me/clean-jsdoc-theme/llms-full.txt
+
+## Using the Theme
+- [Overview](https://ankdev.me/clean-jsdoc-theme/theme/overview/index.md): clean-jsdoc-theme turns a JSDoc or TypeDoc project into a fast, modern,
+- [JSDoc Getting Started](https://ankdev.me/clean-jsdoc-theme/theme/jsdoc-getting-started/index.md): clean-jsdoc-theme is a JSDoc template. JSDoc does what it always does —
+- [TypeDoc Getting Started](https://ankdev.me/clean-jsdoc-theme/theme/typedoc-getting-started/index.md): For TypeScript projects, the theme ships as a TypeDoc plugin —
+- [Configuration](https://ankdev.me/clean-jsdoc-theme/theme/configuration/index.md): Every theme option lives under opts in your jsdoc.json (or, for TypeDoc,
+- [Use with an LLM](https://ankdev.me/clean-jsdoc-theme/theme/llm-skill/index.md): This theme is built for LLMs — every page ships a companion .md and a
+- [Migrating v4 → v5](https://ankdev.me/clean-jsdoc-theme/theme/migrate-v4-to-v5/index.md): v5 is a ground-up rewrite: it server-renders every page, emits a companion .md
+
+## Guides
+- [Build an API reference](https://ankdev.me/clean-jsdoc-theme/guides/build-an-api-reference/index.md): This is the pure-API workflow: point the tool at your source code and let it
+- [Build a guides site](https://ankdev.me/clean-jsdoc-theme/guides/build-a-guides-site/index.md): This is the prose-first workflow: you point the theme at a folder of
+- [Combine guides + API](https://ankdev.me/clean-jsdoc-theme/guides/combine-guides-and-api/index.md): This is the theme's signature capability: hand-written guides and a generated
+- [Structure your sidebar](https://ankdev.me/clean-jsdoc-theme/guides/structure-your-sidebar/index.md): The sidebar is assembled from several levers that all feed one ordering engine
+- [Localize your docs](https://ankdev.me/clean-jsdoc-theme/guides/localize-your-docs/index.md): clean-jsdoc-theme can ship your documentation in multiple languages. Each
+- [Working with images](https://ankdev.me/clean-jsdoc-theme/guides/working-with-images/index.md): Reference a local image from anywhere in your documentation — a docs page, a
+- [FAQ](https://ankdev.me/clean-jsdoc-theme/guides/faq/index.md): Short, practical answers to the questions that come up most — embedding live
+
+## Components
+- [Overview](https://ankdev.me/clean-jsdoc-theme/components/overview/index.md): The building blocks you reach for when authoring documentation — in prose
+- [Playground](https://ankdev.me/clean-jsdoc-theme/components/playground/index.md): In this guide you'll let readers run your examples without leaving the docs. With
+- [Embeds](https://ankdev.me/clean-jsdoc-theme/components/embeds/index.md): An embed is a sandboxed <iframe> — a CodePen, a StackBlitz, a live demo,
+- [Callouts](https://ankdev.me/clean-jsdoc-theme/components/callouts/index.md): Callouts are typed, colored notice boxes — the kind you use for a tip, a
+- [Steps](https://ankdev.me/clean-jsdoc-theme/components/steps/index.md): <steps> renders a vertical, numbered stepper — the kind of "1, 2, 3" walkthrough
+- [Tabs](https://ankdev.me/clean-jsdoc-theme/components/tabs/index.md): <tabs> renders a tabbed view — a row of clickable tab buttons over a set of
+- [@order](https://ankdev.me/clean-jsdoc-theme/components/order/index.md): @order N is a standalone within-group sort key for any symbol. The inline
+- [@category](https://ankdev.me/clean-jsdoc-theme/components/category/index.md): @category puts a symbol's generated page into an explicit sidebar group instead
+
+## Packages
+- [utils — Overview](https://ankdev.me/clean-jsdoc-theme/packages/utils-overview/index.md): @clean-jsdoc-theme/utils is the shared contract every other package in the
+- [utils — Examples](https://ankdev.me/clean-jsdoc-theme/packages/utils-examples/index.md): Everything is exported from the single package entry — there are no subpath
+- [aadesh — Overview](https://ankdev.me/clean-jsdoc-theme/packages/aadesh-overview/index.md): @clean-jsdoc-theme/aadesh is the CLI for clean-jsdoc-theme — localization is
+- [bhasha — Overview](https://ankdev.me/clean-jsdoc-theme/packages/bhasha-overview/index.md): @clean-jsdoc-theme/bhasha is the pure, browser-safe i18n core of
+- [setu — Overview](https://ankdev.me/clean-jsdoc-theme/packages/setu-overview/index.md): @clean-jsdoc-theme/setu owns the first half of the theme's pipeline: it turns a
+- [setu — Examples](https://ankdev.me/clean-jsdoc-theme/packages/setu-examples/index.md): setu is internal. You don't call generateSite in a normal docs build — the
+- [rang — Overview](https://ankdev.me/clean-jsdoc-theme/packages/rang-overview/index.md): @clean-jsdoc-theme/rang is the Preact component library that
+- [rang — Examples](https://ankdev.me/clean-jsdoc-theme/packages/rang-examples/index.md): Everything ships from the single package entry — package.json exposes only
+- [dwar — Overview](https://ankdev.me/clean-jsdoc-theme/packages/dwar-overview/index.md): @clean-jsdoc-theme/dwar owns the second half of the theme's pipeline: it is the
+- [dwar — Examples](https://ankdev.me/clean-jsdoc-theme/packages/dwar-examples/index.md): dwar is internal. You don't call render in a normal docs build — the JSDoc
+
+## Optional
+- [Full documentation, single file](https://ankdev.me/clean-jsdoc-theme/llms-full.txt): every page concatenated for one-shot ingestion
+- [JSDoc API reference example](https://ankdev.me/clean-jsdoc-theme/api-docs/): a generated JSDoc API site built with the theme
+- [TypeDoc API reference example](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/): a generated TypeDoc API site built with the theme
