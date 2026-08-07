@@ -4,6 +4,8 @@ const projects = {
     "My creation in code. Projects and experiments that reflects my journey as a software engineer.",
 
   readMore: "ReadMore",
+  readBlog: "Read blog",
+  openProject: "Open project",
   cleanJSDocTheme: {
     title: "Theme for JSDoc, clean-jsdoc-theme",
     description: ` A minimalist, responsive and highly customizable theme for JSDoc.

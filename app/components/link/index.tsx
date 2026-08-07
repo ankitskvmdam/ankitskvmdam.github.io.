@@ -1,4 +1,3 @@
-import { isExternal } from "node:util/types";
 import { Link as ReactRouterLink, LinkProps } from "react-router";
 
 export type TLinkProps = LinkProps & {

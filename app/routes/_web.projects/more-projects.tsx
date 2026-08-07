@@ -1,7 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { List, TListItem } from "~/components/list";
 import { Slash } from "~/components/section/slash";
-import { MEDIAPIPE_WEBWORKER_ROUTE } from "~/constants/routes";
+import {
+  MEDIAPIPE_WEBWORKER_BLOG_ROUTE,
+  MEDIAPIPE_WEBWORKER_ROUTE,
+} from "~/constants/routes";
 
 export function ProjectsMoreProjects() {
   const { t } = useTranslation("projects");
@@ -10,10 +13,21 @@ export function ProjectsMoreProjects() {
       id: "media-pipe-in-web-worker",
       title: t("runningMediaPipeInWebWorker.title"),
       description: t("runningMediaPipeInWebWorker.description"),
-      link: {
-        to: MEDIAPIPE_WEBWORKER_ROUTE,
-        isExternal: false,
-      },
+      // This one has both a running demo and a write-up about building it, so
+      // the entry offers each rather than picking one.
+      actions: [
+        {
+          id: "blog",
+          label: t("readBlog"),
+          to: MEDIAPIPE_WEBWORKER_BLOG_ROUTE,
+        },
+        {
+          id: "project",
+          label: t("openProject"),
+          to: MEDIAPIPE_WEBWORKER_ROUTE,
+          isPrimary: true,
+        },
+      ],
     },
   ];
 

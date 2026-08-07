@@ -8,6 +8,9 @@ export const BLOG_ROUTE = "/blog";
 export const ABOUT_ROUTE = "/about";
 export const HOME_ROUTE = "/";
 
+// Blog posts that other pages link to directly.
+export const MEDIAPIPE_WEBWORKER_BLOG_ROUTE = `${BLOG_ROUTE}/how-to-run-mediapipe-task-vision-in-a-web-worker`;
+
 // Project routes.
 export const PROJECT_ROUTE = "/project";
 export const MEDIAPIPE_WEBWORKER_ROUTE = `${PROJECT_ROUTE}/mediapipe-webworker?tab=${PREVIEW_TAB_SEARCH_PARAM}`;
