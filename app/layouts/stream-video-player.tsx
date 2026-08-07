@@ -3,7 +3,7 @@ import { cn } from "~/lib/utils";
 
 export type TStreamVideoPlayerProps = {
   stream: MediaStream;
-  onVideoReady?: () => void;
+  onVideoReady?: (video: HTMLVideoElement) => void;
   className?: string;
 };
 
@@ -12,17 +12,22 @@ export function StreamVideoPlayer(props: TStreamVideoPlayerProps) {
   const { stream, onVideoReady, className } = props;
 
   React.useEffect(() => {
-    function onCanPlay() {
-      onVideoReady?.();
+    const video = ref.current;
+
+    if (!stream || !video) return;
+
+    const onCanPlay = () => onVideoReady?.(video);
+
+    video.addEventListener("canplay", onCanPlay);
+    video.srcObject = stream;
+
+    // A stream that is already playing will not fire `canplay` again.
+    if (video.readyState >= 2) {
+      onVideoReady?.(video);
     }
 
-    if (!stream || !ref.current) return;
-
-    ref.current.addEventListener("canplay", onCanPlay);
-    ref.current.srcObject = stream;
-
     return () => {
-      ref.current?.removeEventListener("canplay", onCanPlay);
+      video.removeEventListener("canplay", onCanPlay);
     };
   }, [stream, onVideoReady]);
 

@@ -1,10 +1,14 @@
 import { TProjectCodeViewerFilePath } from "~/layouts/project-code-viewer/utils";
 
-const BASE_RAW_GITHUB_ROUTE =
-  "https://raw.githubusercontent.com/ankitskvmdam/ankitskvmdam.github.io./refs/heads/master/app";
+const RAW_REPO_ROUTE =
+  "https://raw.githubusercontent.com/ankitskvmdam/ankitskvmdam.github.io./refs/heads/master";
 
-const BASE_GITHUB_ROUTE =
-  "https://github.com/ankitskvmdam/ankitskvmdam.github.io./blob/master/app";
+const REPO_ROUTE =
+  "https://github.com/ankitskvmdam/ankitskvmdam.github.io./blob/master";
+
+const BASE_RAW_GITHUB_ROUTE = `${RAW_REPO_ROUTE}/app`;
+
+const BASE_GITHUB_ROUTE = `${REPO_ROUTE}/app`;
 
 const RAW_MEDIAPIPE_WEBWORKER_ROUTE = `${BASE_RAW_GITHUB_ROUTE}/routes/_web.project.mediapipe-webworker`;
 const VIEW_MEDIAPIPE_WEBWORKER_ROUTE = `${BASE_GITHUB_ROUTE}/routes/_web.project.mediapipe-webworker`;
@@ -15,7 +19,15 @@ const VIEW_LAYOUT = `${BASE_GITHUB_ROUTE}/layouts`;
 const RAW_HOOKS = `${BASE_RAW_GITHUB_ROUTE}/hooks`;
 const VIEW_HOOKS = `${BASE_GITHUB_ROUTE}/hooks`;
 
+const RAW_PUBLIC_MEDIAPIPE = `${RAW_REPO_ROUTE}/public/mediapipe`;
+const VIEW_PUBLIC_MEDIAPIPE = `${REPO_ROUTE}/public/mediapipe`;
+
 export const FILES: TProjectCodeViewerFilePath[] = [
+  {
+    displayURL: "/public/mediapipe/poselandmarker.worker.js",
+    rawFileURL: `${RAW_PUBLIC_MEDIAPIPE}/poselandmarker.worker.js`,
+    viewFileURL: `${VIEW_PUBLIC_MEDIAPIPE}/poselandmarker.worker.js`,
+  },
   {
     displayURL: "/app/preview-main.tsx",
     rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/preview-main.tsx`,
@@ -30,6 +42,21 @@ export const FILES: TProjectCodeViewerFilePath[] = [
     displayURL: "/app/preview-runner-view.tsx",
     rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/preview-runner-view.tsx`,
     viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/preview-runner-view.tsx`,
+  },
+  {
+    displayURL: "/app/use-pose-landmarker.ts",
+    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/use-pose-landmarker.ts`,
+    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/use-pose-landmarker.ts`,
+  },
+  {
+    displayURL: "/app/pose-landmarker-worker-client.ts",
+    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/pose-landmarker-worker-client.ts`,
+    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/pose-landmarker-worker-client.ts`,
+  },
+  {
+    displayURL: "/app/draw-pose.ts",
+    rawFileURL: `${RAW_MEDIAPIPE_WEBWORKER_ROUTE}/draw-pose.ts`,
+    viewFileURL: `${VIEW_MEDIAPIPE_WEBWORKER_ROUTE}/draw-pose.ts`,
   },
   {
     displayURL: "/app/preview-view-parameters.tsx",
@@ -75,6 +102,11 @@ export const FILES: TProjectCodeViewerFilePath[] = [
     displayURL: "/layouts/parameter-select.tsx",
     rawFileURL: `${RAW_LAYOUT}/parameter-select.tsx`,
     viewFileURL: `${VIEW_LAYOUT}/parameter-select.tsx`,
+  },
+  {
+    displayURL: "/layouts/parameter-slider.tsx",
+    rawFileURL: `${RAW_LAYOUT}/parameter-slider.tsx`,
+    viewFileURL: `${VIEW_LAYOUT}/parameter-slider.tsx`,
   },
   {
     displayURL: "/layouts/stream-video-player.tsx",
