@@ -1,5 +1,6 @@
 import {
   Sidebar,
+  SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -20,29 +21,34 @@ export function ProjectCodeViewerSidebar(
   const { onMenuClick } = props;
   const { tree } = useProjectCodeViewer();
 
+  // The height chain below is deliberate: `h-full` plus `min-h-0` at every
+  // level lets `SidebarContent` scroll the file tree inside the panel. Without
+  // it a long list stretches the sidebar past the code viewer and the footer.
   return (
-    <SidebarProvider className="flex min-h-full! flex-col">
+    <SidebarProvider className="flex h-full min-h-0! flex-col">
       <Sidebar
         collapsible="none"
-        className="w-full flex-1 rounded-tl-md rounded-bl-md"
+        className="w-full min-h-0 flex-1 rounded-tl-md rounded-bl-md"
       >
-        <SidebarGroupLabel className="h-12 rounded-none px-4 text-sm">
+        <SidebarGroupLabel className="h-12 shrink-0 rounded-none px-4 text-sm">
           Files
         </SidebarGroupLabel>
-        <SidebarGroup className="p-0">
-          <SidebarGroupContent>
-            <SidebarMenu className="translate-x-0 gap-1.5 truncate">
-              {tree.children?.map((file, index) => (
-                <ProjectCodeViewerSidebarTree
-                  key={index}
-                  item={file}
-                  index={1}
-                  onMenuClick={onMenuClick}
-                />
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <SidebarContent>
+          <SidebarGroup className="p-0">
+            <SidebarGroupContent>
+              <SidebarMenu className="translate-x-0 gap-1.5 truncate">
+                {tree.children?.map((file, index) => (
+                  <ProjectCodeViewerSidebarTree
+                    key={index}
+                    item={file}
+                    index={1}
+                    onMenuClick={onMenuClick}
+                  />
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
       </Sidebar>
     </SidebarProvider>
   );
