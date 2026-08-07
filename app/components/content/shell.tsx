@@ -5,7 +5,7 @@ import { MDXContextProvider } from "~/mdx/provider";
 import { ShareMenu } from "~/components/share-menu";
 import { ContentBody } from "./body";
 import { ContentToc } from "./toc";
-import { GrainHeader, TGrainHeaderShape } from "./grain-header";
+import { GrainHeader } from "./grain-header";
 import { getHeadings } from "./headings";
 
 export type TContentShellProps = {
@@ -13,7 +13,6 @@ export type TContentShellProps = {
   content: string;
   /** Title block, drawn on the grain header. */
   hero: React.ReactNode;
-  headerShape?: TGrainHeaderShape;
 };
 
 /**
@@ -25,14 +24,14 @@ export type TContentShellProps = {
  * of contents reads its headings.
  */
 export function ContentShell(props: TContentShellProps) {
-  const { frontmatter, content, hero, headerShape } = props;
+  const { frontmatter, content, hero } = props;
 
   const ast = React.useMemo(() => mdxParse(content), [content]);
   const headings = React.useMemo(() => getHeadings(ast), [ast]);
 
   return (
     <MDXContextProvider frontmatter={frontmatter}>
-      <GrainHeader shape={headerShape} className="mt-4 md:mt-8">
+      <GrainHeader shape={frontmatter.headerShape} className="mt-4 md:mt-8">
         {hero}
       </GrainHeader>
 

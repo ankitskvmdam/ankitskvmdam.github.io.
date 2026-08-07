@@ -1,3 +1,5 @@
+import type { TGrainShape } from "~/components/content/grain";
+
 export type TFrontmatter = {
   title: string;
   summary: string;
@@ -5,6 +7,16 @@ export type TFrontmatter = {
   date: string;
   status: "draft" | "published";
   type: "blog" | "project";
+  /**
+   * Shape of the animated grain gradient behind the page header.
+   *
+   * Kept separate from `thumbnailShape` even though the two will usually
+   * match, so a post can pick a shape that reads well small without being
+   * stuck with it full width.
+   */
+  headerShape?: TGrainShape;
+  /** Shape of the grain gradient on this post's card in a listing. */
+  thumbnailShape?: TGrainShape;
 };
 
 /**
@@ -21,16 +33,4 @@ export type TProjectFrontmatter = Omit<TFrontmatter, "type"> & {
   /** What I did on it, e.g. "Author & maintainer". */
   role: string;
   tags: string[];
-  /**
-   * Which shader shape the animated header draws. Optional; each write-up
-   * picks a different one so the three pages are distinguishable at a glance.
-   */
-  headerShape?:
-    | "wave"
-    | "dots"
-    | "truchet"
-    | "corners"
-    | "ripple"
-    | "blob"
-    | "sphere";
 };

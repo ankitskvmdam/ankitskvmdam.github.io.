@@ -1,7 +1,7 @@
 import { DotIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { HalftoneDots } from "@paper-design/shaders-react";
+import { Grain } from "~/components/content/grain";
 import { DirectoryArrowLine } from "~/components/icons";
 import { Slash } from "~/components/section/slash";
 import { Button } from "~/components/ui/button";
@@ -25,38 +25,29 @@ export function BlogsList(props: TBlogsList) {
               className="flex flex-col h-full group"
               key={blog.slug}
             >
-              <div className="overflow-hidden rounded-xl flex transition-transform relative">
-                <HalftoneDots
-                  image={blog.thumbnail ?? "/assets/typewriter.png"}
-                  height={208}
-                  width="100%"
-                  colorBack="#f2f1e8"
-                  colorFront="#2b2b2b"
-                  originalColors={false}
-                  type="classic"
-                  grid="hex"
-                  inverted={false}
-                  size={0.5}
-                  radius={1.25}
-                  contrast={0.4}
-                  grainMixer={0.2}
-                  grainOverlay={0.2}
-                  grainSize={0.5}
-                  fit="cover"
-                />
+              <div className="mb-2 flex items-center gap-2 pl-1">
+                <DirectoryArrowLine className="-scale-y-100 mt-1 text-muted-foreground" />
+                <span className="font-monospace text-sm uppercase">
+                  {blog.displayDate}
+                </span>
+                <DotIcon className="stroke-muted-foreground" />
+                <span className="text-xs">
+                  {t("minRead", { minRead: blog.minRead })}
+                </span>
               </div>
-              <div className="py-2 flex flex-col space-y-2">
-                <div className="mb-0 flex items-center gap-2 pl-1">
-                  <DirectoryArrowLine className="-scale-y-100 mt-1 text-muted-foreground" />
-                  <span className="font-monospace text-sm uppercase">
-                    {blog.displayDate}
-                  </span>
-                  <DotIcon className="stroke-muted-foreground" />
-                  <span className="text-xs">
-                    {t("minRead", { minRead: blog.minRead })}
-                  </span>
-                </div>
-                <h2 className="text-2xl font-bold">{blog.title}</h2>
+
+              {/* Same treatment as the post's own header: title on the grain. */}
+              <div className="bg-layer-0 relative flex h-52 items-end overflow-hidden rounded-xl">
+                <Grain
+                  shape={blog.thumbnailShape}
+                  className="absolute inset-0"
+                />
+                <h2 className="relative z-10 p-5 text-2xl font-bold">
+                  {blog.title}
+                </h2>
+              </div>
+
+              <div className="py-8">
                 <p className="text-sm text-muted-foreground">{blog.summary}</p>
               </div>
               <div className="mt-auto h-30 border-b-2 border-b-muted flex flex-col justify-end items-end">

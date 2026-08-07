@@ -21,7 +21,6 @@ export function ProjectShell(props: TProjectShellProps) {
     <ContentShell
       frontmatter={frontmatter}
       content={content}
-      headerShape={frontmatter.headerShape}
       hero={
         <ContentHero
           slash={`${PROJECT_BLOG_ROUTE}/${slug}`}
