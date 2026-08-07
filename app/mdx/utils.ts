@@ -14,3 +14,14 @@ export function getMinReadTime(content: string): number {
   const minutes = Math.ceil(words / 150);
   return minutes || 1;
 }
+
+/**
+ * Turns heading text into its anchor id.
+ *
+ * Both the rendered heading and any table of contents pointing at it have to
+ * agree on this, so they share one implementation rather than each spelling
+ * out the rule.
+ */
+export function toHeadingId(text: string): string {
+  return text.toLowerCase().replace(/\s+/g, "-");
+}

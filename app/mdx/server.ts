@@ -1,5 +1,5 @@
-import { isValidFrontMatter } from "./is";
-import { TFrontmatter } from "./types";
+import { isValidFrontMatter, isValidProjectFrontMatter } from "./is";
+import { TFrontmatter, TProjectFrontmatter } from "./types";
 import matter from "gray-matter";
 import { getDisplayDate, getMinReadTime } from "./utils";
 
@@ -50,4 +50,23 @@ export type TPostData = ReturnType<typeof matter> & {
 export async function getBlogPostBySlug(slug: string): Promise<TPostData> {
   const rawFileContent = (await import(`./posts/${slug}.mdx?raw`)).default;
   return matter(rawFileContent) as TPostData;
+}
+
+export type TProjectPostData = ReturnType<typeof matter> & {
+  data: TProjectFrontmatter;
+};
+
+/**
+ * Project write-ups live in their own collection so that adding one does not
+ * put it on the blog listing.
+ */
+export async function getProjectPostBySlug(
+  slug: string,
+): Promise<TProjectPostData> {
+  const rawFileContent = (await import(`./projects/${slug}.mdx?raw`)).default;
+  const parsed = matter(rawFileContent);
+
+  isValidProjectFrontMatter(parsed.data);
+
+  return parsed as TProjectPostData;
 }

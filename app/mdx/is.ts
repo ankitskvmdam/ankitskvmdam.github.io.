@@ -1,4 +1,4 @@
-import { TFrontmatter } from "./types";
+import { TFrontmatter, TProjectFrontmatter } from "./types";
 
 export function isValidFrontMatter(
   frontMatter: unknown,
@@ -47,6 +47,50 @@ export function isValidFrontMatter(
   ) {
     throw new Error(
       `Frontmatter should have a valid type ['blog', 'project'], Got: ${JSON.stringify(
+        frontMatter,
+        null,
+        2,
+      )}`,
+    );
+  }
+
+  return true;
+}
+
+const PROJECT_ONLY_STRING_FIELDS = ["tagline", "role"] as const;
+
+export function isValidProjectFrontMatter(
+  frontMatter: unknown,
+): frontMatter is TProjectFrontmatter {
+  isValidFrontMatter(frontMatter);
+
+  const projectFrontMatter = frontMatter as TFrontmatter &
+    Record<string, unknown>;
+
+  if (projectFrontMatter.type !== "project") {
+    throw new Error(
+      `Project frontmatter should have type 'project', Got: ${projectFrontMatter.type}`,
+    );
+  }
+
+  for (const field of PROJECT_ONLY_STRING_FIELDS) {
+    if (typeof projectFrontMatter[field] !== "string") {
+      throw new Error(
+        `Project frontmatter should have ${field}, but it is missing. Got: ${JSON.stringify(
+          frontMatter,
+          null,
+          2,
+        )}`,
+      );
+    }
+  }
+
+  if (
+    !Array.isArray(projectFrontMatter.tags) ||
+    projectFrontMatter.tags.some((tag) => typeof tag !== "string")
+  ) {
+    throw new Error(
+      `Project frontmatter should have tags as a list of strings. Got: ${JSON.stringify(
         frontMatter,
         null,
         2,

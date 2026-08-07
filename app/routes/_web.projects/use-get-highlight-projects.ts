@@ -1,6 +1,11 @@
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useAppStore } from "~/app-store";
+import {
+  CLEAN_JSDOC_THEME_ROUTE,
+  ERSILIA_REINVENT4_ROUTE,
+  OUTSPEED_JS_ROUTE,
+} from "~/constants/routes";
 
 export type THighlightProject = {
   id: string;
@@ -32,6 +37,7 @@ export function useGetHighlightProjects() {
         number: "01.",
         title: t("cleanJSDocTheme.title"),
         descriptionKey: "cleanJSDocTheme.description",
+        readMore: CLEAN_JSDOC_THEME_ROUTE,
         thumbnail:
           theme === "dark"
             ? "/assets/clean-jsdoc-theme-dark.png"
@@ -59,6 +65,7 @@ export function useGetHighlightProjects() {
         number: "02.",
         title: t("outspeed.title"),
         descriptionKey: "outspeed.description",
+        readMore: OUTSPEED_JS_ROUTE,
         links: [
           {
             id: "npm",
@@ -83,6 +90,7 @@ export function useGetHighlightProjects() {
         number: "03.",
         title: t("ersilia.title"),
         descriptionKey: "ersilia.description",
+        readMore: ERSILIA_REINVENT4_ROUTE,
         links: [
           {
             id: "github",

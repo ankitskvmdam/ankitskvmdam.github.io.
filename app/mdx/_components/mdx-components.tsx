@@ -4,6 +4,7 @@ import { cn } from "~/lib/utils";
 import { LinkIcon } from "lucide-react";
 import { Link, TLinkProps } from "~/components/link";
 import * as routes from "~/constants/routes";
+import { toHeadingId } from "../utils";
 
 export const MDXComponents: TMDXComponents = {
   img: ({ className, alt, ...rest }: React.HTMLProps<HTMLImageElement>) => (
@@ -20,10 +21,7 @@ export const MDXComponents: TMDXComponents = {
     </span>
   ),
   h2: ({ children, ...rest }: React.HTMLProps<HTMLHeadingElement>) => {
-    const id =
-      typeof children === "string"
-        ? children.toLowerCase().replace(/\s+/g, "-")
-        : "";
+    const id = typeof children === "string" ? toHeadingId(children) : "";
     return (
       <h2 id={id} {...rest}>
         <a

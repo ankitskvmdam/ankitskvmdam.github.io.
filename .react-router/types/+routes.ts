@@ -23,6 +23,18 @@ type Pages = {
   "/project/mediapipe-webworker": {
     params: {};
   };
+  "/project-blog": {
+    params: {};
+  };
+  "/project-blog/clean-jsdoc-theme": {
+    params: {};
+  };
+  "/project-blog/ersilia-reinvent4": {
+    params: {};
+  };
+  "/project-blog/outspeed-js": {
+    params: {};
+  };
   "/blog/:slug": {
     params: {
       "slug": string;
@@ -47,7 +59,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/api/update-app-state" | "/sitemap.xml" | "/project/mediapipe-webworker" | "/blog/:slug" | "/projects" | "/about" | "/blogs" | "/*";
+    page: "/" | "/api/update-app-state" | "/sitemap.xml" | "/project/mediapipe-webworker" | "/project-blog" | "/project-blog/clean-jsdoc-theme" | "/project-blog/ersilia-reinvent4" | "/project-blog/outspeed-js" | "/blog/:slug" | "/projects" | "/about" | "/blogs" | "/*";
   };
   "routes/api.update-app-state.ts": {
     id: "routes/api.update-app-state";
@@ -59,11 +71,27 @@ type RouteFiles = {
   };
   "routes/_web/route.tsx": {
     id: "routes/_web";
-    page: "/project/mediapipe-webworker" | "/blog/:slug" | "/projects" | "/" | "/about" | "/blogs" | "/*";
+    page: "/project/mediapipe-webworker" | "/project-blog" | "/project-blog/clean-jsdoc-theme" | "/project-blog/ersilia-reinvent4" | "/project-blog/outspeed-js" | "/blog/:slug" | "/projects" | "/" | "/about" | "/blogs" | "/*";
   };
   "routes/_web.project.mediapipe-webworker/route.tsx": {
     id: "routes/_web.project.mediapipe-webworker";
     page: "/project/mediapipe-webworker";
+  };
+  "routes/_web.project-blog/route.tsx": {
+    id: "routes/_web.project-blog";
+    page: "/project-blog" | "/project-blog/clean-jsdoc-theme" | "/project-blog/ersilia-reinvent4" | "/project-blog/outspeed-js";
+  };
+  "routes/_web.project-blog.clean-jsdoc-theme/route.tsx": {
+    id: "routes/_web.project-blog.clean-jsdoc-theme";
+    page: "/project-blog/clean-jsdoc-theme";
+  };
+  "routes/_web.project-blog.ersilia-reinvent4/route.tsx": {
+    id: "routes/_web.project-blog.ersilia-reinvent4";
+    page: "/project-blog/ersilia-reinvent4";
+  };
+  "routes/_web.project-blog.outspeed-js/route.tsx": {
+    id: "routes/_web.project-blog.outspeed-js";
+    page: "/project-blog/outspeed-js";
   };
   "routes/_web.blog.$slug/route.tsx": {
     id: "routes/_web.blog.$slug";
@@ -97,6 +125,10 @@ type RouteModules = {
   "routes/[sitemap.xml]": typeof import("./app/routes/[sitemap.xml].ts");
   "routes/_web": typeof import("./app/routes/_web/route.tsx");
   "routes/_web.project.mediapipe-webworker": typeof import("./app/routes/_web.project.mediapipe-webworker/route.tsx");
+  "routes/_web.project-blog": typeof import("./app/routes/_web.project-blog/route.tsx");
+  "routes/_web.project-blog.clean-jsdoc-theme": typeof import("./app/routes/_web.project-blog.clean-jsdoc-theme/route.tsx");
+  "routes/_web.project-blog.ersilia-reinvent4": typeof import("./app/routes/_web.project-blog.ersilia-reinvent4/route.tsx");
+  "routes/_web.project-blog.outspeed-js": typeof import("./app/routes/_web.project-blog.outspeed-js/route.tsx");
   "routes/_web.blog.$slug": typeof import("./app/routes/_web.blog.$slug/route.tsx");
   "routes/_web.projects": typeof import("./app/routes/_web.projects/route.tsx");
   "routes/_web._index": typeof import("./app/routes/_web._index/route.tsx");
