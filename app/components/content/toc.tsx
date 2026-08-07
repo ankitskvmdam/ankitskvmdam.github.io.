@@ -1,15 +1,15 @@
 import React from "react";
 import { cn } from "~/lib/utils";
-import { TProjectHeading } from "./headings";
+import { TContentHeading } from "./headings";
 
-export type TProjectTocProps = {
-  headings: TProjectHeading[];
+export type TContentTocProps = {
+  headings: TContentHeading[];
 };
 
 /**
  * Highlights whichever section is currently nearest the top of the viewport.
  */
-function useActiveHeading(headings: TProjectHeading[]) {
+function useActiveHeading(headings: TContentHeading[]) {
   const [activeId, setActiveId] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -43,7 +43,7 @@ function useActiveHeading(headings: TProjectHeading[]) {
   return activeId;
 }
 
-export function ProjectToc(props: TProjectTocProps) {
+export function ContentToc(props: TContentTocProps) {
   const { headings } = props;
   const activeId = useActiveHeading(headings);
 

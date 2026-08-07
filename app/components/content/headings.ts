@@ -1,6 +1,6 @@
 import { toHeadingId } from "~/mdx/utils";
 
-export type TProjectHeading = {
+export type TContentHeading = {
   id: string;
   text: string;
 };
@@ -18,12 +18,12 @@ function toText(node: TMdastNode): string {
 }
 
 /**
- * Collects the `##` headings a write-up is built from, in document order.
+ * Collects the `##` headings a page is built from, in document order.
  *
  * Reading these off the parsed markdown rather than the raw string keeps
  * `##` inside fenced code blocks out of the table of contents.
  */
-export function getHeadings(ast: unknown): TProjectHeading[] {
+export function getHeadings(ast: unknown): TContentHeading[] {
   const root = ast as TMdastNode;
 
   return (root.children ?? [])

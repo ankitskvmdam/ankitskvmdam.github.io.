@@ -17,7 +17,7 @@ const codeRenderer: RenderNode = (node) => {
   }
 };
 
-const projectMDXComponents: TMDXComponents = {
+const contentMDXComponents: TMDXComponents = {
   ...MDXComponents,
   // Figures break out past the prose column, the way they do on the Stripe
   // engineering posts this layout is modelled on.
@@ -37,14 +37,14 @@ const projectMDXComponents: TMDXComponents = {
 };
 
 /** The parsed markdown, shared by the body and the table of contents. */
-export type TProjectMdast = ReturnType<typeof mdxParse>;
+export type TContentMdast = ReturnType<typeof mdxParse>;
 
-export type TProjectBodyProps = {
+export type TContentBodyProps = {
   content: string;
-  ast: TProjectMdast;
+  ast: TContentMdast;
 };
 
-export function ProjectBody(props: TProjectBodyProps) {
+export function ContentBody(props: TContentBodyProps) {
   const { content, ast } = props;
 
   return (
@@ -52,7 +52,7 @@ export function ProjectBody(props: TProjectBodyProps) {
       <SafeMdxRenderer
         markdown={content}
         mdast={ast}
-        components={projectMDXComponents}
+        components={contentMDXComponents}
         renderNode={codeRenderer}
       />
     </Prose>

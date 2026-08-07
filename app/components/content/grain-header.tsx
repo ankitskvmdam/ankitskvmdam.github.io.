@@ -33,21 +33,21 @@ function useIsOnScreen(ref: React.RefObject<HTMLElement | null>) {
   return isOnScreen;
 }
 
-export type TProjectGrainHeaderProps = React.PropsWithChildren<{
-  /** Gives each write-up a visually distinct header. */
+export type TGrainHeaderProps = React.PropsWithChildren<{
+  /** Gives each page a visually distinct header. */
   shape?: TGrainHeaderShape;
   className?: string;
 }>;
 
 /**
- * The header of a project write-up: its title block sitting on an animated
- * grain gradient.
+ * The header of a content page: its title block sitting on an animated grain
+ * gradient. Shared by blog posts and project write-ups.
  *
  * Greyscale on purpose. The site's palette is neutral, the shader's own presets
  * are heavily saturated, and the ramp has to stay near the page background so
  * the text on top of it keeps its contrast.
  */
-export function ProjectGrainHeader(props: TProjectGrainHeaderProps) {
+export function GrainHeader(props: TGrainHeaderProps) {
   const { shape = "wave", children, className } = props;
 
   const containerRef = React.useRef<HTMLDivElement>(null);

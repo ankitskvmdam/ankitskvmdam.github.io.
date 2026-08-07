@@ -1,50 +1,42 @@
-import { RenderNode, SafeMdxRenderer } from "safe-mdx";
-import { mdxParse } from "safe-mdx/parse";
+import { useTranslation } from "react-i18next";
 import { TFrontmatter } from "~/mdx/types";
-import { MDXContextProvider } from "~/mdx/provider";
-import { MDXComponents } from "~/mdx/_components/mdx-components";
-import { CodeRenderer } from "~/components/code-renderer";
-import { ArticleInfo } from "./article-info";
-import { ArticleFrontmatter } from "./article-frontmatter";
-import { ArticleRoot } from "./article-root";
-import { ShareMenu } from "~/components/share-menu";
+import { ContentShell } from "~/components/content/shell";
+import { ContentHero } from "~/components/content/hero";
+import { getDisplayDate, getMinReadTime } from "~/mdx/utils";
+import { BLOG_ROUTE } from "~/constants/routes";
 
 export type TArticleProps = {
   frontmatter: TFrontmatter;
   content: string;
+  slug: string;
 };
 
-const codeRenderer: RenderNode = (node) => {
-  if (node.type === "code") {
-    return (
-      <CodeRenderer language={node.lang || "python"} meta={node.meta}>
-        {node.value}
-      </CodeRenderer>
-    );
-  }
-};
-
+/**
+ * Maps a blog post onto the shared content layout.
+ *
+ * Only the field wiring lives here; everything visual is the same layout the
+ * project write-ups use. Blog frontmatter carries no tagline or tags, so the
+ * hero simply renders fewer parts.
+ */
 export function Article(props: TArticleProps) {
-  const { frontmatter, content } = props;
-  const ast = mdxParse(content);
+  const { frontmatter, content, slug } = props;
+  const { t } = useTranslation("blogs");
 
   return (
-    <MDXContextProvider frontmatter={frontmatter}>
-      <ArticleRoot>
-        <ArticleInfo frontmatter={frontmatter} content={content} />
-        <ArticleFrontmatter frontmatter={frontmatter} />
-        <div className="space-y-5 md:space-y-10">
-          <SafeMdxRenderer
-            markdown={content}
-            mdast={ast}
-            components={MDXComponents}
-            renderNode={codeRenderer}
-          />
-        </div>
-        <div className="flex justify-end border-t border-t-muted mt-10 pt-5">
-          <ShareMenu />
-        </div>
-      </ArticleRoot>
-    </MDXContextProvider>
+    <ContentShell
+      frontmatter={frontmatter}
+      content={content}
+      hero={
+        <ContentHero
+          slash={`${BLOG_ROUTE}/${slug}`}
+          title={frontmatter.title}
+          summary={frontmatter.summary}
+          meta={[
+            getDisplayDate(frontmatter.date),
+            t("minRead", { minRead: getMinReadTime(content) }),
+          ]}
+        />
+      }
+    />
   );
 }

@@ -57,9 +57,12 @@ export default function BlogsRoute() {
 
   return (
     <div className="section relative">
-      <div className="section-wrapper section-padding flex justify-center items-center">
-        <div className="dot-bg h-54 md:h-96"></div>
-        <Article frontmatter={mdx.data} content={mdx.content} />
+      <div className="section-wrapper section-padding relative z-1">
+        <Article
+          frontmatter={mdx.data}
+          content={mdx.content}
+          slug={mdx.slug}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { MetaFunction, useLoaderData } from "react-router";
-import { ProjectBlogShell } from "../_web.project-blog/shell";
+import { ProjectShell } from "../_web.project-blog/project-shell";
 import {
   getProjectPostMeta,
   loadProjectPost,
@@ -18,10 +18,6 @@ export default function ErsiliaReinvent4Route() {
   const post = useLoaderData<typeof loader>();
 
   return (
-    <ProjectBlogShell
-      frontmatter={post.frontmatter}
-      content={post.content}
-      slug={post.slug}
-    />
+    <ProjectShell post={post} />
   );
 }
