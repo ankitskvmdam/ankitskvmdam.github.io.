@@ -30,6 +30,7 @@ export function Article(props: TArticleProps) {
         <ContentHero
           slash={`${BLOG_ROUTE}/${slug}`}
           title={frontmatter.title}
+          titleClassName="font-serif"
           summary={frontmatter.summary}
           meta={[
             getDisplayDate(frontmatter.date),

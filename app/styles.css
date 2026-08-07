@@ -47,6 +47,8 @@
     "Open Sans", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
     sans-serif;
   --font-monospace: "Inconsolata", "Courier New", Courier, monospace;
+  /* Titles the blog uses to set itself apart from the project write-ups. */
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   --color-layer-0: var(--background-layer-0);
   --color-layer-1: var(--background-layer-1);
   --color-accent-2: var(--accent-2);
@@ -164,6 +166,20 @@
 
   body {
     @apply text-foreground font-sans leading-relaxed text-base rounded-sm bg-layer-1 font-sans;
+  }
+
+  /*
+   * Headings default to the serif. This sits in the base layer, so any element
+   * that names a typeface itself — `font-monospace` on the project headings,
+   * for instance — still wins, because utilities are a later cascade layer.
+   */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
   }
 
   ::selection {

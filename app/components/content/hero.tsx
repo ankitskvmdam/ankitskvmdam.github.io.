@@ -1,6 +1,7 @@
 import React from "react";
 import { Dot } from "lucide-react";
 import { Slash } from "~/components/section/slash";
+import { cn } from "~/lib/utils";
 
 export type TContentHeroProps = {
   /** Breadcrumb line, e.g. `/blog/my-post`. */
@@ -12,6 +13,11 @@ export type TContentHeroProps = {
   /** Short facts shown dot-separated, e.g. a date and a reading time. */
   meta?: string[];
   tags?: string[];
+  /**
+   * Overrides the title typeface. Blog posts set a serif here; write-ups keep
+   * the monospace default.
+   */
+  titleClassName?: string;
 };
 
 /**
@@ -25,7 +31,15 @@ export type TContentHeroProps = {
  * does not clear AA.
  */
 export function ContentHero(props: TContentHeroProps) {
-  const { slash, title, tagline, summary, meta = [], tags = [] } = props;
+  const {
+    slash,
+    title,
+    tagline,
+    summary,
+    meta = [],
+    tags = [],
+    titleClassName,
+  } = props;
 
   return (
     // Padding and edges belong to the panel this sits inside.
@@ -33,7 +47,12 @@ export function ContentHero(props: TContentHeroProps) {
       <Slash component="inline">{slash}</Slash>
 
       {/* Capped so a long blog title wraps in line with the text under it. */}
-      <h1 className="font-monospace mt-2 max-w-4xl text-3xl leading-tight font-bold md:text-5xl">
+      <h1
+        className={cn(
+          "font-monospace mt-2 max-w-4xl text-3xl leading-tight font-bold md:text-5xl",
+          titleClassName,
+        )}
+      >
         {title}
       </h1>
 
