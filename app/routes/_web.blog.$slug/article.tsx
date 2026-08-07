@@ -7,7 +7,7 @@ import { CodeRenderer } from "~/components/code-renderer";
 import { ArticleInfo } from "./article-info";
 import { ArticleFrontmatter } from "./article-frontmatter";
 import { ArticleRoot } from "./article-root";
-import { ArticleShare } from "./article-share";
+import { ShareMenu } from "~/components/share-menu";
 
 export type TArticleProps = {
   frontmatter: TFrontmatter;
@@ -42,7 +42,7 @@ export function Article(props: TArticleProps) {
           />
         </div>
         <div className="flex justify-end border-t border-t-muted mt-10 pt-5">
-          <ArticleShare />
+          <ShareMenu />
         </div>
       </ArticleRoot>
     </MDXContextProvider>

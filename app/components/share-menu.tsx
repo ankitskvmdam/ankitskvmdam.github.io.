@@ -9,7 +9,8 @@ import {
 } from "~/components/ui/dropdown-menu";
 import { UseShareCurrentURLItems } from "~/hooks/use-share-current-url";
 
-export function ArticleShare() {
+/** Shares whatever page it is rendered on. Used by blog posts and write-ups. */
+export function ShareMenu() {
   const { t } = useTranslation("common");
   const items = UseShareCurrentURLItems();
 
