@@ -1,0 +1,46 @@
+# clean-jsdoc-theme
+
+Documentation for clean-jsdoc-theme. Every page below links to its Markdown source; the whole site as a single file is at https://ankdev.me/clean-jsdoc-theme/zh/llms-full.txt
+
+## Using the Theme
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/theme/overview/index.md)
+- [JSDoc 快速开始](https://ankdev.me/clean-jsdoc-theme/zh/theme/jsdoc-getting-started/index.md)
+- [TypeDoc 快速开始](https://ankdev.me/clean-jsdoc-theme/zh/theme/typedoc-getting-started/index.md)
+- [配置](https://ankdev.me/clean-jsdoc-theme/zh/theme/configuration/index.md)
+- [与 LLM 配合使用](https://ankdev.me/clean-jsdoc-theme/zh/theme/llm-skill/index.md)
+- [从 v4 迁移到 v5](https://ankdev.me/clean-jsdoc-theme/zh/theme/migrate-v4-to-v5/index.md)
+
+## Guides
+- [构建 API 参考文档](https://ankdev.me/clean-jsdoc-theme/zh/guides/build-an-api-reference/index.md)
+- [构建一个指南站点](https://ankdev.me/clean-jsdoc-theme/zh/guides/build-a-guides-site/index.md)
+- [整合指南与 API](https://ankdev.me/clean-jsdoc-theme/zh/guides/combine-guides-and-api/index.md)
+- [构建你的侧边栏结构](https://ankdev.me/clean-jsdoc-theme/zh/guides/structure-your-sidebar/index.md)
+- [本地化你的文档](https://ankdev.me/clean-jsdoc-theme/zh/guides/localize-your-docs/index.md)
+- [使用图片](https://ankdev.me/clean-jsdoc-theme/zh/guides/working-with-images/index.md)
+- [FAQ](https://ankdev.me/clean-jsdoc-theme/zh/guides/faq/index.md)
+
+## Components
+- [Overview](https://ankdev.me/clean-jsdoc-theme/zh/components/overview/index.md)
+- [Playground](https://ankdev.me/clean-jsdoc-theme/zh/components/playground/index.md)
+- [Embeds](https://ankdev.me/clean-jsdoc-theme/zh/components/embeds/index.md)
+- [提示框](https://ankdev.me/clean-jsdoc-theme/zh/components/callouts/index.md)
+- [步骤](https://ankdev.me/clean-jsdoc-theme/zh/components/steps/index.md)
+- [标签页](https://ankdev.me/clean-jsdoc-theme/zh/components/tabs/index.md)
+- [@order](https://ankdev.me/clean-jsdoc-theme/zh/components/order/index.md)
+- [@category](https://ankdev.me/clean-jsdoc-theme/zh/components/category/index.md)
+
+## Packages
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/packages/utils-overview/index.md)
+- [示例](https://ankdev.me/clean-jsdoc-theme/zh/packages/utils-examples/index.md)
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/packages/aadesh-overview/index.md)
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/packages/bhasha-overview/index.md)
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/packages/setu-overview/index.md)
+- [示例](https://ankdev.me/clean-jsdoc-theme/zh/packages/setu-examples/index.md)
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/packages/rang-overview/index.md)
+- [示例](https://ankdev.me/clean-jsdoc-theme/zh/packages/rang-examples/index.md)
+- [概览](https://ankdev.me/clean-jsdoc-theme/zh/packages/dwar-overview/index.md)
+- [示例](https://ankdev.me/clean-jsdoc-theme/zh/packages/dwar-examples/index.md)
+
+## Optional
+- [Full documentation, single file](https://ankdev.me/clean-jsdoc-theme/zh/llms-full.txt): every page concatenated for one-shot ingestion
+- [Site home](https://ankdev.me/clean-jsdoc-theme/zh/): the rendered documentation site

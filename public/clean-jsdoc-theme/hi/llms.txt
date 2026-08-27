@@ -1,0 +1,46 @@
+# clean-jsdoc-theme
+
+Documentation for clean-jsdoc-theme. Every page below links to its Markdown source; the whole site as a single file is at https://ankdev.me/clean-jsdoc-theme/hi/llms-full.txt
+
+## Using the Theme
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/theme/overview/index.md)
+- [JSDoc के साथ शुरुआत](https://ankdev.me/clean-jsdoc-theme/hi/theme/jsdoc-getting-started/index.md)
+- [TypeDoc के साथ शुरुआत](https://ankdev.me/clean-jsdoc-theme/hi/theme/typedoc-getting-started/index.md)
+- [कॉन्फ़िगरेशन](https://ankdev.me/clean-jsdoc-theme/hi/theme/configuration/index.md)
+- [LLM के साथ इस्तेमाल](https://ankdev.me/clean-jsdoc-theme/hi/theme/llm-skill/index.md)
+- [v4 → v5 माइग्रेशन](https://ankdev.me/clean-jsdoc-theme/hi/theme/migrate-v4-to-v5/index.md)
+
+## Guides
+- [एक API reference बनाएँ](https://ankdev.me/clean-jsdoc-theme/hi/guides/build-an-api-reference/index.md)
+- [एक guides साइट बनाएँ](https://ankdev.me/clean-jsdoc-theme/hi/guides/build-a-guides-site/index.md)
+- [Guides + API को मिलाएँ](https://ankdev.me/clean-jsdoc-theme/hi/guides/combine-guides-and-api/index.md)
+- [अपनी sidebar को संरचित करें](https://ankdev.me/clean-jsdoc-theme/hi/guides/structure-your-sidebar/index.md)
+- [अपने docs को localize करें](https://ankdev.me/clean-jsdoc-theme/hi/guides/localize-your-docs/index.md)
+- [Images के साथ काम करना](https://ankdev.me/clean-jsdoc-theme/hi/guides/working-with-images/index.md)
+- [FAQ](https://ankdev.me/clean-jsdoc-theme/hi/guides/faq/index.md)
+
+## Components
+- [Overview](https://ankdev.me/clean-jsdoc-theme/hi/components/overview/index.md)
+- [Playground](https://ankdev.me/clean-jsdoc-theme/hi/components/playground/index.md)
+- [Embeds](https://ankdev.me/clean-jsdoc-theme/hi/components/embeds/index.md)
+- [Callouts](https://ankdev.me/clean-jsdoc-theme/hi/components/callouts/index.md)
+- [Steps](https://ankdev.me/clean-jsdoc-theme/hi/components/steps/index.md)
+- [Tabs](https://ankdev.me/clean-jsdoc-theme/hi/components/tabs/index.md)
+- [@order](https://ankdev.me/clean-jsdoc-theme/hi/components/order/index.md)
+- [@category](https://ankdev.me/clean-jsdoc-theme/hi/components/category/index.md)
+
+## Packages
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/packages/utils-overview/index.md)
+- [उदाहरण](https://ankdev.me/clean-jsdoc-theme/hi/packages/utils-examples/index.md)
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/packages/aadesh-overview/index.md)
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/packages/bhasha-overview/index.md)
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/packages/setu-overview/index.md)
+- [उदाहरण](https://ankdev.me/clean-jsdoc-theme/hi/packages/setu-examples/index.md)
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/packages/rang-overview/index.md)
+- [उदाहरण](https://ankdev.me/clean-jsdoc-theme/hi/packages/rang-examples/index.md)
+- [सिंहावलोकन](https://ankdev.me/clean-jsdoc-theme/hi/packages/dwar-overview/index.md)
+- [उदाहरण](https://ankdev.me/clean-jsdoc-theme/hi/packages/dwar-examples/index.md)
+
+## Optional
+- [Full documentation, single file](https://ankdev.me/clean-jsdoc-theme/hi/llms-full.txt): every page concatenated for one-shot ingestion
+- [Site home](https://ankdev.me/clean-jsdoc-theme/hi/): the rendered documentation site

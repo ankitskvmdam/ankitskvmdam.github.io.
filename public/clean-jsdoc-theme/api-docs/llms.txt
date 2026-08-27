@@ -1,0 +1,33 @@
+# clean-jsdoc-theme API
+
+Documentation for clean-jsdoc-theme API. Every page below links to its Markdown source.
+
+## Modules
+- [forge](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge/index.md): Forge is a tiny, fictional toolkit for building event-driven data pipelines. It does not do anything real — it exists to show, on a single generated…
+- [forge/cache](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-cache/index.md): Storage primitives — the Cache class and its helpers.
+- [forge/contracts](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-contracts/index.md): Contracts & helpers — the interfaces, mixin, and namespace that the concrete classes build on.
+- [forge/queue](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-queue/index.md): The event-driven task Queue and its supporting types.
+
+## Typedefs
+- [CacheOptions](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-cache/cacheoptions/index.md): Options accepted by the Cache constructor.
+- [Task](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-queue/task/index.md): A unit of work the Queue can run.
+- [TaskHandler](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-queue/taskhandler/index.md): The function a Task runs when scheduled.
+
+## Globals
+- [Globals](https://ankdev.me/clean-jsdoc-theme/api-docs/global/index.md)
+
+## Contracts
+- [Record](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-contracts/record/index.md): A timestamped record — demonstrates @mixes .
+- [Serializable](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-contracts/serializable/index.md): Anything that can be turned into a JSON-safe snapshot.
+- [Store](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-contracts/store/index.md): A minimal key/value store contract. Cache implements it.
+- [Timestamped](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-contracts/timestamped/index.md): Adds created/updated timestamps to whatever it is mixed into.
+
+## Core
+- [Cache](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-cache/cache/index.md): A tiny in-memory, least-recently-used (LRU) cache. This class is the showcase's centerpiece: its members exercise nearly every member-level tag the…
+- [Queue](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-queue/queue/index.md): An ordered, event-driven task runner. Queue extends Node's EventEmitter , so the inheritance chain and the emitted events both show up in the…
+
+## Helpers
+- [text](https://ankdev.me/clean-jsdoc-theme/api-docs/module/forge-contracts/text/index.md): String helpers used across Forge.
+
+## Optional
+- [Site home](https://ankdev.me/clean-jsdoc-theme/api-docs/): the rendered documentation site

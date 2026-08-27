@@ -86,6 +86,22 @@ order: 5
 
 `SKILL.md` は code と一緒に versioned されており（`skill-revision` の stamp を 持ちます）、source に対して verified されているので、新しい copy は常にあなたが 使っている theme と一致します。skill は assistant に **updates の確認も教えます** — 関連がある場合に、session ごとに最大 1 回、自身の revision を published copy と、 あなたの installed theme version を npm の latest と比較し、どちらかが遅れていれば update を提案します。theme を upgrade した後は、新しい options と features を 取り込むために再度 download してください。
 
+## 自分のドキュメントに `llms.txt` を用意する
+
+上記の skill は _この theme_ についてのものです。もう一方の面は、**あなたの** 生成サイトを LLM が読めるようにすること — それは theme が代わりに行います。
+
+すべての content page には既に companion `<page>/index.md` が付属しています （copy-page ボタンが Claude / ChatGPT / Perplexity に渡すのがこれです）。 [`llmsTxt`](/theme/configuration#llmstxt) を設定すると、build がそれらを束ねる index を追加します:
+
+```json5
+// jsdoc.json
+opts: { siteUrl: "https://example.com", llmsTxt: true }
+```
+
+- **`/llms.txt`** — [llmstxt.org](https://llmstxt.org) の index: project 名、 1 行の summary、そして sidebar group ごとの section。各エントリは page の HTML ではなく Markdown にリンクします。
+- **`/llms-full.txt`** — 全 page を連結したもの。docs site 全体を 1 つの context window に貼り付けるときに使えます。
+
+`siteUrl` は必須です（ファイルは単体で fetch されるため、リンクは絶対 URL で なければなりません）。大きな API reference では `llmsTxt: { api: "index" }` に すると index は完全なまま、生成された symbol の body を full file から外せます。
+
 ## 関連項目
 
 - [Configuration](/theme/configuration) — skill が document するのと同じ options を、閲覧可能な reference として render したもの。

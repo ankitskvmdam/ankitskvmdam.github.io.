@@ -1,0 +1,188 @@
+# @clean-jsdoc-theme/docs-site
+
+Documentation for @clean-jsdoc-theme/docs-site. Every page below links to its Markdown source.
+
+## components
+- [components/base/Component](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/index.md): UI Component Base Classes
+- [ComponentState](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/componentstate/index.md): Component lifecycle states
+- [Component](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/component/index.md): Abstract base component class
+- [ComponentEvent](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/componentevent/index.md): Component event
+- [ComponentProps](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/componentprops/index.md): Component properties base interface
+- [LifecycleHooks](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/lifecyclehooks/index.md): Component lifecycle hooks interface
+- [ComponentEventHandler](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/componenteventhandler/index.md): Component event handler type
+- [FunctionComponent](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/functioncomponent/index.md): Function component type
+- [HOC](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/hoc/index.md): Higher-order component type
+- [compose](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/compose/index.md): Combines multiple HOCs
+- [createComponent](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-base-component/createcomponent/index.md): Component factory function
+- [components/Form](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/index.md): Form Components
+- [CheckboxField](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/checkboxfield/index.md): Checkbox field component
+- [FormField](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/formfield/index.md): Abstract form field component
+- [SelectField](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/selectfield/index.md): Select dropdown field component
+- [TextField](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/textfield/index.md): Text input field component
+- [CheckboxFieldProps](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/checkboxfieldprops/index.md): Checkbox field props
+- [FormFieldProps](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/formfieldprops/index.md): Form field props
+- [FormFieldState](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/formfieldstate/index.md): Form field state
+- [SelectFieldProps](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/selectfieldprops/index.md): Select field props
+- [SelectOption](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/selectoption/index.md): Select field option
+- [TextFieldProps](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/textfieldprops/index.md): Text input field props
+- [ValidationResult](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/validationresult/index.md): Validation result
+- [ValidationRule](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/components-form/validationrule/index.md): Form field validation rule
+
+## models
+- [models/Product](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/index.md): Product model module
+- [AvailabilityStatus](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/availabilitystatus/index.md): Product availability status
+- [ProductCategory](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/productcategory/index.md): Product category enumeration
+- [Product](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/product/index.md): Product class implementation
+- [ProductCollection](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/productcollection/index.md): Product collection for managing multiple products
+- [Dimensions](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/dimensions/index.md): Product dimensions
+- [IProduct](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/iproduct/index.md): Complete product interface
+- [Price](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/price/index.md): Price information structure
+- [ProductReview](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/productreview/index.md): Product review interface
+- [ProductVariant](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-product/productvariant/index.md): Product variant options
+- [models/User](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/index.md): User model module
+- [AccountStatus](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/accountstatus/index.md): User account status
+- [UserRole](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/userrole/index.md): User role enumeration
+- [User](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/user/index.md): User class representing a system user
+- [ContactInfo](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/contactinfo/index.md): User contact information
+- [IUser](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/iuser/index.md): Base user interface
+- [UserPreferences](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/models-user/userpreferences/index.md): User preferences configuration
+
+## parity
+- [parity](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/index.md)
+- [Base](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/base/index.md): Base entity.
+- [Widget](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/widget/index.md): A widget. Extends Base and implements Named.
+- [Named](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/named/index.md): Something that can be named.
+- [Point](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/point/index.md): A shape used across the fixtures.
+- [Mode](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/mode/index.md): A config union type alias.
+- [VERSION](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/version/index.md): A public constant.
+- [configure](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/configure/index.md): Options object passed to configure. Inline object type — exercises structured-type expansion.
+- [parse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/parity/parse/index.md): Parse a value. Overloaded.
+
+## services
+- [services/cache](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache/index.md): Cache service module exports
+- [services/cache/Cache](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache-cache/index.md): Cache Service
+- [Cache](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache-cache/cache/index.md): Generic cache implementation
+- [CacheEntry](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache-cache/cacheentry/index.md): Cache entry metadata
+- [CacheOptions](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache-cache/cacheoptions/index.md): Cache configuration options
+- [CacheStats](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache-cache/cachestats/index.md): Cache statistics
+- [createNamespacedCache](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-cache-cache/createnamespacedcache/index.md): Creates a namespace-prefixed cache wrapper
+- [services/EventEmitter](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-eventemitter/index.md): Event Emitter Service
+- [EventEmitter](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-eventemitter/eventemitter/index.md): Type-safe event emitter class
+- [EventSubscription](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-eventemitter/eventsubscription/index.md): Event subscription object
+- [ListenerOptions](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-eventemitter/listeneroptions/index.md): Event listener options
+- [EventHandler](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-eventemitter/eventhandler/index.md): Event handler function type
+- [createEventEmitter](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-eventemitter/createeventemitter/index.md): Creates a new EventEmitter instance
+- [services/HttpClient](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/index.md): HTTP Client Service
+- [HttpClient](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/httpclient/index.md): HTTP Client class for making API requests
+- [HttpError](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/httperror/index.md): HTTP error class
+- [HttpResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/httpresponse/index.md): HTTP response wrapper
+- [RequestConfig](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/requestconfig/index.md): Request configuration options
+- [HttpMethod](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/httpmethod/index.md): HTTP methods supported by the client
+- [RequestInterceptor](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/requestinterceptor/index.md): Request interceptor function type
+- [ResponseInterceptor](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/responseinterceptor/index.md): Response interceptor function type
+- [createHttpClient](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/services-httpclient/createhttpclient/index.md): Creates a pre-configured HTTP client
+
+## types
+- [types/api](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/index.md): API related type definitions
+- [ApiEndpoint](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/apiendpoint/index.md): API endpoint definition
+- [ApiError](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/apierror/index.md): API error details
+- [ApiErrorResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/apierrorresponse/index.md): API error response wrapper
+- [ApiSuccessResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/apisuccessresponse/index.md): API success response wrapper
+- [ErrorDetail](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/errordetail/index.md): Individual error detail
+- [FilterParam](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/filterparam/index.md): Filter parameter
+- [PaginatedResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/paginatedresponse/index.md): Paginated API response
+- [PaginationMeta](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/paginationmeta/index.md): Pagination response metadata
+- [PaginationParams](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/paginationparams/index.md): Pagination request parameters
+- [QueryParams](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/queryparams/index.md): Query parameters for list endpoints
+- [RateLimitInfo](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/ratelimitinfo/index.md): Rate limit information
+- [ResponseMeta](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/responsemeta/index.md): Response metadata
+- [RestResource](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/restresource/index.md): REST resource endpoints
+- [SortParam](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/sortparam/index.md): Sort parameter
+- [WebSocketMessage](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/websocketmessage/index.md): WebSocket message type
+- [ApiResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/apiresponse/index.md): Combined API response type
+- [FilterOperator](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/filteroperator/index.md): Filter operator
+- [HttpStatusCode](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/httpstatuscode/index.md): HTTP status code type
+- [SortOrder](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/sortorder/index.md): Sort order
+- [HTTP_STATUS](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/http-status/index.md): HTTP status codes
+- [createErrorResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/createerrorresponse/index.md): Creates an error response
+- [createSuccessResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/createsuccessresponse/index.md): Creates a success response
+- [isErrorResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/iserrorresponse/index.md): Type guard for error responses
+- [isSuccessResponse](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-api/issuccessresponse/index.md): Type guard for success responses
+- [types/common](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/index.md): Common type definitions
+- [ArrayElement](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/arrayelement/index.md): Extracts the element type from an array type
+- [AsyncFn](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/asyncfn/index.md): Async function type
+- [Brand](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/brand/index.md): Branded/tagged type for nominal typing
+- [Constructor](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/constructor/index.md): Constructor type
+- [DeepPartial](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/deeppartial/index.md): Deep partial - makes all nested properties optional
+- [DeepReadonly](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/deepreadonly/index.md): Deep readonly - makes all nested properties readonly
+- [Fn](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/fn/index.md): Function type with specific argument and return types
+- [KeysOfType](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/keysoftype/index.md): Extracts keys of T that have values assignable to V
+- [Mutable](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/mutable/index.md): Makes all properties mutable (removes readonly)
+- [NonNeverKeys](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/nonneverkeys/index.md): Removes keys with never type
+- [Nullable](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/nullable/index.md): Makes all properties of T optional and nullable
+- [OmitByType](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/omitbytype/index.md): Omits properties of T that have values assignable to V
+- [OptionalKeys](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/optionalkeys/index.md): Makes specific properties of T optional
+- [PickByType](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/pickbytype/index.md): Picks properties of T that have values assignable to V
+- [PromiseValue](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/promisevalue/index.md): Extracts the resolved type from a Promise
+- [RequiredKeys](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/requiredkeys/index.md): Makes specific properties of T required
+- [StrictUnion](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/strictunion/index.md): Strict union type (no extra properties)
+- [TupleToUnion](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/tupletounion/index.md): Extracts string literal union from const array
+- [UnionToIntersection](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/uniontointersection/index.md): Union to intersection type conversion
+- [ValueOf](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/valueof/index.md): Value type of a record/object
+- [assertNever](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/assertnever/index.md): Utility type for exhaustive switch statements
+- [isDefined](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/isdefined/index.md): Type guard helper for checking if value is defined
+- [isType](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/types-common/istype/index.md): Type guard for checking if value is a specific type
+
+## utils
+- [utils/array](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/index.md): Array utility functions
+- [chunk](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/chunk/index.md): Chunks an array into smaller arrays of a specified size
+- [difference](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/difference/index.md): Finds the difference between two arrays
+- [first](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/first/index.md): Gets the first element of an array
+- [flatten](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/flatten/index.md): Flattens a nested array to a specified depth
+- [groupBy](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/groupby/index.md): Groups array elements by a key selector
+- [intersection](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/intersection/index.md): Finds the intersection of two arrays
+- [keyBy](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/keyby/index.md): Creates a lookup object from an array
+- [last](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/last/index.md): Gets the last element of an array
+- [partition](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/partition/index.md): Partitions an array into two arrays based on a predicate
+- [range](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/range/index.md): Creates an array of numbers from start to end
+- [sample](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/sample/index.md): Picks a random element from an array
+- [sampleSize](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/samplesize/index.md): Picks multiple random elements from an array
+- [shuffle](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/shuffle/index.md): Shuffles an array using Fisher-Yates algorithm
+- [sortBy](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/sortby/index.md): Sorts an array by multiple criteria
+- [union](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/union/index.md): Finds the union of two arrays
+- [unique](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/unique/index.md): Removes duplicate elements from an array
+- [zip](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-array/zip/index.md): Zips multiple arrays together
+- [utils/date](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/index.md): Date and time utility functions
+- [DateFormatOptions](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/dateformatoptions/index.md): Date format options
+- [TIME_UNITS](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/time-units/index.md): Time units in milliseconds
+- [addTime](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/addtime/index.md): Adds a duration to a date
+- [dateDiff](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/datediff/index.md): Gets the difference between two dates in a specific unit
+- [endOf](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/endof/index.md): Gets the end of a time period
+- [formatDate](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/formatdate/index.md): Formats a date using Intl.DateTimeFormat
+- [formatDateTime](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/formatdatetime/index.md): Formats a date and time together
+- [formatDuration](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/formatduration/index.md): Formats a duration in milliseconds to a human-readable string
+- [formatTime](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/formattime/index.md): Formats a time using Intl.DateTimeFormat
+- [getRelativeTime](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/getrelativetime/index.md): Returns a relative time string (e.g., "3 days ago")
+- [isBetween](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/isbetween/index.md): Checks if a date is between two other dates
+- [isSameDay](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/issameday/index.md): Checks if two dates are on the same day
+- [parseISODuration](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/parseisoduration/index.md): Parses an ISO 8601 duration string
+- [startOf](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-date/startof/index.md): Gets the start of a time period
+- [utils/string](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/index.md): String utility functions
+- [WordWrapOptions](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/wordwrapoptions/index.md): Word wrap options
+- [camelCase](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/camelcase/index.md): Converts a string to camelCase
+- [capitalize](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/capitalize/index.md): Capitalizes the first letter of a string
+- [escapeHtml](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/escapehtml/index.md): Escapes HTML special characters in a string
+- [interpolate](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/interpolate/index.md): String template interpolation
+- [isBlank](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/isblank/index.md): Checks if a string is empty or contains only whitespace
+- [kebabCase](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/kebabcase/index.md): Converts a string to kebab-case
+- [padLeft](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/padleft/index.md): Pads a string on the left
+- [padRight](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/padright/index.md): Pads a string on the right
+- [pascalCase](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/pascalcase/index.md): Converts a string to PascalCase
+- [slugify](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/slugify/index.md): Generates a slug from a string
+- [snakeCase](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/snakecase/index.md): Converts a string to snake_case
+- [truncate](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/truncate/index.md): Truncates a string to a specified length
+- [unescapeHtml](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/unescapehtml/index.md): Unescapes HTML special characters in a string
+- [wordWrap](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/module/utils-string/wordwrap/index.md): Wraps text to a specified width
+
+## Optional
+- [Site home](https://ankdev.me/clean-jsdoc-theme/typedoc-api-docs/): the rendered documentation site

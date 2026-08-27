@@ -86,6 +86,22 @@ order: 5
 
 `SKILL.md` code के साथ-साथ versioned है (यह एक `skill-revision` stamp रखती है) और source के विरुद्ध verified है, इसलिए एक ताज़ा copy हमेशा उस theme से मेल खाती है जिस पर आप हैं। skill assistant को **updates की जाँच करना भी सिखाती है** — जब प्रासंगिक हो, और प्रति session अधिकतम एक बार, यह अपनी revision की तुलना published copy से और आपके installed theme version की तुलना npm के latest से करती है, और यदि कोई भी पीछे हो तो update करने की पेशकश करती है। theme upgrade करने के बाद नए options और features पाने के लिए इसे फिर से download करें।
 
+## अपनी docs के लिए `llms.txt` ship करें
+
+ऊपर की skill _इस theme_ के बारे में है। दूसरा पहलू है **आपकी** generated site को किसी LLM के लिए पठनीय बनाना — और theme यह आपके लिए कर देता है।
+
+हर content page पहले से एक companion `<page>/index.md` ship करता है (वही जो copy-page button Claude / ChatGPT / Perplexity को देता है)। [`llmsTxt`](/theme/configuration#llmstxt) सेट करें और build वह index जोड़ देता है जो इन सबको बाँधता है:
+
+```json5
+// jsdoc.json
+opts: { siteUrl: "https://example.com", llmsTxt: true }
+```
+
+- **`/llms.txt`** — एक [llmstxt.org](https://llmstxt.org) index: आपके project का नाम, एक-पंक्ति summary, फिर हर sidebar group के लिए एक section, जिसकी हर entry page की Markdown से link करती है, HTML से नहीं।
+- **`/llms-full.txt`** — सारे pages जुड़े हुए, ताकि पूरी docs site एक ही context window में paste हो सके।
+
+`siteUrl` आवश्यक है (file अपने आप fetch होती है, इसलिए उसके links absolute होने चाहिए)। बड़े API reference पर `llmsTxt: { api: "index" }` index को पूरा रखता है और generated symbol bodies को full file से बाहर रखता है।
+
 ## यह भी देखें
 
 - [Configuration](/theme/configuration) — वही options जिन्हें skill document करती है, एक browsable reference के रूप में rendered।

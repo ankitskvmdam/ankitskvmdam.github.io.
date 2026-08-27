@@ -1,0 +1,46 @@
+# clean-jsdoc-theme
+
+Documentation for clean-jsdoc-theme. Every page below links to its Markdown source; the whole site as a single file is at https://ankdev.me/clean-jsdoc-theme/ja/llms-full.txt
+
+## Using the Theme
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/theme/overview/index.md)
+- [JSDoc で始める](https://ankdev.me/clean-jsdoc-theme/ja/theme/jsdoc-getting-started/index.md)
+- [TypeDoc で始める](https://ankdev.me/clean-jsdoc-theme/ja/theme/typedoc-getting-started/index.md)
+- [設定](https://ankdev.me/clean-jsdoc-theme/ja/theme/configuration/index.md)
+- [LLM と一緒に使う](https://ankdev.me/clean-jsdoc-theme/ja/theme/llm-skill/index.md)
+- [v4 → v5 への移行](https://ankdev.me/clean-jsdoc-theme/ja/theme/migrate-v4-to-v5/index.md)
+
+## Guides
+- [API reference を作る](https://ankdev.me/clean-jsdoc-theme/ja/guides/build-an-api-reference/index.md)
+- [guides サイトを作る](https://ankdev.me/clean-jsdoc-theme/ja/guides/build-a-guides-site/index.md)
+- [Guides + API を組み合わせる](https://ankdev.me/clean-jsdoc-theme/ja/guides/combine-guides-and-api/index.md)
+- [sidebar を構成する](https://ankdev.me/clean-jsdoc-theme/ja/guides/structure-your-sidebar/index.md)
+- [docs を localize する](https://ankdev.me/clean-jsdoc-theme/ja/guides/localize-your-docs/index.md)
+- [画像を扱う](https://ankdev.me/clean-jsdoc-theme/ja/guides/working-with-images/index.md)
+- [FAQ](https://ankdev.me/clean-jsdoc-theme/ja/guides/faq/index.md)
+
+## Components
+- [Overview](https://ankdev.me/clean-jsdoc-theme/ja/components/overview/index.md)
+- [Playground](https://ankdev.me/clean-jsdoc-theme/ja/components/playground/index.md)
+- [Embeds](https://ankdev.me/clean-jsdoc-theme/ja/components/embeds/index.md)
+- [Callouts](https://ankdev.me/clean-jsdoc-theme/ja/components/callouts/index.md)
+- [Steps](https://ankdev.me/clean-jsdoc-theme/ja/components/steps/index.md)
+- [Tabs](https://ankdev.me/clean-jsdoc-theme/ja/components/tabs/index.md)
+- [@order](https://ankdev.me/clean-jsdoc-theme/ja/components/order/index.md)
+- [@category](https://ankdev.me/clean-jsdoc-theme/ja/components/category/index.md)
+
+## Packages
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/packages/utils-overview/index.md)
+- [例](https://ankdev.me/clean-jsdoc-theme/ja/packages/utils-examples/index.md)
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/packages/aadesh-overview/index.md)
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/packages/bhasha-overview/index.md)
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/packages/setu-overview/index.md)
+- [例](https://ankdev.me/clean-jsdoc-theme/ja/packages/setu-examples/index.md)
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/packages/rang-overview/index.md)
+- [例](https://ankdev.me/clean-jsdoc-theme/ja/packages/rang-examples/index.md)
+- [概要](https://ankdev.me/clean-jsdoc-theme/ja/packages/dwar-overview/index.md)
+- [例](https://ankdev.me/clean-jsdoc-theme/ja/packages/dwar-examples/index.md)
+
+## Optional
+- [Full documentation, single file](https://ankdev.me/clean-jsdoc-theme/ja/llms-full.txt): every page concatenated for one-shot ingestion
+- [Site home](https://ankdev.me/clean-jsdoc-theme/ja/): the rendered documentation site
